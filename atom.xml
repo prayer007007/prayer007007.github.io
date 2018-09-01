@@ -5,9 +5,9 @@
   <subtitle>here is subtitle</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="demo03-blog.github.io/"/>
   <updated>2018-09-01T05:50:26.569Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>demo03-blog.github.io/</id>
   
   <author>
     <name>Demo03</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/09/01/hello-world/"/>
-    <id>http://yoursite.com/2018/09/01/hello-world/</id>
+    <link href="demo03-blog.github.io/2018/09/01/hello-world/"/>
+    <id>demo03-blog.github.io/2018/09/01/hello-world/</id>
     <published>2018-09-01T05:50:26.569Z</published>
     <updated>2018-09-01T05:50:26.569Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>first-hello</title>
-    <link href="http://yoursite.com/2018/09/01/first_title/"/>
-    <id>http://yoursite.com/2018/09/01/first_title/</id>
+    <link href="demo03-blog.github.io/2018/09/01/first_title/"/>
+    <id>demo03-blog.github.io/2018/09/01/first_title/</id>
     <published>2018-09-01T00:00:00.000Z</published>
     <updated>2018-09-01T06:28:45.694Z</updated>
     
@@ -56,10 +56,10 @@
     
     </summary>
     
-      <category term="first-type" scheme="http://yoursite.com/categories/first-type/"/>
+      <category term="first-type" scheme="demo03-blog.github.io/categories/first-type/"/>
     
     
-      <category term="first-tag" scheme="http://yoursite.com/tags/first-tag/"/>
+      <category term="first-tag" scheme="demo03-blog.github.io/tags/first-tag/"/>
     
   </entry>
   
