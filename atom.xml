@@ -1,65 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>My First Hexo Title</title>
+  <title>Demo`s Blog</title>
   
-  <subtitle>here is subtitle</subtitle>
+  <subtitle>one world one dream</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="demo03-blog.github.io/"/>
-  <updated>2018-09-01T05:50:26.569Z</updated>
-  <id>demo03-blog.github.io/</id>
+  <link href="prayer007007.github.io/"/>
+  <updated>2018-09-07T07:18:59.335Z</updated>
+  <id>prayer007007.github.io/</id>
   
   <author>
-    <name>Demo03</name>
+    <name>Demo-Mr Wang</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="demo03-blog.github.io/2018/09/01/hello-world/"/>
-    <id>demo03-blog.github.io/2018/09/01/hello-world/</id>
-    <published>2018-09-01T05:50:26.569Z</published>
-    <updated>2018-09-01T05:50:26.569Z</updated>
+    <title>third</title>
+    <link href="prayer007007.github.io/2018/09/06/third/"/>
+    <id>prayer007007.github.io/2018/09/06/third/</id>
+    <published>2018-09-06T02:20:07.000Z</published>
+    <updated>2018-09-07T07:18:59.335Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>hello this is the third title;<br>666666666<br>666666666666666666666666666<br>666666666<br>666666666<br>666666666<br><a id="more"></a><br>这里需要点击全部显示才能显示!<br>123</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
+      &lt;p&gt;hello this is the third title;&lt;br&gt;666666666&lt;br&gt;666666666666666666666666666&lt;br&gt;666666666&lt;br&gt;666666666&lt;br&gt;666666666&lt;br&gt;
     
     </summary>
     
+      <category term="编程" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="PHP" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/PHP/"/>
+    
+      <category term="其他" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/PHP/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="php" scheme="prayer007007.github.io/tags/php/"/>
     
   </entry>
   
   <entry>
-    <title>first-hello</title>
-    <link href="demo03-blog.github.io/2018/09/01/first_title/"/>
-    <id>demo03-blog.github.io/2018/09/01/first_title/</id>
-    <published>2018-09-01T00:00:00.000Z</published>
-    <updated>2018-09-01T06:28:45.694Z</updated>
+    <title>second_article</title>
+    <link href="prayer007007.github.io/2018/09/01/second-article/"/>
+    <id>prayer007007.github.io/2018/09/01/second-article/</id>
+    <published>2018-09-01T02:02:05.000Z</published>
+    <updated>2018-09-07T07:18:59.337Z</updated>
     
-    <content type="html"><![CDATA[<p>hello world<br><code>&lt;br&gt;test&lt;/br&gt;</code></p>]]></content>
+    <content type="html"><![CDATA[<p>这里是测试专用，没必要看</p><p>hello this is the second title;<br>123456</p><font color="#FF0000"> 我可以设置这一句的颜色哈哈 </font><br><font size="6"> 我还可以设置这一句的大小嘻嘻 </font><br><font size="5" color="#FF0000"> 我甚至可以设置这一句的颜色和大小呵呵</font><p><center>这一行需要居中</center><br><a id="more"></a><br>这里需要点击全部显示才能显示!<br>123</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;hello world&lt;br&gt;&lt;code&gt;&amp;lt;br&amp;gt;test&amp;lt;/br&amp;gt;&lt;/code&gt;&lt;/p&gt;
+      &lt;p&gt;这里是测试专用，没必要看&lt;/p&gt;
+&lt;p&gt;hello this is the second title;&lt;br&gt;123456&lt;/p&gt;
+&lt;font color=&quot;#FF0000&quot;&gt; 我可以设置这一句的颜色哈哈 &lt;/font&gt;&lt;br&gt;&lt;font size=&quot;6&quot;&gt; 我还可以设置这一句的大小嘻嘻 &lt;/font&gt;&lt;br&gt;&lt;font size=&quot;5&quot; color=&quot;#FF0000&quot;&gt; 我甚至可以设置这一句的颜色和大小呵呵&lt;/font&gt;
 
-      
+&lt;p&gt;&lt;center&gt;这一行需要居中&lt;/center&gt;&lt;br&gt;
     
     </summary>
     
-      <category term="first-type" scheme="demo03-blog.github.io/categories/first-type/"/>
+      <category term="编程" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Java" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/Java/"/>
+    
+      <category term="其他" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/Java/%E5%85%B6%E4%BB%96/"/>
     
     
-      <category term="first-tag" scheme="demo03-blog.github.io/tags/first-tag/"/>
+      <category term="Java" scheme="prayer007007.github.io/tags/Java/"/>
+    
+      <category term="JavaScript" scheme="prayer007007.github.io/tags/JavaScript/"/>
     
   </entry>
   

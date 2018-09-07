@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[third]]></title>
+    <url>%2F2018%2F09%2F06%2Fthird%2F</url>
+    <content type="text"><![CDATA[hello this is the third title;666666666666666666666666666666666666666666666666666666666666666这里需要点击全部显示才能显示!123]]></content>
+      <categories>
+        <category>编程</category>
+        <category>后端</category>
+        <category>PHP</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[second_article]]></title>
+    <url>%2F2018%2F09%2F01%2Fsecond-article%2F</url>
+    <content type="text"><![CDATA[这里是测试专用，没必要看 hello this is the second title;123456 我可以设置这一句的颜色哈哈 我还可以设置这一句的大小嘻嘻 我甚至可以设置这一句的颜色和大小呵呵 这一行需要居中这里需要点击全部显示才能显示!123]]></content>
+      <categories>
+        <category>编程</category>
+        <category>Java</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+</search>
