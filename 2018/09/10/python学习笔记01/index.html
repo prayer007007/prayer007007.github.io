@@ -1,0 +1,3201 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "360cefba"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="python学习：  class Employee:     empCount = 0      def __init__(self,name,salary):         self.name = name         self.salary = salary         Employee.empCount += 1      def displayCount(self):">
+<meta name="keywords" content="笔记,编程,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python学习笔记01">
+<meta property="og:url" content="prayer007007.github.io/2018/09/10/python学习笔记01/index.html">
+<meta property="og:site_name" content="Demo`s Blog">
+<meta property="og:description" content="python学习：  class Employee:     empCount = 0      def __init__(self,name,salary):         self.name = name         self.salary = salary         Employee.empCount += 1      def displayCount(self):">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-09T11:00:39.191Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python学习笔记01">
+<meta name="twitter:description" content="python学习：  class Employee:     empCount = 0      def __init__(self,name,salary):         self.name = name         self.salary = salary         Employee.empCount += 1      def displayCount(self):">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demo`s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="prayer007007.github.io/2018/09/10/python学习笔记01/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python学习笔记01 | Demo`s Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/prayer007007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/prayer007007" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demo`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">one world one dream</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="prayer007007.github.io/2018/09/10/python学习笔记01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demo-Mr Wang">
+      <meta itemprop="description" content="Technical exchange">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demo`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python学习笔记01
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-09 18:00:29 / 修改时间：11:00:39" itemprop="dateCreated datePublished" datetime="2018-09-09T18:00:29Z">2018-09-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/" itemprop="url" rel="index"><span itemprop="name">技能</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/python/基础/" itemprop="url" rel="index"><span itemprop="name">基础</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/python/基础/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">43k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">39 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>python学习：
+
+class Employee:
+    empCount = 0
+
+    def __init__(self,name,salary):
+        self.name = name
+        self.salary = salary
+        Employee.empCount += 1
+
+    def displayCount(self):
+        print &quot;Total Employee %d&quot; % Employee.empCount
+</code></pre><a id="more"></a>
+<pre><code>self代表类的实例，而非类。是必须有的
+
+t = Employee()
+t.displayCount()
+
+添加/修改/删除属性：
+t.age = 7 
+t.age = 8
+del t.age
+
+getattr(obj, name[, default]) : 访问对象的属性。
+hasattr(obj,name) : 检查是否存在一个属性。
+setattr(obj,name,value) : 设置一个属性。如果属性不存在，会创建一个新属性。
+delattr(obj, name) : 删除属性。
+
+python内置类属性：
+__dict__:类的属性（包含一个字典，由类的数据属性组成）
+__doc__:类的文档字符串
+__name__:类名
+__module__:类定义所在的模块
+__bases__:类的所有父类构成元素
+
+类的继承：
+class Parent:
+
+class Mother:
+
+class Child(Parent,Mother):
+(可以继承多个类)
+
+类的属性/方法私有：
+
+class JustCounter:
+    __secretCount = 0 # 私有,实例化后不能访问私有变量
+    publicCount = 0   # 公开
+
+__foo__: 定义的是特殊方法，一般是系统定义名字 ，类似 __init__() 之类的。
+
+_foo: 以单下划线开头的表示的是 protected 类型的变量，即保护类型只能允许其本身与子类进行访问，不能用于 from module import *
+
+__foo: 双下划线的表示的是私有类型(private)的变量, 只能是允许这个类本身进行访问了。
+
+
+python正则表达式：
+
+re模块
+
+import re
+print(re.match(&apos;www&apos;, &apos;www.runoob.com&apos;).span())  # 在起始位置匹配
+print(re.match(&apos;com&apos;, &apos;www.runoob.com&apos;))         # 不在起始位置匹配
+
+reg：
+#!/usr/bin/python
+import re
+
+line = &quot;Cats are smarter than dogs&quot;
+
+matchObj = re.match( r&apos;(.*) are (.*?) .*&apos;, line, re.M|re.I)
+
+if matchObj:
+   print &quot;matchObj.group() : &quot;, matchObj.group()
+   print &quot;matchObj.group(1) : &quot;, matchObj.group(1)
+   print &quot;matchObj.group(2) : &quot;, matchObj.group(2)
+else:
+   print &quot;No match!!&quot;
+以上实例执行结果如下：
+
+matchObj.group() :  Cats are smarter than dogs
+matchObj.group(1) :  Cats
+matchObj.group(2) :  smarter
+
+re.search:
+import re
+print(re.search(&apos;www&apos;, &apos;www.runoob.com&apos;).span())  # 在起始位置匹配
+print(re.search(&apos;com&apos;, &apos;www.runoob.com&apos;).span())         # 不在起始位置匹配
+
+re.match只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回None；而re.search匹配整个字符串，直到找到一个匹配。
+
+import re
+
+phone = &quot;2004-959-559 # 这是一个国外电话号码&quot;
+
+# 删除字符串中的 Python注释 
+num = re.sub(r&apos;#.*$&apos;, &quot;&quot;, phone)
+print &quot;电话号码是: &quot;, num
+
+# 删除非数字(-)的字符串 
+num = re.sub(r&apos;\D&apos;, &quot;&quot;, phone)
+print &quot;电话号码是 : &quot;, num
+
+pattern : 一个字符串形式的正则表达式
+
+flags : 可选，表示匹配模式，比如忽略大小写，多行模式等，具体参数为：
+
+re.I 忽略大小写
+re.L 表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境
+re.M 多行模式
+re.S 即为 . 并且包括换行符在内的任意字符（. 不包括换行符）
+re.U 表示特殊字符集 \w, \W, \b, \B, \d, \D, \s, \S 依赖于 Unicode 字符属性数据库
+re.X 为了增加可读性，忽略空格和 # 后面的注释
+
+&gt;&gt;&gt;import re
+&gt;&gt;&gt; pattern = re.compile(r&apos;\d+&apos;)                    # 用于匹配至少一个数字
+&gt;&gt;&gt; m = pattern.match(&apos;one12twothree34four&apos;)        # 查找头部，没有匹配
+&gt;&gt;&gt; print m
+None
+&gt;&gt;&gt; m = pattern.match(&apos;one12twothree34four&apos;, 2, 10) # 从&apos;e&apos;的位置开始匹配，没有匹配
+&gt;&gt;&gt; print m
+None
+&gt;&gt;&gt; m = pattern.match(&apos;one12twothree34four&apos;, 3, 10) # 从&apos;1&apos;的位置开始匹配，正好匹配
+&gt;&gt;&gt; print m                                         # 返回一个 Match 对象
+&lt;_sre.SRE_Match object at 0x10a42aac0&gt;
+&gt;&gt;&gt; m.group(0)   # 可省略 0
+&apos;12&apos;
+&gt;&gt;&gt; m.start(0)   # 可省略 0
+3
+&gt;&gt;&gt; m.end(0)     # 可省略 0
+5
+&gt;&gt;&gt; m.span(0)    # 可省略 0
+(3, 5)
+
+group([group1, …]) 方法用于获得一个或多个分组匹配的字符串，当要获得整个匹配的子串时，可直接使用 group() 或 group(0)；
+start([group]) 方法用于获取分组匹配的子串在整个字符串中的起始位置（子串第一个字符的索引），参数默认值为 0；
+end([group]) 方法用于获取分组匹配的子串在整个字符串中的结束位置（子串最后一个字符的索引+1），参数默认值为 0；
+span([group]) 方法返回 (start(group), end(group))。
+
+&gt;&gt;&gt;import re
+&gt;&gt;&gt; pattern = re.compile(r&apos;([a-z]+) ([a-z]+)&apos;, re.I)   # re.I 表示忽略大小写
+&gt;&gt;&gt; m = pattern.match(&apos;Hello World Wide Web&apos;)
+&gt;&gt;&gt; print m                               # 匹配成功，返回一个 Match 对象
+&lt;_sre.SRE_Match object at 0x10bea83e8&gt;
+&gt;&gt;&gt; m.group(0)                            # 返回匹配成功的整个子串
+&apos;Hello World&apos;
+&gt;&gt;&gt; m.span(0)                             # 返回匹配成功的整个子串的索引
+(0, 11)
+&gt;&gt;&gt; m.group(1)                            # 返回第一个分组匹配成功的子串
+&apos;Hello&apos;
+&gt;&gt;&gt; m.span(1)                             # 返回第一个分组匹配成功的子串的索引
+(0, 5)
+&gt;&gt;&gt; m.group(2)                            # 返回第二个分组匹配成功的子串
+&apos;World&apos;
+&gt;&gt;&gt; m.span(2)                             # 返回第二个分组匹配成功的子串
+(6, 11)
+&gt;&gt;&gt; m.groups()                            # 等价于 (m.group(1), m.group(2), ...)
+(&apos;Hello&apos;, &apos;World&apos;)
+&gt;&gt;&gt; m.group(3)                            # 不存在第三个分组
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+IndexError: no such group
+
+findall
+在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。
+string : 待匹配的字符串。
+pos : 可选参数，指定字符串的起始位置，默认为 0。
+endpos : 可选参数，指定字符串的结束位置，默认为字符串的长度。
+
+# -*- coding:UTF8 -*-
+
+import re
+
+pattern = re.compile(r&apos;\d+&apos;)   # 查找数字
+result1 = pattern.findall(&apos;runoob 123 google 456&apos;)
+result2 = pattern.findall(&apos;run88oob123google456&apos;, 0, 10)
+
+print(result1)
+print(result2)
+输出结果：
+
+[&apos;123&apos;, &apos;456&apos;]
+[&apos;88&apos;, &apos;12&apos;]
+
+re.finditer
+和 findall 类似，在字符串中找到正则表达式所匹配的所有子串，并把它们作为一个迭代器返回。
+
+# -*- coding: UTF-8 -*-
+
+import re
+
+it = re.finditer(r&quot;\d+&quot;,&quot;12a32bc43jf3&quot;) 
+for match in it: 
+    print (match.group() )
+输出结果：
+
+12 
+32 
+43 
+3
+
+re.split
+split 方法按照能够匹配的子串将字符串分割后返回列表，它的使用形式如下：
+
+maxsplit    分隔次数，maxsplit=1 分隔一次，默认为 0，不限制次数。
+
+&gt;&gt;&gt;import re
+&gt;&gt;&gt; re.split(&apos;\W+&apos;, &apos;runoob, runoob, runoob.&apos;)
+[&apos;runoob&apos;, &apos;runoob&apos;, &apos;runoob&apos;, &apos;&apos;]
+&gt;&gt;&gt; re.split(&apos;(\W+)&apos;, &apos; runoob, runoob, runoob.&apos;) 
+[&apos;&apos;, &apos; &apos;, &apos;runoob&apos;, &apos;, &apos;, &apos;runoob&apos;, &apos;, &apos;, &apos;runoob&apos;, &apos;.&apos;, &apos;&apos;]
+&gt;&gt;&gt; re.split(&apos;\W+&apos;, &apos; runoob, runoob, runoob.&apos;, 1) 
+[&apos;&apos;, &apos;runoob, runoob, runoob.&apos;]
+
+&gt;&gt;&gt; re.split(&apos;a*&apos;, &apos;hello world&apos;)   # 对于一个找不到匹配的字符串而言，split 不会对其作出分割
+[&apos;hello world&apos;]
+
+
+python CGI编程：
+
+CGI(Common Gateway Interface),通用网关接口,它是一段程序,运行在服务器上如：HTTP服务器，提供同客户端HTML页面的接口
+
+Web服务器支持及配置
+在你进行CGI编程前，确保您的Web服务器支持CGI及已经配置了CGI的处理程序。
+
+Apache 支持CGI 配置：
+
+设置好CGI目录：
+
+ScriptAlias /cgi-bin/ /var/www/cgi-bin/
+所有的HTTP服务器执行CGI程序都保存在一个预先配置的目录。这个目录被称为CGI目录，并按照惯例，它被命名为/var/www/cgi-bin目录。
+
+CGI文件的扩展名为.cgi，python也可以使用.py扩展名。
+如果你想指定其他运行 CGI 脚本的目录，可以修改 httpd.conf 配置文件，如下所示：
+
+&lt;Directory &quot;/var/www/cgi-bin&quot;&gt;
+   AllowOverride None
+   Options +ExecCGI
+   Order allow,deny
+   Allow from all
+&lt;/Directory&gt;
+
+在 AddHandler 中添加 .py 后缀，这样我们就可以访问 .py 结尾的 python 脚本文件：
+
+AddHandler cgi-script .cgi .pl .py
+
+第一个CGI程序
+我们使用Python创建第一个CGI程序，文件名为hello.py，文件位于/var/www/cgi-bin目录中，内容如下：
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+print &quot;Content-type:text/html&quot;
+print                               # 空行，告诉服务器结束头部
+print &apos;&lt;html&gt;&apos;
+print &apos;&lt;head&gt;&apos;
+print &apos;&lt;meta charset=&quot;utf-8&quot;&gt;&apos;
+print &apos;&lt;title&gt;Hello World - 我的第一个 CGI 程序！&lt;/title&gt;&apos;
+print &apos;&lt;/head&gt;&apos;
+print &apos;&lt;body&gt;&apos;
+print &apos;&lt;h2&gt;Hello World! 我是来自菜鸟教程的第一CGI程序&lt;/h2&gt;&apos;
+print &apos;&lt;/body&gt;&apos;
+print &apos;&lt;/html&gt;&apos;
+
+文件保存后修改 hello.py，修改文件权限为 755
+在浏览器访问 http://localhost/cgi-bin/hello.py 
+
+
+
+以下表格介绍了CGI程序中HTTP头部经常使用的信息：
+
+头    描述
+Content-type:    请求的与实体对应的MIME信息。例如: Content-type:text/html
+Expires: Date    响应过期的日期和时间
+Location: URL    用来重定向接收方到非请求URL的位置来完成请求或标识新的资源
+Last-modified: Date    请求资源的最后修改时间
+Content-length: N    请求的内容长度
+Set-Cookie: String    设置Http Cookie
+
+以下是一个简单的CGI脚本输出CGI的环境变量：
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# filename:test.py
+
+import os
+
+print &quot;Content-type: text/html&quot;
+print
+print &quot;&lt;meta charset=\&quot;utf-8\&quot;&gt;&quot;
+print &quot;&lt;b&gt;环境变量&lt;/b&gt;&lt;br&gt;&quot;;
+print &quot;&lt;ul&gt;&quot;
+for key in os.environ.keys():
+    print &quot;&lt;li&gt;&lt;span style=&apos;color:green&apos;&gt;%30s &lt;/span&gt; : %s &lt;/li&gt;&quot; % (key,os.environ[key])
+print &quot;&lt;/ul&gt;&quot;
+
+
+GET方法发送编码后的用户信息到服务端，数据信息包含在请求页面的URL上，以&quot;?&quot;号分割, 如下所示：
+
+http://www.test.com/cgi-bin/hello.py?key1=value1&amp;key2=value2
+GET 请求可被缓存
+GET 请求保留在浏览器历史记录中
+GET 请求可被收藏为书签
+GET 请求不应在处理敏感数据时使用
+GET 请求有长度限制
+GET 请求只应当用于取回数据
+
+以下为hello_get.py文件的代码：
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+# filename：test.py
+
+# CGI处理模块
+import cgi, cgitb 
+
+# 创建 FieldStorage 的实例化
+form = cgi.FieldStorage() 
+
+# 获取数据
+site_name = form.getvalue(&apos;name&apos;)
+site_url  = form.getvalue(&apos;url&apos;)
+
+print &quot;Content-type:text/html&quot;
+print
+print &quot;&lt;html&gt;&quot;
+print &quot;&lt;head&gt;&quot;
+print &quot;&lt;meta charset=\&quot;utf-8\&quot;&gt;&quot;
+print &quot;&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;&quot;
+print &quot;&lt;/head&gt;&quot;
+print &quot;&lt;body&gt;&quot;
+print &quot;&lt;h2&gt;%s官网：%s&lt;/h2&gt;&quot; % (site_name, site_url)
+print &quot;&lt;/body&gt;&quot;
+print &quot;&lt;/html&gt;&quot;
+
+localhost/cgi-bin/hello_get.py?name=xxx&amp;url=http://www.xxx.com
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;/cgi-bin/hello_get.py&quot; method=&quot;get&quot;&gt;
+站点名称: &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;  &lt;br /&gt;
+
+站点 URL: &lt;input type=&quot;text&quot; name=&quot;url&quot; /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+chmod 755 hello_get.html
+
+get/post py传递写法一样
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;/cgi-bin/hello_get.py&quot; method=&quot;post&quot;&gt;
+站点名称: &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;  &lt;br /&gt;
+
+站点 URL: &lt;input type=&quot;text&quot; name=&quot;url&quot; /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+通过CGI程序传递checkbox数据
+checkbox用于提交一个或者多个选项数据，HTML代码如下：
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;/cgi-bin/checkbox.py&quot; method=&quot;POST&quot; target=&quot;_blank&quot;&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;runoob&quot; value=&quot;on&quot; /&gt; 菜鸟教程
+&lt;input type=&quot;checkbox&quot; name=&quot;google&quot; value=&quot;on&quot; /&gt; Google
+&lt;input type=&quot;submit&quot; value=&quot;选择站点&quot; /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+# 引入 CGI 处理模块 
+import cgi, cgitb 
+
+# 创建 FieldStorage的实例 
+form = cgi.FieldStorage() 
+
+# 接收字段数据
+if form.getvalue(&apos;google&apos;):
+   google_flag = &quot;是&quot;
+else:
+   google_flag = &quot;否&quot;
+
+if form.getvalue(&apos;runoob&apos;):
+   runoob_flag = &quot;是&quot;
+else:
+   runoob_flag = &quot;否&quot;
+
+print &quot;Content-type:text/html&quot;
+print
+print &quot;&lt;html&gt;&quot;
+print &quot;&lt;head&gt;&quot;
+print &quot;&lt;meta charset=\&quot;utf-8\&quot;&gt;&quot;
+print &quot;&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;&quot;
+print &quot;&lt;/head&gt;&quot;
+print &quot;&lt;body&gt;&quot;
+print &quot;&lt;h2&gt; 菜鸟教程是否选择了 : %s&lt;/h2&gt;&quot; % runoob_flag
+print &quot;&lt;h2&gt; Google 是否选择了 : %s&lt;/h2&gt;&quot; % google_flag
+print &quot;&lt;/body&gt;&quot;
+print &quot;&lt;/html&gt;&quot;
+
+
+
+通过CGI程序传递Radio数据
+Radio 只向服务器传递一个数据，HTML代码如下：
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;/cgi-bin/radiobutton.py&quot; method=&quot;post&quot; target=&quot;_blank&quot;&gt;
+&lt;input type=&quot;radio&quot; name=&quot;site&quot; value=&quot;runoob&quot; /&gt; 菜鸟教程
+&lt;input type=&quot;radio&quot; name=&quot;site&quot; value=&quot;google&quot; /&gt; Google
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+# 引入 CGI 处理模块 
+import cgi, cgitb 
+
+# 创建 FieldStorage的实例 
+form = cgi.FieldStorage() 
+
+# 接收字段数据
+if form.getvalue(&apos;site&apos;):
+   site = form.getvalue(&apos;site&apos;)
+else:
+   site = &quot;提交数据为空&quot;
+
+print &quot;Content-type:text/html&quot;
+print
+print &quot;&lt;html&gt;&quot;
+print &quot;&lt;head&gt;&quot;
+print &quot;&lt;meta charset=\&quot;utf-8\&quot;&gt;&quot;
+print &quot;&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;&quot;
+print &quot;&lt;/head&gt;&quot;
+print &quot;&lt;body&gt;&quot;
+print &quot;&lt;h2&gt; 选中的网站是 %s&lt;/h2&gt;&quot; % site
+print &quot;&lt;/body&gt;&quot;
+print &quot;&lt;/html&gt;&quot;
+
+
+通过CGI程序传递 Textarea 数据
+Textarea 向服务器传递多行数据，HTML代码如下：
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;/cgi-bin/textarea.py&quot; method=&quot;post&quot; target=&quot;_blank&quot;&gt;
+&lt;textarea name=&quot;textcontent&quot; cols=&quot;40&quot; rows=&quot;4&quot;&gt;
+在这里输入内容...
+&lt;/textarea&gt;
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+# 引入 CGI 处理模块 
+import cgi, cgitb 
+
+# 创建 FieldStorage的实例 
+form = cgi.FieldStorage() 
+
+# 接收字段数据
+if form.getvalue(&apos;textcontent&apos;):
+   text_content = form.getvalue(&apos;textcontent&apos;)
+else:
+   text_content = &quot;没有内容&quot;
+
+print &quot;Content-type:text/html&quot;
+print
+print &quot;&lt;html&gt;&quot;
+print &quot;&lt;head&gt;&quot;;
+print &quot;&lt;meta charset=\&quot;utf-8\&quot;&gt;&quot;
+print &quot;&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;&quot;
+print &quot;&lt;/head&gt;&quot;
+print &quot;&lt;body&gt;&quot;
+print &quot;&lt;h2&gt; 输入的内容是：%s&lt;/h2&gt;&quot; % text_content
+print &quot;&lt;/body&gt;&quot;
+print &quot;&lt;/html&gt;&quot;
+
+
+通过CGI程序传递下拉数据。
+HTML 下拉框代码如下：
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;/cgi-bin/dropdown.py&quot; method=&quot;post&quot; target=&quot;_blank&quot;&gt;
+&lt;select name=&quot;dropdown&quot;&gt;
+&lt;option value=&quot;runoob&quot; selected&gt;菜鸟教程&lt;/option&gt;
+&lt;option value=&quot;google&quot;&gt;Google&lt;/option&gt;
+&lt;/select&gt;
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot;/&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+# 引入 CGI 处理模块 
+import cgi, cgitb 
+
+# 创建 FieldStorage的实例 
+form = cgi.FieldStorage() 
+
+# 接收字段数据
+if form.getvalue(&apos;dropdown&apos;):
+   dropdown_value = form.getvalue(&apos;dropdown&apos;)
+else:
+   dropdown_value = &quot;没有内容&quot;
+
+print &quot;Content-type:text/html&quot;
+print
+print &quot;&lt;html&gt;&quot;
+print &quot;&lt;head&gt;&quot;
+print &quot;&lt;meta charset=\&quot;utf-8\&quot;&gt;&quot;
+print &quot;&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;&quot;
+print &quot;&lt;/head&gt;&quot;
+print &quot;&lt;body&gt;&quot;
+print &quot;&lt;h2&gt; 选中的选项是：%s&lt;/h2&gt;&quot; % dropdown_value
+print &quot;&lt;/body&gt;&quot;
+print &quot;&lt;/html&gt;&quot;
+
+
+cookie的语法
+http cookie的发送是通过http头部来实现的，他早于文件的传递，头部set-cookie的语法如下：
+
+Set-cookie:name=name;expires=date;path=path;domain=domain;secure 
+name=name: 需要设置cookie的值(name不能使用&quot;;&quot;和&quot;,&quot;号),有多个name值时用 &quot;;&quot; 分隔，例如：name1=name1;name2=name2;name3=name3。
+expires=date: cookie的有效期限,格式： expires=&quot;Wdy,DD-Mon-YYYY HH:MM:SS&quot;
+path=path: 设置cookie支持的路径,如果path是一个路径，则cookie对这个目录下的所有文件及子目录生效，例如： path=&quot;/cgi-bin/&quot;，如果path是一个文件，则cookie指对这个文件生效，例如：path=&quot;/cgi-bin/cookie.cgi&quot;。
+domain=domain: 对cookie生效的域名，例如：domain=&quot;www.runoob.com&quot;
+secure: 如果给出此标志，表示cookie只能通过SSL协议的https服务器来传递。
+cookie的接收是通过设置环境变量HTTP_COOKIE来实现的，CGI程序可以通过检索该变量获取cookie信息。
+
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# 
+print &apos;Content-Type: text/html&apos;
+print &apos;Set-Cookie: name=&quot;菜鸟教程&quot;;expires=Wed, 28 Aug 2016 18:30:00 GMT&apos;
+print
+print &quot;&quot;&quot;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Cookie set OK!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+&quot;&quot;&quot;
+
+以下是一个简单的CGI检索cookie信息的程序：
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+# 导入模块
+import os
+import Cookie
+
+print &quot;Content-type: text/html&quot;
+print
+
+print &quot;&quot;&quot;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;读取cookie信息&lt;/h1&gt;
+&quot;&quot;&quot;
+
+if &apos;HTTP_COOKIE&apos; in os.environ:
+    cookie_string=os.environ.get(&apos;HTTP_COOKIE&apos;)
+    c=Cookie.SimpleCookie()
+    c.load(cookie_string)
+
+    try:
+        data=c[&apos;name&apos;].value
+        print &quot;cookie data: &quot;+data+&quot;&lt;br&gt;&quot;
+    except KeyError:
+        print &quot;cookie 没有设置或者已过去&lt;br&gt;&quot;
+print &quot;&quot;&quot;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&quot;&quot;&quot;
+
+
+文件上传实例
+HTML设置上传文件的表单需要设置 enctype 属性为 multipart/form-data，代码如下所示：
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ &lt;form enctype=&quot;multipart/form-data&quot; 
+                     action=&quot;/cgi-bin/save_file.py&quot; method=&quot;post&quot;&gt;
+   &lt;p&gt;选中文件: &lt;input type=&quot;file&quot; name=&quot;filename&quot; /&gt;&lt;/p&gt;
+   &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;上传&quot; /&gt;&lt;/p&gt;
+   &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import cgi, os
+import cgitb; cgitb.enable()
+
+form = cgi.FieldStorage()
+
+# 获取文件名
+fileitem = form[&apos;filename&apos;]
+
+# 检测文件是否上传
+if fileitem.filename:
+   # 设置文件路径 
+   # 如果你使用的系统是Unix/Linux，你必须替换文件分隔符，在window下只需要使用open()语句即可：
+   # fn = os.path.basename(fileitem.filename.replace(&quot;\\&quot;, &quot;/&quot; ))
+   fn = os.path.basename(fileitem.filename)
+   open(&apos;/tmp/&apos; + fn, &apos;wb&apos;).write(fileitem.file.read())
+
+   message = &apos;文件 &quot;&apos; + fn + &apos;&quot; 上传成功&apos;
+
+else:
+   message = &apos;文件没有上传&apos;
+
+print &quot;&quot;&quot;\
+Content-Type: text/html\n
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;p&gt;%s&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&quot;&quot;&quot; % (message,)
+
+文件下载对话框
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+# HTTP 头部
+print &quot;Content-Disposition: attachment; filename=\&quot;foo.txt\&quot;&quot;;
+print
+# 打开文件
+fo = open(&quot;foo.txt&quot;, &quot;rb&quot;)
+
+str = fo.read();
+print str
+
+# 关闭文件
+fo.close()
+
+
+python MYSQL
+
+MySQLdb 是用于Python链接Mysql数据库的接口
+
+安装MySQLdb，请访问 http://sourceforge.net/projects/mysql-python ，(Linux平台可以访问：https://pypi.python.org/pypi/MySQL-python)从这里可选择适合您的平台的安装包，分为预编译的二进制文件和源代码安装包。
+
+如果您选择二进制文件发行版本的话，安装过程基本安装提示即可完成。如果从源代码进行安装的话，则需要切换到MySQLdb发行版本的顶级目录，并键入下列命令:
+
+$ gunzip MySQL-python-1.2.2.tar.gz
+$ tar -xvf MySQL-python-1.2.2.tar
+$ cd MySQL-python-1.2.2
+$ python setup.py build
+$ python setup.py install
+
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import MySQLdb
+
+# 打开数据库连接
+db = MySQLdb.connect(&quot;localhost&quot;, &quot;testuser&quot;, &quot;test123&quot;, &quot;TESTDB&quot;, charset=&apos;utf8&apos; )
+
+# 使用cursor()方法获取操作游标 
+cursor = db.cursor()
+
+# 使用execute方法执行SQL语句
+cursor.execute(&quot;SELECT VERSION()&quot;)
+
+# 使用 fetchone() 方法获取一条数据
+data = cursor.fetchone()
+
+print &quot;Database version : %s &quot; % data
+
+# 关闭数据库连接
+db.close()
+
+创建数据库表
+如果数据库连接存在我们可以使用execute()方法来为数据库创建表，如下所示创建表EMPLOYEE：
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import MySQLdb
+
+# 打开数据库连接
+db = MySQLdb.connect(&quot;localhost&quot;, &quot;testuser&quot;, &quot;test123&quot;, &quot;TESTDB&quot;, charset=&apos;utf8&apos; )
+
+# 使用cursor()方法获取操作游标 
+cursor = db.cursor()
+
+# 如果数据表已经存在使用 execute() 方法删除表。
+cursor.execute(&quot;DROP TABLE IF EXISTS EMPLOYEE&quot;)
+
+# 创建数据表SQL语句
+sql = &quot;&quot;&quot;CREATE TABLE EMPLOYEE (
+         FIRST_NAME  CHAR(20) NOT NULL,
+         LAST_NAME  CHAR(20),
+         AGE INT,  
+         SEX CHAR(1),
+         INCOME FLOAT )&quot;&quot;&quot;
+
+cursor.execute(sql)
+
+# 关闭数据库连接
+db.close()
+
+
+数据库插入操作
+以下实例使用执行 SQL INSERT 语句向表 EMPLOYEE 插入记录：
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import MySQLdb
+
+# 打开数据库连接
+db = MySQLdb.connect(&quot;localhost&quot;, &quot;testuser&quot;, &quot;test123&quot;, &quot;TESTDB&quot;, charset=&apos;utf8&apos; )
+
+# 使用cursor()方法获取操作游标 
+cursor = db.cursor()
+
+# SQL 插入语句
+# sql = &quot;INSERT INTO EMPLOYEE(FIRST_NAME, \
+       LAST_NAME, AGE, SEX, INCOME) \
+       VALUES (&apos;%s&apos;, &apos;%s&apos;, &apos;%d&apos;, &apos;%c&apos;, &apos;%d&apos; )&quot; % \
+       (&apos;Mac&apos;, &apos;Mohan&apos;, 20, &apos;M&apos;, 2000)
+
+sql = &quot;&quot;&quot;INSERT INTO EMPLOYEE(FIRST_NAME,
+         LAST_NAME, AGE, SEX, INCOME)
+         VALUES (&apos;Mac&apos;, &apos;Mohan&apos;, 20, &apos;M&apos;, 2000)&quot;&quot;&quot;
+try:
+   # 执行sql语句
+   cursor.execute(sql)
+   # 提交到数据库执行
+   db.commit()
+except:
+   # Rollback in case there is any error
+   db.rollback()
+
+# 关闭数据库连接
+db.close()
+
+数据库查询操作
+
+fetchone(): 该方法获取下一个查询结果集。结果集是一个对象
+fetchall():接收全部的返回结果行.
+rowcount: 这是一个只读属性，并返回执行execute()方法后影响的行数。
+
+数据库更新操作
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import MySQLdb
+
+# 打开数据库连接
+db = MySQLdb.connect(&quot;localhost&quot;, &quot;testuser&quot;, &quot;test123&quot;, &quot;TESTDB&quot;, charset=&apos;utf8&apos; )
+
+# 使用cursor()方法获取操作游标 
+cursor = db.cursor()
+
+# SQL 更新语句
+sql = &quot;UPDATE EMPLOYEE SET AGE = AGE + 1 WHERE SEX = &apos;%c&apos;&quot; % (&apos;M&apos;)
+try:
+   # 执行SQL语句
+   cursor.execute(sql)
+   # 提交到数据库执行
+   db.commit()
+except:
+   # 发生错误时回滚
+   db.rollback()
+
+# 关闭数据库连接
+db.close()
+
+删除操作
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import MySQLdb
+
+# 打开数据库连接
+db = MySQLdb.connect(&quot;localhost&quot;, &quot;testuser&quot;, &quot;test123&quot;, &quot;TESTDB&quot;, charset=&apos;utf8&apos; )
+
+# 使用cursor()方法获取操作游标 
+cursor = db.cursor()
+
+# SQL 删除语句
+sql = &quot;DELETE FROM EMPLOYEE WHERE AGE &gt; &apos;%d&apos;&quot; % (20)
+try:
+   # 执行SQL语句
+   cursor.execute(sql)
+   # 提交修改
+   db.commit()
+except:
+   # 发生错误时回滚
+   db.rollback()
+
+# 关闭连接
+db.close()
+
+
+Python 网络编程
+
+Python 提供了两个级别访问的网络服务。：
+低级别的网络服务支持基本的 Socket，它提供了标准的 BSD Sockets API，可以访问底层操作系统Socket接口的全部方法。
+高级别的网络服务模块 SocketServer， 它提供了服务器中心类，可以简化网络服务器的开发。
+
+什么是 Socket?
+Socket又称&quot;套接字&quot;，应用程序通常通过&quot;套接字&quot;向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。
+
+服务端：
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# 文件名：server.py
+
+import socket               # 导入 socket 模块
+
+s = socket.socket()         # 创建 socket 对象
+host = socket.gethostname() # 获取本地主机名
+port = 12345                # 设置端口
+s.bind((host, port))        # 绑定端口
+
+s.listen(5)                 # 等待客户端连接
+while True:
+    c, addr = s.accept()     # 建立客户端连接。
+    print &apos;连接地址：&apos;, addr
+    c.send(&apos;欢迎访问菜鸟教程！&apos;)
+    c.close()                # 关闭连接
+
+客户端：
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# 文件名：client.py
+
+import socket               # 导入 socket 模块
+
+s = socket.socket()         # 创建 socket 对象
+host = socket.gethostname() # 获取本地主机名
+port = 12345                # 设置端口好
+
+s.connect((host, port))
+print s.recv(1024)
+s.close()  
+
+
+第一个终端执行 server.py 文件：
+
+$ python server.py
+第二个终端执行 client.py 文件：
+
+$ python client.py 
+欢迎访问菜鸟教程！
+
+这时我们再打开第一个终端，就会看到有以下信息输出：
+
+连接地址： (&apos;192.168.0.118&apos;, 62461)
+
+
+Python SMTP发送邮件
+SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。
+
+python的smtplib提供了一种很方便的途径发送电子邮件。它对smtp协议进行了简单的封装。
+
+Python SMTP 对象使用 sendmail 方法发送邮件，语法如下：
+
+SMTP.sendmail(from_addr, to_addrs, msg[, mail_options, rcpt_options])
+参数说明：
+
+from_addr: 邮件发送者地址。
+to_addrs: 字符串列表，邮件发送地址。
+msg: 发送消息
+
+
+需要你本机已安装了支持 SMTP 的服务
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+
+sender = &apos;from@runoob.com&apos;
+receivers = [&apos;429240967@qq.com&apos;]  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+
+# 三个参数：第一个为文本内容，第二个 plain 设置文本格式，第三个 utf-8 设置编码
+message = MIMEText(&apos;Python 邮件发送测试...&apos;, &apos;plain&apos;, &apos;utf-8&apos;)
+message[&apos;From&apos;] = Header(&quot;菜鸟教程&quot;, &apos;utf-8&apos;)   # 发送者
+message[&apos;To&apos;] =  Header(&quot;测试&quot;, &apos;utf-8&apos;)        # 接收者
+
+subject = &apos;Python SMTP 邮件测试&apos;
+message[&apos;Subject&apos;] = Header(subject, &apos;utf-8&apos;)
+
+
+try:
+    smtpObj = smtplib.SMTP(&apos;localhost&apos;)
+    smtpObj.sendmail(sender, receivers, message.as_string())
+    print &quot;邮件发送成功&quot;
+except smtplib.SMTPException:
+    print &quot;Error: 无法发送邮件&quot;
+
+
+如果我们本机没有 sendmail 访问，也可以使用其他邮件服务商的 SMTP 访问（QQ、网易、Google等）。
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+
+# 第三方 SMTP 服务
+mail_host=&quot;smtp.XXX.com&quot;  #设置服务器
+mail_user=&quot;XXXX&quot;    #用户名
+mail_pass=&quot;XXXXXX&quot;   #口令 
+
+
+sender = &apos;from@runoob.com&apos;
+receivers = [&apos;429240967@qq.com&apos;]  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+
+message = MIMEText(&apos;Python 邮件发送测试...&apos;, &apos;plain&apos;, &apos;utf-8&apos;)
+message[&apos;From&apos;] = Header(&quot;菜鸟教程&quot;, &apos;utf-8&apos;)
+message[&apos;To&apos;] =  Header(&quot;测试&quot;, &apos;utf-8&apos;)
+
+subject = &apos;Python SMTP 邮件测试&apos;
+message[&apos;Subject&apos;] = Header(subject, &apos;utf-8&apos;)
+
+
+try:
+    smtpObj = smtplib.SMTP() 
+    smtpObj.connect(mail_host, 25)    # 25 为 SMTP 端口号
+    smtpObj.login(mail_user,mail_pass)  
+    smtpObj.sendmail(sender, receivers, message.as_string())
+    print &quot;邮件发送成功&quot;
+except smtplib.SMTPException:
+    print &quot;Error: 无法发送邮件&quot;
+
+
+使用Python发送HTML格式的邮件
+
+mail_msg = &quot;&quot;&quot;
+&lt;p&gt;Python 邮件发送测试...&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.runoob.com&quot;&gt;这是一个链接&lt;/a&gt;&lt;/p&gt;
+&quot;&quot;&quot;
+message = MIMEText(mail_msg, &apos;html&apos;, &apos;utf-8&apos;)
+
+
+Python 发送带附件的邮件
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.header import Header
+
+sender = &apos;from@runoob.com&apos;
+receivers = [&apos;429240967@qq.com&apos;]  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+
+#创建一个带附件的实例
+message = MIMEMultipart()
+message[&apos;From&apos;] = Header(&quot;菜鸟教程&quot;, &apos;utf-8&apos;)
+message[&apos;To&apos;] =  Header(&quot;测试&quot;, &apos;utf-8&apos;)
+subject = &apos;Python SMTP 邮件测试&apos;
+message[&apos;Subject&apos;] = Header(subject, &apos;utf-8&apos;)
+
+#邮件正文内容
+message.attach(MIMEText(&apos;这是菜鸟教程Python 邮件发送测试……&apos;, &apos;plain&apos;, &apos;utf-8&apos;))
+
+# 构造附件1，传送当前目录下的 test.txt 文件
+att1 = MIMEText(open(&apos;test.txt&apos;, &apos;rb&apos;).read(), &apos;base64&apos;, &apos;utf-8&apos;)
+att1[&quot;Content-Type&quot;] = &apos;application/octet-stream&apos;
+# 这里的filename可以任意写，写什么名字，邮件中显示什么名字
+att1[&quot;Content-Disposition&quot;] = &apos;attachment; filename=&quot;test.txt&quot;&apos;
+message.attach(att1)
+
+# 构造附件2，传送当前目录下的 runoob.txt 文件
+att2 = MIMEText(open(&apos;runoob.txt&apos;, &apos;rb&apos;).read(), &apos;base64&apos;, &apos;utf-8&apos;)
+att2[&quot;Content-Type&quot;] = &apos;application/octet-stream&apos;
+att2[&quot;Content-Disposition&quot;] = &apos;attachment; filename=&quot;runoob.txt&quot;&apos;
+message.attach(att2)
+
+try:
+    smtpObj = smtplib.SMTP(&apos;localhost&apos;)
+    smtpObj.sendmail(sender, receivers, message.as_string())
+    print &quot;邮件发送成功&quot;
+except smtplib.SMTPException:
+    print &quot;Error: 无法发送邮件&quot;
+
+
+在 HTML 文本中添加图片
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import smtplib
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.header import Header
+
+sender = &apos;from@runoob.com&apos;
+receivers = [&apos;429240967@qq.com&apos;]  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+
+msgRoot = MIMEMultipart(&apos;related&apos;)
+msgRoot[&apos;From&apos;] = Header(&quot;菜鸟教程&quot;, &apos;utf-8&apos;)
+msgRoot[&apos;To&apos;] =  Header(&quot;测试&quot;, &apos;utf-8&apos;)
+subject = &apos;Python SMTP 邮件测试&apos;
+msgRoot[&apos;Subject&apos;] = Header(subject, &apos;utf-8&apos;)
+
+msgAlternative = MIMEMultipart(&apos;alternative&apos;)
+msgRoot.attach(msgAlternative)
+
+
+mail_msg = &quot;&quot;&quot;
+&lt;p&gt;Python 邮件发送测试...&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.runoob.com&quot;&gt;菜鸟教程链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;图片演示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;cid:image1&quot;&gt;&lt;/p&gt;
+&quot;&quot;&quot;
+msgAlternative.attach(MIMEText(mail_msg, &apos;html&apos;, &apos;utf-8&apos;))
+
+# 指定图片为当前目录
+fp = open(&apos;test.png&apos;, &apos;rb&apos;)
+msgImage = MIMEImage(fp.read())
+fp.close()
+
+# 定义图片 ID，在 HTML 文本中引用
+msgImage.add_header(&apos;Content-ID&apos;, &apos;&lt;image1&gt;&apos;)
+msgRoot.attach(msgImage)
+
+try:
+    smtpObj = smtplib.SMTP(&apos;localhost&apos;)
+    smtpObj.sendmail(sender, receivers, msgRoot.as_string())
+    print &quot;邮件发送成功&quot;
+except smtplib.SMTPException:
+    print &quot;Error: 无法发送邮件&quot;
+
+使用第三方 SMTP 服务发送
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import smtplib
+from email.mime.text import MIMEText
+from email.utils import formataddr
+
+my_sender=&apos;429240967@qq.com&apos;    # 发件人邮箱账号
+my_pass = &apos;xxxxxxxxxx&apos;              # 发件人邮箱密码
+my_user=&apos;429240967@qq.com&apos;      # 收件人邮箱账号，我这边发送给自己
+def mail():
+    ret=True
+    try:
+        msg=MIMEText(&apos;填写邮件内容&apos;,&apos;plain&apos;,&apos;utf-8&apos;)
+        msg[&apos;From&apos;]=formataddr([&quot;FromRunoob&quot;,my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
+        msg[&apos;To&apos;]=formataddr([&quot;FK&quot;,my_user])              # 括号里的对应收件人邮箱昵称、收件人邮箱账号
+        msg[&apos;Subject&apos;]=&quot;菜鸟教程发送邮件测试&quot;                # 邮件的主题，也可以说是标题
+
+        server=smtplib.SMTP_SSL(&quot;smtp.qq.com&quot;, 465)  # 发件人邮箱中的SMTP服务器，端口是25
+        server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码
+        server.sendmail(my_sender,[my_user,],msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件
+        server.quit()  # 关闭连接
+    except Exception:  # 如果 try 中的语句没有执行，则会执行下面的 ret=False
+        ret=False
+    return ret
+
+ret=mail()
+if ret:
+    print(&quot;邮件发送成功&quot;)
+else:
+    print(&quot;邮件发送失败&quot;)
+
+
+python多线程：
+Python中使用线程有两种方式：函数或者用类来包装线程对象。
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import thread
+import time
+
+# 为线程定义一个函数
+def print_time( threadName, delay):
+   count = 0
+   while count &lt; 5:
+      time.sleep(delay)
+      count += 1
+      print &quot;%s: %s&quot; % ( threadName, time.ctime(time.time()) )
+
+# 创建两个线程
+try:
+   thread.start_new_thread( print_time, (&quot;Thread-1&quot;, 2, ) )
+   thread.start_new_thread( print_time, (&quot;Thread-2&quot;, 4, ) )
+except:
+   print &quot;Error: unable to start thread&quot;
+
+while 1:
+   pass
+
+线程模块
+Python通过两个标准库thread和threading提供对线程的支持。thread提供了低级别的、原始的线程以及一个简单的锁。
+
+threading 模块提供的其他方法：
+
+threading.currentThread(): 返回当前的线程变量。
+threading.enumerate(): 返回一个包含正在运行的线程的list。正在运行指线程启动后、结束前，不包括启动前和终止后的线程。
+threading.activeCount(): 返回正在运行的线程数量，与len(threading.enumerate())有相同的结果。
+除了使用方法外，线程模块同样提供了Thread类来处理线程，Thread类提供了以下方法:
+
+run(): 用以表示线程活动的方法。
+start():启动线程活动。
+join([time]): 等待至线程中止。这阻塞调用线程直至线程的join() 方法被调用中止-正常退出或者抛出未处理的异常-或者是可选的超时发生。
+isAlive(): 返回线程是否活动的。
+getName(): 返回线程名。
+setName(): 设置线程名。
+
+
+使用Threading模块创建线程
+使用Threading模块创建线程，直接从threading.Thread继承，然后重写__init__方法和run方法
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import threading
+import time
+
+exitFlag = 0
+
+class myThread (threading.Thread):   #继承父类threading.Thread
+    def __init__(self, threadID, name, counter):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+        self.counter = counter
+    def run(self):                   #把要执行的代码写到run函数里面 线程在创建后会直接运行run函数 
+        print &quot;Starting &quot; + self.name
+        print_time(self.name, self.counter, 5)
+        print &quot;Exiting &quot; + self.name
+
+def print_time(threadName, delay, counter):
+    while counter:
+        if exitFlag:
+            (threading.Thread).exit()
+        time.sleep(delay)
+        print &quot;%s: %s&quot; % (threadName, time.ctime(time.time()))
+        counter -= 1
+
+# 创建新线程
+thread1 = myThread(1, &quot;Thread-1&quot;, 1)
+thread2 = myThread(2, &quot;Thread-2&quot;, 2)
+
+# 开启线程
+thread1.start()
+thread2.start()
+
+print &quot;Exiting Main Thread&quot;
+
+
+线程同步：
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import threading
+import time
+
+class myThread (threading.Thread):
+    def __init__(self, threadID, name, counter):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+        self.counter = counter
+    def run(self):
+        print &quot;Starting &quot; + self.name
+       # 获得锁，成功获得锁定后返回True
+       # 可选的timeout参数不填时将一直阻塞直到获得锁定
+       # 否则超时后将返回False
+        threadLock.acquire()
+        print_time(self.name, self.counter, 3)
+        # 释放锁
+        threadLock.release()
+
+def print_time(threadName, delay, counter):
+    while counter:
+        time.sleep(delay)
+        print &quot;%s: %s&quot; % (threadName, time.ctime(time.time()))
+        counter -= 1
+
+threadLock = threading.Lock()
+threads = []
+
+# 创建新线程
+thread1 = myThread(1, &quot;Thread-1&quot;, 1)
+thread2 = myThread(2, &quot;Thread-2&quot;, 2)
+
+# 开启新线程
+thread1.start()
+thread2.start()
+
+# 添加线程到线程列表
+threads.append(thread1)
+threads.append(thread2)
+
+# 等待所有线程完成
+for t in threads:
+    t.join()
+print &quot;Exiting Main Thread&quot;
+
+
+线程优先级队列（ Queue）
+
+Queue.qsize() 返回队列的大小
+Queue.empty() 如果队列为空，返回True,反之False
+Queue.full() 如果队列满了，返回True,反之False
+Queue.full 与 maxsize 大小对应
+Queue.get([block[, timeout]])获取队列，timeout等待时间
+Queue.get_nowait() 相当Queue.get(False)
+Queue.put(item) 写入队列，timeout等待时间
+Queue.put_nowait(item) 相当Queue.put(item, False)
+Queue.task_done() 在完成一项工作之后，Queue.task_done()函数向任务已经完成的队列发送一个信号
+Queue.join() 实际上意味着等到队列为空，再执行别的操作
+
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import Queue
+import threading
+import time
+
+exitFlag = 0
+
+class myThread (threading.Thread):
+    def __init__(self, threadID, name, q):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+        self.q = q
+    def run(self):
+        print &quot;Starting &quot; + self.name
+        process_data(self.name, self.q)
+        print &quot;Exiting &quot; + self.name
+
+def process_data(threadName, q):
+    while not exitFlag:
+        queueLock.acquire()
+        if not workQueue.empty():
+            data = q.get()
+            queueLock.release()
+            print &quot;%s processing %s&quot; % (threadName, data)
+        else:
+            queueLock.release()
+        time.sleep(1)
+
+threadList = [&quot;Thread-1&quot;, &quot;Thread-2&quot;, &quot;Thread-3&quot;]
+nameList = [&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;, &quot;Four&quot;, &quot;Five&quot;]
+queueLock = threading.Lock()
+workQueue = Queue.Queue(10)
+threads = []
+threadID = 1
+
+# 创建新线程
+for tName in threadList:
+    thread = myThread(threadID, tName, workQueue)
+    thread.start()
+    threads.append(thread)
+    threadID += 1
+
+# 填充队列
+queueLock.acquire()
+for word in nameList:
+    workQueue.put(word)
+queueLock.release()
+
+# 等待队列清空
+while not workQueue.empty():
+    pass
+
+# 通知线程是时候退出
+exitFlag = 1
+
+# 等待所有线程完成
+for t in threads:
+    t.join()
+print &quot;Exiting Main Thread&quot;
+
+
+python有三种方法解析XML，SAX，DOM，以及ElementTree:
+
+1.SAX (simple API for XML )
+python 标准库包含SAX解析器，SAX用事件驱动模型，通过在解析XML的过程中触发一个个的事件并调用用户定义的回调函数来处理XML文件。
+
+2.DOM(Document Object Model)
+将XML数据在内存中解析成一个树，通过对树的操作来操作XML。
+
+3.ElementTree(元素树)
+ElementTree就像一个轻量级的DOM，具有方便友好的API。代码可用性好，速度快，消耗内存少。
+
+
+movies.xml
+&lt;collection shelf=&quot;New Arrivals&quot;&gt;
+&lt;movie title=&quot;Enemy Behind&quot;&gt;
+   &lt;type&gt;War, Thriller&lt;/type&gt;
+   &lt;format&gt;DVD&lt;/format&gt;
+   &lt;year&gt;2003&lt;/year&gt;
+   &lt;rating&gt;PG&lt;/rating&gt;
+   &lt;stars&gt;10&lt;/stars&gt;
+   &lt;description&gt;Talk about a US-Japan war&lt;/description&gt;
+&lt;/movie&gt;
+&lt;movie title=&quot;Transformers&quot;&gt;
+   &lt;type&gt;Anime, Science Fiction&lt;/type&gt;
+   &lt;format&gt;DVD&lt;/format&gt;
+   &lt;year&gt;1989&lt;/year&gt;
+   &lt;rating&gt;R&lt;/rating&gt;
+   &lt;stars&gt;8&lt;/stars&gt;
+   &lt;description&gt;A schientific fiction&lt;/description&gt;
+&lt;/movie&gt;
+   &lt;movie title=&quot;Trigun&quot;&gt;
+   &lt;type&gt;Anime, Action&lt;/type&gt;
+   &lt;format&gt;DVD&lt;/format&gt;
+   &lt;episodes&gt;4&lt;/episodes&gt;
+   &lt;rating&gt;PG&lt;/rating&gt;
+   &lt;stars&gt;10&lt;/stars&gt;
+   &lt;description&gt;Vash the Stampede!&lt;/description&gt;
+&lt;/movie&gt;
+&lt;movie title=&quot;Ishtar&quot;&gt;
+   &lt;type&gt;Comedy&lt;/type&gt;
+   &lt;format&gt;VHS&lt;/format&gt;
+   &lt;rating&gt;PG&lt;/rating&gt;
+   &lt;stars&gt;2&lt;/stars&gt;
+   &lt;description&gt;Viewable boredom&lt;/description&gt;
+&lt;/movie&gt;
+&lt;/collection&gt;
+
+使用SAX解析xml
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import xml.sax
+
+class MovieHandler( xml.sax.ContentHandler ):
+   def __init__(self):
+      self.CurrentData = &quot;&quot;
+      self.type = &quot;&quot;
+      self.format = &quot;&quot;
+      self.year = &quot;&quot;
+      self.rating = &quot;&quot;
+      self.stars = &quot;&quot;
+      self.description = &quot;&quot;
+
+   # 元素开始事件处理
+   def startElement(self, tag, attributes):
+      self.CurrentData = tag
+      if tag == &quot;movie&quot;:
+         print &quot;*****Movie*****&quot;
+         title = attributes[&quot;title&quot;]
+         print &quot;Title:&quot;, title
+
+   # 元素结束事件处理
+   def endElement(self, tag):
+      if self.CurrentData == &quot;type&quot;:
+         print &quot;Type:&quot;, self.type
+      elif self.CurrentData == &quot;format&quot;:
+         print &quot;Format:&quot;, self.format
+      elif self.CurrentData == &quot;year&quot;:
+         print &quot;Year:&quot;, self.year
+      elif self.CurrentData == &quot;rating&quot;:
+         print &quot;Rating:&quot;, self.rating
+      elif self.CurrentData == &quot;stars&quot;:
+         print &quot;Stars:&quot;, self.stars
+      elif self.CurrentData == &quot;description&quot;:
+         print &quot;Description:&quot;, self.description
+      self.CurrentData = &quot;&quot;
+
+   # 内容事件处理
+   def characters(self, content):
+      if self.CurrentData == &quot;type&quot;:
+         self.type = content
+      elif self.CurrentData == &quot;format&quot;:
+         self.format = content
+      elif self.CurrentData == &quot;year&quot;:
+         self.year = content
+      elif self.CurrentData == &quot;rating&quot;:
+         self.rating = content
+      elif self.CurrentData == &quot;stars&quot;:
+         self.stars = content
+      elif self.CurrentData == &quot;description&quot;:
+         self.description = content
+
+if ( __name__ == &quot;__main__&quot;):
+
+   # 创建一个 XMLReader
+   parser = xml.sax.make_parser()
+   # turn off namepsaces
+   parser.setFeature(xml.sax.handler.feature_namespaces, 0)
+
+   # 重写 ContextHandler
+   Handler = MovieHandler()
+   parser.setContentHandler( Handler )
+
+   parser.parse(&quot;movies.xml&quot;)
+
+使用xml.dom解析xml
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+from xml.dom.minidom import parse
+import xml.dom.minidom
+
+# 使用minidom解析器打开 XML 文档
+DOMTree = xml.dom.minidom.parse(&quot;movies.xml&quot;)
+collection = DOMTree.documentElement
+if collection.hasAttribute(&quot;shelf&quot;):
+   print &quot;Root element : %s&quot; % collection.getAttribute(&quot;shelf&quot;)
+
+# 在集合中获取所有电影
+movies = collection.getElementsByTagName(&quot;movie&quot;)
+
+# 打印每部电影的详细信息
+for movie in movies:
+   print &quot;*****Movie*****&quot;
+   if movie.hasAttribute(&quot;title&quot;):
+      print &quot;Title: %s&quot; % movie.getAttribute(&quot;title&quot;)
+
+   type = movie.getElementsByTagName(&apos;type&apos;)[0]
+   print &quot;Type: %s&quot; % type.childNodes[0].data
+   format = movie.getElementsByTagName(&apos;format&apos;)[0]
+   print &quot;Format: %s&quot; % format.childNodes[0].data
+   rating = movie.getElementsByTagName(&apos;rating&apos;)[0]
+   print &quot;Rating: %s&quot; % rating.childNodes[0].data
+   description = movie.getElementsByTagName(&apos;description&apos;)[0]
+   print &quot;Description: %s&quot; % description.childNodes[0].data
+
+
+Python GUI编程(Tkinter)
+
+Python 提供了多个图形开发界面的库，几个常用 Python GUI 库如下：
+Tkinter。  wxPython    Jython
+
+创建一个GUI程序
+
+1、导入 Tkinter 模块
+2、创建控件
+3、指定这个控件的 master， 即这个控件属于哪一个
+4、告诉 GM(geometry manager) 有一个控件产生了。
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import Tkinter
+top = Tkinter.Tk()
+# 进入消息循环
+top.mainloop()
+
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+from Tkinter import *           # 导入 Tkinter 库
+root = Tk()                     # 创建窗口对象的背景色
+                                # 创建两个列表
+li     = [&apos;C&apos;,&apos;python&apos;,&apos;php&apos;,&apos;html&apos;,&apos;SQL&apos;,&apos;java&apos;]
+movie  = [&apos;CSS&apos;,&apos;jQuery&apos;,&apos;Bootstrap&apos;]
+listb  = Listbox(root)          #  创建两个列表组件
+listb2 = Listbox(root)
+for item in li:                 # 第一个小部件插入数据
+    listb.insert(0,item)
+
+for item in movie:              # 第二个小部件插入数据
+    listb2.insert(0,item)
+
+listb.pack()                    # 将小部件放置到主窗口中
+listb2.pack()
+root.mainloop()                 # 进入消息循环
+
+
+python json：
+
+#!/usr/bin/python
+import json
+
+data = [ { &apos;a&apos; : 1, &apos;b&apos; : 2, &apos;c&apos; : 3, &apos;d&apos; : 4, &apos;e&apos; : 5 } ]
+
+json = json.dumps(data)
+print json
+以上代码执行结果为：
+
+[{&quot;a&quot;: 1, &quot;c&quot;: 3, &quot;b&quot;: 2, &quot;e&quot;: 5, &quot;d&quot;: 4}]
+使用参数让 JSON 数据格式化输出：
+
+&gt;&gt;&gt; import json
+&gt;&gt;&gt; print json.dumps({&apos;a&apos;: &apos;Runoob&apos;, &apos;b&apos;: 7}, sort_keys=True, indent=4, separators=(&apos;,&apos;, &apos;: &apos;))
+{
+    &quot;a&quot;: &quot;Runoob&quot;,
+    &quot;b&quot;: 7
+}
+
+
+json.loads 用于解码 JSON 数据。
+
+#!/usr/bin/python
+import json
+
+jsonData = &apos;{&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3,&quot;d&quot;:4,&quot;e&quot;:5}&apos;;
+
+text = json.loads(jsonData)
+print text
+以上代码执行结果为：
+
+{u&apos;a&apos;: 1, u&apos;c&apos;: 3, u&apos;b&apos;: 2, u&apos;e&apos;: 5, u&apos;d&apos;: 4}
+
+
+使用第三方库：Demjson
+
+$ tar -xvzf demjson-2.2.3.tar.gz
+$ cd demjson-2.2.3
+$ python setup.py install
+
+
+函数        描述
+encode    将 Python 对象编码成 JSON 字符串
+decode    将已编码的 JSON 字符串解码为 Python 对象
+
+
+#!/usr/bin/python
+import demjson
+
+data = [ { &apos;a&apos; : 1, &apos;b&apos; : 2, &apos;c&apos; : 3, &apos;d&apos; : 4, &apos;e&apos; : 5 } ]
+
+json = demjson.encode(data)
+print json
+以上代码执行结果为：
+
+[{&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3,&quot;d&quot;:4,&quot;e&quot;:5}]
+
+#!/usr/bin/python
+import demjson
+
+json = &apos;{&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3,&quot;d&quot;:4,&quot;e&quot;:5}&apos;;
+
+text = demjson.decode(json)
+print  text
+以上代码执行结果为：
+
+{u&apos;a&apos;: 1, u&apos;c&apos;: 3, u&apos;b&apos;: 2, u&apos;e&apos;: 5, u&apos;d&apos;: 4}
+
+
+python 100例 （待做）
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+            <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>期待您的评论-------------</div>
+
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Demo-Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="prayer007007.github.io/2018/09/10/python学习笔记01/" title="python学习笔记01">prayer007007.github.io/2018/09/10/python学习笔记01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
+          
+            <a href="/tags/编程/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/MySQL学习笔记01/" rel="next" title="MySQL学习笔记01">
+                <i class="fa fa-chevron-left"></i> MySQL学习笔记01
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/10/统计学学习笔记01/" rel="prev" title="统计学学习笔记01">
+                统计学学习笔记01 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTU2NS8xNjA5Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Demo-Mr Wang</p>
+              <p class="site-description motion-element" itemprop="description">Technical exchange</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=110
+           src="//music.163.com/outchain/player?type=0&id=2059024220&auto=1&height=90"></iframe>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/prayer007007" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1264827907@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/u013205428" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chuangzaoshi.com/code" title="创造狮导航" target="_blank">创造狮导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://e.xitu.io/" title="掘金酱" target="_blank">掘金酱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="印记中文" target="_blank">印记中文</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+
+  <span class="author" itemprop="copyrightHolder">Demo-Mr Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">326k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">4:56</span>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    
+  
+
+  
+    
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/09/10/python学习笔记01/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

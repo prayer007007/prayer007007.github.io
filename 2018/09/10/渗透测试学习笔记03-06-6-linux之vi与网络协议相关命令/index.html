@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "360cefba"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="vi是一个较大的unix命令,在启动的时候也有它自己的选项和参数 基本语法:     vi [-options] [+[n]] [file] 常用选项有:-r , -R     -r用于恢复系统突然崩溃时正在编辑的文件     -R用于以只读方式打开文件     +n用来指明进入vi后直接位于文件的第n行,如果不指定n,则位于最后一行  # cp /etc/resolv.conf ss # cat">
+<meta name="keywords" content="笔记,编程,渗透">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渗透测试学习笔记03-06(6)-linux之vi与网络协议相关命令">
+<meta property="og:url" content="prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-6-linux之vi与网络协议相关命令/index.html">
+<meta property="og:site_name" content="Demo`s Blog">
+<meta property="og:description" content="vi是一个较大的unix命令,在启动的时候也有它自己的选项和参数 基本语法:     vi [-options] [+[n]] [file] 常用选项有:-r , -R     -r用于恢复系统突然崩溃时正在编辑的文件     -R用于以只读方式打开文件     +n用来指明进入vi后直接位于文件的第n行,如果不指定n,则位于最后一行  # cp /etc/resolv.conf ss # cat">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-09T12:00:59.628Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="渗透测试学习笔记03-06(6)-linux之vi与网络协议相关命令">
+<meta name="twitter:description" content="vi是一个较大的unix命令,在启动的时候也有它自己的选项和参数 基本语法:     vi [-options] [+[n]] [file] 常用选项有:-r , -R     -r用于恢复系统突然崩溃时正在编辑的文件     -R用于以只读方式打开文件     +n用来指明进入vi后直接位于文件的第n行,如果不指定n,则位于最后一行  # cp /etc/resolv.conf ss # cat">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demo`s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-6-linux之vi与网络协议相关命令/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>渗透测试学习笔记03-06(6)-linux之vi与网络协议相关命令 | Demo`s Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/prayer007007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/prayer007007" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demo`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">one world one dream</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-6-linux之vi与网络协议相关命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demo-Mr Wang">
+      <meta itemprop="description" content="Technical exchange">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demo`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">渗透测试学习笔记03-06(6)-linux之vi与网络协议相关命令
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-09 20:00:02 / 修改时间：12:00:59" itemprop="dateCreated datePublished" datetime="2018-09-09T20:00:02Z">2018-09-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/" itemprop="url" rel="index"><span itemprop="name">技能</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/渗透/" itemprop="url" rel="index"><span itemprop="name">渗透</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/渗透/基础/" itemprop="url" rel="index"><span itemprop="name">基础</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/渗透/基础/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">8.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">8 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>vi是一个较大的unix命令,在启动的时候也有它自己的选项和参数
+基本语法:
+    vi [-options] [+[n]] [file]
+常用选项有:-r , -R
+    -r用于恢复系统突然崩溃时正在编辑的文件
+    -R用于以只读方式打开文件
+    +n用来指明进入vi后直接位于文件的第n行,如果不指定n,则位于最后一行
+
+# cp /etc/resolv.conf ss
+# cat ss
+# vi +3 ss    --光标停在第3行
+</code></pre><a id="more"></a>    
+<pre><code># vi ss        --光标停在第1行
+必须用一些命令来操作
+命令模式
+按dd        --删除本行
+按D        --删除从光标到行尾
+按p        --就粘贴回来
+按i        --在光标前面插入
+按A        --在行尾插入
+按R        --在行首插入
+按o        --在下一行插入
+按O        --在上一行插入
+按u        --返回上一步操作
+按22 + dd    --删除22行        --
+插入模式    
+按a        --进入插入模式
+按ESC        --退回原始模式
+就可以编辑了
+按ESC+shift+;    --进入底行模式
+(输入一些字符命令进行操作)
+输入q+回车    --退出模式(q+!)(强制退出)
+输入wq        --保存并退出
+输入w        --保存
+
+文本插入:
+在命令方式下使用某些命令会导致vi马上进入文本插入方式,这些命令包括:i,I,a,A,o,O等
+在这种方式下用户的任何输入都被当做是文件的内容看待,并将其显示在屏幕上
+a:在光标后附加文本
+A:在本行行末附加文本
+i:在光标前插入文本
+I:在本行开始插入文本
+o:在光标下插入新行
+O:在光标上插入新行
+
+搜索和替换:
+/string      --向前搜索指定字符串,搜索时忽略大小写:set ic
+n      --搜索指定字符串的下一个出现位置
+:%s/old/new/g    --全文替换字符串
+:n1,n2s/old/new/g    --在一定范围内替换指定字符串
+
+按shift+:
+输入set nu    --显示行号
+/内容+回车    --搜索&quot;内容&quot;
+按n    --向下搜索
+?内容    --向上搜索
+按n    --向上搜索
+
+:%s/old内容/new内容/g    --全文替换
+:1,5s/old内容/new内容/g    --1,5行替换
+
+重复前一命令:.
+取消上一命令:u
+退出vi:行方式下使用q,行命令x相当于:wq命令.在命令方式下使用命令ZZ等效于:x命令
+如果由于读写权限或是更新方面的问题,导致vi拒绝执行保存文件或退出vi的命令,那么可以在命令后加一个!号表示强制执行
+
+cat命令:
+    cat    --显示出文件的全部内容
+    -n    --给输出的所有行加上编号
+    cat 1 2 &gt; 3    --合并文件
+    将文件1和2合并到3,如cat 1 2 3...&gt;n
+
+# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+用户名:x代表影子密码,密码放在其他位置:UID号0基本代表管理员:GID号(组id)
+:所在分组名称(家目录) /bin/bash:所使用的shell,bin下或bash下都能登录这个终端
+像sbin,nologin是不能登录终端的.
+
+密码存放位置:
+# cat /etc/shadow
+!! 代表没有密码        有密码的就MD5加密了
+
+用which命令查看cat命令在哪一目录下
+# which cat
+/bin/cat    --普通用户都能用
+
+# cat -n ss
+# date        --显示日期
+# date &gt; 1    --将date信息导入到1
+# cat 1
+# cat 1 ss 
+# cat 1 ss &gt; 2
+# cat 2
+
+wc 统计文件中的单次数量 字节数 行数
+-l 统计行数
+-w 统计单词数
+-c 统计字符数
+wc sdxh.txt 会出现 2 4 26
+    2是行数    4是单词数 26是字符数
+history查看历史命令
+
+# wc -l ss
+
+归档和压缩命令 gzip bzip2
+    (多个文件归成1个文件)
+    只针对单个文件压缩或
+    -9 显示高压缩比
+    -d 释放压缩文件
+    gzip 文件名 压缩文件 格式为后缀有.gz
+    bzip2 文件名 压缩成的文件名 格式为 文件名.bz2 它相对于gzip压缩率更高
+
+# ls -lh
+# gzip install.log install.log.gz
+(或者高压缩)
+# gzip -9 install.log install.log.gz
+# ls -lh
+# gzip -d install.log.gz
+# ls -lh
+# bzip2 install.log install.log.bz2
+# ls -lh
+
+tar(归档命令)(释放归档文件)(没有压缩功能)
+格式 tar 选项 归档文件名 源文件或目录
+-c 创建归档文件 扩展名为.tar
+-v 输出详细信息 
+-f 表示使用归档文件 如 -cvf 创建归档文件
+tar -cvf 4.tar 1 2 3 将文件1 2 3 打包归档为4.tar
+tar -xvf 4.tar    --解包归档文件4.tar    --xvf 解包归档文件
+-x 解开归档文件 
+-t 列表查看包内的文件
+tar -tvf 4.tar -r --追加TAR文件至归档结尾
+tar -rvf 4.tar 5  --把5加入4.tar
+-p    --解包时保留原始文件及目录的权限
+-C    --解包时指定释放的目录文件夹
+-z    --调用gzip程序,进行解压或压缩 -j 调用bzip2 程序进行压缩或解压
+tar -cvzf test.tar.gz --被压缩的文件1 被压缩的文件2 创建归档压缩文件 后缀为gz
+tar -cvjf test.tar.bz2 被压缩的文件1 被压缩的文件2 创建归档压缩文件 后缀为bz2
+tar -xvzf test.tar.gz -C /usr/src 解压释放归档到 /usr/src里面
+tar -xvjf test.tar.bz2 -C /usr/src 解压释放到归档到 /usr/src里面
+
+# tar -cvf 3.tar 1 2 ss
+-cvf创建一个归档  归档名为3.tar 将 1 2 ss归档到一起
+(先归档再压缩)
+# gzip 3.tar 3.tar.gz
+# ll
+# rm -rf 1 2 ss
+# tar zxvf 3.tar.gz    (归档的文件一般用tar解压)
+# ll
+# tar jxvf 4.tar.bz2    (用jxvf解压bz2,用zxvf解压gz)
+
+安装,升级,卸载RPM软件包 2-1
+安装或升级RPM软件
+    格式:rpm [选项] RPM包文件
+    用法:不同选项适用于不同情况
+        -i:安装一个新的rpm软件包
+        -U:升级某个rpm软件,若原本未装,则进行安装
+        -F:更新某个rpm软件,若原本未装,则放弃安装
+卸载指定的RPM软件
+    格式:rpm -e 软件名
+辅助选项
+    --force:强制安装所指定的rpm软件包
+    --nodeps:安装,升级或卸载软件时,忽略依赖关系
+    -h:以&quot;#&quot;号显示安装的进度
+    -v:显示安装过程中的详细信息
+
+RPM软件包封装的,需要安装RPM
+# cd /media
+# cd VMware\ Tools/
+# ls
+# tar zxvf VMwareTools-9-9.2-2496486.tar.gz -C /root/
+# cd
+# ls
+# cd vmare-tools-distrib/
+(./    --代指运行)
+(# ll  文件末尾要有-x,才是有权限  有权限才能添加)
+# ./ vmware-install.pl
+
+# chmod 644 vmware-install.pl
+失去权限
+# ./vmware-install.pl
+# chmod 755 vmware-install.pl
+添加权限
+
+-rwxr-xr-x.
+rwx    用户权限
+r-x    分组权限
+每一个权限加起来是7
+rwx
+421
+rwxrwxrwx
+777
+rwxr-x--x
+751
+# chmod u-w vmware-install.pl    u:所有者,g:组,o:其他人 -w 失去w功能
+
+安装要装载CD
+# umount /dev/sr0    --先卸载一下
+# mount /dev/sr0 /media
+# ls /media
+# ls /media/Packages/
+# ls /media/Packages/ &gt;12
+# wc -l 12
+安装man软件(# rpm -ivh /media/Packages/man-1.6....rpm)
+# cd /media
+# cd Packages/
+# rpm -ivh man-1.6f...rpm
+# man ls
+
+# rpm -e man    --卸载man
+# clear
+查看已安装软件
+# rpm -qa
+# rpm -qa man    --查看有没有安装man
+# rpm -qi man    --查看详细信息
+# rpm -ql man    --查看安装目录
+
+第二种方法:
+编译安装过程
+    下载源代码安装包文件
+    源代码:1.tar.gz 2.自带安装程序 3.编译配置才能安装的
+    步骤1:tar解包
+    步骤2:./configure配置
+    用途:设置安装目录,安装模块等选项
+    步骤3:make编译
+    用途:生成可执行的二进制文件
+    步骤4:make install安装
+    用途:复制二进制文件到系统,配置应用环境    --测试及应用,维护软件
+首选安装方法:
+依赖关系的软件安装:
+# yum -y install firefox    --安装一些软件    
+# vi /etc/yum.repos.d/rhel-source.repo    --通过vi编辑它
+
+区分:firefox的就可以直接安装,make的需要配置,
+
+修改的地方:
+[rhel-source-beta]
+底行模式:
+.,$d
+.:光标所在行
+,:到
+$:最后
+d:删除
+[rhel-source]
+enabled=0-&gt;enabled=1
+按r再按1    --替换
+baseurl=f-&gt;按D,之后的全部删除
+按a
+baseurl=file:///media/Server    --路径
+复制gpgkey里面的-&gt;/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+wq
+导入秘钥
+# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+# yum -y install firefox
+必须指定位置,yum才能安装成功
+
+apt-get        --kali安装方法,需要保证联网
+apt-get install xxx.
+
+dpkg
+dpkg -i xx
+dpkg -l
+dpkg -r xx
+
+添加用户账号:
+    useradd命令:
+    格式:useradd [选项]... 用户名
+    常用命令选项:
+    -u:指定UID标记号
+    -d:指定宿主目录,缺省为 /home/用户名
+    -e:指定账号失效时间
+    -g:指定用户的基本组名(或UID号)
+    -G:指定用户的附加组名(或GID号)
+    -M:不为用户建立并初始化宿主目录
+    -s:指定用户的登录shell
+&lt;!--
+# yum -y remove man    --卸载
+--&gt;
+# useradd cracer
+# ls /home
+# su - cracer    --切换用户
+# passwd cracer --更改密码
+123
+123
+
+用户添加示例:
+指定mike的基本组为mike,并加入到ftpuser组;指定主目录为/ftphome/mike;不允许mike通过本地登录服务器
+[root@localhost~]# useradd -d /ftphome/mike -g mike -G ftpuser -s /sbin/nologin mike
+--对应的基本组,附加组必须存在
+
+删除用户账号--userdel
+userdel命令:
+格式:userdel [-r] 用户名
+添加 -r 选项时,表示连用户的宿主目录一并删除
+[root@localhost~]# useradd stu01
+[root@localhost~]# ls -ld /home/stu01/
+drwx-----2 stu01 stu01 4096 09-09 12:38 /home/stu01/
+[root@localhost~]# userdel -r stu01    --加-r会把家目录也删除
+[root@localhost~]# ls -ld /home/stu01/
+ls:/home/stu01/:没有那个文件或目录
+
+Linux系统网路配置:
+查看网络接口信息--ifconfig
+查看所有活动网络接口的信息
+执行ifconfig命令
+查看指定网络接口信息
+格式:ifconfig 网络接口名
+    [root@localhost~]# ifconfig eth0    --eth0:代指网卡名,自己写
+    eth0 Link encap:Ethernet HWaddr 00:0C:29:57:8B:DO
+    inet addr:192.168.4.11 Boast:192.168.4.255 Mask:255.255.255.0
+    ......
+
+网卡类型:
+名称    类型
+eth0    以太网
+lo    (虚拟)回环设备
+ppp0    使用PPP协议打的串口设备(通常指调制解调器)
+tr0    令牌环(Token Ring)
+fddi0    光纤
+
+查看主机名称--hostname
+    hostname命令
+    查看或设置当前主机名;
+    格式:hostname
+
+查看路由表条目---route
+    route命令
+    查看或设置主机中路由表信息
+    格式:route [-n]
+    # route -n
+
+查看网络连接情况--netstat
+    netstat命令
+    查看系统的网络连接状态,路由表,接口统计等信息
+    格式:netstat [选项]
+    常用选项:
+    -a:显示所有活动连接
+    -n:以数字形式显示
+    -p:显示进程信息
+    -t:查看TCP协议相关信息
+    -u:查看UDP协议相关信息
+    -r:显示路由表信息
+
+# netstat -anpt | grep:21
+
+设置路由记录---route
+删除路由表中的默认网关记录
+格式:route del default gw IP地址
+向路由表中添加默认网关记录
+格式:route add default gw IP地址
+添加到指定网段的路由记录
+格式:route add -net 网段地址/24 gw IP地址
+删除到指定网段的路由记录
+格式:route del -net 网段地址
+
+网络接口配置文件
+/etc/sysconfig/network-scripts/目录下的
+ifcfg-eth0:第1块以太网卡的配置文件
+ifcfg-eth1:第2块以太网卡的配置文件
+...
+# ls /etc/sysconfig/network-scripts/ifcfg-*
+# ls /etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0
+ONBOOT=yes    --
+BOOTPROTO=static
+IPADDR=192.168.4.1    --IP    
+NETMASK=255.255.255.0    --子网掩码
+GATEWAY=192.168.4.2    --网关
+
+静态改IP(改东西必须用vi命令)
+# vi /etc/sysconfig/network-scripts/ifcfg-eth0
+
+启用,禁用网络接口配置
+    重启network网络服务
+    # service network restart
+    正在关闭接口 eth0:    [确定]
+    关闭环回接口:        [确定]
+    弹出环回接口:        [确定]
+    弹出界面eth0:        [确定]
+    禁用,启用网络接口
+    # ifdown eth0
+    # ifup eth0
+
+域名解析配置文件
+/etc/resolv.conf文件
+用途:保存本机需要使用的DNS服务器的IP地址
+# vi /etc/resolv.conf
+search localdomain
+nameserver 202.106.0.20        --DNS的IP地址
+
+实战:
+linux安装apache,搭建网站,....
+(需要安装5个软件包)
+(可以直接安装多个软件包)
+# yum -y install httpd php mysql mysql-server php-mysql
+(httpd:代表apache)
+(mysql-server:mysql服务器)
+(php-mysql:两者连接的软件)
+-&gt;
+给网站权限
+# ls /var/www/html/
+启动服务
+# service httpd start
+# service mysqld start
+设置mysql密码
+# mysqladmin -uroot password 123456
+登录mysql
+# mysql -uroot -p123456
+mysql&gt; show databases
+mysql&gt; use mysql;
+mysql&gt; select * from admin;
+mysql&gt; show tables;
+mysql&gt; select * from user;
+退出
+mysql&gt; quit;
+访问192.168.80.140
+访问不到
+将防火墙配置到最低,将防火墙策略清空
+# iptables -F
+复制测试平台-&gt;var-&gt;www-&gt;html-&gt;复制过去
+
+[root@cracer var]# chown -R root www
+改权限,递归改
+apache是程序用户,安装完成之后自动添加
+[root@cracer var]# chown -R apache www
+复制测试平台-&gt;var-&gt;www-&gt;html-&gt;复制过去
+login-&gt;admin+回车
+修改数据库-&gt;
+jian root 123456
+查找网站漏洞-&gt;
+http://192.168.80.138/article.php?id=5
+http://192.168.80.138/article.php?id=5 and 1=1
+(此测试网站已被审计改过)
+手动修改成有漏洞的网站-&gt;
+[www]# cd html/
+[html]# vi article.php
+删除if(id==&apos;&apos;){};这一条
+在下一个if里面找
+WHERE id=&apos;&quot;.#_REQUEST[&apos;id&apos;].&quot;&apos;,#db  --将&quot; &quot;删除
+http://192.168.80.138/article.php?id=5 and 1=1
+如果网站没有变化,则说明有漏洞
+-&gt;把1改成2 测试
+注入-&gt;
+复制http://192.168.80.138/article.php?id=5 and 1=1
+到Pangolin
+-&gt;将木马cc(2).php放入到网站,改名为cc.php
+http://192.168.80.138/cc.php
+提权-&gt;
+先将防火墙关闭
+win_cmd-&gt;nc.exe -l -n -v -p 12666    --12666是端口
+在网站木马执行命令:
+uname -r    --查看内核版本
+exp-&gt;linux-&gt;3.2-&gt;2.6.32.c复制
+或者直接在网站木马上传    上面输入/tmp/,选择文件,上传
+win-&gt;
+cd tmp
+gcc 2.6.32.c
+找a.out  (xxx.out文件)
+-&gt;执行a.out
+a.out
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+            <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>期待您的评论-------------</div>
+
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Demo-Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-6-linux之vi与网络协议相关命令/" title="渗透测试学习笔记03-06(6)-linux之vi与网络协议相关命令">prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-6-linux之vi与网络协议相关命令/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
+          
+            <a href="/tags/编程/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+            <a href="/tags/渗透/" rel="tag"><i class="fa fa-tag"></i> 渗透</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/渗透测试学习笔记03-06-5-linux常用命令及目录结构/" rel="next" title="渗透测试学习笔记03-06(5)-linux常用命令及目录结构">
+                <i class="fa fa-chevron-left"></i> 渗透测试学习笔记03-06(5)-linux常用命令及目录结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/10/渗透测试学习笔记03-06-7-网络模型与路由器/" rel="prev" title="渗透测试学习笔记03-06(7)-网络模型与路由器">
+                渗透测试学习笔记03-06(7)-网络模型与路由器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTU2NS8xNjA5Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Demo-Mr Wang</p>
+              <p class="site-description motion-element" itemprop="description">Technical exchange</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=110
+           src="//music.163.com/outchain/player?type=0&id=2059024220&auto=1&height=90"></iframe>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/prayer007007" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1264827907@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/u013205428" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chuangzaoshi.com/code" title="创造狮导航" target="_blank">创造狮导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://e.xitu.io/" title="掘金酱" target="_blank">掘金酱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="印记中文" target="_blank">印记中文</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+
+  <span class="author" itemprop="copyrightHolder">Demo-Mr Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">326k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">4:56</span>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    
+  
+
+  
+    
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/09/10/渗透测试学习笔记03-06-6-linux之vi与网络协议相关命令/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

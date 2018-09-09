@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "360cefba"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="&amp;lt;font size=6 color=&amp;quot;#0000FF&amp;quot;&amp;gt; MYSQL &amp;lt;/font&amp;gt;  navicat premium  use databases; show tables; show databases; use test; desc student; -- 简单显示表结构信息 describe student; -- 详细显示表结构信息 show">
+<meta name="keywords" content="编程,数据库,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL学习笔记01">
+<meta property="og:url" content="prayer007007.github.io/2018/09/10/MySQL学习笔记01/index.html">
+<meta property="og:site_name" content="Demo`s Blog">
+<meta property="og:description" content="&amp;lt;font size=6 color=&amp;quot;#0000FF&amp;quot;&amp;gt; MYSQL &amp;lt;/font&amp;gt;  navicat premium  use databases; show tables; show databases; use test; desc student; -- 简单显示表结构信息 describe student; -- 详细显示表结构信息 show">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-09T11:00:39.209Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL学习笔记01">
+<meta name="twitter:description" content="&amp;lt;font size=6 color=&amp;quot;#0000FF&amp;quot;&amp;gt; MYSQL &amp;lt;/font&amp;gt;  navicat premium  use databases; show tables; show databases; use test; desc student; -- 简单显示表结构信息 describe student; -- 详细显示表结构信息 show">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demo`s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="prayer007007.github.io/2018/09/10/MySQL学习笔记01/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MySQL学习笔记01 | Demo`s Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/prayer007007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/prayer007007" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demo`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">one world one dream</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="prayer007007.github.io/2018/09/10/MySQL学习笔记01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demo-Mr Wang">
+      <meta itemprop="description" content="Technical exchange">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demo`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL学习笔记01
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-09 17:44:55 / 修改时间：11:00:39" itemprop="dateCreated datePublished" datetime="2018-09-09T17:44:55Z">2018-09-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/" itemprop="url" rel="index"><span itemprop="name">技能</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/MySQL/基础/" itemprop="url" rel="index"><span itemprop="name">基础</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/MySQL/基础/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">17k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">15 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>&lt;font size=6 color=&quot;#0000FF&quot;&gt; MYSQL &lt;/font&gt;
+
+navicat premium
+
+use databases;
+show tables;
+show databases;
+use test;
+desc student;
+-- 简单显示表结构信息
+describe student;
+-- 详细显示表结构信息
+show create table student;
+</code></pre><a id="more"></a>
+<pre><code>CREATE TABLE `student`()ENGINE = InnoDB (存储引擎) DEFAULT CHARSET=utf8
+
+MyISAM  不支持事务，支持表级别的锁，锁粒度大
+InnoDB  支持事务，支持锁粒度小，既有表锁又有行级别的锁
+两种存储引擎的区别：
+数据库里面的文件系统，规定了数据怎么存，怎么处理
+InnoDB，适合处理电商银行的数据存储。
+MyISAM，适合日志（读比写多的地方）（新项目几乎不用）
+
+use test;
+-- 给表改名字
+alert table studnet rename student_new
+-- 给表中的字段改名字（同时还可以把字段对应的类型改了）
+alert table student change birthday birthday_new varchar(255);
+desc student;
+
+-- 给表添加字段，添加到最后
+alter table student
+add addr varchar(500)
+-- 删除表中的字段
+alter table student;
+drop addr;
+-- 将字段加到score字段后面
+alter table student
+add addr varchar(500)
+after score;
+
+alter table student
+modify addr varchar(600) comment &apos;家庭住址&apos;;  
+类似：`addr` varchar(600) DEFAULT NULL COMMENT &apos;家庭住址&apos;
+
+show create table studnet;
+
+insert into person(id,name,salary) values(2,&apos;xx&apos;,1.0);
+
+delete from person where name = &apos;a&apos;;
+
+update person set salary = salary + 10,addr = &apos;yy&apos; where id = 3;
+
+alter table person
+add primary key(id);
+-- PRIMARY KEY(`id`);(这句在属性的后面)
+
+id int auto_increment,         //自增id
+name varchar(100),
+primary key(id)
+
+delete from person where id in (3,4,5);
+
+CREATE TABLE `person`(
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    primay key(id)
+)ENGINE=InnoDB AUTO_INCREMENT=5             //已经即将自增到5了
+
+
+select database();
+
+create table student(
+    id int,
+    name varchar(20),
+    teacher_id int
+);
+create table teacher(
+    id int,
+    name varchar(20)
+);
+alter table student 
+modify teacher_id decimal(18,2)
+
+alter table student 
+modify teacher_id int
+
+alter table teacher
+add PRIMARY key(id)
+
+-- 添加外键
+alter table student
+add FOREING key (teacher_id) REFERENCES teacher(id);
+
+主键跟外键都会有索引
+KEY  代表索引
+KEY `teacher_id`(`teacher_id`)
+
+
+select char_length(&apos;中国abc&apos;); -- 数字符的个数
+select length(&apos;中国&apos;); -- utf8 一个汉字占3个字节
+
+select concat(&apos;a&apos;,&apos;b&apos;,&apos;c&apos;); -- abc 拼接参数
+select concat_ws(&apos;=&apos;,&apos;a&apos;,&apos;b&apos;,&apos;c&apos;); -- a=b=c 使用第一个参数作为中间符放入后面参数
+
+select upper(&apos;aBcd&apos;); -- 大写
+select lower(&apos;ABcd&apos;); -- 小写
+
+select substring(&apos;系统信息类&apos;,1 ,3) -- 截取
+
+select trim(&apos;  abc.   &apos;); -- 去前后空格
+
+select curdate(); -- 当前日期对应的年月日
+
+select now(); -- 当前日期到秒
+select sysdate(); -- 一样，当前日期到秒
+
+-- 返回当前日期时间对应的时间戳（单位：妙）
+select unix_timestamp();
+select unix_timestamp(curtime());
+
+-- 将时间戳转回日期时间到秒
+select from_unixtime(123213213123);
+
+-- 只能到天，-2表示在now()基础上减2天,3的话就是加3天
+select adddate(now(),-2);
+
+select if(1=1,&apos;成立&apos;,&apos;不成立&apos;);
+
+-- 如果有null，我就给它添一个值
+use test;
+select id,name,ifnull(age,0) as age from person_2;
+
+create table student_info(
+    id int,
+    name varchar(20),
+    score decimal(18,2)
+);
+insert into student_info(id,name,score)
+values (1,&apos;小红&apos;,99.8)
+X4
+
+-- 80以上 A
+-- 70-80 B
+-- 60-70 C
+-- &lt;60      D
+
+create view stu_score as
+select id,name,score,
+(
+    case 
+        when score &gt;= 80 then &apos;A&apos;
+        when score &gt;= 70 and score &lt; 80 then &apos;B&apos;
+        when score &gt;= 60 and score &lt; 70 then &apos;C&apos;
+        when score &lt; 60 then &apos;D&apos; 
+    end
+) as rank from student_info;
+
+select id,name,score,rank,
+(
+    case rank
+        when &apos;A&apos; then &apos;优&apos;
+        when &apos;B&apos; then &apos;中&apos;
+        when &apos;C&apos; then &apos;良&apos;
+        when &apos;D&apos; then &apos;差&apos;
+    end
+) as ch_rank from stu_score;
+
+-- &lt;&gt; 不等于
+select * from stu_score where rank &lt;&gt; &apos;B&apos;
+select * from person where age is null
+select * from student_info where name like &apos;%小%&apos;
+
+-- 如果student_id相同，则接下来按score降序继续排序
+select distinct name from person order by student_id asc,score desc limit 30
+
+
+use cm;
+select database();
+
+select count(*) from score
+group by cno; //not in 清洗重复数据
+
+select cno,avg(degree) as chengji 
+from score
+group by cno;
+
+use test;
+select id,name,
+    (select name from teacher where id = teacher_id) as teacher_name
+from student;
+
+
+-- 子查询第三种场景，跟在where后面，通常和in搭配
+use test;
+select * from student
+where teacher_id = (
+    select id  from teacher
+    where name = &apos;王老师&apos;
+);
+
+-- 这种写法会先对连接的所有的表做一次完全笛卡尔积
+-- 如果表很大，这种写法非常耗资源（内存）
+select * from student,teacher 
+where student.teacher_id = teacher.id;
+-- 规范写法 (第一行的笛卡尔积不满足条件也就出现不了)
+select s.id,s.name,t.name as teacher_name from student s
+    inner join teacher t on t.id = s.teacher_id     //同名字段就选一个起别名
+
+select s.id,s.name,t.name as teacher_name from student s
+    left join teacher t on t.id = s.teacher_id      //一般最重要的表放到左边
+                                    //优先使用inner，因为其性能好。如果有丢数据就改为left或其它的
+
+
+性能优化
+慢查询原因（通常DBMS都有自己的慢查询日志）
+外部原因：内存太小，本地I/O瓶颈，网络I/O瓶颈。
+内部原因：程序本身DB设计不合理，SQL语句使用不合理，无索引或者有索引但未充分利用。
+学会使用explain分析简单的查询
+数据库设计层面的优化
+遵循数据库设计三范式（通俗地讲就是每个字段不可再拆分，尽量减少冗余字段）；
+字段类型设计上，能使用数值就不要使用字符串，能使用日期时间就不要使用字符串，最好把字段声明为not null default 默认值； //字符串需要先查字符集转换编码，所以慢
+//如果设计成允许null，数据库需要留选一段空间来标识其为null
+为了避免表连接查询，必要的冗余字段是可以设置的；
+能提前建立的索引要提前建好（经常用在where，group by，order by中的字段最好建索引）
+创建索引方式一：alter table student_score add key idx_sc_s_c(sname,cname);
+删除索引方式一：alter table student_score drop key idx_sc_s_c;
+创建索引方式二：create index idx_sc_c on student_score(cname);
+删除索引方式二：drop index idx_sc_c on student_score;
+
+
+explain select * from student_score;
+show create table student_score;
+
+explain select * from student_score where sname = &apos;小王&apos;;
+加索引会降低写的性能
+
+-- 添加索引
+-- alter table student_score
+-- add key idx_sc_s (sname);
+alter table student_score
+add key idx_sc_s_c (sname,cname);
+
+索引命名方式：idex_sc_s     sc：哪张表     s,c：那个字段
+
+
+SQL语句使用层面的优化
+尽量不使用select *,而是要具体指定字段，比如select id,name...;
+尽量不使用不等于&lt;&gt;;
+不使用is null/is not null (虽然也会使用索引，但是性能损耗是由于default null的字段要比not null的字段多出额外的存储空间来标识这个字段的值是不是null)；
+不使用or连接不同的字段；
+不使用not in；
+不在条件字段上使用函数；
+不使用前置模糊查询(like &apos;%a&apos;);等。
+因为上面的使用方式都会产生全表扫描(当然，如果实在没办法优化，全表扫描就扫描吧)
+索引优化
+建立索引的字段从内容上要有差异要有区分度。
+索引提升的是读性能，如果一张表的写操作更多，则尽量不建或者少建索引。
+使用where，group by，order by时，尽量充分利用建立索引的字段
+
+
+数据导出导入
+//不要使用客户端倒
+mysql/bin/mysqldump.exe //往外倒
+mysql/bin/mysqlimport.exe //往里倒
+
+
+use test;
+select sname,
+max(
+    case cname 
+        when &apos;Java&apos; then score
+        else 0.0
+    end
+) as Java,
+max(
+    case cname 
+        when &apos;MySQL&apos; then score
+        else 0.0
+    end
+) as MySQL
+ from student_score group by sname;
+
+-- group_concat()把每条记录取出来拼一块,separator分割的是每一行的数据,order by 要放在separator前面而不是后面
+select sc.*,group_concat(canme,&apos;=&apos;,order by cname score separator &apos;|&apos;) as gc from student_score sc group by sname;
+
+
+JDBC
+Build Path-&gt;Configure Build Path...
+lib-&gt;xxx.jar
+Add JARs...
+
+JDBC相关的类与接口
+
+java.sql.Driver 接口 
+
+java.sql.DriverManager类     //注册驱动         ctrl+o 搜索查看方法
+    Connection getConnection
+
+java.sql.Connection接口
+    void close()
+    Statement createStatement()
+    PreparedStatement prepareStatement(String sql
+
+java.sql.Statement 接口
+    void close()
+    boolean execute(String sql)
+    ResultSet executeQuery(String sql)
+    int executeUpdate(String sql)
+    void addBatch(String sql)         //接受多条sql语句
+    int[] executeBatch()
+
+java.sql.PreparedStatement 接口 extends java.sql.Statement
+    void setXXX(int parameterIndex,xxx value)
+    ResultSet executeQuery()
+    int executeUpdate()
+
+java.sql.ResultSet 接口         //查询的结果组成的二维表
+    void close()
+    boolean next()
+    xxx getXXX(String columnName)
+
+test(){
+    String className = &quot;&quot;;//com.mysql.jdbc.Driver
+    Class.forName(className);
+    DriverManager.getConncetion(url,user,password);
+            //url : jdbc:mysql://127.0.0.1:3306/test  //类似sql: use test;
+
+    Statement stmt = conn.createStatement();//创建一个语句对象
+    StringBuffer sql = new StringBuffer();
+    sql.append(&quot; &quot;);//后面多一个空格以免不必要的麻烦
+    sql.append(&quot; &quot;);
+    stmt.execute(sql.toString());
+
+    for(int i = 0 ; i &lt; 10 ; i ++){
+        StringBuffer sql = new StringBuffer();
+        sql.append(&quot;&quot;);
+        sql.append(&quot;&quot;+i+&quot;&quot;);
+        stmt.addBatch(sql.toString());//加入批处理
+    }
+    int[] res = stmt.executeBatch();
+
+    StringBuffer sql = new StringBuffer();
+    sql.append(&quot;&quot;);
+    ResultSet rs = stmt.executeQuery(sql.toString());
+    while(rs.next()){
+        int id = rs.getInt(&quot;id&quot;);
+    }
+
+    sql.append(&quot;insert into employee (id,name,salary) &quot;);
+    sql.append(&quot;values (?,?,?); &quot;);
+
+    PrepardStatement stmt = conn.prepareStatement(sql.toString()); //为了防止sql注入而开的接口，预编译语句对象，服务端编译一部分，客户端编译一部分
+
+    stmt.setInt(1,10);
+    stmt.setString(2,&quot;小红&quot;);
+    stmt.setDouble(3,9.0);
+
+    stmt.executeUpdate();
+
+    stmt.close();
+    conn.close();
+}
+main(){
+    try{
+        test();
+    }catch(Exception e){
+    }
+}
+
+
+//演示SQL注入
+public interface LoginAuth{
+    boolean login(String username,String password);
+    int modifyPassword(String newPwd,String username);
+}
+
+public class LoginAuthTest{
+    private static LoginAuth la;
+    public static void testPrepared(){
+        la = new LoginAuthPreparedImpl();
+    }
+    public static void testStmt(){
+        la = new LoginAuthStmtImpl();
+    }
+
+    main(){
+        testStmt();
+        //testPrepared();//安全实现
+        String username = &quot;lhl&quot;;
+        String password = &quot;123&quot;;
+        boolean flag = la.login(username,password);
+        if(flag){
+            sout(&quot;登陆成功!&quot;);
+        }
+    }
+}
+public class LoginAuthStmtImpl{
+    public boolean login(){
+
+    }
+    public int modify(){
+        String username = &quot;&apos; or 1=1 or &apos;1&apos;=&apos;1&quot;;
+        sql.append(&quot;update user_info &quot;);
+        sql.append(&quot;set password = &apos;&quot; + newPwd + &quot;&apos; &quot;);
+        sql.append(&quot;where username = &apos;&quot; + username +&quot;&apos;&quot;)；
+        //把where变为true
+        //&apos; or 1=1 or &apos;1&apos;=&apos;1
+        stmt.extcuteUpdate(sql.toString());
+    }
+
+}
+public class LoginAuthPrepareImpl{
+    public int modify(){
+        String username = &quot;&apos; or 1=1 or &apos;1&apos;=&apos;1&quot;;
+        sql.append(&quot;update user_info &quot;);
+        sql.append(&quot;set password = &apos;&quot; + newPwd + &quot;&apos; &quot;);
+        sql.append(&quot;where username = &apos;&quot; + username +&quot;&apos;&quot;)；
+        //把where变为true
+        //&apos; or 1=1 or &apos;1&apos;=&apos;1
+        stmt.extcuteUpdate();
+    }
+}
+//基本都是在修改上做注入
+
+Properties 文件的解析
+涉及到的类是java.util.Properties
+常用方法有
+void load(Reader reader)
+String getProperty(String key)
+String getProperty(String key,String defaultValue)
+
+Properties prp = new Properties();
+String src = &quot;xxx&quot; + File.separator + &quot;jdbc.properties&quot;;
+prp.load(new InputStreamReader(new FileInputStream(src),&quot;utf-8&quot;));
+String className = prp.getProperty(&quot;className&quot;);
+
+连接池：
+//数据库连接用完之后进入池子里，而不需要再次创建
+
+DBCP连接池 的操作框架是MyBatis
+
+lib
+    commons-dbcp2-2.2.0.jar
+    commons-logging-1.2.jar
+    commons-pool2-2.5.0.jar
+
+public static void testDBCP() throws Exception{
+    //DataBase Connection Pool
+    //导入jar包
+
+    //创建连接池对象
+    BasicDataSource bds = new BasicDataSource();
+    //加载并配置连接信息className,url,user,password
+    Properties p = new Properties();
+    p.load(new FileReader(&quot;xxx/xxx/jdbc.properties&quot;))
+    bds.setDriverClassName(&quot;com.mysql.jdbc.Driver&quot;);
+    //bds.setUrl(&quot;jdbc:mysql://192.168.56.101:3306/lhl_test&quot;);
+    bds.setUrl(p.getProperty(&quot;url&quot;));
+    bds.setUsername(&quot;root&quot;);
+    bds.setPassword(&quot;root&quot;);
+    Connection conn = bds.getConnection();//连接池会把toString重写
+    sout(conn);
+    conn.close();
+
+}
+
+//连接池单例化
+public class Singleton{
+    private BasicDataSource bds;
+    private static Singleton st;
+    private Singleton(){
+        bds = new new BasicDataSource();
+        //加载并配置连接信息className,url,user,password
+        Properties p = new Properties();
+        p.load(new FileReader(&quot;xxx/xxx/jdbc.properties&quot;))
+        bds.setDriverClassName(&quot;com.mysql.jdbc.Driver&quot;);
+        //bds.setUrl(&quot;jdbc:mysql://192.168.56.101:3306/lhl_test&quot;);
+        bds.setUrl(p.getProperty(&quot;url&quot;));
+        bds.setUsername(&quot;root&quot;);
+        bds.setPassword(&quot;root&quot;);
+    }
+    //如果调一次锁一次是很耗性能的，所以不加在方法上，加在方法里面
+    public static Singleton getInstance(){
+        if(st == null){
+            synchronized (Singleton.class){
+                if(st == null){
+                    st = new Singleton();
+                }
+            }
+        }
+        return st;
+    }
+    public BasicDataSource getDbs(){
+        return dbs;
+    }
+}
+//Singleton只会new一次，因此两者连接起来就是放在Singleton方法中
+
+
+项目自动化构建
+make(Makefile) 通常用于UNIX/Linux上软件的安装。自动化只局限于打包发布安装的阶段。依赖于OS平台命令，用于生成Makefile的configure文件依然需要开发者手动编写，耗时间。
+Ant(build.xml) 可以认为是java版本的make。基于Java开发，只要安装了JDK/JRE就能使用，跨平台，编写build.xml的工作量相对较少，自动化也只是局限于打包发布阶段。
+Maven(pom.xml)和Ant一样基于java开发，但是功能强大，修改pom.xml可以自动化支持软件生命周期的几乎所有过程（编译，测试，打包发布，安装）
+jar包依赖管理
+
+apache-maven可以放到和jdk同一目录下
+环境变量：MAVEN_HOME ,win10的改成M2_HOME  , path
+mvn 查看
+
+Maven配置：
+只需要改仓库位置即可
+如果不改的话，会放在 ~/.m2/repository这个目录下，所以要修改
+
+&lt;settings xmlns=              //根标签settings
+          xmlns:xsi= 
+          xsi:schemaLacation=         //这个是其遵循的约束的位置 
+&gt; //xmlns就是xml的规范文件位置
+    &lt;localRepository&gt;D:\\workspace\\maven\\repository&lt;/localRepository&gt;
+将settings.xml 复制到.m2下
+
+Preferences-&gt;Maven
+-&gt;User Settings-&gt;Global path (这个要与安装目录下的settings保持一致)
+                 User path (与根目录下settings保持一致)
+-&gt;Installations-&gt;Add-&gt;Directory..-&gt;path: 安装目录到文件夹就行
+            勾选这个文件夹
+
+clean 是把bin下的文件都删掉，可以勾选clean完再构建这个选项
+source folder 与 folder 区别：在构建时source文件夹里的文件会编译成class文件并输出到target文件夹里
+
+new-&gt;maven.project-&gt;group 组名 ；artifact 项目名
+&lt;build&gt;
+maven-compiler-plugin 2.3.2 
+&lt;/build&gt;
+
+String src = &quot;jdbc.properties&quot;;
+p.load(new InputStreamReader(JDBCUtil.class.getClassLoader().getResourceAsStream(src),&quot;utf-8&quot;));
+
+
+仓库存放位置会以groupId/artifactId/version/来存储
+
+maven资源查找顺序-&gt;私服-&gt;中央仓库-&gt;到其他公共仓库找
+阿里云公开的自己的私服maven仓库
+
+
+&lt;!-- https://mvnrepository.com/artifact/junit/junit --&gt;
+&lt;!-- 
+    建议把测试代码与程序主代码分离
+    测试代码通通都迁移到src/test下面
+    这个目录下的代码不是使用Main方法机制运行的
+    所以要添加Junit组件
+    src/test中的内容最终是不会被打包发布的
+--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;version&gt;4.12&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;&lt;!-- 保证Maven最终打包发布的时候不会把这种jar包打到最终包里面,即junit这个jar包仅是测试用的不会打到最终包里 --&gt;
+&lt;/dependency&gt;
+
+@Test
+public void test1(){
+
+}
+
+pom.xml-&gt;maven build... -&gt;Goals:clean test -&gt;Run 这样所有的测试方法就会自动跑一遍
+
+mvn clean test
+
+&lt;!-- 如果是在cmd看输出结果的话，下面这个配置就不能加了，否则会乱码 --&gt;
+&lt;properties&gt;
+    &lt;argLine&gt;-Dfile.encoding=UTF-8&lt;/argLine&gt;
+&lt;/properties&gt;
+
+
+Maven命令
+mvn clean 
+mvn clean compile         
+mvn clean test
+mvn clean package
+mvn clean install
+
+mvn clean test
+/surefire
+/surefire-reports     maven测试生成的文件夹
+
+mvn clean
+mvn clean compile
+
+Maven打包提供给普通的项目用
+mvn clean package
+
+Maven打包提供给Maven Project使用
+1.本地跨Maven项目使用 
+    不需要修改pom.xml 
+    mvn clean install
+2.跨机器给别人的Maven Project使用
+
+Maven 打包-把jar包当作独立程序直接运行
+&lt;build&gt;
+    &lt;plugin&gt;
+        org.apache.maven.plugins
+            maven-compiler-plugin
+    &lt;/plugin&gt;
+    &lt;plugin&gt;
+        org.apache.maven.plugins
+            maven-assembly-plugin
+        &lt;configuration&gt;
+            &lt;descripttorRefs&gt;
+                &lt;descripttorRef&gt;jar-with-dependecies&lt;/descripttorRef&gt;
+            &lt;/descripttorRefs&gt;
+            &lt;archive&gt;
+                &lt;manifest&gt;
+                    &lt;mainClass&gt;xx.x.x.x&lt;/mainClass&gt;
+                &lt;/manifest&gt;
+            &lt;/archive&gt;
+        &lt;/configuration&gt;
+    &lt;/plugin&gt;    
+&lt;/build&gt;
+
+
+------------------------------------------------------------
+------------------------------------------------------------
+多表查询
+
+给product中的这个cno添加一个外键约束
+alter table product add foreign key(cno) references category(cid)
+
+一对多：商品和分类
+    原则：在多的一方添加一个外键，指向一方的主键
+多对多的建表：
+    多建一张中间表，将多对多的关系拆成一对多关系，中间表至少要有两个外键，这两个外键分别指向原来的那张表
+一对一建表：
+    原则：
+        将一对一的情况，当作是一对多情况处理，在任意一张表添加一个外键，并且这个外键要唯一，指向另外一张表
+        直接将两张表合并成一张表
+        将两张表的主键建立起连接，让两张表里面主键相等
+    用途：
+        个人信息，拆表
+
+SQLyog工具
+    sn.txt有注册码
+
+内连接
+--隐式内连接
+select * from product p,category c where p.cno=c.cid;
+--显示内连接
+select * from product p inner join category c on p.cno=c.cid
+--区别：
+    隐式内连接：在查询出结果的基础上去做的where条件过滤
+    显示内连接：带着条件去查询结果，执行效率要高
+
+左外连接 
+左表：product
+select * from product p left outer join category c on p.cno=c.cid;
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+            <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>期待您的评论-------------</div>
+
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Demo-Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="prayer007007.github.io/2018/09/10/MySQL学习笔记01/" title="MySQL学习笔记01">prayer007007.github.io/2018/09/10/MySQL学习笔记01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          
+            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/06/third/" rel="next" title="third">
+                <i class="fa fa-chevron-left"></i> third
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/10/python学习笔记01/" rel="prev" title="python学习笔记01">
+                python学习笔记01 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTU2NS8xNjA5Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Demo-Mr Wang</p>
+              <p class="site-description motion-element" itemprop="description">Technical exchange</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=110
+           src="//music.163.com/outchain/player?type=0&id=2059024220&auto=1&height=90"></iframe>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/prayer007007" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1264827907@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/u013205428" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chuangzaoshi.com/code" title="创造狮导航" target="_blank">创造狮导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://e.xitu.io/" title="掘金酱" target="_blank">掘金酱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="印记中文" target="_blank">印记中文</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+
+  <span class="author" itemprop="copyrightHolder">Demo-Mr Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">326k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">4:56</span>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    
+  
+
+  
+    
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/09/10/MySQL学习笔记01/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

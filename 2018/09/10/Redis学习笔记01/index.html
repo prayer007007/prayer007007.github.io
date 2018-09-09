@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "360cefba"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Redis是什么？ REmote Dictionary Server（Redis）是一个由Salvatore Sanfilippo写的key-value存储系统。  优点： 能支持超过100K+每秒的读写频率。  安装： 实验楼（省略）">
+<meta name="keywords" content="编程,数据库,redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis学习笔记01">
+<meta property="og:url" content="prayer007007.github.io/2018/09/10/Redis学习笔记01/index.html">
+<meta property="og:site_name" content="Demo`s Blog">
+<meta property="og:description" content="Redis是什么？ REmote Dictionary Server（Redis）是一个由Salvatore Sanfilippo写的key-value存储系统。  优点： 能支持超过100K+每秒的读写频率。  安装： 实验楼（省略）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-09T11:00:39.196Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis学习笔记01">
+<meta name="twitter:description" content="Redis是什么？ REmote Dictionary Server（Redis）是一个由Salvatore Sanfilippo写的key-value存储系统。  优点： 能支持超过100K+每秒的读写频率。  安装： 实验楼（省略）">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demo`s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="prayer007007.github.io/2018/09/10/Redis学习笔记01/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Redis学习笔记01 | Demo`s Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/prayer007007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/prayer007007" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demo`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">one world one dream</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="prayer007007.github.io/2018/09/10/Redis学习笔记01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demo-Mr Wang">
+      <meta itemprop="description" content="Technical exchange">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demo`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Redis学习笔记01
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-09 18:40:23 / 修改时间：11:00:39" itemprop="dateCreated datePublished" datetime="2018-09-09T18:40:23Z">2018-09-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/" itemprop="url" rel="index"><span itemprop="name">技能</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/Redis/基础/" itemprop="url" rel="index"><span itemprop="name">基础</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/Redis/基础/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">11k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">10 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>Redis是什么？
+REmote Dictionary Server（Redis）是一个由Salvatore Sanfilippo写的key-value存储系统。
+
+优点：
+能支持超过100K+每秒的读写频率。
+
+安装：
+实验楼（省略）
+</code></pre><a id="more"></a>    
+<pre><code>使用：
+Sudo service reds-server start
+redis-cli
+&gt;set mykey somevalue
+&gt;get mykey
+可以用set和get来创建和检索strings
+
+可以对已有的key重新赋值：
+&gt;set mykey newval nx
+&gt;set mykey newval xx
+
+加法器：
+&gt;set counter 100
+&gt;incr counter。 加1
+&gt;incr counter
+&gt;incrby counter 50.  加50
+
+使用mset和mget完成一次性多个key-value对应关系：
+&gt;mset a 10 b 20 c 30
+&gt;mget a b c
+
+Push一类命令返回值为list的长度：
+&gt;rpush mylist A
+&gt;rpush mylist B
+&gt;lpush mylist first
+&gt;lrange mylist 0 -1
+rpush为添加xx元素
+Lrange里面的0表示list开头第一个，-1表示list倒数第一个，lrange为查看list元素
+
+&gt;rpush mylist 1 2 3 4 5 “foo bar”
+&gt;lrange mylist 0 -1
+
+pop命令：
+&gt;del mylist
+&gt;rpush mylist a b c.  
+&gt;rpop mylist   取出mylist最右边的元素
+&gt;lrange mylist 0 -1
+&gt;lpop mylist 
+&gt;lrange mylist 0 -1
+
+redis hashes存储：
+&gt;hmset user:1000 username antirez birthyear 1977 verified 1
+&gt;hget user:1000 username
+&gt;hget user:1000 birthyear
+&gt;hgetall user:1000
+
+&gt;hmget user:1000 username birthyear no-such-vield
+
+hash加法：
+
+&gt;hincrby user:1000 birthyear 10
+
+sadd命令产生一个无序集合，返回集合元素个数，smembers用于查看集合
+&gt;sadd myset 1 2 3
+&gt;smembers myset
+
+sismember用于查看集合是否存在以及元素是否存储，匹配成功返回1，失败返回0
+
+zadd是添加有序集合，zrange正序查看，zrevrange是反序查看
+&gt;zadd hackers 1940 &quot;Alan Kay&quot;
+&gt;zadd hackers 1957 &quot;Sophie Wilson&quot;
+&gt;zadd hackers 1953 &quot;Richard Stallman&quot;
+
+&gt;zrange hackers 0 -1
+&gt;zrevrange hackers 0 -1
+使用withscores参数返回记录值
+&gt;zrange hackers 0 -1 withscores
+
+):exists和del
+&gt;set mykey hello
+&gt;exists mykey
+&gt;del mykey
+&gt;exists mykey
+
+):type and keys
+type查看value的类型，没有则返回none，keys查看key列表
+&gt;set mykey x
+&gt;type mykey
+&gt;keys my*
+&gt;del mykey
+&gt;keys my*
+&gt;type mykey
+
+):randomkey and clear
+
+): rename and renamenx
+&gt;rename mylist newlist
+
+):dbsize
+返回当前数据库的key总数
+
+）：expire。限制key生存时间，单位秒
+&gt;set key some-value
+&gt;expire key 10
+&gt;get key
+&gt;get key.    10m后执行时，值已不存在
+
+）：限时操作可以在set命令中实现，ttl查询key的剩余生存时间
+&gt;set key 100 ex 30.   (30秒)
+&gt;ttl key
+&gt;ttl key
+
+):flushdb:清空当前数据库中的所有键
+):flushall：清空所有数据库中的所有键
+
+）：config get and config set
+config get：用于读取运行redis服务器的配置参数
+config set：用于更改运行redis服务器的配置参数
+auth：认证密码
+&gt;config get requirepass     (查看密码)
+&gt;config set requirepass test123  (设置密码)
+&gt;config get requirepass     (报错，没有认证)
+&gt;auth test123
+&gt;config get requirepass
+
+查询数据类型的最大条目：
+&gt;config get *max-*-entries*
+
+config resetstat:重置数据统计报告
+
+):info查询redis的相关信息
+reg:
+&gt;info keyspace
+&gt;info server
+&gt;info cpu
+
+）：设置密码
+grep -n requirepass /etc/redis/redis.conf
+sudo vim /etc/redis/redis.conf
+将# requirepass foobared 改为. requirepass test123 即可
+
+）：重启redis-server与密码验证
+sudo service redis-server restart
+redis-cli 
+&gt;info
+&gt;auth test123
+&gt;info
+第二种方式：
+redis-cli -a test123
+&gt;info
+
+）：redis事务处理，exec顺序执行队列中的命令
+&gt;multi      （进入事务）
+&gt;set name a
+&gt;set name b
+&gt;exec
+&gt;get name
+
+）：持久化机制
+1.快照。默认方式
+2.aof
+
+save 300 10 #300秒内如果超过10个key被修改，则快照保存
+
+配置文件中的可配置参数:
+appendonly yes //启用aof持久化方式
+#appendfsync always //收到写命令就立即写入磁盘，最慢，但是保证了数据的完整持久化
+appendfsync everysec。//每秒钟写入磁盘一次，在性能和持久化方面做了很好的折中
+#appendfsync no。//完全依赖os，性能最好，持久化没有保证
+
+&gt;help save
+&gt;save
+
+
+
+
+=======================
+redis系统版
+redis 01。 
+
+1.介绍
+1.1 redis是什么
+redis是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。
+1.2redis主要特点
+支持数据的持久化，可以讲内存中的数据保存在磁盘中，重启的时候自动再次加载进行使用
+既支持key-value类型的数据操作，还提供list，set，zset，hash等数据结构的存储
+支持数据的备份，采用master-slave模式的主从备份。
+性能极高-redis能读的速度是11万次/s，写的速度是8万次/s。
+所有操作均为原子性操作
+丰富的实用特性，如订阅-发布模式，生产者消费者模式，key过期等常用易用的模式
+
+1.3竞品组件
+MemoryCache-kv🌟缓存数据库：单进程多线程模型
+Apache Ignite-分布式关系型缓存数据库
+SSDB-kv型缓存数据库
+
+2.redis安装与基本操作
+windows安装
+    资源链接入口地址：https://github.com/MicrosoftArchive/redis/releases
+    下载导航-选择2.8.x版本均可
+    下载完成解压即可完成
+    开启服务
+        cmd进入对应目录后，找到服务命令-redis-server.exe，至少设置maxheap后即可运行，如设置最大可展256M内存，则对应的字节为268435456=256*1024KB*1024B
+        redis-server.exe --mapheap 268435456 
+    通过配置文件启动服务
+        修改redis.windows.conf中的maxheap参数值为268435456
+    redis客户端链接redis服务器
+        cmd进入对应目录后，找到服务命令redis-cli.exe
+        直接运行即可，默认链接127.0.0.1 6579端口
+        或者自己指定ip ，port
+        redis-cli.exe -h 127.0.0.1 -p 6379
+
+linux安装
+    资源入口链接-http://download.redis.io/releases/
+    下载导航-选择2.8.x版本均可
+    下载地址为:http://download.redis.io/releases/redis-2.8.24.tar.gz
+        通过浏览器直接打开，或者wget均可
+    下载完成后，直接解压为源码包，需要编译后方可使用
+    编译过程与server运行
+    tar -xzvf redis-2.8.24.tar.gz
+    cd redis-2.8.24
+    make
+    cd src
+    ./redis-server
+    或者./redis-server ../redis.conf //按指定的参数文件来启动redis-server，参数文件配置等同widows的conf文件
+
+    查看端口：lsof -i:6379  or. ll /proc/24482.  or. ps aux|grep redis
+    maxmemory. 为最大内存。 默认是电脑的最大内存
+
+    客户端链接server
+        cd src
+        ./redis-cli
+
+
+redis不同版本之间的互联：
+    window的redis-cli链接linux-redis server
+
+bat脚本语言（win）：（linux是shell）
+    auto_startserver.bat:
+        redis-server.exe redis.windows.conf
+    auto_startclient.bat:
+        redis-cli.exe -h 127.0.0.1 -p 6379
+
+3. redis重要说明
+3.1 redis架构设计说明
+    单进程单线程模型的KV数据库
+        多线程处理可能涉及到锁
+        多线程处理会涉及到线程切换而消耗CPU
+        无法发挥多核CPU性能，不过可以通过在单机开多个redis实例来完善
+    完全基于内存
+    数据结构简单，对数据操作也简单
+    使用多路I/O复用模型（网络io事件模型-epoll）
+        网络IO都是通过socket实现，server在某一个端口持续监听，客户端通过socket（IP+port）与 服务器建立连接
+        （serversocket.accept），成功建立连接之后，就可以使用socket中封装的InputStream和OutputStream进行IO交互了。
+        针对每个客户端，Server都会创建一个新线程专门用于处理
+        默认情况下，网络IO是阻塞模式，即服务器线程在数据到来之前处于阻塞状态，等到数据到达，会自动唤醒服务器线程，着手进行处理。阻塞模式下，一个线程只能处理一个流的IO事件
+        5种网络IO模型。 （单线程的数据最好是要精简）
+            阻塞IO，非阻塞IO，IO复用模型，信号驱动IO，异步IO模型
+            IO复用模型中包括：select模式，poll模式，epoll模式（event poll模式），其中epoll是select和poll模型的升级优化，使得一个线程可以最大限度，最高效的监听和响应更多路客户端的IO请求
+
+3.2     redis持久化重要说明    
+    redis数据存储模式只有两种
+        cache-only
+            只做为“缓存”服务，数据均在内存中，不持久化数据，服务停掉则数据全部丢失，且无恢复方法，高速但安全性低
+        persistence
+            数据不只是在内存中，还会以配置的持久化方式持久化到磁盘中，保证服务停止后数据还可以恢复
+            持久化方式选择
+                RDB：默认
+                    在某个条件番组后触发，一次性快照（snapshot）。将所有数据写入一个临时文件，持久化结束后，用这个临时文件替换上次持久化的文件，达到数据恢复。
+                    snapshot触发的时机，是有“间隔时间”和“变更次数”共同决定，同时符合2个条件才会触发snapshot，否则“变更次数”会被继续累加到下一个“间隔时间”上。
+                    snapshot过程上启动一个独立的子进程完成，故并不阻塞客户端请求。snapshot首先将数据写入临时文件，当成功结束后，将临时文件重命名为dump.rdb
+                    rdb优缺点说明：
+                        优点：
+                            文件紧凑
+                            形式简单即单rdb文件
+                            由子进程完全独立搞定对主进程无影响
+                            恢复速度快
+                        缺点：
+                            每次保存都是保存一个完整数据集的操作，持续时间可长可短，对丢失数据控制力不佳
+                            若数据量过大，造成CPU和IO压力大，会影响主线程服务性能
+                Append-only file（AOF）
+                    将“写操作+数据”以格式化指令的方式追加到操作日志文件的尾部，“日志文件”保存了历史所有的操作过程
+                    当server需要数据恢复时，可以直接replay此日志文件，即可还原所有的操作过程。
+                    由于aof操作是发生在后台异步线程执行，可以采用no文件同步（交给操作系统策略同步），每秒钟fsync同步一次，每个写入发生时fsync同步一次，默认为每秒同步一次。
+                    aof也不是绝对无数据丢失的：aof是写入内存cache，由后台线程按照aof策略执行fsync，极端情况下依然会丢失相应的数据
+                    aof优缺点说明：
+                        优点：
+                            数据持久化更及时，效果更好
+                            尾部追加方式，且为后台线程执行，效果很高，亦不影响主线程服务性能
+                            自动进行aof日志重写和替换，达到适时瘦身的效果
+                            日志文件为文本形式，易读易维护易修复
+                        缺点：
+                            aof日志文件体积一般比rdb方式要大
+                            在数据恢复时，aof的恢复速度一般是慢于rdb
+
+4.redis常用命令
+    redis设置密码
+        在redis.conf中，修改requirepass参数
+        requirepass xxxxxx
+        重新启动redis-server  ./redis-server ../redis.conf
+        客户端带密码连接
+        ./redis-cli -a xxxxxx
+        客户端先进入后命令验证
+        ./redis-cli
+        auth xxxxxx
+
+    key常用命令：（第11集）
+    set key value
+    get key
+    del key
+    dump key                 //返回key对应的序列化后的值
+    keys pattern            //常用的是keys *
+    exists key
+    expire key seconds        //给指定key设置失效时间
+    expireat key timestamp    //以截止时间为失效时间段(时间戳/s)
+    ttl key                 //返回剩余存活时间,-1为永久,-2为没有
+    randomkey                
+    rename key newkey
+    renamenx key newkey        //当newkey不存在时，将key改为newkey
+    type key                 
+
+5.hashmap常用命令
+    hset map1 k1 v1
+    hsetnx key field value
+    hvals key                 //获取其所有的key值
+    hexists key field        
+    hget key value
+    hgetall key    
+    hkeys key
+    hlen key                 //取得所有的键值
+    hmget key field1 [field2]...
+    hmset key field1 value1 [field2 value2]
+
+6.list常用命令以及生产者消费者模式的实现
+    lpush
+    lpushx
+    lrange key index_start index_stop    //获取指定范围的value
+    rpop key                 //移除并获取列表中最后一个参数
+    rpush
+    rpushx
+    llen key                 
+    lpop key                 //移除并获取列表中第一个参数
+    //这里用下面两个参数来实现生产者消费者。
+    //多开几个redis来模拟生产者消费者的意思,即1个先长时间阻塞住，另外几个来往里面生产
+    blpop key1 [key2] timeout    //移出并获取列表的第一个数,如果没有值取则阻塞timeout秒
+    brpop key1 [key2] timeout
+
+7.set和zset
+    set主要存储的是String类型. hash表实现
+    sadd key member1 [member2]
+    srem key member1 [member2]     //删除
+    sismember key member             //判断key在set里面是否存在
+    smembers key                     //返回所有成员
+    smove A B member
+    spop key
+    sunion key1 [key2]                 //返回指定所有集合的并集
+    sunionstore C key1 [key2]         //并集后存储到C集合
+    sinter key1 [key2]
+    scard key                         //获取集合成员数
+    sdiffstore C key1 [key2]        //差集，存到C
+    sinterstore C key1 [key2]
+
+    zset（SortedSet）有序集合
+    跟set比多了一个double的分数参数,从小到大排序
+
+    zadd key score value
+    zcard key
+    zcount key min max                //计算有序集合中指定区间分数的成员数
+    zincrby key increment member     //对指定成员的分数加上增量increment
+    zinterstore C numbkeys key[key...]        //交集，C
+    zlexcount key min max             //计算指定字典区间内成员数
+    (- + 指全部； [:指定特定值)
+    zrange key start stop             //通过索引区间返回有序集合内指定区间内成员
+    zrangebylex key min max         //通过字典区间返回成员
+    zrank key member                 //返回指定成员的索引
+    zrem
+    zscore key member                 //返回有序集中成员的分数值
+    ...
+
+8.使用HyperLogLog结构做高效基数统计
+    基数这里就是去重的意思
+    1.硬统计-hashset （1000万个）
+    2.bitset：位图：-bloomfilter
+    3.概率统计基数：极小的空间，通过概率方式求出巨大数量的一个基数结果，reg：几十亿。但是不够精准。
+    在1%标准误差范围内，可以用该结构。
+    优点：输入元素的数量或者体积非常非常大时，计算基数所需的空间总是固定的，且很小的。每个HyperLogLog键只需要12KB内存，即可计算近2^64个不同元素的基数。且其所占存储空间并不是线性增长的。
+    只计算基数，并不存储数据本身，故不能查看元素。
+    pfadd hyper1 v1 v2 v3
+    pfcount hyper1 (reg:统计网站的UV信息等)
+
+
+redis事务
+    可以理解为批量执行单条命令。而且中间不会被其它事物打断。
+    multi
+    set k1 v1
+    set k2 v2
+    set k2 v3
+    exec     (上面命令批量执行)
+    multi
+    set k1 v1
+    discard     //取消事务，取消set k1 v1 这个块的命令
+
+    redis连接服务器操作
+    echo &quot;123&quot;
+    ping 127.0.0.1             //PONG代表OK
+    quit
+    select index             //切换到指定的数据库，默认有16个数据库，默认选择索引为0的数据库
+    bgrewriteaof
+    ...
+    dbsize
+    flushall         清空所有数据库key
+    flushdb            清空当前数据库key
+    lastsave
+    monitor            调试时用,监控
+    save
+    shudown
+    slaveof host port     将当前服务器变为指定服务器的从属服务器
+
+    slaveof 127.0.0.1 6379 -a tianliangedu
+
+
+java操作redis
+    ·java操作redis的第三方库jedis
+
+com.utils 
+public class RedisUtil{
+    main(){
+        //连接本地的Redis服务
+        Jedis jedis = new Jedis(&quot;localhost&quot;,6379);
+        jedis.auth(&quot;tianliangedu&quot;);
+        //查看服务是否运行
+        sout(&quot;服务正在运行：&quot; + jedis.ping());
+        //添加kv
+        jedis.set(&quot;jedis_k1&quot;,&quot;jedis_v1&quot;);
+        sout(jedis.get(&quot;jedis_k1&quot;));
+        //添加集合
+        jedis.hset(&quot;set1&quot;,&quot;set_k1&quot;,&quot;set_v1&quot;);
+        sout(jedis.hget(&quot;set1&quot;,&quot;set_k1&quot;));
+    }
+}
+
+6.redis使用场景
+    ·加速数据库访问
+        ·缓存一些静态数据 (不需要去mysql数据库里查)
+        ·缓存一些不经常变化数据
+        ·缓存一些高耗时计算的数据
+        ·缓存一些预计算的数据
+        ·充当中间件，做系统模块或子系统之间的解耦使用。(可以不用http通信)
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+            <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>期待您的评论-------------</div>
+
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Demo-Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="prayer007007.github.io/2018/09/10/Redis学习笔记01/" title="Redis学习笔记01">prayer007007.github.io/2018/09/10/Redis学习笔记01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/算法学习笔记01-Java实现/" rel="next" title="算法学习笔记01--Java实现">
+                <i class="fa fa-chevron-left"></i> 算法学习笔记01--Java实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/10/scrapy学习笔记01/" rel="prev" title="scrapy学习笔记01">
+                scrapy学习笔记01 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTU2NS8xNjA5Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Demo-Mr Wang</p>
+              <p class="site-description motion-element" itemprop="description">Technical exchange</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=110
+           src="//music.163.com/outchain/player?type=0&id=2059024220&auto=1&height=90"></iframe>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/prayer007007" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1264827907@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/u013205428" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chuangzaoshi.com/code" title="创造狮导航" target="_blank">创造狮导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://e.xitu.io/" title="掘金酱" target="_blank">掘金酱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="印记中文" target="_blank">印记中文</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+
+  <span class="author" itemprop="copyrightHolder">Demo-Mr Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">326k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">4:56</span>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    
+  
+
+  
+    
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/09/10/Redis学习笔记01/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

