@@ -1,0 +1,3700 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "360cefba"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1.能完成Hadoop安装,配置和管理 2.熟悉数据传递 3.制定数据集成方案 4.向Hadoop提交作业以及查询作业运行情况 5.Map-Reduce原理,能书写Map-Reduce程序 6.HDFS原理,对HDFS中的文件进行管理 7.完成pig安装且利用pig做简单的数据分析工作 8.Hbase安装和配置 9.Hbase原理并能进行简单的shell操作 10.完成Hive安装和配置 11.H">
+<meta name="keywords" content="Java,笔记,大数据,Hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据学习笔记00-hadoopNote">
+<meta property="og:url" content="prayer007007.github.io/2018/09/11/大数据学习笔记00-hadoopNote/index.html">
+<meta property="og:site_name" content="Demo`s Blog">
+<meta property="og:description" content="1.能完成Hadoop安装,配置和管理 2.熟悉数据传递 3.制定数据集成方案 4.向Hadoop提交作业以及查询作业运行情况 5.Map-Reduce原理,能书写Map-Reduce程序 6.HDFS原理,对HDFS中的文件进行管理 7.完成pig安装且利用pig做简单的数据分析工作 8.Hbase安装和配置 9.Hbase原理并能进行简单的shell操作 10.完成Hive安装和配置 11.H">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-11T01:49:57.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据学习笔记00-hadoopNote">
+<meta name="twitter:description" content="1.能完成Hadoop安装,配置和管理 2.熟悉数据传递 3.制定数据集成方案 4.向Hadoop提交作业以及查询作业运行情况 5.Map-Reduce原理,能书写Map-Reduce程序 6.HDFS原理,对HDFS中的文件进行管理 7.完成pig安装且利用pig做简单的数据分析工作 8.Hbase安装和配置 9.Hbase原理并能进行简单的shell操作 10.完成Hive安装和配置 11.H">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demo`s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="prayer007007.github.io/2018/09/11/大数据学习笔记00-hadoopNote/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>大数据学习笔记00-hadoopNote | Demo`s Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/prayer007007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/prayer007007" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demo`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">one world one dream</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="prayer007007.github.io/2018/09/11/大数据学习笔记00-hadoopNote/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demo-Mr Wang">
+      <meta itemprop="description" content="Technical exchange">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demo`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据学习笔记00-hadoopNote
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-11 09:49:14 / 修改时间：01:49:57" itemprop="dateCreated datePublished" datetime="2018-09-11T09:49:14Z">2018-09-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/" itemprop="url" rel="index"><span itemprop="name">技能</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/大数据/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/大数据/基础/" itemprop="url" rel="index"><span itemprop="name">基础</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/大数据/基础/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">53k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">48 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>1.能完成Hadoop安装,配置和管理
+2.熟悉数据传递
+3.制定数据集成方案
+4.向Hadoop提交作业以及查询作业运行情况
+5.Map-Reduce原理,能书写Map-Reduce程序
+6.HDFS原理,对HDFS中的文件进行管理
+7.完成pig安装且利用pig做简单的数据分析工作
+8.Hbase安装和配置
+9.Hbase原理并能进行简单的shell操作
+10.完成Hive安装和配置
+11.Hive原理及进行HiveQL操作
+</code></pre><a id="more"></a>    
+<pre><code>实验环境:
+ESXi(虚拟化软件,可以把一台服务器模拟成多台虚拟机),可以在上面部署10多台虚拟机,能同时启动4台
+PC:要求linux环境或windows+Cygwin,linux可以是standalone或者使用虚拟机
+SSH:windows下可以使用SecureCRT或putty等ssh client程序,作用是用来远程连接linux服务器,linux吓哭可以直接使用ssh命令
+Vmware client:用于管理ESXi
+Hadoop:使用0.20.2
+
+
+Hadoop的思想之源:Google
+Google搜索引擎,Gmail,安卓,AppspotGoogle Maps,Google earth,Google学术,Google翻译,Google+
+
+集装箱数据中心
+
+
+Google面对的数据和计算难题:
+大量的网页怎么存储?
+搜索算法
+Page-Rank计算问题
+
+
+倒排索引:
+按字,词来存储,利用字典调用
+
+
+Page Rank:
+这是Google最核心的算法,用于给每个网页价值评分,是Google&quot;在垃圾中找黄金的关键算法
+
+
+Map-reduce思想:计算PR
+PageRank Map()
+
+
+Google带给我们的关键技术和思想:
+GFS
+Map-Reduce
+Bigtable
+
+
+Hadoop的源起--Lucene
+Doug Cutting开创的开源软件,用java书写代码,实现与Google类似的全文搜索功能,它提供了全文检索引擎的架构,
+包括完整的查询引擎和索引引擎.
+早期发布在个人网站和SourceForge,2001年年底成为apache软件基金会jakarta的一个子项目
+Lucene的目的是为软件开发人员提供一个简单易用的工具包,以方便在目标系统中实现全文检索的功能,
+或者是以此为基础建立起完整的全文检索引擎
+对于大数量的场景,Lucene面对与Google同样的困难.迫使Doug Cutting学习和模仿Google解决这些问题的办法
+一个微缩版:Nutch
+
+
+从Lucene到Nutch,从nutch到hadoop
+2003-2004年,Google公开了部分GFS和Mapreduce思想的细节,以此为基础Doug Cutting等人用了2年业余时间实现了
+DFS和Mapreduce机制,使Nutch性能飙升
+Yahoo招安Doug Cutting及其项目
+Hadoop于2005年秋天作为Lucene的子项目Nutch的一部分正式引入Apache基金会.2006年3月份,
+Map-Reduce和Nutch Distributed File System (NDFS)分部被纳入称为Hadoop的项目中
+名字来源于Doug Cutting儿子 的玩具大象
+
+
+目前Hadoop达到的高度:
+实现云计算的事实标准开源软件
+包含数十个具有强大生命力的子项目
+已经能在数千节点上运行,处理数据量和排序时间不断打破世界纪录
+
+
+Hadoop子项目家族:
+HBase(low数据库,面向数据分析,按列来存放数据,可做分布式集群) Pig(轻量级语言,转成MapReduce的转换器) Hive(相当于MapReduce的映射器,SQL相关) Chukwa(数据集成工具,日志定时抓取等)
+MapReduce HDFS(分布式文件系统) Zoo Keeper(负责服务器节点及服务器通讯)
+核心层: Core Avro
+
+
+Hadoop架构:
+Client-&gt;Switch-&gt;1000Mbit-&gt;Switch-&gt;后台进程(DataNode数据节点等)-&gt;Rack
+              -&gt;1000Mbit-&gt;Switch-&gt;hadoop后台进程(JobTacker,Namenode,DataNode等)-&gt;Rack
+
+Namenode:
+HDFS的守护程序
+纪录文件是如何分割成数据块的,以及这些数据块被存储到哪些节点上
+对内存和I/O进行集中管理
+是个单点,发生故障将使集群崩溃
+
+Secondary Namenode:
+监控HDFS状态的辅助后台程序
+每个集群都有一个
+与NameNode进行通讯,定期保存HDFS元数据快照
+当NameNode故障可以作为备用NameNode使用
+
+DataNode:
+每台从服务器都运行一个
+负责把HDFS数据块读写到本地文件系统
+
+小数据仓库:sinff
+
+JobTracker:
+用于处理作业(用户提交代码)的后台程序
+决定有哪些文件参与处理,然后切割task并分配节点
+监控task,重启失败的task(于不同的节点)
+每个集群只有唯一一个JobTracker,位于Master节点
+
+TaskTracker:
+位于slave节点上,与datanode结合(代码与数据一起的原则)
+管理各自节点上的task(由jobtracker分配)
+每个节点只有一个tasktracker,但一个tasktracker可以启动多个JVM,用于并行执行map或reduce任务
+与jobtracker交互
+
+Master与Slave:
+Master:Namenode,Secondary,Namenode,Jobtracker.浏览器(用于观看管理界面),其它Hadoop工具
+Slave:Tasktracker,DataNode
+Master不是唯一的.
+(学习的话:装虚拟机可以装3个节点)
+
+
+场景:电信运营商信令分析与监测:
+原数据库服务器配置:HP小型机,128G内存,48颗CPU,2节点RAC,其中一个节点用于入库,另外一个节点用于查询
+存储:HP虚拟化存储,&gt;1000个盘
+数据库架构采用Oracle双节点RAC
+问题:1.入库瓶颈,2.查询瓶颈
+
+
+数据分析者面临的问题:
+数据日趋庞大,无论是入库和查询,都出现性能瓶颈
+用户的应用和分析结果呈整合趋势,对实时性和响应时间要求越来越高
+使用的模型越来越复杂,计算量指数级上升
+
+
+数据分析者期待的解决方案:
+完美解决性能瓶颈,在可见未来不容易出现新瓶颈
+过去所拥有的技能可以平稳过渡.比如SQL,R
+转移平台的成本有多高?平台软硬件成本,再开发成本,技能再培养成本,维护成本.
+
+
+Why not Hadoop?
+Java?
+难以驾驭?
+数据集成困难?
+Hadoop vs Oracle
+
+//第4集
+
+一般存:对象,标识号等
+参考书:&lt;实战Hadoop&gt;&lt;Hadoop实战&gt;&lt;HDFS&gt;
+
+准备与配置安装环境:
+安装虚拟机和linux,虚拟机推荐使用vmware,pc可以使用workstation,服务器可以使用ESXi,在管理上比较方便.ESXi还可以通过拷贝镜像文件复制虚拟机,复制后自动修改网卡号和ip,非常便捷.如果只是实验用途,硬盘大约预留20-30G空间.
+以Centos为例,分区可以选择默认,安装选项选择Desktop Gnome,以及Server,Server GUI即可.其它Linux,注意选项里应包括ssh,vi(用于编辑配置文件),perl等(有些脚本里包含perl代码需要解析)
+到Oracle官网下载java jdk安装包,并且进行安装.
+(ESXi是专门做虚拟机的)(服务器群节点之间要用ssh连接)
+
+三种运行模式:
+单机模式:安装简单,几乎不用作任何配置,但仅限于调式用途
+伪分布模式:在单节点上同时启动namenode,datanode,jobtracker,tasktracker,secondary namenode等5个进程,模拟分布式运行的各个节点
+完全分布式模式:正常的Hadoop集群,由多个各司其职的节点构成(至少3个节点)
+
+伪分布式模式的安装和配置步骤:
+下载并解压Hadoop安装包,为了和教材一致,选用了0.20.2版本
+进入Hadoop的解压目录,编辑conf/hadoop-env.sh文件(注意0.23版后配置文件的位置有所变化)
+编辑conf目录下core-site.xml,hdfs-site.xml和mapred-site.xml三个核心配置文件
+配置ssh,生成秘钥,使到ssh可以免密码连接localhost
+格式化HDFS
+使用bin/start-all.sh启动Hadoop
+使用bin/stop-all.sh关闭Hadoop
+
+mirror.bit.edu.cn/apache/hadoop/common/hadoop-0.20.2/
+hadoop-0.20.2.tar.gz
+tar xzvf hadoop-0.20.2
+
+Hadoop配置文件:
+hadoop-env.sh   bash脚本  在运行Hadoop的脚本中使用的环境变量
+core-site.xml   Hadoop配置XML   Hadoop核心的配置,例如HDFS和MapReduce中很普遍的I/O设置
+hdfs-site.xml   Hadoop配置XML   HDFS后台程序设置的配置:名称节点,第二名称节点和数据节点
+mapred-site.xml   Hadoop配置XML   MapReduce后台程序设置的配置:jobtracker和tasktracker
+masters   纯文本   记录运行第二名称节点的机器(一行一个)的列表
+slaves    纯文本   记录运行数据节点和tasktracker的机器(一行一个)的列表
+hadoop-met  Java属性  控制Hadoop怎么发布metrics的属性
+rics.properties   
+log4.properties  Java属性  系统日志文件的属性,名称节点审计日记和tasktracker子进程的日志和属性.
+
+hadoop-env.sh:去掉前面的#并接着配置该行export JAVA_HOME=/usr/java/jdk1.6.0_26
+修改hadoop-env.sh,详细设置参见《权威指南》p269
+
+修改core-site.xml文件
+&lt;configuration&gt;
+&lt;property&gt;
+&lt;name&gt;fs.default.name&lt;/name&gt;
+&lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;
+
+fs.default.name  NameNode的IP地址和端口
+
+修改hdfs-site.xml文件:
+&lt;property&gt;
+&lt;name&gt;dfs.data.dir&lt;/name&gt;
+&lt;value&gt;/usr/hadoop-0.20.2/datat&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.replication&lt;/name&gt;
+&lt;value&gt;1&lt;/value&gt;
+&lt;/property&gt;
+
+dfs.replication:数据块复制多少份(节点数0
+
+hdfs-site.xml文件中常用配置参数:
+dfs.name.dir  用逗号隔开的目录名 ${hadoop.tmp.dir}/dfs/name  存储名称节点永久元数据的目录的列表.名称节点在列表中的每一个目录下存储着元数据的副本
+dfs.data.dir  用逗号隔开的目录名  ${hadoop.tmp.dir}/dfs/name  数据节点存储块的目录的列表
+fs.checkpoint.dir  用逗号隔开的目录名  ${hadoop.tmp.dir}/dfs/namesecondary  查第二名称节点用来存储检查点的目录的列表.它在列表的每一个目录下存储着检查点的副本
+
+注意:HDFS的存储目录默认在Hadoop的临时目录下(hadoop.tmp.dir属性,其默认目录是/tmp/hadoop-${user.name}).所以这些属性的设置很重要,可保证数据在系统清空临时目录时不会丢失.
+
+修改mapred-site.xml文件
+&lt;property&gt;
+&lt;name&gt;mapred.job.tracker&lt;/name&gt;
+&lt;value&gt;localhost:9001&lt;/valu&gt;
+&lt;/property&gt;
+(作业跟踪器位置,是redis提交的核心)
+
+生成ssh秘钥对
+cd /root
+ssh-keygen -t rsa (创建一对秘钥,公钥和私钥)
+y
+cd .ssh
+cp id_rsa.pub authorized_keys
+(用公钥加密的必须要用私钥 去解,用私钥加密必须用公钥解密)
+(因式分解在时间上产生的不对称算法,RSA)
+(cp行命令可以执行免密码连接)
+
+ssh原理:
+客户端向服务器端发出连接请求
+服务器端向客户端发出自己的公钥
+客户端使用服务器端的公钥加密通讯密钥然后发给服务器端
+如果通讯过程被截获,由于窃听者即使获知公钥和经过公钥加密的内容,但不拥有私钥依然无法解密(RSA算法)
+服务器端接收到密文后,用私钥解密,获知通讯密钥
+ssh-keygen命令给服务器端产生公钥密钥对,cp命令将服务器端公钥复制到客户端(注意在伪分布模式下服务器端和客户端是同一台机器),因此客户端本身就拥有了服务器端公钥,可以直接进行免密码接入
+
+//第6节
+完全分布式模式的安装和配置
+配置hosts文件 (对主机名进行解析)
+建立hadoop运行账号
+配置ssh免密码连入
+下载并解压hadoop安装包
+配置namenode,修改site文件
+配置hadoop-env.sh
+配置masters和slaves文件
+向各节点复制hadoop
+格式化namenode
+启动hadoop
+用jps检验各后台进程是否成功启动
+
+配置hosts文件:
+所有的节点都修改/etc/hosts,使彼此之间都能把主机名解析为ip
+192.168.1.102   h1
+192.168.1.103   h2
+192.168.1.104   h3
+192.168.1.163   dog
+192.168.1.162   cat
+192.168.1.161   gangster
+ping h1时则显示192.168.1.10
+
+建立hadoop用户:
+在所有的节点上都建立运行hadoop的专用用户grid
+passwd grid
+123456
+
+ssh配置:
+注意要以grid用户登录,在grid用户的主目录下进行操作
+每个节点作相同操作
+[grid]$ ssh-keygen -t rsa
+cp id_rsa.pub authorized_keys
+
+分发ssh公钥
+把各个节点的authorized_keys的内容互相拷贝加入到对方的此文件中,然后就可以免密码彼此ssh连入
+
+ssh-rsa AAAAB3NzaC1....==grid@h2
+ssh-rsa AAAAB3NzaC1....==grid@h1
+ssh-rsa AAAAB3NzaC1....==grid@h3
+
+下载hadoop压缩包并解压
+cp hadoop-0.20.2.tar.gz /home/grid
+scp hadoop-0.20.2.tar.gz grid@h2:/home/grid
+scp hadoop-0.20.2.tar.gz grid@h3:/home/grid
+
+在namenode上配置hadoop:
+同步骤修改配置文件
+修改masters和slaves文件,记录集群中各个节点
+向各节点分发hadoop
+格式化namenode
+在namenode上启动守护进程,系统会自动到各个节点启动相应的进程
+
+修改masters:
+conf]# vi masters
+h1
+修改slaves:
+conf]# vi slaves
+h2
+h3
+
+向各节点复制hadoop
+scp -r ./hadoop-0.20.2 h2:/home/grid
+scp -r ./hadoop-0.20.2 h3:/home/grid
+
+格式化分布式文件系统:
+bin/hadoop namenode -format
+(建立结构来存放元数据)
+... has been successfully则成功
+
+启动守护进程
+cd hadoop-0.20.2
+bin/start-all.sh(启动脚本)
+y
+
+检测守护进程启动情况
+h1]# ls /usr/java/jdk1.6.0_26/bin/jps
+h1]# /usr/java/jdk1.6.0_26/bin/jps(观看跟java有关的进程信息)
+JobTracker作业跟踪器进程
+NameNode节点进程
+SecondaryNameNode辅助名称节点进程
+
+h2]# /usr/java/jdk1.6.0_26/bin/jps(观看跟java有关的进程信息)
+Jps
+DataNode
+TaskTracker
+
+Windows下安装hadoop:
+下载及安装unix仿真工具cygwin
+安装java
+修改系统环境变量
+启动cygwin,在仿真终端下解压hadoop
+配置openssh
+后续步骤与linux情形雷同
+下载和安装Cygwin
+安装时一定要选择vi,openssh,perl等
+...
+
+//第7节
+hadoop数据分析平台:
+hello,world
+对刚安装好的hadoop集群做个测试
+mkdir input
+cd input
+echo &quot;hello world&quot; &gt;test1.txt
+echo &quot;hello hadoop&quot; &gt; test2.txt
+cd ../hadoop-0.20.2
+bin/hadoop dfs -put ../input in
+bin/hadoop dfs -ls ./in/*\
+
+echo(输出到屏幕)
+&gt; 重定向到..
+dfs表示进行的分布式的操作
+-put 放到位置
+in 这里的一个新目录
+
+结果:
+/user/grid/in/test1.txt这里是固定写法,与linux路径不一样
+
+测试:
+bin/hadoop jar hadoop-0.20.2-exampples.jar wordcount in out
+
+测试结果:
+bin/hadoop dfs -ls ./out
+bin/hadoop dfs -cat ./out/*
+如果前面权限有d,则表示是一个目录
+
+通过web了解Hadoop的活动:
+通过用浏览器和http访问jobtracker所在节点的50030端口监控jobtracker
+通过用浏览器和http访问namenode所在节点的50070端口监控集群
+
+jobtracker
+
+数据写在哪儿(从OS看)
+
+//第8课
+HDFS设计基础与目标
+硬件错误是常态,因此需要冗余
+流式数据访问,即数据批量读取而非随机读写,Hadoop擅长做的是数据分析而不是事务处理
+大规模数据集
+简单一致性模型.为了降低系统复杂度,对文件采用一次性写多次读的逻辑设计,即是文件一经写入,关闭,就再也不能修改
+程序采用&quot;数据就近&quot;原则分配节点执行
+
+HDFS体系结构:
+NameNode
+DataNode
+事务日志
+映像文件
+SecondaryNameNode
+
+Namenode
+管理文件系统的命名空间
+记录每个文件数据块在各个Datanode上的位置和副本信息
+协调客户端对文件的访问
+记录命名空间内的改动或空间本身属性的改动
+Namenode使用事务日志记录HDFS元数据的变化.使用映像文件存储文件系统的命名空间,包括文件映射,文件属性等.
+(类似目录)
+
+Datanode:
+负责所在物理节点的存储管理
+一次写入,多次读取(不修改)
+文件由数据库组成,典型的块大小是64MB
+数据块尽量散布到各个节点
+
+读取数据流程:
+客户端要访问HDFS中的一个文件
+首先从namenode获得组成这个文件的数据块位置列表
+根据列表知道存储数据块的datanode
+访问datanode获取数据
+Namenode并不参与数据实际传输
+
+HDFS的可靠性:
+冗余副本策略
+机架策略
+心跳机制
+安全模式
+校验和
+回收站
+元数据保护
+快照机制
+
+冗余副本策略:
+可以在hdfs-site.xml中设置复制因子指定副本数量
+所有数据块都有副本
+Datanode启动时,遍历本地文件系统,产生一份hdfs数据块和本地文件的对应关系列表(blockreport)汇报给namenode
+
+机架策略:
+集群一般放在不同机架上,机架间带宽要比机架内带宽要小
+HDFS的&quot;机架感知&quot;
+一般在本机架存放一个副本,在其它机架再存放别的副本,这样可以防止机架失效时丢失数据,也可以提高带宽利用率
+
+心跳机制:
+Namenode周期性从datatnode接收心跳信号和块报告
+Namenode根据块报告验证元数据
+没有按时发送心跳的datanode会被标记为宕机,不会再给它任何I/O请求
+如果datanode失效造成副本数量下降,并且低于预先设置的阈值,namenode会检测出这些数据块,并在合适的时机进行重新复制
+引发重新复制的原因还包括数据副本本身损坏,磁盘错误,复制因子被增大等
+
+安全模式;
+Namenode启动时会先经过一个&quot;安全模式&quot;截断
+安全模式阶段不会产生数据写
+在此阶段Namenode收集各个datanode的报告,当数据块达到最小副本数以上时,会被认为是&quot;安全&quot;的.
+在一定比例(可设置)的数据块被确定为&quot;安全&quot;后,再过若干时间,安全模式才会结束
+当检测到副本数不足的数据块时,该块会被复制直到达到最小副本数
+
+校验和:
+在文件创立时,每个数据块都产生校验和
+校验和会作为单独一个隐藏文件保存杂命名空间下
+客户端获取数据时可以检查校验和是否相同,从而发现数据块是否损坏
+如果正在读取的数据块损坏,则可以继续读取其它副本
+
+回收站:
+删除文件时,其实是放入回收站/trash
+回收站里的文件可以快速恢复
+可以设置一个时间阈值,当回收站里文件的存放时间超过这个阈值,就会被彻底删除,并且释放占用的数据块
+
+元数据保护:
+映像文件刚和事务日志是Namenode的核心数据.可以配置为拥有多个副本
+副本会降低Namenode的处理速度,但增加安全性
+Namenode依然是单点,如果发生故障要手工切换
+
+快照:
+支持存储某个时间点的映像,需要时可以使数据重返这个时间点的状态
+Hadoop目前还不支持快照,已经列入开发计划
+
+//第9课
+HDFS文件操作:
+命令行方式
+API方式
+
+注意,hadoop没有当前目录的概念,也没有cd命令
+
+上传文件到HDFS
+bin/hadoop dfs -put ../abc abc
+
+将HDFS的文件复制到本地
+bin/hadoop dfs -get ./abc ./xyz
+
+删除HDFS下的文档
+bin/hadoop dfs -rmr abc
+
+查看HDFS下某个文件的内容
+~
+查看HDFS基本统计信息:
+bin/hadoop dfsadmin -report (分布式管理命令)
+
+进入和退出安全模式:
+bin/hadoop dfsadmin -safemode enter
+bin/hadoop dfsadmin -safemode leave
+
+怎样添加节点?
+在新节点安装好hadoop
+把namenode的有关配置文件复制到该节点
+修改masters和slaves文件,增加该节点
+设置ssh免密码进出该节点
+单独启动该节点上的datanode和taskrracker(hadoop-daemon.sh start datanode/tasktracker)
+运行start-balancer.sh进行数据负载均衡
+
+启动某些特定后台进程而非所有后台进程:
+Start-all.sh的内容
+bin=&apos;dirname&apos; &quot;$0&quot;&apos;
+bin=&apos;cd &quot;$bin&quot;: pwd&apos;
+.&quot;$bin&quot;/hadoop-config.sh
+# start dfs daemons
+&quot;$bin&quot; /start-dfs.sh --config $HADOOP_CONF_DIR
+# start mapred daemons
+&quot;$bin&quot; /start-mapred.sh --config $HADOOP_CONF_DIR
+
+负载均衡:
+作用:当节点出现故障,或新增加节点时,数据块分布可能不均匀,负载均衡可以重新平衡各个datanode上数据块的分布
+
+HDFS API:
+
+java程序中完成hadoop:
+上传本地文件到HDFS
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileStatus;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+public class CopyFile{
+  public static void main(String[] args) throws Exception{
+    Configuration conf=new Configuration();
+    //conf.addResource(new Path(&quot;conf//hadoop-default.xml&quot;));
+    //conf.addResource(new Path(&quot;conf/hadoop-site.xml&quot;));
+    FileSystem hdfs=FileSystem.get(conf);
+    Path src=new Path(&quot;C:\\Users\\Administrator\\Desktop\\JDK_API_1_6_zh_CN.CHM.1&quot;);//要拷贝的原文件所在
+    Path dst=new Path(&quot;/&quot;);
+    hdfs.copyFromLocalFile(src,dst);
+    sout(&quot;upload to&quot;+conf.get(&quot;fs.defallt.name&quot;));
+    FileStatus files[]=hdfs.listStatus(dst);//列出文件
+    for(FileStatus file:files){
+      sout(file.getPath());
+    }
+  }
+}
+
+创建HDFS文件:
+public class CreateFile{
+  pvsm{
+    Configuration conf=new Configuration();
+    byte[] buff=&quot;hello world&quot;.getBytes();
+    FileSystem hdfs=FileSystem.get(conf);
+    Path dfs=new Path(&quot;/test&quot;);
+    FSDataOutputStream outputStream=hdfs.create(dfs);
+    outputStream.write(buff,0,buff.length);
+  }
+}
+
+重命名HDFS文件:
+Path frpath=new Path(&quot;/test&quot;);
+Path topath=new Path(&quot;/test1&quot;);
+boolean isRename=hdfs.rename(frpath,topath);
+
+查看HDFS文件的最后修改时间:
+Path fpath=new Path(&quot;/test1&quot;);
+FileStatus fileStatus=hdfs.getFileStatus(fpath);
+long modificationTime=fileStatus.getModificationTime();
+sout(&quot;Modification time is:&quot;+modificationTime);
+
+
+//第10课 Map Reduce
+Map-Reduce编程模型:
+&lt;hadoop权威指南&gt;p31,2.1气象数据集:
+ls|wc -l
+zcat xxx.gz |less  (less可以分屏显示)
+(zcat *.gz &gt;abc 可以将文件名统一放在一个文件下)
+
+先将数据进行编译处理,通过前方的数字来找到后方的行
+再抽取需要的数字
+再变成(key,value)格式
+求最值出来
+输出结果
+
+Input-&gt;map-&gt;shuffle-&gt;reduce-&gt;output
+           (压缩数据)(reduce前的预处理)(有一些也可以没有这一步)
+reduce:将shufile通过网络copy到某一个或几个节点,称为reducer-&gt;merge汇总-&gt;HDFS
+
+没有Map-Reduce编程:
+复杂的Map-Reduce编程
+
+Mapper:
+Map-reduce的思想就是&quot;分而治之&quot;
+Mapper负责&quot;分&quot;,即把复杂的任务分解为若干个j&quot;简单的任务&quot;执行
+&quot;简单的任务&quot;有几个含义:1.数据或计算规模相对于原任务要大大缩小;
+2.就近计算,即会被分配到存放了所需数据的节点进行计算;3.这些小任务可以并行计算,彼此间几乎没有依赖关系
+
+Reducer:
+对map阶段的结果进行汇总
+Reducer的数目由mapred-site.xml配置文件里的项目mapred.reduce.tasks决定,缺省值为1,用户可以覆盖之
+
+Shuffler:
+在mapper和reducer中间的一个步骤(可以没有)
+可以把mapper的输出按照某种key值重新切分和组合成n份,把key值符合某种范围的输出送到特定的reducer那里去处理
+可以简化reducer过程
+
+//第11课
+M-R的现实例子:
+
+流程原理图:
+hello world -&gt;分割-&gt;&lt;0,&quot;hello world&quot;&gt;-&gt;分割结果:&lt;0,&quot;hello world&quot;&gt;-&gt;map[]:&lt;hello,1&gt;&lt;world,1&gt;&lt;bye,1&gt;&lt;world,1&gt;
+bye world
+分割过程:
+&lt;hello,1&gt;&lt;world,1&gt;&lt;bye,1&gt;&lt;world,1&gt;
+-&gt;map端排序
+-&gt;&lt;bye,1&gt;&lt;hello,1&gt;&lt;world,1&gt;&lt;world,1&gt;
+-&gt;Combine过程
+-&gt;&lt;bye,1&gt;&lt;hello,1&gt;&lt;world,2&gt;
+-&gt;reduce:将结果汇总到一个里面
+
+mapper:
+public static class TokenizerMapper extends Mapper&lt;Object,Text,Text,IntWritable&gt;{
+  private final static IntWritable one=new IntWritable(1);
+  private Text word=new Text();
+  public void map(Object key,Text value,Context context)throws IOException,InterruptedException{
+    sout(&quot;key=&quot;+key.toString());//添加查看key值
+    sout(&quot;value=&quot;+value.toString());//添加查看value值
+    StringTokenizer itr=new StringTokenizer(value.toString());
+    while(itr.hasMoreTokens()){
+     word.set(itr.nextToken());
+     context.write(word,one);
+    }
+  }
+}
+
+reducer:
+public static class IntSumReducer extends Reducer&lt;Text,IntWritable,Text,IntWritable&gt;{
+  private IntWritable result=new IntWritable();
+  public void reduce(Text key,Iterabnle&lt;IntWritable&gt; values,Context context)throws Exception,InterruptedExceptino{
+    int sum=0;
+    for(IntWritable val:values){
+      sum+=val.get();
+    }
+    result.set(sum);
+    context.write(key,result);
+  }
+}
+
+运行mapper和reducer:
+pvsm throws Exception{
+ Configuration conf=new Configuration();
+ String[] otherArgs=new GenericOptionsParser(conf,args).getRemainingArgs();
+ if(otherArgs.length!=2){
+   System.err.print(&quot;usage:wordcount&lt;in&gt;&lt;out&gt;&quot;);
+   System.exit(2);
+ }
+ Job job=new Job(conf,&quot;word count&quot;);
+ job.setJarByClass(WordCount.calss);
+ job.setMapperClass(TokenizerMapper.calss);
+ job.setCombinerClass(IntSumReducer.class);
+ job.setReducerClass(IntSumReducer.class);
+ job.setOutputKeyClass(Text.class);
+ job.setOutputValueClass(IntWritable.class);
+ FileInputFormat.addInputPath(job,new Path(otherArgs[0]));
+ FileOutputFormat.setOutputPath(job,new Path(otherArgs[1]));
+ System.exit(job.waitForCompletion(true)?0:1);
+
+}
+
+网络页面
+任务页面
+观看参数列表
+
+性能调优:
+究竟需要多个reducer?
+输入:大文件优于小文件
+减少网络传输:压缩map的输出
+优化每个节点能运行的任务数:mapred.tasktracker.map.tasks.maximum和mapred.tasktracker.reduce.tasks.maximum(缺省值均为2)
+
+//第12课
+Map-Reduce工作机制剖析
+(MapReduce program-&gt;run job-&gt;JobClient)(client JVM)
+-&gt;get new job ID -&gt;JobTracker
+client JVM-&gt;copy job-&gt;Shared FileSystem
+client JVM-&gt;submit job-&gt;JobTracker-&gt;initialize job(jobtracker node)
+jobtracker node-&gt;retrieve input splits-&gt;Shared FileSystem
+TaskTracker-&gt;heartbeat-&gt;JobTracker
+TaskTracker-&gt;retrieve job-&gt;Shared FilesSystem
+TaskTracker-&gt;launch-&gt;child JVM(Child)-&gt;run-&gt;MapTask or ReduceTask
+
+调度机制:
+缺省为先入先出作业队列调度
+支持公平调度器
+支持容量调度器
+
+任务执行优化:
+推测式执行:即如果jobtracker发现有拖后腿的任务,会再启动一个相同的备份任务,然后哪个先执行完就会kill去另外一个,因此在监控网页上经常能看到正常执行完的作业有被kill掉的任务
+推测式执行缺省打开,但如果是代码问题,并不能解决问题,而且会使集群更慢,通过在mapred-site.xml配置文件中设置mapred.map.tasks.speculative.execution和mapred.reduce.tasks.speculative.executino可为map任务或reduce任务开启或关闭推测式执行
+重用JVM,可以省去启动新的JVM消耗的时间,在mapred-site.xml配置文件中设置mapred.job.reuse.jvm.num.tasks设置单个JVM上运行的最大任务数(1,&gt;1或-1表示没有限制)
+忽略模式,任务在读取数据失败2次后,会把数据位置告诉jobtracker,后者重新启动该任务并且在遇到所记录的坏数据时直接跳过(缺省关闭,用SkipBadRecord方法打)
+
+错误处理机制:硬件故障:
+硬件故障是指jobtracker故障或tasktracker故障
+jobtracker是单点,若发生故障目前hadoop还无法处理,唯有选择最牢靠的硬件作为jobtracker
+jobtracker通过心跳(周期1分钟)信号了解tasktracker是否发生故障或负载过于严重
+jobtracker将从人物节点列表中移除发生故障的tasktracker
+如果故障节点在执行map任务并且尚未完成,jobtracker会要求其它节点重新执行此map任务
+如果故障节点在执行reduce任务并且尚未完成,jobtracker会要求其它节点继续执行尚未完成的reduce任务
+
+错误处理机制:任务失败
+由于代码缺陷或进程崩溃引起任务失败
+JVM自动退出,向tasktracker父进程发送方法错误信息,错误信息也会写入到日志
+Tasktracker监听程序会发现进程退出,或进程很久没有更新信息送回,将任务标记为失败
+标记失败任务后,任务计数器减去1以便接受新任务,并通过心跳信号告诉jobtracker任务失败的信息
+jobtrack获悉任务失败后,将把该任务重新放入调度队列,重新分配出去再执行
+如果一个任务失败超过4次(可以设置),将不会再背执行,同时作业也宣布失败.
+
+审计日志:
+把log4j.properties配置文件中的
+log4j.logger.org.apache.hadoop.fs.FSNamesystem.audit=WARN改为&quot;INFO&quot;可以打开审计日志.每个HDFS事件都会在namenode的log中写入一行记录
+
+Namenode日志
+
+监控日志:
+调整log4j日志级别:在监控网页的url后加上/logLevel
+
+第三方工具:
+Ganglia,Chukwa,Openstack
+
+
+....
+
+
+
+//第20课
+
+Hbase:列式数据库,有时间戳,便于利用时间查询的数据库
+
+修改并不会修改原先的数据,而是先添加一行,将xx列修改成yy值
+主要应用于HDFS系统. (不能改数据,只能建立一个文件删除一个文件)
+
+Hbase安装:单机模式:
+下载及解压Hbase安装包
+修改conf/hbase-env.sh脚本,设置环境变量
+编辑hbase-site.xml进行配置
+启动Hbase
+验证Hmaster已经启动
+进入shell
+
+下载:mirror.bjtu.edu.cn/apache/hbase/hbase-0.90.5/
+(版本号一定要选择好,百度)
+
+修改hbase-env.sh
+设置JAVA_HOME环境变量
+exprot JAVA_HOME=/usr/java/jdk1.6.0_26/
+
+配置hbase-site.xml
+先创建用于存放数据的目录/home/grid/hbase-0.90.5/data
+&lt;configuration&gt;
+&lt;property&gt;
+&lt;name&gt;hbase.rootdir&lt;/name&gt;
+&lt;value&gt;file:///home//grid/hbase-0.90.5/datat&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;
+
+启动Hbase及验证:
+hbase-0.90.5]$ bin/start-hbase.sh
+/usr/java/jdk1.6.0_26/bin/jps
+bin/hbase shell (验证)
+
+Hbase安装:伪分布模式:
+在单点模式的基础上继续
+编辑hbase-env.sh增加HBASE_CLASSPATH环境变量
+编辑hbase-site.xml打开分布模式
+覆盖hadoop核心jar包
+启动hbase
+验证启动
+
+编辑hbase-env.sh增加HBSE_CLASSPATH环境变量
+export HBASE_CLASSPATH=/home/grid/hadoop-0.20.2/conf
+
+编辑hbase-site.xml打开分布模式:
+&lt;configuration&gt;
+&lt;property&gt;
+&lt;name&gt;&lt;/name&gt;
+&lt;value&gt;&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;name&gt;hbase.cluster.distributed&lt;/name&gt;
+&lt;value&gt;true&lt;/value&gt;(打开分布式)
+&lt;/property&gt;
+&lt;/configuration&gt;
+
+覆盖hadoop核心jar包:
+这是关键的一步,主要目的是防止因为hbase和hadoop版本不同出现兼容问题,造成hmaster启动异常
+
+Hbase安装:完全分布模式:
+配置hosts,确保涉及的主机名均可以解析为ip
+编辑hbase-env.xml
+编辑hbase-site.xml
+编辑regionservers文件
+把Hbase复制到其它节点
+启动Hbase
+验证启动
+
+Web管理界面:
+可以访问:60010/master.jsp来验证
+
+//第21课
+shell数据管理与操作
+DML,DDL等操作
+hbase:&gt;help
+
+查询数据库状态:
+hbase(main):024:0&gt;status
+查询数据库版本
+version
+创建表:
+create &apos;member&apos;,&apos;member_id&apos;,&apos;address&apos;,&apos;infor&apos;
+memeber:表名
+member_id,address,info:列名
+查看表信息
+list
+describe &apos;member&apos; :与description类似
+删除列族:alter,disable,enable命令:
+alter &apos;member&apos;,{NAME=&gt;&apos;member_id&apos;,METHOD=&gt;&apos;delete&apos;}
+(如果表enabled打开时,删除表前需要先把表关闭)
+disable &apos;member&apos;
+alter ....
+enable &apos;member&apos;
+列出所有的表:list
+删除表:
+disable &apos;member&apos;
+drop &apos;member&apos;
+判断表是否enable或disable:
+is_enabled &apos;member&apos;   //返回true/false
+插入记录:
+put &apos;member&apos;,&apos;scutshuxue&apos;,&apos;info:age&apos;,&apos;24&apos;  //信息列组里面年龄是24
+put &apos;member&apos;,&apos;scutshuxue&apos;,&apos;info:birthday&apos;,&apos;1987-06-17&apos;
+put &apos;member&apos;,&apos;scutshuxue&apos;,&apos;address:contry&apos;,&apos;china&apos;
+put &apos;member&apos;,&apos;scutshuxue&apos;,&apos;address:city&apos;,&apos;hangzhou&apos;
+
+获取一个行健的所有数据
+get &apos;member&apos;,&apos;scutshuxue&apos;
+COLUMN            CELL
+address:city        timestamp=13215832434,vale=hangzhou  //数字表示时间戳
+info:age        timestamp=132224124124,value=24
+
+获取一个行健,一个列族的所有数据:
+get &apos;member&apos;,&apos;scutshuxue&apos;,&apos;info&apos;
+
+获取一个行健,一个列族中一个列的所有数据:
+get &apos;member&apos;,&apos;scutshuxue&apos;,&apos;info:age&apos;
+
+更新一条记录:
+put &apos;memeber&apos;,&apos;scutshuxue&apos;,&apos;info:age&apos;,&apos;99&apos;
+
+通过timestamp来获取数据
+get &apos;member&apos;,&apos;scutshuxue&apos;,{COLUMN=&gt;&apos;info:age&apos;,TIMESTAMP=&gt;14444444}
+
+全表扫描:
+scan &apos;member&apos;
+
+删除指定行健的字段:
+delete &apos;member&apos;,&apos;temp&apos;,&apos;info:age&apos;
+get &apos;member&apos;,&apos;temp&apos;
+
+删除整行:
+deleteall &apos;member&apos;,&apos;xiaoming&apos;
+
+查询表中有多少行:
+count &apos;member&apos;
+
+清空表:
+truncate &apos;member&apos;
+
+Hbase API 
+http://hbase.apache.org/apidocs/index.html
+
+//第22课
+
+什么情况下使用Hbase?
+成熟的数据分析主题,查询模式已经确立并且不轻易改变
+传统的关系型数据库已经无法承受负荷,高速插入,大量读取
+适合海量的,但同时也是简单的操作(例如key-value)
+
+查询语句确立下来的时候就可以使用Hbase
+reg:1.浏览历史
+
+关系型数据库的困难:
+简单的事情只要上了量就会变成无比复杂的事情
+Order by耗费很多性能
+大量发生,但又无法分布式处理
+顾客需要实时看到自己的足迹,因此不能使用缓存技巧
+
+缓存技巧:每天计算一个排名,并写到一个静态表里面,这样每天只更新一次就可以了.但是顾客看到的并不是实时的,是昨天的
+
+Hbase迎接挑战
+天生就是面向时间戳查询
+基于行键的查询异常快速,特别是最近的数据被放在内存的memstore里,完全没有IO开销
+分布式化解负荷  userid作为行键  当负荷增长的时候只需要分给节点就好
+
+模式设计
+行键:userid   不能自增分布,可以随机化,即不能1234,可以4321
+列族和列:book;bookid
+为了充分利用分布式,可以用reverse key,hash等技巧改造行键
+
+reg:2.商品推荐
+
+用关系型数据库实现
+http://f.dataguru.cn/thread-84-1-1.html
+拿ITPUB实验的
+阅读推荐说白了,就是你打开一个帖子,看到有一个提示写着读了本帖的人还读了xxx贴,有xx%读了xxx贴...等,这项功能也可以推广到商品推荐,音乐推荐,下载推荐等
+在ITPUB中设置了一个log表,记录每次用户点击,有3个列,分别是时间戳,用户id还有点击的主题id
+使用了一段时间的数据大约有1000万行,写了个sql搞定
+
+使用Hbase:表设计与查询实现
+两个表,一个是u-t,另一个是t-uploadU-t表的结构:行键为userid,列族和列为thread:threadid
+T-u表结构:行键为threadid,列族和列为user:userid
+查询:先从t-u表从threadid-&gt;userid,再在u-t表从userid-&gt;threadid,在计算程序中实现去重和统计功能
+
+//第23课
+
+辅助索引
+例子:学生表(学号,身份证号,姓名,性别,系,年龄),有时在学号上查询,有时在身份证号上查询
+主表:行键为学号,列族为学生,下面的列是身份证号,姓名,性别,系,年龄
+辅助(索引)表:行键为身份证号,列族和列为学号
+
+复合行键设计
+好处:便于分布 ; 便于多条件伸缩查询
+
+//第24课
+
+Pig
+Pig可以用看做hadoop的客户端软件,可以连接到hadoop集群进行数据分析工作
+Pig方便不熟悉java的用户,使用一种较为简便的类似于SQL的面向数据流的语言piglatin进行数据处理
+Pig latin可以进行排序,过滤,求和,分组和关联等常用操作,还可以自定义函数,这是一种面向数据分析处理的轻量级脚本.
+Pig可以看做是pig latin到map-reduce的映射器
+
+Pig框架
+automatic rewrite+optimize-&gt;SQL;Pig Latin;Map-Reduce-&gt;user    
+                            SQL;Pig Latin;Map-Reduce-&gt;cluster
+
+安装pig
+下载并解压pig安装包(http://pig.apache.org/)  pig-0.9.2.tar.gz
+设置环境变量
+进入grunt shell验证
+编辑环境变量
+Centos:
+# .bash_profile
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+# User specific environment and startup programs
+
+PATH=$PATH:/home/grid/pig-0.9.2/bin:$HOME/bin
+JAVA_HOME=/usr
+
+export JAVA_HOME
+export PATH
+
+重新登录使环境变量生效
+用set命令检查环境变量
+
+进入grunt shell
+pig -x local  //进入本地模式运行,连接的仅仅是linux系统,并不是hadoop集群
+grunt&gt;
+
+Pig工作模式
+本地模式:所有文件和执行过程都在本地,一般用于测试程序
+Mapreduce模式:实际工作模式
+
+配置pig的map-reduce模式
+设置PATH,增加指向hadoop/bin
+设置PIG_CLASSPATH环境变量
+修改hosts文件
+启动pig
+
+设置PIG_CLASSPATH环境变量
+设置完成后重新登录使环境变量生效
+
+PATH=$PATH:/home/grid/hadoop-0.20.2/bin:/home/grid/pig-0.10.0/bin:$HOME/bin
+JAVA_HOME=/usr
+PIG_CLASSPATH=/home/grid/hadoop-0.20.2/conf/
+
+export PIG_CLASSPATH
+
+修改hosts文件 vim /etc/hosts
+(主机名称必须要有ip地址)
+reg:
+192.168.1.161        dog
+
+启动grunt shell
+$ pig   //后面什么都不加,即映射到PIG_CLASSPATH里面的hadoop上
+
+//第25课
+pig的运行方法:
+脚本;Grunt;嵌入式
+
+.pig作为后缀 
+
+Grunt
+自动补全机制 (Tab键)
+autocomplete文件
+Eclipse插件PigPen
+
+Grunt shell命令 (help)
+
+copyToLocal
+reg: copyToLocal test1.txt ttt (将hadoop上的test1.txt拷贝到ttt)
+
+执行操作系统命令:sh
+sh /usr/java/jdk1.6.0_26/bin/jps
+
+//第26课
+Pig数据模型:
+Bag:表    Tuple:行,记录    Field:属性    
+Pig不要求同一个bag里面的各个tuple有相同数量或相同类型的field
+
+最基本的单位是field,多个file组成tuple,多个tuple组成bag
+行的结构是不固定的
+
+Pig latin常用语句
+LOAD:指出载入数据的方法
+FOREACH:逐行扫描进行某种处理
+FILTER:过滤行
+DUMP:把结果显示到屏幕
+STORE:把结果保存到文件
+
+grunt&gt; records = LOAD &apos;input/ncdc/micro-tab/sample.txt&apos;
+&gt;&gt; AS (year:chararray,temperature:int,quality:int);
+chararray:字符串类型
+如果不输入分隔符的话,默认是tab
+records:关系表,,里面有很多下面的东西
+files:连,温度,质量(1950,0,1)
+
+grunt&gt;DESCRIBE records;
+grunt&gt;filtered_records=FILTER records BY temperature !=9999 AND
+&gt;&gt;(quality==0 OR quality==1 OR quality==4)
+grunt&gt;DUMP filtered_records;
+
+grunt&gt;grouped_records=GROUP filtered_records BY year;
+grunt&gt;DUMP filtered_records; //将很多列按year组合,key,value格式
+
+grunt&gt;max_temp=FOREACH grouped_records GENERATE group,
+&gt;&gt;MAX(filtered_records.temperature);
+
+copyToLocal:
+copyToLocal test1.txt ttt
+ls -l ttt
+
+pig -x local
+grunt&gt; A = LOAD &apos;/home/grid/csdn.txt&apos;  //装到A关系里面
+&gt;&gt;USING PigStorage(&apos;#&apos;)  //以#为分隔符
+&gt;&gt;AS (id.pw.em);
+grunt&gt; B =FOREACH A  //对A里面的每一行em取出来装进B
+&gt;&gt; GENERATE em;
+&gt;&gt; USING PigStorage();  //这步结束之后会多一个email.txt的目录(里面是输出的文件)
+
+UDF:
+支持使用Java,Python,JavaScript
+Java自定义函数较为成熟,其它两种功能还有限
+
+//第27课
+Pig:
+Hadoop客户端
+使用类似于SQL的面向数据流的语言Pig Latin
+Pig Latin可以完成排序,过滤,求和,聚组,关联等操作,可以支持自定义函数
+Pig自动把Pig Latin映射为Map-Reduce作业上传到集群运行,减少用户编写Java程序的苦恼
+三种运行方式:Grunt shell,脚本方式,嵌入式
+
+Hadoop流:最简便的M-R
+% cat input/ncdc/sample.txt | ch02/src/main/ruby/max_temperature_map.rb | \ sort | ch02/src/main/ruby/max_temperature_reduce.rb
+1949 111
+1950 22
+
+%hadoop jar $HADOOP_INSTALL/contrib/streaming/hadoop-*-streaming.jar \
+-input input/ncdc/sample.txt \
+-output output \
+-mapper ch02/src/main/ruby/max_temperature_map.rb \
+-reducer ch02/src/main/ruby/max_temperature_reduce.rb
+
+Ruby版本
+#!/usr/bin/env ruby
+STDIN.each_line do |line|  //目的是查每一年的气温变化
+  val = line
+  year,temp, q=val[15,4],val[87,5],val[92,1]
+  puts &quot;#{year}\t#{temp}&quot; if (temp != &quot;+9999&quot; &amp;&amp; q~=/[01459]/)
+end
+
+% cat input/ncdc/sample.txt | ch02/src/main/ruby/max_temperature_map.rb //执行命令 这里的管道是把左边的输出作为右边的输入
+
+移植到hadoop做分布式计算:
+hadoop命令不支持Streaming函数,因此需要在指定Streaming JAR文件流与jar选项时指定Streaming程序的选项制定了输入和输出路径,以及map和reduce脚本
+$hadoop jar $HADOOP_INSTALL/contrib/streaming/hadoop-*-streaming.jar \  //
+-input input/ncdc/sample.txt \   //-input 指定数据源
+-output output \   //-output 
+-mapper ch02/src/main/ruby/max_temperature_map.rb  //-mapper指定mapper函数进行处理
+-reducer ch02/src/main/ruby/max_temperature_reduce.rb  //-reducer 从标准数据输入重标准数据输出完成reduce计算
+在一个集群上运行一个庞大的数据集时,我们要使用-combiner选项来设置合并函数
+
+Wordcount的例子:  //一个文件由多少个单词
+bin/hadoop jar contrib/streaming/hadoop-*-streaming.jar -input
+input -output output -mapper /bin/cat -reducer /usr/bin/wc
+命令一定要写完成路径
+
+reg: cat install.log
+cat /install.log | wc //单词计数
+
+生物数据库 www.ncbi.nlm.nih.gov  //美国的是ncbi
+
+BLAST的Map-Reduce化
+BLAST比对算法,只涉及独立的一条基因信息,没有交叉计算,非常适合M-R
+BLAST算法哟很C实现,代码庞大,修改困难
+权宜之计可以使用hadoop stream快速实现
+
+//第28课
+Hive:
+数据仓库工具.可以把Hadoop下的原始结构化数据变成Hive中的表
+支持一种与SQL几乎完全相同的语言HiveQL.除了不支持更新,索引和事务,几乎SQL的其它特征都能支持
+可以看成是从SQL到Map-Reduce的映射器
+提供shell,JDBC/ODBC,Thrift,Web等接口
+
+Hive简介:
+起源自facebook由Jeff Hammerbacher领导的团队
+构建在Hadoop上的数据仓库框架
+设计目的是让SQL技能良好,但Java技能较弱的分析师可以查询海量数据
+2008年facebook把hive项目贡献给Apache
+
+Hive的组件与体系架构:
+用户接口:shell,thrift,web等
+Thrift服务器
+元数据库&quot;Derby,Mysql等    //内嵌式数据库
+解析器    //把sql映射到hadoop接受的Map-Reduce形式
+Hadoop   //浏览器进行监控/控制
+
+Hive安装:
+内嵌模式:元数据保持在内嵌的Derby模式,只允许一个会话连接
+本地独立模式:在本地安装Mysql,把元数据放到Mysql内
+远程模式:元数据放置在远程的Mysql数据库
+
+Hive安装:内嵌模式:
+1.下载
+http://apache.dataguru.cn/hive/hive-0.8.1/hive-0.8.1.tar.gz
+2.安装
+(1)上传hive安装包到机器上,使用root用户登录:
+tar -xvf hive-0.8.1.tar.gz
+(2)将解压的hive分别移动并改名为/usr/local/hive
+rm -rf /usr/local/hive mv hive-0.8.1 /usr/local/hive
+3.配置hive
+(1)修改/usr/local/hive/bin/hive-config.sh  
+在文件末尾加入
+export JAVA_HOME=/usr/local/jdk export HIVE_HOME=/usr/local/hive export HADOOP_HOME=/usr/local/hadoop
+(2)根据hive-default.xml复制hive-site.xml
+cp /usr/bin/hive/conf/hive-default.xml /usr/local/hive/conf/hive-site.xml
+(3)配置hive-site.xml,主要配置项如下:
+hive.metastore.warehouse.dir:(HDFS上的)数据目录
+hive.exec.scratchdir:(HDFS上的)临时文件目录
+hive.metastore.warehouse.dir默认值是/user/hive/warehouse
+hive.exec.scratchdir默认值是/tmp/hive-${user.name}
+以上是默认值,暂时不改
+(4)改变/usr/local/hive的目录所有者为hadoop
+chown -R hadoop:hadoop /usr/local/hive
+(5)配置hive的log4j:
+cp /usr/local/hive/conf/hive-log4j.properties.template
+/usr/local/hive/conf/hive-log4j.properties
+修改/usr/local/hive/conf/hive-log4j.properties将
+org.apache.hadoop.metrics.jvm.EventCounter改为
+org.apache.hadoop.log.metrics.EventCounter
+(6)启动hive
+使用hadoop用户登陆,执行/usr/local/hive/bin/hive
+
+Hive安装:独立模式:
+安装Mysql并启动服务
+在Mysql中为hive建立账号,并授予足够的权限,例如hive账号,授予all privileges //授予所有的系统特权
+用上述账号登陆mysql,然后创建数据库,比如名为hive,用于存放hive的元数据
+在本地安装mysql客户端
+配置hive-site.xml文件,指出使用本地mysql数据库,已经连接协议,账号,口令等
+把mysql-connector-java-x.x.x.jar 复制到hive的lib目录下
+启动hive能进入shell表示安装成功
+
+hive安装:远程模式:
+在本地模式的基础上修改hive-site.xml文件,设置hive.metastore.local为false,并指向远程mysql数据库即可
+
+hive-site.xml文件内容:
+&lt;property&gt;
+    &lt;name&gt;hive.metastore.local&lt;/name&gt;  //决定本地还是远程,false是远程
+    &lt;value&gt;false&lt;/value&gt;
+    &lt;description&gt;controls whether to connect to remove metastore server or open a new metastore server in Hive  Client JVM&lt;/description&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;  //指定连接方法
+    &lt;value&gt;jdbc:mysql://mysql_server_host:3306/hivedb?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;character Encoding=latin1&lt;/value&gt;
+    &lt;description&gt;JDBC connect string for a JDBC metastore&lt;/description&gt;
+&lt;/property&gt;
+...   //指出连接驱动程序    //指出连接用户    //指出连接口令   ....
+
+Hive shell:
+执行HiveQL(大约相当于SQL92标准)
+查看或临时设置Hive参数,只对当前会话有效
+创建函数
+导入jar包
+
+创建表       //数据会放在(HDFS上的)数据目录,每一个表都会开一个子目录
+插入数据/查询/表连接
+分布式表连接可能不太好
+
+JDBC/ODBC接口
+用户可以像连接传统关系数据库一样使用JDBC或ODBC连接Hive
+目前不成熟
+
+JDBC的具体连接过程:
+1.使用jdbc的方式连接Hive,首先做的事情就是需要启动hive的Thrift Server,否则连接hive的时候会报connection refused的错误
+启动命令如下:
+hive --service hiveserver
+2.新建java项目,然后将hive/lib下的所有jar包和hadoop的核心jar包hadoop-0.20.2-core.jar添加到项目的类路径上
+
+样板代码
+psvm{
+    Class.forName(&quot;org.apache.hadoop.hive.jdbc.HiveDriver&quot;);
+    String dropSql=&quot;drop table pokes&quot;;
+    String createSql=&quot;create table pokes(foo int,bar string)&quot;;
+    String insertSql=&quot;load data local inpath &apos;/home/zhangyin/hive/kv1.txt&apos; overwrite into table pokes&quot;;
+    String querySql=&quot;select bar from pokes limit 5&quot;;
+    Connection connection = DriverManager.getConnection(&quot;jdbc:hive://localhost:10000/default&quot;,&quot;&quot;,&quot;&quot;);
+    Statement statment = connection.createStatement();
+    statement.execute(dropSql);
+    statement.execute(createSql);
+    statement.execute(insertSql);
+    ResultSet rs=statement.executeQuery(querySql);
+    while(rs.next()){
+        sout(rs.getString(&quot;bar&quot;));
+    }
+}
+
+Web接口:
+假设hive部署在10.20.151.7机器上,conf/hive-default.xml文件都是默认值,那么我们直接在浏览器中输入:
+http://10.20.151.7:9999/hwi/就可以访问了
+
+元数据:
+NUCLEUS_TABLES
+A
+DBS
+SEQUENCE_TABLE
+SERDES
+TBLS
+SDS
+PARTITION_KEYS
+COLUMNS
+BUCKETING_COLS
+SD_PARAMS
+SORT_COLS
+SERDE_PARAMS
+TABLE_PARAMS     //打开mysql后能找到  一些分配信息
+
+Hive的数据放在哪儿?
+数据在HDFS的warehouse目录下,一个表对应一个子目录    //一个桶建立一个子目录,有多少个桶就有多少个reducer
+桶与reduce
+本地的/tmp目录存放日志和执行计划
+
+Hive的UDF : 见刘鹏书P196
+
+//第29课
+
+hadoop与关系型数据库交换数据:
+文本转换方案
+自写Java程序
+Sqoop
+厂商提供的解决方案        //大量数据交换用这种形式会不方便.
+
+Sqoop:
+SQL-to-HDFS工具
+利用JDBC连接关系型数据库
+Sqoop的获取
+
+Hadoop-0.20.2下使用Sqoop:
+SQOOP不支持此版本,可使用CDH3,也可以通过拷贝相应的包到sqoop-1.2.0-CDH3B4/lib下,依然可以使用
+CDH3和SQOOP 1.2.0的下载地址
+http://archive.cloudera.com/cdh/3/hadoop-0.20.2-CDH3B4.tar.gz
+http://archive.cloudera.com/cdh/3/sqoop-1.2-CDH3B4.tar.gz
+其中sqoop-1.2.0-CDH3B4依赖hadoop-core-0.20.2-CDH3B4/hadoop-core-0.20.2-CDH3B4.jar复制到sqoop-1.2.0-CDH3B4/lib下
+另外,sqoop导入mysql数据运行过程中依赖mysql-connector-java-*.jar,所以你需要下载mysql-connector-java--*.jar并复制到sqoop-1.2.0-CDH3B4/lib下
+
+配置:
+修改SQOOP的文件configure-sqoop,注释掉hbase和zookeeper检查(除非你准备使用HBASE等HADOOP上的组件)
+#if[! -d &quot;${HBASE_HOME}&quot;];then
+#echo &quot;Error:$HBASE_HOME does not exist!&quot;
+#echo &apos;Please set $HBASE_HOME to the root of your Hbase installation.&apos;
+#exit 1
+#fi
+#if[! -d &quot;${ZOOKEEPER_HOME}&quot;];then
+#echo &quot;Error:$ZOOKEEPER_HOME} does not exist!&quot;
+#echo Please set$ZOOKEEPER_HOME} to the root of your ZooKeeper installation.&apos;&apos;
+#exit 1
+#fi
+3.启动HADOOP,配置好相关环境变量(例如$HADOOP_HOME),就可以使用SQOOP了
+
+Sqoop命令选项
+sqoop help      ....
+
+从mysql导入数据的例子:
+sqoop import --connect jdbc:mysql://localhost/hadoopguide \   //localhost之后是用户名字
+&gt;--table widgets -m 1   //-m 1 表示只需要一个mapper就够了,原因是表很小没必要启动很多资源
+
+%hadoop fs -cat widgets/part-m-00000  //里面的内容就是导的数据
+
+导入到Hbase的命令:
+sqoop import --connect jdbc:mysql://mysqlserver IP/databaseName --table
+datatable --hbase-create-table --hbase-table hbase_tablename --column-
+family col_fam_name --hbase-row-key key_col_name
+其中,databaseName和datatable是mysql的数据库和表名,hbase,tablename是要导成hbase的表名,key_col_name可以指定datatable中哪一列作为hbase新表的rowkey,col_fam_name是除rowkey之外的所有列的列族名
+
+从Oracle导入数据
+sqoop从oracle导入,需要有ojdbc6.jar放在$SQOOP_HOME/lib里,不用添加到classpathli,因为sqoop会自己遍历lib文件夹并添加里面的所有jar包 --connect与mysql的不一样,如下(shell脚本中的主要部分)
+#Oracle的连接字符串,其中包含了Oracle的地址,SID,和端口
+CONNECTURL=jdbc.oracle.thin:@172.7.10.16:1521:orcl
+#使用的用户名
+ORACLENAME=scott
+#使用的密码
+ORACLEPASSWORD=wang123456
+#需要从Oracle中导入的表名
+oracleTableName=test
+#需要从Oracle中导入的表中的字段名
+columns=ID,STATE
+#将Oracle中的数据导入到HDFS后的存放路径
+#hdfsPath=/tmp/
+#执行导入逻辑,将Oracle中的数据导入到HDFS中
+sqoop import --append --connect $CONNECTURL --username $ORACLENAME 
+--passsword $ORACLEPASSWORD --m 1 --table $oracleTableName --columns
+$columns --hbase-create-table --hbase-table or1 --hbase-row-key STATE --column-family or1
+
+//第30课
+
+Oracle Big Data Connectors:
+Oracle与hadoop数据交换,在oracle官网去下载(需要先注册一个号)
+ODCH:oracle与hadoop的直接连接器,作用:可以把hadoop的文件作为oracle外部表量来访问
+Oracle Loader for Hadoop:oracle的装载器,hadoop化的import
+
+Oracle HDFS直接连接器(ODCH)实验:
+实验1:直接访问单个HDFS文件
+步骤1:配置操作系统的目录和数据库的Directory对象
+步骤2:创建外部表
+步骤3:在Hadoop中放入示例文件
+步骤4:生成&quot;位置文件&quot;
+步骤5:检查结果
+步骤6:改动HDFS文件,检查结果.    (初学者大约在2个星期左右完成部署)
+
+实验环境:
+软件环境:本实验主要由以下软件搭建而成:Oracle Enterprise Linux,Oracle 11g Java SE6pdate30,Apache Hadoop,Oracle Connector for Hadoop等
+实验用到的文件:实验用到的文件保存在/home/hadoop/training/ODCH底下,包括脚本文件以及一些示例数据文件
+环境变量:在文件olhodchenv.sh中保存实验中需要用到的环境变量,为了简化操作,已经在实验中的$HOME/.bash_profile引用该文件,这些环境变量会自动生效
+变量名            变量值
+ORACLE_HOME   /home/oracle/app/oracle/product/11.2.0/dbhome_2
+HADOOP_HOME   /opt/hadoop
+DIRECTHDFS_HOME    /opt/ODCH
+ORAHDFS_JAR        $DIRECTHDFS_HOME/jlib/orahdfs.jar
+HDFS_BIN_PATH    $DIRECTHDFS_HOME/bin
+HADOOP_CONF_DIR      ${HADOOP_HOME}/conf
+ORACLE_SID      orcl
+
+实验环境其它信息
+reg:ip等
+
+实验1:直接访问HDFS数据文件:
+Oracle的HDFS直接连接器允许从数据库中直接访问HDFS的数据文件.支持的数据文件格式取决于ORACLE_LOADER的驱动程序
+在实验1里,我们将会直接访问HDFS上的几个带分割符的文本文件.我们可以在数据库中用SQL来查询该文件
+
+步骤1:配置hdfs_stream script文件
+在使用直接连接器前,需要配置hdfs_stream脚本,hdfs_stream是包含在ODCH的安装包中(ODCH_HOME/bin).
+PROMPT&gt;cd /home/hadoop/training/ODCH
+PROMPT&gt;vi ${DIRECTHDFS_HOME}/bin/hdfs_stream
+
+export HADOOP_HOME=/opt/hadoop
+export DIRECTHDFS_HOME=/opt/ODCH
+在{$DIRECTHDFS_LOG_DIR}目录中创建log/bad文件,确保用户有读写权限
+PROMPT&gt;su - oracle
+PROMPT&gt;touch /opt/ODCH/log/oracle_access_test
+PROMPT&gt;rm /opt/ODCH/log/oracle_access_test
+
+步骤2:配置操作系统的目录和数据库的Directory对象
+ODCH里需要3个Directory对象
+HDFS_BIN_PATH:hdfs_stream脚本所在的目录
+XTAB_DATA_DIR:用来存放&quot;位置文件&quot;(location files)的目录.&quot;位置文件&quot;(location files)是一个配置文件,里面包含HDFS的文件路径/文件名以及文件编码格式
+ODCH_LOG_DIR,Oracle用来存放外部表的log/bad等文件的目录
+PROMPT&gt;cat lab4.2_setup_os_dir.sh
+mkdir -p /home/hadoop/training/ODCH/logs
+mkdir -p /home/hadoop/training/ODCH/extdir
+chmod 777 /home/hadoop/training/ODCH/logs
+chmod 777 /home/hadoop/training/ODCH/extdir
+PROMPT&gt;./lab4.2_setup_os_dir.sh
+连接到数据库,建立相应的3个Directory对象,以及相关授权
+PROMPT&gt;sqlplus &apos;sys/oracle as sysdba&apos;
+SQL&gt;!cat lab4.2_setup_DB_dir.sql
+SET ECHO ON
+create or replace directory ODCH_LOG_DIR as &apos;/home/hadoop/training/ODCH/logs&apos;;
+grant read,write on directory ODCH_LOG_DIR to SCOTT;
+create or replace directory ODCH_DATA_DIR as &apos;/home/hadoop/training/ODCH/extdir&apos;;
+grant read,write on directory ODCH_DATA_DIR to SCOTT;
+create or replace directory HDFS_BIN_PATH as &apos;/opt/ODCH/bin&apos;;
+grant read,write on directory HDFS_BIN_PATH to SCOTT;
+SQL&gt;@lab4.2_setup_DB_dir.sql
+步骤3:创建外部表.
+里面有个ODCH的关键参数--&quot;preprocessor HDFS_BIN_PATH:hdfs_stream&quot;,在步骤4中会在LOCATION中使用多个文件,可以使Oracle可以多个程序并行访问HDFS
+PROMPT&gt;sqlplus scott/tiger
+SQL&gt;!cat lab4.3_ext_tab.sql
+drop table odch_ext_table;
+create table odch_ext_table{
+  ID NUMBER,OWNER....
+}ORGANIZATION EXTERNAL //这里表示创建外部表
+(TYPE oracle_loader
+  DEFAULT DIRECTORY &quot;ODCH_DATA_DIR&quot;
+  ACCESS PARAMETERS
+  (records delimited by newline
+   preprocessor HDFS_BIN_PATH:hdfs_stream  //指出预处理器这个
+   badfile ODCH_LOG_DIR:&apos;odch_ext_table%a_%p.had&quot; //记录坏文件
+   logfile ODCH_LOG_DIR:&apos;odch_ext_table%a_%p.had&quot; //记录log
+   fields terminated by &apos;,&apos;  //分隔符指定是,
+   ...
+   (ID DECIMAL EXTERNAL
+    ...
+   )
+   LOCATION(
+    &apos;odch_ext_table1.loc&apos;,   //hadoop不能直接读,用这个位置文件来引导读取
+    &apos;odch_ext_table2.loc&apos;,
+    &apos;odch_ext_table3.loc&apos;,
+    &apos;odch_ext_table4.loc&apos;
+   )
+  )
+)PARALLEL REJECT LIMIT UNLIMITED
+SQL&gt;@lab4.3_ext_tab.sql  //这里设置为无限
+
+步骤4:在hadoop中放入示例文件
+ODCH从hadoop文件系统中读取数据,需要事先有数据:
+PROMPT&gt;cat lab4.4_hdfs_setup.sh   
+${HADOOP_HOME}/bin/hadoop fs -rmr odch_data
+${HADOOP_HOME}/bin/hadoop fs -mkdir odch_data
+${HADOOP_HOME}/bin/hadoop fs -put odch*.dat odch_data
+echo &quot;rows in file:&quot;
+wc -l odch*.dat
+PROMPT&gt;./lab4.4_hdfs_setup.sh
+步骤5:生成&quot;位置文件&quot;
+我们需要让Oracle Hadoop直接连接器知道需要访问的HDFS上的文件路径.运行下面程序后会生成包含HDFS上文件路径的&quot;位置文件&quot;
+PROMPT&gt;cat lab4.5_create_loc_file.sh
+hadoop jar \
+    ${ORAHDFS_JAR}oracle.hadoop.hdfs.exttab.ExternalTable \
+    -D oracle.hadoop.hdfs.exttab.tableName=odch_ext_table \
+    -D oracle.hadoop.hdfs.exttab.datasetPaths=odch_data \
+    -D oracle.hadoop.hdfs.exttab.datasetRegex=odch*.dat \
+    -D oracle.hadoop.hdfs.exttab.connection.url=o&quot;jdbc:oracle:thin@//172.16.22.131:1521/orcl&quot; \
+    -D oracle.hadoop.hdfs.exttab.connection.user=SCOTT \
+    -publish
+PROMPT&gt;./lab4.5_create_loc_file.sh
+检查位置文件内容.
+PROMPT&gt;cat /home/hadoop/training/ODCH/extdir/odch_ext_table*.loc
+CompressionCodec=
+hdfs://bigdata01:9000/user/hadoop/odch_data/odch.dat
+这里CompressionCodec是默认值,HDFS文件指向hdfs://bigdata01:9000/user/hadoop/odch_data/odch.dat
+步骤6:检查结果:
+PROMPT&gt;sqlplus scott/tiger
+SQL&gt;select count(*) from odch_ext_table;
+90000
+91000是符合odch.*.dat的文件的总行数
+我们可以在sqlplus中设置autotrace看看执行计划中是否有并行操作(&quot;PX&quot;)出现
+SQL&gt;set autotrace trace exp
+SQL&gt;select count(*) from odch_ext_para_table;
+
+Execution Plan
+Plan hash value:2012719727
+
+执行计划里有PX COORDINATOR...  什么的文件,这些文件就是读的外部表
+
+步骤7:删除部分文件,从数据库中检查结果:
+PROMPT&gt;hadoop fs -rm odch_data/odch1.dat
+SQL&gt;select count(*) from odch_ext_para_table;
+41000
+数据已经更新
+
+//第31课
+Oracle Hadoop装载程序
+实验:装载Hadoop文件到数据库
+步骤1:创建目标表
+步骤2:在Hadoop中放入示例文件
+步骤3:运行Oracle Hadoop装载程序
+步骤4:验证结果
+
+实验环境:
+软件环境:本实验主要由以下软件搭建而成:Oracle Enterprise Linux,Oracle 11g Java SE6pdate30,Apache Hadoop,Oracle Connector for Hadoop等
+实验用到的文件:实验用到的文件保存在/home/hadoop/training/OLH底下,包括脚本文件以及一些示例数据文件
+环境变量:在文件olhodchenv.sh中保存实验中需要用到的环境变量,为了简化操作,已经在实验中的$HOME/.bash_profile引用该文件,这些环境变量会自动生效
+
+环境检查:
+检查环境变量是否正确设置:
+PROMPT&gt;env
+检查hadoop是否正常:
+PROMPT&gt;hadoop dfsadmin -report
+检查数据库是否正常
+PROMPT&gt;sqlplus scott/tiger
+SQL&gt;select * from tab;
+
+我们会将一个Hadoop文件系统上的文件装载到数据库中(使用 JDBC连接)这是OLH的最基本功能
+步骤1:创建目标表:  PROMPT指的是shell界面
+PROMPT&gt;cd /home/hadoop/training/OLH
+PROMPT&gt;sqlplus scott/tiger
+SQL&gt;!cat lab1.1_target_tab.sql
+--Drop table if table exists
+drop table olh_table purge;
+create table olh_table(
+  col NUMBER,col2......
+);
+SQL&gt;@lab1.1_target_tab.sql;
+步骤2:在Hadoop中放入示例文件
+因为OLH需要从Hadoop文件系统中读取数据,所以我们先要在Hadoop中放入一个的数据文件.
+PROMPT&gt;cat ./lab1.2_init_hadoop_files.sh
+#Set up input directory
+hadoop fs -rmr olh_lab_in
+hadoop fs -mkdir olh_lab_in
+hadoop fs -put olh_lab.dat olh_lab_in/data.dat
+PROMPT&gt;./lab1.2_init_hadoop_files.sh
+步骤3:运行Oracle Hadoop装载程序:
+PROMPT&gt;cat ./lab1.3_run_loader.sh
+hadoop fs -rmr olh_lab_out  //删除输出文件(之前的垃圾文件)
+hadoop jar $OLH_JAR oracle.hadoop.loader.OraLoader -conf MyConf.xml
+
+在装载程序中,需要建立一个Hadoop中新建一个目录,来存放&quot;_SUCCESS&quot;和&quot;&quot;_logs文件;在使用离线装载选项时,还有可能需要存放一些离线装载的文件,所以,要确保没有该目录,以免创建失败
+装载程序需要读取一些配置信息,使用MyConf.xml,文件里包含一些运行OLH所需的主要参数
+
+对于此实验,最关键的参数是mapreduce.outputformat.class,确保它的值是JDBCOutputFormat运行脚本文件
+PROMPT&gt;./lab1.3_run_loader.sh
+除了使用-conf=配置文件,我们也可以用&quot;-D 参数=值&quot;的方式来传递参数,而且,-D 方式会覆盖-conf设定的值
+hadoop jar $(OLH_JAR)oracle.hadoop.loader.OraLoader -D mapred.input.dir olh_lab_in -D mapreduce.inputformat.class
+oracle.hadoop.loader.lib.input.DelimitedTextInputFormat
+
+步骤4:验证结果:
+PROMPT&gt;sqlplus scott/tiger
+SQL&gt;select count(*) from olh_table;
+10000
+返回10000,表示已经成功装载了10000行记录到数据库里面了
+
+//第32课
+应用与Hbase的对接:通过Thrift
+Thrift是一个跨语言的服务部署框架,最初由Facebook于2007年开发,2008年进入Apache开源项目.Thrift通过一个中间语言(IDL,接口定义语言)来定义RPC的接口和数据类型,然后通过一个编译器生成不同语言的代码(目前支持C++,Java,Python,PHP,Ruby,Erlang,Perl,Haskell,C#,Cocoa,Smalltalk和OCaml),并由生成的代码负责RPC协议层和传输层的实现
+http://dongxicheng.org/search-engine/thrift-framework-intro/
+dongxicheng.org/search-engine/thrift-guide/
+
+PHP通过Thrift连接Hbase的主要步骤:
+下载并且编译,安装Thrift
+生成php和hbase的接口文件
+把PHP客户端需要的包及刚刚生成的接口文件复制出来供php程序调用
+启动hbase thrift server,测试php连接hbase
+参考文档:http://www.it165.net/pro/html/201206/2827.html
+
+//第33课
+hadoop大集群安装:/hadoop在云计算里面
+小型云例子:
+完全分布式模式的安装和配置:
+*配置hosts文件   //需要些出现的每个节点的主机名/ip写到这里,作用将主机名翻译成ip
+建立hadoop运行账号
+*配置ssh免密码连入
+下载并解压hadoop安装包
+配置namenode,修改site文件
+配置hadoop-env.sh
+*配置masters和slaves文件
+*向各节点复制hadoop
+格式化namenode
+启动hadoop
+用jps检验各后台进程是否成功启动
+
+awk写成脚本会生成很多个文件,通过脚本复制比较方便
+
+Hadoop大集群实施:
+设备选型    //普通的pc-sql就可以了,cpu4核以上就行 
+是否使用虚拟机?    //不同的虚拟机节点最好不要公用同一个硬盘;还会有io通道问题
+使用DNS代替hosts文件
+使用NFS实现密钥共享
+利用脚本复制hadoop--awk技巧
+(先做成映像,再进行广播来安装)
+
+DNS
+Linux下使用bind (把域名或主机名翻译成ip的服务器)
+#cat /etc/resolv.conf
+nameserver 219.150.32.132
+...
+nslookup   
+&gt;www.dataguru.cn    //测试dns
+
+//第34课
+使用NFS实现密钥共享:
+NFS:
+网络问卷系统
+&lt;Hadoop权威指南&gt;第266页
+
+接下来,需确保公钥存放在用户打算连接的所有机器的~/.ssh/authorized_keys文件中.如果hadoop用户的home目录在NFS文件系统中,则密钥可以通过键入以下指令在整个集群共享
+%cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+可以公用一个文件夹
+
+scp -rp ./hadoop-0.20.2 grid@h1:/home/grid    //-r将目录与目录内文件一起拷贝
+cat ./slave | awk &apos;print &quot;scp -rp ./hadoop-0.20.2 grid@&quot;$1&quot;:/home/grid&quot;&apos;  //通过管道符号送给awk来处理
+
+cat ccc | awk &apos;{print $1}&apos;   //$1为第一个参数
+cat ccc | awk &apos;$9~/rr/{print $9}&apos;   //$9~/rr/ $9~表示参数9包含/rr/
+
+chmod a+x xxx  //将xxx变成可执行文件
+sh ./xxx  //这样就可以执行这个文件了
+sed &amp; awk &amp; linux的shell可以做很多事情
+
+//第35课
+云计算是什么?
+相关软硬件厂商(争先恐后状):我的产品就是 云计算
+不相关软硬件厂商(争风吃醋状):云计算不就是一根网线加上计算机嘛
+政府官员:云计算就是超级计算机
+广大围观者:云计算就是集群?or Hadoop?or Openstack?or Vmware?or...?网格和云计算有什么差别?
+
+云计算是服务模式和拥有模式的革命:
+云计算是服务模式:它不是新技术,更准确来说不应称之为技术,它是在一些关键技术日趋成熟后催生的一种新的服务模式
+云计算通过集中拥有,使得用户能得到其本身无法得到的服务,或是以更低成本获得相同的服务,降低拥有成本是云计算的核心价值之一
+云计算项目,必先考虑服务模式和盈利模式的问题,其次才是投资和技术
+(网格计算是一种ip技术,是计算机集群的技术,可以用网格计算作为基础技术,构建一种服务,利用这种服务来盈利)
+
+云计算的特征:
+自我服务
+按使用量计费  (不应该按年收费)
+弹性架构    (虚拟机资源的分配使用是弹性的)
+可定制化    (用户可以定制并且可以自我开发)
+
+云计算怎样降低成本?
+提高软硬件的使用率
+集中管理降低能耗
+节约维护人员费用
+
+云计算模式也会增加成本:
+安全风险
+可用性风险
+绑架风险
+
+盈利模式是云计算的核心问题:
+云计算领域的现状是项目找资金,资金找项目,折中点是有创意的盈利模式
+互联网公司是云计算的先行者
+技术相对于服务模式和盈利模式并不是门槛
+
+云计算的形态:
+私有云
+公有云
+混合云
+
+目前流行的开源云计算解决方案:
+Hadoop
+Openstack    //有点像亚马逊的ec2,相当于很多的虚拟机给大家提供托管服务的,用来做虚拟集群的管理的
+
+//第36课
+Hadoop在云计算中的用途:
+分布式文件系统提供的低单位成本的巨大的存储能力,高冗余度的可靠性
+Map-Reduce提供快速并行计算能力,这种能力可以随着节点数的增加线性递增.
+
+场景一:日志分析:
+用户拿到的是反向代理服务器,访问时代理服务器从主服务器拿到数据并放到缓存里,CDN加速技术
+缺点:采集日志时会比较麻烦
+探针设计:(一段js),点击服务器,统计来源,一定会访问到主服务器,这样就避免了多个代理服务器的麻烦
+
+排除爬虫和程序点击,对抗作弊:
+用鼠标测动对抗爬虫(测鼠标动向)
+常用流量作弊手段  //措施是将用户的拨号写到cookie里面
+跟踪用户
+t=&quot;sso_username_utf&quot;;
+break}})();
+A(e,&quot;mouseover&quot;,F,false);
+A(e,&quot;mousemove&quot;,F,false);
+z=function(){var a,c;
+if(e.body){a=e.body.clientWidth|e.documentElement.clientWidth;
+c=e.body.clientHeight|e.documentElement.clientHeight|else{a=e.doc....}}
+
+需要的统计图表:
+reg:ip与pv值:0点-23点
+
+遇到的问题:
+日志的保存需要大量的空间
+日志的备份成本
+统计时滞明显,不能满足业务要求
+(要在用户访问之后的5min之内统计出来应该怎么做呢?见下方案)
+
+Hadoop方案:
+部署多个节点的Hadoop集群
+探针激活java程序,在内存保存一定数量的日志信息后,利用API集中写入到HDFS
+HDFS既能保存日志,同时也提供了备份功能(可以复制多个样本)
+用定时脚本清除过期的日志
+用定时脚本激活pig进行统计,统计结果回写到输出文件
+应用通过API读取输出文件里的数据,再展示给用户
+
+Hadoop+Hbase方案:
+部署Hadoop+Hbase集群
+探针激活java程序,程序把每条日志利用API集中写到HBase里面
+Hbase保存数据,它基于HDFS提供了冗余备份
+利用时间戳和生存期自动清除过期日志
+定时执行一java程序从hbase读出数据统计,结果写入mysql
+应用直接从mysql中读出结果展示
+本方案的优点是可以统计更为复杂的数据
+
+复杂的统计图表:
+
+//第37课
+场景二:某运营商数据分析实例:
+运营商网分程序:
+    -网分预处理程序
+    (
+        输入:网分数据
+        输出:网分基础表
+    )
+    -网分位置统计程序
+位置更新表
+
+//第38课
+一台服务器可以做32个节点
+Openstack:是一个虚拟机集群管理的软件,可以做映像
+
+//第39课
+Hadoop集群在互联网企业的应用:
+京东商城
+百度
+阿里巴巴
+
+京东商城:
+源起:为POP商家进行日志分析服务(POP商家有点像阿里巴巴里面的天猫一样)
+
+瓶颈:
+性能瓶颈:采用OracleRAC(2节点),IBM小型机,由于数据量极大,无法满足时效要求
+成本瓶颈:小型机再进行高配和节点扩展,价格太贵
+
+Hadoop集群作为解决方案:
+20多个节点的Hadoop集群
+数据定时从收集服务器装载到Hadoop集群(周期为天级或小时级)
+数据经过整理(预处理)后放进数据仓库系统,数据仓库是基于Hive架构的,使用Hive的主要原因是技术人员基本都是基于Oracle数据库的技能,由于Hive支持SQL查询,因而技能可以平稳过渡
+数据仓库查询统计的结果会被导到hbase,然后和应用进行连接,应用不与hive直接连接的原因,是基于效率的考虑.导出数据到hbase由自行开发的一段C程序完成.
+应用即portal通过API与hbase连接获取数据
+
+京东写的脚本定时装载到hadoop里面去
+还有整理脚本,然后放到数据仓库里面去,基于hive做的,hive的好处是可以支持SQL
+hive只能支持简单的SQL,写用户udf函数来等价高级SQL,hive连接数很低
+
+遇到的挑战:
+Hadoop集群比较顺利,反映Hadoop项目本身已经jiaoy较有成熟度.但由于Hadoop系统考虑用户权限较少,而对于大规模公司,势必要实施多级权限控制.解决的方法是通过修改源代码加上权限机制.
+Hbase极不稳定,反映在某些数据导入导出连接过程里会丢失数据判断为源代码bug,通过修改源代码解决(Hbase空格不稳定)
+(如果想计算结果比较稳定的话则需要解决此问题)
+写Map-Reduce来做一些简单的分析.
+
+心得体会:
+总体来说,Hadoop项目很成功,现在整个EDW(企业数据仓库系统)都基于Hadoop.集群已经发展到&gt;200节点.之前传闻的购买Oracle Exadata实际是用于下单交易系统,并非Hadoop项目失败.
+大型企业成功应用Hadoop,必须有源代码级别修改的技术力量.普通的程序员转型阅读修改Hadoop源代码并不困难
+HiveSQL和Oracle的SQL有一些差异,大约花一周时间阅读Apache的Hive wiki基本能掌握
+
+部门结构:
+运维团队(负责管理维护集群的正常运行)
+数据仓库团队(根据业务部门的要求进行数据统计和查询)
+成都研究院(负责底层,包括源代码修改和按上层部门要求开发Map-Reduce程序,比如一些UDF)
+
+//第40课
+Hadoop在淘宝和支付宝的应用:
+从09年开始.用于对海量数据的离线处理,例如对日志的分析,也涉及内容部分,结构化数据
+主要基于可扩展性的考虑
+规模从当初的3-4百节点增长到今天单一集群3000节点以上,-3个集群
+支付宝的集群规模也达700台,使用Hbase,个人消费记录,key-value型
+
+去i(idm),去o(oracle),去e(ems)
+
+对Hadoop源码的修改:
+改进Namenode单点问题(一旦Namenode崩溃整个工程就崩溃)
+增加安全性(跟京东学的)
+改善Hbase的稳定性
+改进反哺Hadoop社区
+
+管理模式:
+集团统一管理
+Hadoop运维团队
+Hadoop开发团队
+数据仓库团队(Hive)
+
+准实时的流数据处理技术:
+从Oracle,Mysql日志直接读取数据
+部分数据源来自应用消息系统
+以上数据经由Meta+Storm的流数据处理,写入HDFS,实现实时或准实时的数据分析
+数据装载到Hive进行处理,结果写回Oracle和Mysql数据库
+
+源数据:其他地方是采集在浏览器的日志文件/数据库生成的点击记录里面,阿里可以直接从Oracle直接读取
+
+//第41课
+
+淘宝数据魔方:
+量子恒道:
+(对用户在网上的点击行为作为日志分析分享给商家)
+
+架构图:
+数据源:主站备库        RAC        主站日志
+    DataX/DbSync/TimeTunnel
+计算层:Hadoop集群/云梯        实时流数据
+    1500节点,每日40000 JOB,处理数据1.5PB,凌晨2点结束,结果20T
+存储层:MyFOX    Prom    (两个集群来处理的)
+查询层:数据中间层/glider        (中间层:减少云机存储量和数据量,直接过滤)
+产品:数据魔方    淘宝指数    开放API 
+
+架构图:
+架构分为五层,分别是数据源,计算层,存储层,查询层和产品层.
+数据来源层,这里有淘宝主站的用户,店铺,商品和交易等数据库,还有用户的浏览,搜索等行为日志等.这一系列的数据是数据产品最原始的生命力所在.
+在数据源层实时产生的数据,通过淘宝主研发的数据传输组件DataX,DbSync和Timetunnel准实时地传输到Hadoop集群&quot;云梯&quot;,是计算层的主要组成部分.在&quot;云梯&quot;上,每天有大约40000个作业对1.5PB的原始数据按照产品需求进行不同的MapReduce计算.
+一些对实效性要求很高的数据采用&quot;云梯&quot;来计算效率比较低,为此做了流式数据的实时计算平台,称之为&quot;银河&quot;.&quot;银河&quot;也是一个分布式系统,它接收来自TimeTunnel的实时消息,在内存中做实时计算,并把计算结果在尽可能短的时间内刷新到NoSQL存储设备中,供前端产品调用
+
+架构图:
+&quot;云梯&quot;或者&quot;银河&quot;并不适合直接向产品提供实时的数据查询服务.这是因为,对于&quot;云梯&quot;来说,它的定位只是做离线计算的,无法支持较高的性能和并发需求;而对于&quot;银河&quot;而言,尽管所有的代码都掌握在我们手中,但要完整地将数据接收,实时计算,存储和查询等功能集成在一个分布式系统中,避免不了分层,最终仍然落到了目前的架构上.
+针对前端产品设计了专门的存储层.在这一层,有基于MySQL的分布式关系型数据库集群MyFOX和基于HBase的NoSQL存储集群Prom
+
+Myfox
+数据查询过程:
+路由:-&gt;APC  SQL解析
+    -&gt;语义理解
+    -&gt;查询路由        字段改写
+      分片SQL        计算规则
+              -&gt;  &lt;-
+                 |
+取分片   缓存&lt;--&gt;取分片数据(异步并发)
+合并计算   缓存&lt;--X--结果合并(表达式求值)
+
+Myfox
+节点结构:(据说2012年只有20个节点)
+        MyFOX                       -&gt;路由表
+新增热数据    30天无访问的冷数据            热数据:30天内曾经访问的数据
+    |          |              |
+    |                          |
+    热节点(MySQL)            冷节点(MySQL)              
+    15k SAS盘,300G*12,raid10                       (15k应该是很高很快了)
+    内存:24G                7.2k,SATA盘,1T*12,raid10
+    成本:4.5w/T                内存:24G
+                            成本:1.6W/T
+
+Prometheus:
+Prom的存储结构:        (95%在mysql,5%在hbase)
+                 Prom
+    Hbase   属性对     索引:交易id列表
+            属性对        交易1(二进制,定长)
+            属性对        交易2
+
+Prom查询过程:
+求SUM(alipay)
+属性   属性值    -&gt;查索引-&gt;节点1|1,2,4,,,;节点2|1,4,7..
+                            |求交集
+汇总计算写入缓存&lt;--节点2|1,4...(本地SUM运算(Hbase扩展))
+
+glider:
+glider的技术架构:
+            Dispatcher
+    Controller                        请求解析   配置解析
+                datasource
+                MyFOX,Prom
+    一级缓存    二级缓存
+    action        filter
+                JOIN,UNION..
+http://kb.cnblogs.com/page/110840/
+
+Oceanbase:(分布式的数据库)
+分布式的结构化存储系统,采用强schema的形式,其数据是分布在多个数据节点上,并将读写数据做了完全的隔离.
+OB的数据节点分两种,一类是基准数据节点(!ChunkServer),存储引擎是基于SSTABLE http://en.wikipedia.org/wiki/SSTable的.一个是增量数据节点(!UpdateServer),存储引擎是基于Btree(内存中的memtable)和SSTABLE(major-freeze-dump)的.
+基准数据:从开始至某个时间点的全量数据,是静态数据,在到下一个时间点合并之前,该部分数据不会发生变更.
+增量数据:是指从某个时间点至当前范围内新增的数据,增量数据会因为应用的各种修改操作(insert,update,delete)发生变更
+
+//第42课
+
+Hadoop@Baidu
+日志的存储和统计;
+网页数据的分析和挖掘;
+商业分析,如用户的行为和广告关注度等;
+在线数据的反馈,及时得到在线广告的点击情况;
+用户网页的聚类,分析用户的推荐度及用户之间的关联度.
+2008:开始于Hadoop v0.18/0.19  ;  300台机器,2个集群
+2012:总规模2W以上  ;  最大集群接近4000节点  ;  每日处理数据20PB+  ;  每日作业数120000+
+
+日志分析;报表计算;策略训练;网页建库;Link挖掘
+---------------------------------------------
+分布式计算平台
+---------------------------------------------
+日志;网页;UGC
+
+百度搜索引擎还是在mysql里面实现的
+
+挑战:
+规模
+    单集群1000-&gt;2000-&gt;3000-&gt;5000-&gt;10000
+效率:
+    资源利用率(cpu/mem/io)--高峰VS平均
+    存储利用--无压缩,冷数据
+    存储与计算资源使用均衡问题
+服务可用:
+    随着规模增大问题变得突出
+        3K+节点升级或异常小时级中断
+        用户影响面:在可用99.9%下用户容忍度变低
+        (节点切换可能需要1小时等,没延长0.5秒,用户可能减少5%)
+
+HDFS2.0:
+1.0所面临的问题:
+集群规模大,Namenode响应变慢  (几千个节点以上)
+Namenode单点,切换时间太长
+没有数据压缩
+Namespace过于耗用资源  (大概需要90G内存空间..)
+
+HDFS2.0可用性:
+热备支持
+分钟级别切换
+最坏情况,应用可能丢失1分钟级数据
+
+HDFS2.0透明压缩:
+1.异步完成
+2.用户透明
+3.split透明
+4.利用cpu波谷
+5.长时间未使用的块才压缩
+6.测试数据:压缩为原来的1/2
+7.随即读处理+Append处理
+
+Map-Reduce2.0:
+1.0面临问题:
+JobTracker单点
+    负载太重,扩展性受限-&gt;1W(节点左右)
+    故障/升级中断服务重跑作业    (关节点,中断节点就会重跑作业)
+资源粒度过粗
+    slot(cpu,mem)
+资源利用不高
+    Shuffle+Reduce,空占slot
+
+Map-Reduce2.0:
+可扩展性W台以上
+架构松耦合,支持多种计算模型
+可支持热升级
+更精细的资源调度
+MR优化:Shuffle独立/Task同质调度
+
+//第43课  hadoop安装
+完全分布式模式的安装和配置:
+
+$ sudo gedit /etc/hosts
+
+$ sudo groupadd hadoop  //创建一个以hadoop为命名的组
+$ sudo useradd -s /bin/bash -d /home/grid -m grid -g hadoop -G admin  //shell,总目录,所属组,同时也属于admin组 ,创建这个用户
+$ sudo passwd grid  //密码
+$ su grid
+每一个节点都要重复上面的步骤来创建用户
+
+grid@:~$ sudo apt-get install ssh
+$ ssh -keygen -t dsa -P &apos;&apos; -f ~/.ssh/id_dsa   //创建公钥和私钥
+id_dsa  //私钥   id_dsa.pub   //公钥
+$ cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys  //将自己公钥加入到私钥当中,即认证密钥
+$ ssh localhost
+$ yes  //只有第一次提示是否登录
+
+先在除h1外的每个slave节点上运行,再在h1机器上做一遍来保证namenode无密码连入
+$ scp grid@h1:~/.ssh/id_dsa.pub ~/.ssh/h1_dsa.pub   //将h1的公钥复制到自己的目录下的公钥里
+$ yes     //只有第一次输入密码
+$ cat ~/.ssh/h1_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
+
+hadoop-&gt;conf-&gt;hadoop-env.sh
+将export JAVA_HOMME前的#去掉,并改成自己的jdk
+hadoop-&gt;conf-&gt;core-site.xml   //设置namenode目录,再设置tmp临时目录
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.default.name&lt;/name&gt;
+        &lt;value&gt;hdfs://h1:9000&lt;/value&gt;
+        &lt;final&gt;true&lt;/final&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+        &lt;value&gt;/home/grid/hadoop/tmp&lt;/value&gt;
+        &lt;description&gt;A base for other temporary directories&lt;/description&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+
+hadoop-&gt;conf-&gt;hdfs-site.xml
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.name.dir&lt;/name&gt;
+        &lt;value&gt;/home/grid/hdfs/name&lt;/value&gt;
+        &lt;final&gt;true&lt;/final&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.data.dir&lt;/name&gt;
+        &lt;value&gt;/home/grid/hdfs/data&lt;/value&gt;
+        &lt;final&gt;true&lt;/final&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;value&gt;2&lt;/value&gt;        //有几台机器,就设置备份几台机器数-1
+        &lt;final&gt;true&lt;/final&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+
+hadoop-&gt;conf-&gt;mapred-site.xml
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapred.job.tracker&lt;/name&gt;
+        &lt;value&gt;h1:9001&lt;/value&gt;
+        &lt;final&gt;true&lt;/final&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+
+hadoop-&gt;conf-&gt;masters   //备份namenode的
+h1
+
+hadoop-&gt;conf-&gt;slaves    //设置datanode
+h2
+h3
+
+将上述改变复制到其他节点上
+$scp -r ./hadoop h2:~
+
+sudo vi /etc/profile
+添加:
+export HADOOP_INSTALL=/home/grid/hadoop
+export PATH=$PATH:$HADOOP_INSTALL/bin
+
+$source /etc/profile
+$echo $HADOOP_INSTALL
+
+$ hadoop namenode -format     //格式化namenode
+$ start-all.sh        //启动集群,因为已经添加到profile文件里了
+
+$ jps    //测试每个服务器是否成功
+
+$ hadoop dfs -put - input      //使用标准输入输出来获取接下来的数据
+Hadoop Hadoop Good    //将输出的单词转移到input文件中
+$ hadoop dfs -cat input      //查看input文件
+
+$ hadoop jar $HADOOP_INSTALL/hadoop-*-exampples.jar wordcount input output    //经典示例程序wordcount程序
+$ hadoop dfs -cat output/part -r -00000        //查看输出,    wordcount可以对每个输入的单词计数
+
+//使用网页查看
+localhost:50070/dfshealth.jsp
+
+//第44课    hbase安装
+
+先安装好java与hadoop
+$ echo $HADOOP_INSTALL
+$ java -version
+$ hadoop version
+hbase的版本要相近于hadoop的版本的
+
+hbase-0.94.3-&gt;lib-&gt;hadoop-core-1.0.4.jar    //可以查看对应的hadoop版本
+
+hbase-0.94.3-&gt;conf-&gt;hbase-env.sh
+打开JAVA_HOME注释
+打开HBASE_CLASSPATH
+export HBASE_CLASSPATH=/home/grid/hadoop/conf
+打开export HBASE_MANAGES_ZK=true注释    //允许HABSE管理zookeeper
+
+hbase-0.94.3-&gt;src-&gt;main-&gt;resources-&gt;hbase-default.xml        //记录了常用的配置
+将其内容复制 hbase-0.94.3-&gt;conf-&gt;hbase-site.xml
+$ hadoop dfs -mkdir hdfs://h1:9000/hbase   //先测试这个目录在不在
+复制habse.rootdir依赖过去
+复制hbase.cluster.distributed依赖过去
+复制hbase.tmp.dir依赖过去  ,并将&lt;value&gt;修改成/home/grid/hbase/tmp
+设置zookeeper:
+复制hbase.zookeeper.quorumm依赖过去    将&lt;value&gt;改为h1,h2,h3   (演示为3台服务器)
+复制habse.zookeeper.property.dataDir依赖过去,存放zookeeper的数据
+
+修改 hbase-0.94.3-&gt;conf-&gt;regionservers
+h2
+h3
+
+将hbase文件复制到各个节点
+$ cp -r /home/james/桌面/hbase-0.94.3 ~/hbase   //将hbase其复制到组根目录下
+$ scp -r ~/hbase h2:~
+$sudo /etc/profile
+
+export HBASE_HOME=/home/grid/hbase
+export PATH=$PATH:$HBASE_HOME/bin
+
+source /etc/profile        //在每一台都做
+
+start-hbase.sh        //启动测试
+hbase shell            //运行shell
+
+list    
+create &apos;test&apos;,&apos;data&apos;        //创建一个表
+disable &apos;test&apos;
+drop &apos;test&apos;
+exit
+//退出如果一直出现.....,则说明是配置失误
+//失误时,进入/hbase/logs  查看日志
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+            <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>期待您的评论-------------</div>
+
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Demo-Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="prayer007007.github.io/2018/09/11/大数据学习笔记00-hadoopNote/" title="大数据学习笔记00-hadoopNote">prayer007007.github.io/2018/09/11/大数据学习笔记00-hadoopNote/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
+          
+            <a href="/tags/大数据/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
+          
+            <a href="/tags/Hadoop/" rel="tag"><i class="fa fa-tag"></i> Hadoop</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/11/jquery爬坑笔记02/" rel="next" title="jquery爬坑笔记02">
+                <i class="fa fa-chevron-left"></i> jquery爬坑笔记02
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/11/Java爬坑笔记01/" rel="prev" title="Java爬坑笔记01">
+                Java爬坑笔记01 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTU2NS8xNjA5Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Demo-Mr Wang</p>
+              <p class="site-description motion-element" itemprop="description">Technical exchange</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">98</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=110
+           src="//music.163.com/outchain/player?type=0&id=2059024220&auto=1&height=90"></iframe>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/prayer007007" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1264827907@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/u013205428" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chuangzaoshi.com/code" title="创造狮导航" target="_blank">创造狮导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://e.xitu.io/" title="掘金酱" target="_blank">掘金酱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="印记中文" target="_blank">印记中文</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+
+  <span class="author" itemprop="copyrightHolder">Demo-Mr Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">2.2m</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">33:28</span>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    
+  
+
+  
+    
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/09/11/大数据学习笔记00-hadoopNote/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,5190 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "360cefba"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="//第1讲 教材: 数据挖掘:概念与技术,Jiawei Han和Micheline Kamber著 参考书:(从机器学习角度来讨论数据挖掘) 数据挖掘原理,David Hand,Heikki Mannila和Padhraic Smyth著  三个方向:数据库方向(应用领域和工程领域),机器学习方向(人工智能,自动挖掘技术),统计学方向(要求深厚的数学根底)  数据挖掘的发展动力:--需要是发明之母">
+<meta name="keywords" content="笔记,人工智能,python,分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析学习笔记01-数据挖掘">
+<meta property="og:url" content="prayer007007.github.io/2018/09/11/数据分析学习笔记01-数据挖掘/index.html">
+<meta property="og:site_name" content="Demo`s Blog">
+<meta property="og:description" content="//第1讲 教材: 数据挖掘:概念与技术,Jiawei Han和Micheline Kamber著 参考书:(从机器学习角度来讨论数据挖掘) 数据挖掘原理,David Hand,Heikki Mannila和Padhraic Smyth著  三个方向:数据库方向(应用领域和工程领域),机器学习方向(人工智能,自动挖掘技术),统计学方向(要求深厚的数学根底)  数据挖掘的发展动力:--需要是发明之母">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-11T02:22:06.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据分析学习笔记01-数据挖掘">
+<meta name="twitter:description" content="//第1讲 教材: 数据挖掘:概念与技术,Jiawei Han和Micheline Kamber著 参考书:(从机器学习角度来讨论数据挖掘) 数据挖掘原理,David Hand,Heikki Mannila和Padhraic Smyth著  三个方向:数据库方向(应用领域和工程领域),机器学习方向(人工智能,自动挖掘技术),统计学方向(要求深厚的数学根底)  数据挖掘的发展动力:--需要是发明之母">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demo`s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="prayer007007.github.io/2018/09/11/数据分析学习笔记01-数据挖掘/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数据分析学习笔记01-数据挖掘 | Demo`s Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/prayer007007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/prayer007007" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demo`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">one world one dream</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="prayer007007.github.io/2018/09/11/数据分析学习笔记01-数据挖掘/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demo-Mr Wang">
+      <meta itemprop="description" content="Technical exchange">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demo`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据分析学习笔记01-数据挖掘
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-11 10:19:36 / 修改时间：02:22:06" itemprop="dateCreated datePublished" datetime="2018-09-11T10:19:36Z">2018-09-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/" itemprop="url" rel="index"><span itemprop="name">技能</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/数学/" itemprop="url" rel="index"><span itemprop="name">数学</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/数学/算法-分析/" itemprop="url" rel="index"><span itemprop="name">算法/分析</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/数学/算法-分析/数据挖掘/" itemprop="url" rel="index"><span itemprop="name">数据挖掘</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/数学/算法-分析/数据挖掘/基础/" itemprop="url" rel="index"><span itemprop="name">基础</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/数学/算法-分析/数据挖掘/基础/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">81k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1:14</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>//第1讲
+教材:
+数据挖掘:概念与技术,Jiawei Han和Micheline Kamber著
+参考书:(从机器学习角度来讨论数据挖掘)
+数据挖掘原理,David Hand,Heikki Mannila和Padhraic Smyth著
+
+三个方向:数据库方向(应用领域和工程领域),机器学习方向(人工智能,自动挖掘技术),统计学方向(要求深厚的数学根底)
+
+数据挖掘的发展动力:--需要是发明之母
+数据爆炸问题:
+自动数据收集工具和成熟的数据库技术使得大量的数据被收集,存储在数据库,数据仓库或其他信息库中以待分析.
+我们拥有丰富的数据,但却缺乏有用的信息.
+解决方法:数据仓库技术和数据挖掘技术.
+数据仓库(Data Warehouse)和在线分析处理(OLAP)
+数据挖掘:在大量的数据中挖掘感兴趣的知识(规则,规律,模式,约束)
+</code></pre><a id="more"></a>    
+<pre><code>数据库技术的演化(1)
+1960s和以前:
+文件系统
+1970s:
+层次数据库和网状数据库
+1980s早起:
+关系数据模型(结构固定化),关系数据库管理系统(RDBMS)的实现
+1980s晚期:
+各种高级数据库系统(扩展的关系数据库,面向对象数据库等)
+面向应用的数据库系统(spatial数据库(空间数据库),时序数据库,多媒体数据库等)
+1990s:
+数据挖掘,数据仓库,多媒体数据库和网络数据库
+2000s:
+流数据管理和挖掘
+基于各种应用的数据挖掘
+XML数据库(没有固定结构的)和整合的信息系统
+
+什么是数据挖掘?
+数据挖掘(从数据中发现知识)
+从大量的数据中挖掘哪些令人感兴趣的,有用的,隐含的,先前未知的和可能有用的模式或知识
+挖掘的不仅仅是数据(所以数据挖掘并非一个精确的用词)
+数据挖掘的替换词:
+数据库的知识挖掘(KDD)
+知识提炼
+数据/模式分析
+数据考古
+数据捕捞,信息收获等.
+
+KDD:
+数据挖掘--知识挖掘的核心
+步骤:
+1.数据清洗:(这个可能要占全过程60%的工作量)(非常耗时) (比如有空缺值要去掉等)  )
+2.数据集成
+3.数据选择        数据仓库-&gt;任务相关数据
+4.数据变换
+5.数据挖掘(选择适当的算法来找到感兴趣的模式)
+6.模式评估
+7.知识表示
+
+典型数据挖掘系统的体系结构:
+图形用户界面-&gt;模式评估-&gt;数据挖掘引擎-&gt;数据库或数据仓库服务器
+                |            |            |         |             \
+                    知识库            数据清洗   数据集成    过滤
+
+并非所有的东西都是数据挖掘:
+基于数据仓库的OLAP(在线分析处理)系统:
+OLAP系统专注于数据的汇总(大部分是简单的相加),而数据挖掘系统可以对数据进行多种复杂的处理
+机器学习系统,数据统计分析系统:
+这些系统所处理的数据容量往往有限
+信息系统:
+专注于数据的查询处理
+相比于上述系统,数据挖掘系统关注更广的范围,是一个多学科的融合
+
+在何种数据上进行数据挖掘:
+关系数据库
+数据仓库
+事务数据库
+高级数据库系统和信息库
+)空间数据库
+)时间数据库和时间序列数据库
+)流数据
+)多媒体数据库
+)面向对象数据库和对象-关系数据库
+)异种数据库和遗产(legacy)数据库
+)文本数据库和万维网(WWW)
+
+空间数据库:
+空间数据库是指在关系型数据库(DBMS)内部对地理信息进行物理存储.空间数据库中存储的海量数据包括对象的空间拓扑特征,非空间属性特征以及对象在时间上的状态变化.
+reg:移动定位数据
+常见的空间数据库数据类型:
+地理信息系统(GIS)
+遥感图像数据
+医学图像数据
+数据挖掘技术的应用:通过空间分类和空间趋势分析,引入机器学习算法,对有用模式进行智能检索.
+
+时间数据库和时序数据库:
+时间数据库和时序数据库都存放于时间有关的数据.时间数据库通常存放包含时间相关属性的时间.时间序列数据库存放随时间变化的值序列.
+对时间数据库和时序数据库的数据挖掘,可以通过研究事物发生发展的过程,有助于揭示事物发展的本质规律,可以发现数据对象的演变特征或对象变化趋势
+
+流数据:
+与传统的数据库技术中的静态数据不同,流数据是连续的,有序的,变化的快速的,大量的数据输入的数据(是动态的)
+典型技术:流媒体技术.(边下载边播放,放完之后包就丢掉)
+主要应用场合:
+网络监控
+网页点击流
+股票市场
+流媒体..等
+与传统数据库技术相比,流数据在存储,查询,访问,实时性的要求等方面都有很大区别(数据处理非常麻烦)
+
+多媒体数据库:
+多媒体数据库实现用计算机管理庞大复杂的多媒体数据,主要包括图形,图象,声音,视频等,现代数据库技术一般将这些多媒体数据以二进制大对象的形式进行存储.
+对于多媒体数据库的数据挖掘,需要将存储和检索技术相结合.目前的主要方法包括构造多媒体数据立方体,多媒体数据库的多特征提取和基于相似性的模式匹配
+
+//第2课
+面向对象数据库和对象-关系数据库:
+面向对象数据库对数据以对象的形式存储,并在这个基础上实现了传统数据库的功能,包括持久性,并发控制,可恢复性,一致性和查询数据库的能力等.
+//面向对象技术可以把数据和对数据的操作存储进去.
+对象-关系数据库基于对象-关系模型构造,该模型通过处理复杂对象的丰富数据类型和对象定位等功能,扩充关系模型.
+面向对象数据库和对象-关系数据库中的数据挖掘会涉及一些新的技术,比如处理复杂对象结结构,复杂数据类型,类和子类层次结构,构造继承以及方法和过程等.
+
+异构数据库和遗产数据库:
+遗产数据库是一系列的异构数据库系统的集合,包括各同种类的数据库系统,像关系数据库,网络数据库,文件系统等.
+有效利用遗产数据库的关键在于实现不同数据库之间的数据信息资源,硬件设备资源和人力资源的合并和共享.
+对于异构数据库系统,实现数据共享应当达到两点:一是实现数据库转换,二是实现数据的透明方向.
+WEB SERVICE技术的出现有利于历史数据库数据的重新利用.
+
+文本数据库和万维网:
+文本数据库存储的是对对象的文字性描述.
+文本数据库的分类:
+无结构类型(大部分的文本资料和网页)
+半结构类型(XML数据)
+结构类型(图书馆数据)
+万维网可以被看成最大的文本数据库
+数据挖掘内容:
+内容检索,WEB访问模式检索
+
+ALLElectronics:
+AllElectronics是一个商店,本课程将使用它作为实例来解释概念.数据包括:
+customer
+item
+employee
+branch
+purchases
+items_sold
+works_at
+..
+
+数据挖掘应用--市场分析和管理(1)
+数据从哪里来?
+信用卡交易,会员卡,商家的优惠券,消费者投诉电话,公众生活方式研究.
+目标市场:
+构建一系列的&quot;客户群模型&quot;,这些顾客具有相同特征:兴趣爱好,收入水平,消费习惯等.
+确定顾客的购买模式
+交叉市场分析:
+货物销售之间的相互联系和相关性,以及基于这种联系上的预测.
+顾客分析:
+哪类顾客购买哪种商品(聚类分析或分类预测)
+客户需求分析:
+确定适合不同顾客的最佳商品
+预测何种因素能够吸引新顾客
+提供概要信息:
+多维度的综合报告
+统计概要信息(数据的集中趋势和变化)
+
+数据挖掘应用--公司分析和风险管理:
+财务计划:
+现金流转分析和预测
+交叉区域分析和时间序列分析(财务资金比率,趋势分析等)
+资源计划:
+总结和比较资源和花费
+竞争:
+对竞争者和市场趋势的监控.
+将顾客按等级分组和基于等级的定价过程.
+将定价策略应用于竞争更激烈的市场中.
+
+欺诈行为检测和异常模式的发现:
+方法:对欺诈行为进行聚类和建模,并进行孤立点分析
+应用:卫生保健,零售业,信用卡服务,电信等.
+汽车保险:相撞事件的分析
+洗钱:发现可疑的货币交易行为
+医疗保险:
+职业病人,医生以及相关数据分析
+不必要的偶相关的测试
+电信:电话呼叫欺骗行为
+电话呼叫模型:呼叫目的地,持续时间,日或周呼叫次数,分析该模型发现与期待标准的偏差
+零售产业:
+分析师估计有38%的零售额下降是由于雇员的不诚实行为造成的
+反恐怖主义.
+
+数据挖掘的主要功能 --可以挖掘哪些模式?
+一般功能:
+描述性的数据挖掘;预测性的数据挖掘
+通常,用户并不知道在数据中能挖掘出什么东西,对此我们会在数据挖掘中应用一些常用的数据挖掘功能,挖掘出一些常用的模式,包括:
+概念/类描述:特性化和区分
+关联分析
+分类和预测
+聚类分析
+孤立点分析
+趋势和演变分析
+
+概念/类描述:特性化和区分
+概念描述:为数据的特征化和比较产生描述(当所描述的概念所指的是一类对象时,也称为类描述)
+特征化:提供给定数据集的简洁汇总
+例:对AllElectronic公司的&quot;大客户&quot;(年消费额$1000以上)的特征化描述:40-50岁,有固定职业,信誉良好等.
+区分:提供两个或多个数据集的比较描述
+
+关联分析:
+关联规则挖掘:
+从事务数据库,关系数据库和其他信息存储中的大量数据的项集之间发现有趣的,频繁出现的模式,关联和相关性.
+广泛的用于购物篮或事务数据分析.
+support:研究数据占总数据的比率 (强关联规则)
+confidence:客户主观性    (强关联规则)
+
+分类和预测:
+根据训练数据集合类标号属性,构建模型来分类现有数据,并用来分类新数据(分类),用来预测类型标志未知的对象类(预测)
+比如:按气候将国家分类,按汽油消耗额将汽车分类
+导出模型的表示:判定树,分类规则,神经网络.
+可以用来预报某些未知的或丢失的数字值.
+
+聚类分析:
+将物理或抽象对象的集合分组成为由类似的对象组成的多个类的过程.
+最大化类内的相似性和最小化类间的相似性.
+例:对WEB日志的数据进行聚类,以发现相同的用户访问模式
+
+孤立点分析:
+孤立点:一些与数据的一般行为或模型不一致的孤立数据
+通常孤立点被作为&quot;噪音&quot;或异常被丢弃,但在欺骗检测中却可以通过对罕见事件进行孤立点分析而得到结论
+应用:
+信用卡欺诈检测
+移动电话欺诈检测
+客户划分
+医疗分析(异常)
+
+趋势和演变分析:
+描述行为随时间变化的对象的发展规律或趋势(时序数据库)
+趋势和偏差:回归分析
+序列模式匹配:周期性分析
+基于类似性的分析
+
+所有模式都是有趣的吗?
+数据挖掘可能产生数以千计的模式或规则,但并不是所有的模式或规则都是令人感兴趣的.
+模式兴趣度的度量:
+一个模式是有趣的,如果(1)它易于被人理解(2)在某种程度上,对于新的或测试数据是有效的;(3)具有潜在效用;(4)新颖的;(5)符合用户确信的某种假设
+模式兴趣度的客观和主观度量:
+客观度量:基于所发现模式的结构和关于它们的统计,比如:支持度,置信度等等.
+主观度量:基于用户对数据的判断.比如:出乎意料的,新颖的,可行动的等等
+(需要给它设定一个标志量)
+
+能够产生所有有趣模式并且仅产生有趣模式吗?
+找出所有有趣的模式:数据挖掘算法的完全性问题
+数据挖掘系统能够产生所有有趣的模式吗?
+试探搜索vs穷举搜索
+关联vs分类vs聚类
+只搜索有趣的模式:数据挖掘算法的最优化问题
+数据挖掘系统可以仅仅发现有趣的模式吗?
+方法:
+首先生成所有模式然后过滤那些无趣打的.
+仅仅生成有趣的模式--挖掘查询优化
+
+数据挖掘:多个学科的融合--数据库系统;统计学;可视化;机器学习;算法;其他学科
+
+数据挖掘系统的分类(1)
+数据挖掘的多学科融合的特性,决定了数据挖掘的研究将产生种类繁多的数据挖掘系统.
+根据所挖掘的数据库分类
+关系数据库,事务数据库,流式数据,面向对象数据库,对象关系数据库,数据仓库,空间数据库,时序数据库,文本数据库,多媒体数据库,异构数据库,历史数据库,WWW
+
+数据挖掘系统的分类(2)
+根据挖掘的知识类型
+特征分析,区分,关联分析,分类聚类,孤立点分析/演变分析,偏差分析等等.
+多种方法的集成和多层次挖掘
+根据挖掘所用的技术
+面向数据库挖掘,数据仓库,OLAP,机器学习,统计学,可视化等等
+根据挖掘所用的应用
+金融,电信,银行,欺诈分析,DNA分析,股票市场,Web挖掘等等.
+
+数据挖掘的主要问题(1)
+海量数据的挖掘的效率和可扩展性
+挖掘方法问题和用户交互问题:
+在数据库中挖掘不同类型的知识
+在不同抽象层上的交互式知识挖掘
+背景知识的合并
+数据挖掘查询语言和特定的数据挖掘
+数据挖掘结果的表示和可视化
+处理噪声和不完全数据
+模式评估:兴趣度问题
+
+数据挖掘的主要问题(2)
+性能问题:
+数据挖掘算法的效率和可扩展性(scalability)
+并行,分布式和增量挖掘算法
+(数据的分块挖掘)
+其他和多样化的数据库类型相关的问题
+关系型和复杂数据类型的处理
+为特定的数据类型构建特定的数据挖掘系统
+从异构数据库中挖掘
+WEB数据挖掘
+
+//04课
+
+数据仓库和数据挖掘的OLAP技术:
+什么是数据仓库:
+数据仓库的定义很多,但却很难有一种严格的定义
+):它是一个提供决策支持功能的数据库,它与公司的操作数据库分开维护
+):为统一的历史数据分析提供坚实的平台,对信息处理提供支持
+&quot;数据仓库是一个面向主题的,集成的,随时间而变化的,不容易丢失的数据集合,支持管理部门的决策过程&quot;-W.H.lnmon(数据仓库构造方面的领头设计师)
+建立数据仓库(data warehousing)
+):构造和使用数据仓库的过程
+
+数据仓库关键特征一--面向主题
+围绕一些主题,如顾客,供应商,产品等.
+关注决策者的数据建模与分析,而不是集中于组织机构的日常操作和事务处理.
+排除对于决策无用的数据,提供特定主题的简明视图.
+
+数据仓库关键特征一--数据集成
+一个数据仓库是通过集成多个异种数据源来构造的.
+关系数据库,一般文件,联机事务处理记录
+使用数据清理和数据集成技术
+确保命名约定,编码结构,属性度量等的一致性.
+当数据被移到数据仓库时,它们要经过转化
+
+数据仓库关键特征三--随时间而变化
+数据仓库的时间范围比操作数据库系统要长的多
+操作数据库系统:主要保存当前数据.
+数据仓库:从历史的角度提供信息(比如过去5-10年)
+数据仓库中的每一个关键结构都隐式或显式地包含时间元素,而操作数据库中的关键结构可能就不包括时间元素.
+
+数据仓库关键特征四--数据不易丢失
+尽管数据仓库中的数据来自于操作数据库,但他们却是在物理上分离保存的
+操作数据库的更新操作不会出现在数据仓库环境下.
+不需要事务处理,恢复,和并发控制等机制
+只需要两种数据访问:
+数据的初始转载和数据访问(读操作)
+
+数据仓库的构造与使用--Data Warehousing
+数据仓库的构造包括一系列的数据预处理过程
+数据清理
+数据集成
+数据变换
+数据仓库的使用热点是商业决策行为
+增加客户聚焦
+产品重定位(?)
+寻找获利点
+客户关系管理
+
+数据仓库与操作数据库系统
+操作数据库系统的主要任务是联机事务处理OLTP
+日常操作:购买,库存,银行,制造,工资,注册,记账等.
+数据仓库的主要任务是联机分析处理OLAP
+数据分析和决策支持,支持以不同的形式显示数据以满足不同的用户需要.
+
+OLAP vs OLTP(1)
+用户和系统的面向性
+面向顾客(事务)vs面向市场(分析)
+数据内容
+当前的,详细的数据vs历史的,汇总的数据
+数据库设计
+实体-联系模型(ER)和面向应用的数据库设计vs星型/雪花模型和面向主题的数据库设计
+
+OLAP vs OLTP(2)
+数据视图
+当前的,企业内部的数据vs经过演化打的,集成的数据
+访问模式
+事务操作 vs 只读查询
+任务单位 
+简短的事务 vs 复杂的查询
+访问数据量
+数十个 vs 数百万个
+
+OLAP vs OLTP(3)
+用户数
+数千个 vs 数百个
+数据库规模
+100M-数GB vs 100GB-数TB
+设计优先性
+高性能,高可用性vs高灵活性,端点用户自治
+度量
+事务吞吐量 vs 查询吞吐量,响应时间
+
+为什么需要一个分离的数据仓库?
+提高两个系统的性能
+DBMS是为OLTP而设计的:存储方式,索引,并发控制,恢复
+数据仓库是为OLAP而设计:复杂的OLAP查询,多维视图,汇总
+不同的功能和不同的数据:
+历史数据:决策支持需要历史数据,而这些数据在操作数据库中一般不会去维护
+数据汇总:决策支持需要将来异种源的数据统一(如聚集和汇总)
+数据质量:不同的源使用不一致的数据表示,编码和格式,对这些数据进行有效的分析需要将他们转化后进行集成.
+
+多维数据模型(1)
+数据仓库和OLAP工具基于多维数据模型
+在多维数据模型中,数据以数据立方体(data cube)的形式存在
+数据立方体允许以多维数据建模和观察.它由维和事实定义
+维是关于一个组织想要记录的视角或观点.每个维都有一个表与之相关联,称为维表.
+多维数据模型围绕中心主题组织,该主题用事实表表示
+事实表包括事实的名称或度量以及每个相关维表的关键字
+事实指的是一些数字度量
+
+多维数据模型(3)
+在数据仓库中数据立方体是n-D的(n维)
+(关系表和电子表格是几维的?)
+示例:
+AllElectronics的销售数据按维time,item的2-D视图(P30,表2-2)
+AllElectronics的销售数据按维time,item和location的3-D视图
+AllElectronics的销售数据按维time,item和location的3-D视图的3-D数据立方体表示
+销售数据的4-D立方体表示
+多维数据模型为不同级别上的数据汇总提供了一个良好的基础
+
+多维数据模型(4)
+在数据仓库的研究文献中,一个n维的数据的立方体叫做基本方体.给定一个维的集合,我们可以构造一个方体的格,每个都在不同的汇总级或不同呃数据子集显示数据,方体的格称为数据立方体.0维方体存放最高层的汇总,称作顶点方体;而存放最底层汇总的方体则称为基本方体.
+
+数据立方体--一个方体的格
+0-D(顶点)方体  则为all
+4-D(基本)方体  则为包含了time,item,locatino,supplier...
+
+//05-06课
+数据仓库的概念模型:
+最流行的数据仓库概念模型是多维数据模型.这种模型可以以星型模式,雪花模式,或事实星座模式的形式存在.
+星型模式(Star schema):事实表在中心,周围围绕地连接着维表(每维一个),事实表含有大量数据,没有冗余.
+雪花模式(Snowflake schema):是星型模式的变种,其中某些维表是规范化的,因而把数据进一步分解到附加表中.结果,模式图形成类似于雪花的形状.
+事实星座(Fact constellations):多个事实表共享维表,这种模式可以看作星型模式集,因此称为星系模式(galaxy schema),或者事实星座(fact constellation)
+
+星型模式:事实表在中间,周围是各种维表
+雪花模式:对其中的维表再细分
+事实星座模式:多个主题来共同维护维表
+
+一种数据挖掘查询语言:DMQL
+DMQL首先包括定义数据仓库和数据集市的语言原语,这包括两种原语定义:一种是立方体定义,一种是维定义
+立方体定义(事实表)
+define cube&lt;cube_name&gt;[&lt;dimension_list&gt;]:&lt;measure_list&gt;
+维定义(维表)
+define dimension&lt;dimension_name&gt;as(&lt;attribute_or_subdimension_list&gt;)
+特殊案例(共享维表的定义)
+第一次作为维表定义&quot;cube definition&quot;
+然后:define dimension&lt;dimensino_name&gt;as&lt;dimension_name_first_time&gt;in cube &lt;cube_name_first_time&gt;
+
+实例:使用DMQL定义星型模式:
+define cube sales_star[time,item,branch,location]:dollars_sold=sum(sales_in_dollars),avg_sales=avg(sales_in_dollars),units_sold=count(*)
+define dimension time as(time_key,day,day_of_week,month,quarter,year)
+define dimension item as(item_key,item_name,brand,type,supplier_type)
+define dimension branch as(branch_key,branch_name,branch_type)
+define dimension location as(location_key,street,city,province_or_state,country)
+
+实例:使用DMQL定义雪花模式
+define cube sales_snowflake[time,item,branch,location]:dollars_sold=sum(sales_in_dollars),avg_sales=avg(sales_in_dollars),units_sold=count(*)
+define dimension time as(time_key,day,day_of_week,month,quarter,year)
+define dimension item as(item_key,item_name,brand,type,supplier(supplier_key,supplier_type))
+define dimension branch as(branch_key,branch_name,branch_type)
+define dimension location as(location_key,street,city(city_key,province_or_state,country))
+
+实例:使用DMQL定义事实星座模式
+define cube sales[time,item,branch,location]:dollars_sold=sum(sales_in_dollars),avg_sales=avg(sales_in_dollars),units_sold=count(*)
+define dimension time as(time_key,day,day_of_week,month,quarter,year)
+define dimension item as(item_key,item_name,brand,type,supplier(supplier_key,supplier_type))
+define dimension branch as(branch_key,branch_name,branch_type)
+define dimension location as(location_key,street,city(city_key,province_or_state,country))
+define cube shipping[time,item,shipper,from_location,to_location]:dollar_cost=sum(cost_in_dollars),unit_shipped=count(*)
+define dimension time as time in cube sales
+define dimension item as item in cube sales
+define dimension shipper as(shipper_key,shipper_name,location as location in cube sales,shipper_type)
+define dimension from_location as location in cube sales
+define dimension to_location as location in cube sales
+
+度量的分类:
+一个数据立方体的度量是一个数值函数,该函数可以对数据立方体的每一个点求值.
+度量可以根据其所用的聚集函数分为三类:
+分布的(distributive):将函数用于n个聚集值得到的结果和将函数用于所有数据得到的结果一样.
+比如:count(),sum(),min(),max()等
+代数的(algebraic):函数可以由一个带M个参数的代数函数计算(M为有界整数),而每个参数值都可以有一个分布的聚集函数求得.
+比如:avg(),min_N(),standard_deviation()
+整体的(holistic):描述函数的子聚集所需的存储没有一个常数界.
+比如:median(),mode(),rank()
+
+概念分层(1)
+一个概念分层(concept hierarchy)定义一个映射序列,将底层概念映射到更一般的高层概念
+概念分层允许我们在各种抽象级处理数据
+概念分层可以由系统用户,领域专家,知识工程师人工的提供,也可以根据数据分布的统计分析自动的产生
+
+概念分层(2):location维的一个概念分层
+all--region--country--city--office
+
+概念分层(3)--使用
+通过在多维数据模型中,在不同的维上定义概念分层,使得用户在不同的维上从不同的层次对数据进行观察成为可能.
+这种机制为用户从不同角度观察数据提供了灵活性.
+
+多维数据模型上的OLAP操作(1)
+上卷(roll-up):汇总数据
+通过一个维的概念分层向上攀升或者通过维规约
+当用维规约进行上卷时,一个或多个维由给定的数据立方体删除
+下钻(drill-down):上卷的逆操作
+由不太详细的数据到更详细的数据,可以通过沿维的概念分层向下或引入新的维来实现(为给定数据添加更多细节)
+切片和切块(slice and dice)
+切片操作在给定的数据立方体的一个维上进行选择,导致一个子方
+切块操作通过对两个或多个维进行选择,定义子方
+
+多维数据模型上的OLAP操作(2)
+转轴(pivot)
+立方体的重定位,可视化,或将一个3维立方体转化为一个2维平面序列
+转轴是一种可视化操作,通过转动当前数据的视图来提供一个数据的替代表示
+其他OLAP操作
+钻过(drill_across):执行涉及多个事实表的查询
+钻透(drill_through):使用关系SQL机制,钻到数据立方体的底层,到后端关系表
+其他OLAP操作可能包括列出表中最高或最低的N项,以及计算移动平均值,增长率,利润,统计函数等等
+
+//第07课
+
+数据仓库设计:一个商务分析框架(1)
+数据仓库给商业分析专家提供了什么?
+通过提供相关数据与信息,获得竞争优势
+通过有效的收集精确的描述组织的数据,获得生产力的提高
+通过提供不同级别(部门,市场,商业)的客户视图,协助客户关系管理
+通过追踪长期趋势,异常等,降低成本
+有效构建数据仓库的关键:理解和分析商业需求
+通过提供一个商业分析框架,综合各种不同的数据使用者的视图
+
+数据仓库设计:一个商务分析框架(2)
+**数据仓库设计的四种视图
+自顶向下视图
+允许我们选择数据仓库所需的相关信息
+数据源视图
+揭示被操作数据库系统所捕获,存储和管理的信息
+数据仓库视图
+有事实表和维表所组成
+商务查询视图
+从最终用户的角度透视数据仓库中的数据
+
+数据仓库设计:一个商务分析框架(3)
+数据仓库的构建与使用涉及多种技能
+商业技能:
+理解系统如何存储和管理数据
+数据如何提取
+数据如何刷新
+技术方面的技能
+如何通过使用各种数据或量化的信息,到处可以提供决策支持的模式,趋势,判断等.
+如何通过审查历史数据,分析发展趋势等.
+计划管理技能
+如何通过与不同的技术,厂商,用户交互,来及时,有效,经济的提交结果
+
+数据仓库的设计过程(1)
+自顶向下法,自底向上法或两者的混合方法:
+自顶向下法:由总体设计和规划开始
+在技术成熟,商业理解透彻的情况下使用
+自底向上法:以实验和原型开始
+常用在模型和技术开发的初期,可以有效的对使用的技术和模型进行评估,降低风险
+混合方法:上述两者的结合
+从软件过程的观点:
+瀑布式方法:在进行下一步前,每一步都进行结构化和系统的分析
+(项目规划--&gt;通过完成一个阶段再进行下一个阶段,局限是认为一个阶段结束之后一般不再返回查看)
+螺旋式方法:功能渐增的系统的快速产生,相继版本之间间隔很短.
+
+数据仓库的设计过程(2)
+典型的数据仓库设计过程:
+1)选取待建模的商务过程
+找到所构建的数据仓库的主题,比如:销售,货运,订单等等
+2)选取商务过程的颗粒度
+数据起始于多细的颗粒度,比如:记录每条详细订单,或是开始于每日的汇总数据
+3)选取用于每个事实表记录的维
+常用的维有:时间货物,客户,供应商等.
+4)选取将安放在事实表中的度量
+常用的数字度量包括:售价,货物数量等
+
+三层数据仓库架构(1)
+1)other SOURCES DBs
+2)Metadata&lt;-&gt;Monitor&amp;Integrator  DataWarehouse-&gt;Data Marts
+3) :2)&lt;-&gt;OLAP Server
+4) Analysis Query Reports Data mining
+数据源--数据仓库服务器--OLAP服务器--前端工具
+
+三层数据仓库架构(2)
+底层:数据仓库的数据库服务器
+关注的问题:如何从这一层提取数据来构建数据仓库(通过Gateway(ODBC,JDBC,OLE/DB等)来提取)
+中间层:OLAP服务器
+关注的问题:OLAP服务器如何实施(关系型OLAP,多维OLAP等)
+前端客户工具层:
+关注的问题:查询工具,报表工具,分析工具,挖掘工具等
+
+三种数据仓库模型:
+从体系结构的角度去看,数据仓库模型可以有以下三种:
+企业仓库:
+搜集关于跨越整个组织的主题的所有信息
+数据集市:
+企业范围数据的一个子集,对于特定的客户是有用的.其范围限于选定的主题,比如一个商场的数据集市
+独立的数据集市VS非独立的数据集市(数据来自于企业数据仓库)
+虚拟仓库
+操作数据库上的一系列视图
+只有一些可能的汇总视图被物化
+
+数据仓库开发:困难与方法
+数据仓库开发上的困难
+自顶向下的开发方法从全系统的角度提供解决方案,使得(模块)集成的问题最小;但是该方法十分昂贵,需要对组织进行长期研究和建模分析.
+自底向上方法提供了更多的开发灵活性,价格便宜;但往往会遇到集成问题(每个模块单独运行都没有问题,但是一集成就出异常)
+解决方法:
+使用递增性,演化性的开发方法
+高层数据模型-&gt;企业仓库和数据集市并行开发-&gt;通过分布式模型集成各数据集市-&gt;多层数据仓库
+
+数据仓库开发--一个推荐方法
+(这里有图)
+定义高层数据模型 -模型提炼-&gt; 数据集市 -&gt;分布式数据集市-&gt;多层数据仓库
+                -企业数据仓库-&gt;多层数据仓库  //不全,仅参考
+
+OLAP服务器类型(1)
+逻辑上,OLAP服务器从数据仓库或数据集市中给商业用户提供多维数据
+物理上,OLAP的底层数据存储实现可以有多种不同的方式
+关系OLAP服务器(ROLAP)
+使用关系数据库或扩展的关系数据库存放并管理数据仓库的数据,而用OLAP中间件支持其余部分
+包括每个DBMS后端优化,聚集导航逻辑的实现,附加的工具和服务
+较大的可扩展性
+
+OLAP服务器类型(2)
+多维OLAP服务器(MOLAP)
+基于数组的多维存储引擎(稀疏矩阵技术)
+能对预计算的汇总数据快速索引
+混合OLAP服务器(HOLAP)
+结合上述两种技术,更大的使用灵活性
+特殊的SQLfwq
+在星型和雪花模型上支持SQL查询
+
+数据仓库的实现--数据立方体的有效计算
+数据仓库中的OLAP查询是一种海量数据计算(想象一下对过去10年各地区的软件产品销售的汇总查询)
+用户却希望这个计算能在数秒钟内完成
+解决方法在于给出一种有效的计算数据立方体的方法
+数据立方体可以被看成是一个方格的格
+最底层的方体是基本方体
+最顶端的方体(顶点)只包含一个单元的值
+一个n维打的数据立方体,每维L层,可能产生的方体总数是多少?
+
+方体的操作
+DMQL中的方体定义和计算
+define cube sales[item,city,year]:sum(sales_in_dollars)
+compute cube sales
+上述的compute cube子句可以转化为一个类似于SQL的语句
+SELECT item,city,year,SUM(amount)
+FROM SALES
+CUBE BY item,city,year
+这个相当于SQL中以下的group by子句
+(item,city,year)--3D
+(item,city),(item,year),(city,year)--2D
+(item),(city),(year)--1D
+()--0D
+
+// 第08-09课
+数据立方体的物化
+数据立方体的物化可以有以下三种选择:
+全物化
+预先计算所有方体
+不物化
+不预先计算任何&quot;非基本&quot;方体
+部分物化
+有选择的计算一个所有方体的适当子集
+确定物化哪些方体:
+考虑工作负荷下的查询,它们的频率和它们的开销等等.
+
+方体计算:ROLAP vs MOLAP
+方体计算的挑战:海量数据,有限的内存和时间
+基于ROLAP的方法(底层使用关系模型存储数据)
+将排序,散列和分组操作应用于维的属性,以便对相关元组重新排序和聚类
+在某些子聚集上分组,作为&quot;部分分组步骤&quot;
+可以由以前计算的聚集计算新的聚集,而不必有基本事实表计算
+基于MOLAP方法(底层使用多维数组存储数据)
+多路数组聚集的计算方法
+将数组切成块(每个块都可以整个装入内存)
+通过访问各个块来计算汇总值
+
+方体计算的多路数组聚集方法(1)
+将数组分成块(chunk,一个可以装入内存的小子方)
+通过使得每个单元被访问的次数最小化,从而减少内存访问和磁盘I/O的开销
+
+方体计算的多路数组聚集方法(4)
+方法:各平面要按他们大小的升序排列进行排序和计算
+(内存空间需求最大的块计算次序)(内存空间需求最小的块计算次序)
+思想:将最小的平面放在内存中,对最大的平面每次只是取并计算一块
+
+方体计算的多路数组聚集方法(5)
+根据1到64的扫描次序,在块内存中保存所有相关的2-D平面所需的最小存储为:
+40*400(用于整个AB平面)+40*1000(用于AC平面一行)+100*1000(用于BC平面一块)=156000
+这种方法的限制:只有在维数比较小的情况下,效果才比较理想(要计算的立方体随维数指数增长)
+如果维的数目比较多,可以考虑使用&quot;自底向上的计算&quot;或者是&quot;冰山方体&quot;计算
+
+OLAP查询的有效处理:
+确定哪些操作应当在可利用的方体上执行:
+将查询中的选择,投影,上卷和下钻等操作转化为对应的SQL或/和OLAP操作,如:dice=selection + projection
+确定相关操作应当使用哪些物化的方体
+找寻MOLAP中可以利用的索引结构以及压缩的或是稠密的数组结构
+
+假设有三个维:时间,地点,种类,物品名
+
+元数据存储:
+在数据仓库中,元数据就是定义数据仓库对象的数据.有以下几种:
+数据仓库结构的描述:
+仓库模式,视图,维,层次结构,导出数据的定义,以及数据集市的位置和内容
+操作元数据
+包括数据血统(data lineage),数据类别(currency of data),以及监视信息
+汇总用的算法
+由操作环境到数据仓库的映射
+关于系统性能的数据
+索引,profiles,数据刷新,更新或复制事件的调度和定时
+商务元数据
+商务术语和定义,数据拥有者信息,收费政策等.
+
+元数据的使用:
+元数据与数据一起,构成了数据仓库中的数据模型,元数据所描述的更多的是这个模型的结构方面的信息.
+在数据仓库中,元数据的主要用途包括:
+用作目录,帮助决策支持系统分析者对数据仓库的内容定义
+作为数据仓库和操作性数据库之间进行数据转换时的映射标准
+用于指导当前细节数据和稍加综合的数据之间的汇总算法,指导稍加综合的数据和高度综合的数据之间的汇总算法.
+
+数据仓库后端工具和程序:
+数据仓库后端工具主要指的是用来装入和刷新数据的工具,包括:
+数据提取:从多个外部的异构数据源收集数据
+数据清理:检测数据种的错误并作可能的订正
+数据变换:将数据由历史或主机的格式转化为数据仓库的格式
+装载:排序,汇总,合并,计算视图,检查完整性,并建立索引和分区
+刷新:将数据源的更新传播到数据仓库中
+
+数据仓库的应用:
+数据仓库的三种应用:
+信息处理:
+支持查询和基本的统计分析,并使用交叉表,表,图标和图进行报表处理
+分析处理:
+对数据仓库中的数据进行多维数据分析
+支持基本的OLAP操作,切块,切片,上卷,下钻,转轴等
+数据挖掘:
+从隐藏模式中发现知识
+支持关联分析,构建分析性模型,分类和预测,并用可视化工具呈现挖掘的结果
+
+三种应用间的差别:
+1):从联机分析处理到联机分析挖掘:
+为什么要联机分析挖掘?
+数据仓库中有高质量的数据
+数据仓库中存放着整合的,一致的,清理过的数据
+围绕数据仓库的信息处理结构
+存取,集成,合并多个异种数据库的转换,ODBC/OLEDB连接,Web访问和访问工具等
+基于OLAP的探测式数据分析
+使用上卷,下钻,切片,转轴等技术进行数据挖掘
+数据挖掘功能的联机选择
+多种数据挖掘功能,算法和任务的整合.
+
+联机分析挖掘的体系结构:
+第一层 数据存储
+:数据的过滤,集成-&gt;数据清理 and 数据集成 -&gt;数据仓库
+(通过数据库API)-&gt;过滤
+第二层 多维数据库
+:元数据&lt;--&gt;多维数据库&lt;-(数据方体API)-&gt;
+第三层 OLAP/OLAM
+:OLAM引擎&lt;--&gt;OLAP引擎&lt;-(用户图形界面API)-&gt;
+第四层 用户界面
+:基于约束的数据挖掘 ;  挖掘结果
+
+//第10课
+
+数据预处理:
+为什么要预处理数据?
+现实世界的数据是&quot;肮脏的&quot;--数据多了,什么问题都会出现
+不完整的:有些感兴趣的属性缺少属性值,或仅包含聚集数据
+含噪声的:包含错误或者&quot;孤立点&quot;
+不一致的:在编码或者命名上存在差异
+没有高质量的数据,就没有高质量的挖掘结果
+高质量的决策必须依赖高质量的数据
+数据仓库需要对高质量的数据进行一致地集成
+
+数据质量的多维度量:
+一个广为认可的多维度量观点:
+精确度
+完整度
+一致性和查询数据库的能力等合乎时机
+可信度
+附加价值
+可访问性
+跟数据本身的含义相关的
+内在的,上下文的,表象的
+
+数据预处理的主要任务:
+数据清理
+填写空缺的值,平滑噪声数据,识别,删除孤立点,解决不一致性
+数据集成
+集成多个数据库,数据立方体或文件
+数据变换
+规范化和聚集
+数据归约
+得到数据集的压缩表示,它小得多,但可以得到相同或相近的结果
+数据离散化
+数据归约的一部分,通过概念分层和数据的离散化来规约数据,对数字型数据特别重要
+
+空缺值:
+数据并不总是完整的:
+例如:数据库表中,很多条记录的对应字段没有相应值,比如销售表中的顾客收入
+引起空缺值的原因:
+设备异常
+与其他已有数据不一致而被删除
+因为误解而没有被输入的数据
+在输入时,有些数据应为得不到重视而没有被输入
+对数据的改变没有进行日志记载
+空缺值要经过推断而补上
+
+如何处理空缺值:
+忽略元组:当类标号缺少时通常这么做(假定挖掘任务设计分类或描述),当每个属性缺少值的百分比变化很大时,它的效果非常差.
+人工填写空缺值:工作量大,可行性低
+使用一个全局变量填充空缺值:比如使用unknown或-∞
+使用属性的平均值填充空缺值
+使用与给定元组属同一类的所有样本的平均值
+使用最可能的值填充空缺值:使用像Bayesian公式或判定树这样的基于推断的方法
+
+噪声数据:
+噪声:一个测量变量中的随机错误或偏差
+引起不正确属性值的原因:
+数据收集工具的问题
+数据输入错误
+数据传输错误
+技术限制
+命名规则的不一致
+其它需要数据清理的数据问题:
+重复记录
+不完整的数据
+不一致的数据
+
+如何处理噪声数据:
+分箱(binning):
+首先排序数据,并将他们分到等深的箱中
+然后可以按箱的平均值平滑,按箱中值平滑,按箱的边界平滑等等
+聚类:
+监测并且去除孤立点
+计算机和人工检查结合
+计算机检测可疑数据,然后对它们进行人工判断
+回归:
+通过让数据适应回归函数来平滑数据
+
+数据平滑的分箱方法:
+price的排序后数据(单位:美元):4,8,15,21,21,24,25,28,34
+划分为(等深的)箱:
+箱1:4,8,15
+箱2:21,21,24
+箱3:25,28,34
+用箱平均值平滑:
+箱1:9,9,9
+箱2:22,22,22
+箱3:29,29,29
+用箱边界平滑:
+箱1:4,4,15
+箱2:21,21,24
+箱3:25,25,34
+
+聚类:
+通过聚类分析查找孤立点,消除噪声
+
+回归 y=x+1
+
+数据集成:
+数据集成:
+将多个数据源中的数据整合到一个一致的存储中
+模式集成:
+整合不同数据源中的元数据
+实体识别问题:匹配来自不同数据源的现实世界的实体,比如:A.cust-id=B.customer_no
+检测并解决数据值的冲突
+对现实世界中的同一实体,来自不同数据源的属性值可能是不同的
+可能的原因:不同的数据表示,不同的度量等.
+
+处理数据集成中的冗余数据:
+集成多个数据库时,经常会出现冗余数据
+同一属性在不同的数据库中会有不同的字段名
+一个属性可以由另外一个表导出,如:年薪&quot;
+有些冗余可以被相关分析检测到
+rA,B= ∑(A-A均)(B-B均)/(n-1)σAσB    : 相关系数
+仔细将多个数据源中的数据集成起来,能够减少或避免结果数据中的冗余与不一致性,从而可以提高挖掘的速度和质量
+
+数据变换:
+平滑:去除数据中的噪声(分箱,聚类,回归)
+聚集:汇总,数据立方体的构建
+数据概化:沿概念分层向上汇总
+规范化:将数据按比例缩放,使之落入一个小的特定区间
+最小-最大规范化
+z-score规范化
+小数定标规范化
+属性构造:
+通过现有属性构造新的属性,并添加到属性集中;以增加对高维数据的结构的理解和精确度
+
+数据变换--规范化:
+最小-最大规范化
+v&apos;=v-minA/(maxA-minA)*(new_maxA-new_minA)+new_minA
+z-score规范化
+v&apos;=v-meanA/(standard -devA)
+小数定标规范化
+v&apos;=v/(10^j),其中,j是使Max(|v&apos;|)&lt;1的最小整数
+
+数据归约策略:
+数据仓库中往往存有海量数据,在其上进行复杂的数据分析与挖掘需要很长的时间
+数据归约
+数据归约可以用来得到数据集的归约表示,它小得多,但可以产生相同的(或几乎相同的)分析结果
+数据归约策略
+数据立方体聚集
+维归约
+数据压缩
+数值归约
+离散化和概念分层产生
+用于数据归约的时间不应当超过或&quot;抵消&quot;在归约后的数据上挖掘节省的时间
+
+数据立方体聚集:
+最底层的方体对应于基本方体
+基本方体对应于感兴趣的实体
+在数据立方体中存在着不同级别的汇总
+数据立方体可以看成方体的格
+每个较高层次的抽象将进一步减少结果数据
+数据立方体提供了对预计算的汇总数据的快速访问
+使用与给定任务相关的最小方体
+在可能的情况下,对于汇总数据的查询应当使用数据立方体
+
+维归约:
+通过删除不相干的属性或维减少数据量
+属性子集选择:
+找出最小属性集,使得数据类的概率分布尽可能的接近使用所有属性的原分布
+减少出现在发现模式上的属性的数目,使得模式更易于理解
+启发式的(探索性的)方法:
+逐步向前选择
+逐步向后删除
+向前选择和向后删除相结合
+判定归纳树
+
+//第11课
+数据压缩:
+有损压缩VS无损压缩
+字符串压缩
+有广泛的理论基础和精妙的算法
+通常是无损压缩
+在解压缩前对字符串的操作非常有限
+音频/视频压缩
+通常是有损压缩,压缩精度可以递进选择
+有时可以在不解压整体数据的情况下,重构某个片断
+两种有损数据压缩的方法:小波变换和主要成分分析
+
+数值归约:
+通过选择替代的,较小的数据表示形式来减少数据量
+有参方法:使用一个参数模型估计数据,最后只要存储参数即可.
+线性回归方法:Y=α+βX
+多元回归:线性回归的扩充
+对数线性模型:近似离散的多维数据概率分布
+无参方法:
+直方图
+聚类
+选样
+
+直方图:
+一种流行的数据归约技术
+将某属性的数据划分为不相交的子集,或桶,桶中放置该值的出现频率
+桶和属性值的划分规则
+等宽
+等深
+V-最优
+MaxDiff
+
+聚类:
+将数据集划分为聚类,然后通过聚类来表示数据集
+如果数据可以组成各种不同的聚类,则该技术非常有效,反之如果数据界线模糊,则方法无效
+数据可以分层聚类,并被存储在多层索引树中
+聚类的定义和算法都有很多选择
+
+选样:
+允许用数据的较小随机样本(子集)表示大的数据集
+对数据集D的样本选择:
+简单随机选择n个样本,不回放:由D的N个元组中抽取n个样本
+简单随机选择n个样本,回放:过程同上,只是元组被抽取后,将被回放,可能再次被抽取
+聚类选样:D中元组被分入M个互不相交的聚类中,可在其中的m个聚类上进行简单随机选择(m&lt;M)
+分层选样:D被划分为互不相交的&quot;层&quot;,则可通过对每一层的简单随机选样得到D的分层选样
+
+离散化:
+三种类型的属性值:
+名称型--e.g.无序集合中的值
+序数--e.g.有序集合中的值
+连续值--e.g.实数
+离散化:
+将连续属性的范围划分为区间
+有效的归约数据
+基于判定树的分类挖掘
+离散化的数值用于进一步分析
+
+离散化和概念分层:
+离散化:
+通过将属性域划分为区间,减少给定连续属性值的个数.区间的标号可以代替实际的数据值.
+概念分层:
+通过使用高层的概念(比如:青年,中年,老年)来替代底层的属性值(比如:实际的年龄数据值)来归约数据
+
+数据数值的离散化和概念分层生成:
+分箱(binning)
+分箱技术递归的用于结果划分,可以产生概念分层
+直方图分析(histogram)
+直方图分析方法递归的应用于每一部分,可以自动产生多级概念分层
+聚类分析
+将数据划分成簇,每个簇形成同一个概念层上的一个节点,每个簇可再分成多个子簇,形成子节点.
+基于熵的离散化
+通过自然划分分段
+
+通过自然划分分段:
+将数值区域划分为相对一致的,易于阅读的,看上去更直观或自然的区间.
+聚类分析产生概念分层可能会将一个工资区间划分为:[51263.98,60872.34]
+通常数据分析人员希望看到划分的形式为[50000,60000]
+自然划分的3-4-5规则常被用来将数值数据划分为相对一致,&quot;更自然&quot;的区间
+
+自然划分的3-4-5规则:
+规则的划分步骤:
+如果一个区间最高有效位上包含3,6,7或9个不同的值,就将该区间划分为3个等宽子区间;(7-&gt;2,3,2)
+如果一个区间最高有效位上包含2,4或8个不同的值,就将该区间划分为4个等宽子区间;
+如果一个区间最高有效位上包含1,5,或10个不同的值,就将该区间划分为5个等宽子区间;
+将该规则递归的应用于每个子区间,产生给定数值属性的概念分层;
+对于数据集中出现的最大值和最小值的极端分布,为了避免上述方法出现的结果扭曲,可以在顶层分段时,选用一个大部分的概率空间.e.g.5%-95%
+
+第一步 正常
+第二步 选择并得出5%-95%向上/向下取整的值
+第三步 3-4-5法则分组
+第四步 考虑到全部区间的向上/向下取整的值,并对其进行3-4-5法则分组,尽可能囊括第三步的分组值
+
+分类数据的概念分层生成:
+分类数据是指无序的离散数据,它有有限个值(可能很多个)
+分类数据的概念分层生成方法:
+由用户或专家在模式级显式的说明属性的部分序.
+通过显式数据分组说明分层结构的一部分
+说明属性集,但不说明它们的偏序,然后系统根据算法自动产生属性的序,构造有意义的概念分层.
+对只说明部分属性集的情况,则可根据数据库模式中的数据语义定义对属性的捆绑信息,来恢复相关的属性.
+
+属性集的规格:
+根据在给定属性集中,每个属性所包含的不同值的个数,可以自动的生存概念分成;不同值个数最多的属性将被放在概念分层的最底层
+
+//第13课
+数据挖掘原语,语言和系统结构:
+为什么要数据挖掘原语和语言?
+没有精确的指令和规则,数据挖掘系统就没法使用.
+一个完全自动(不需要人为干预或指导)的数据挖掘机器(&quot;一只疯了的怪兽&quot;)
+会产生大量模式(重新把知识淹没)
+会涵盖所有数据,使得挖掘效率低下
+大部分有价值的模式集可能被忽略
+挖掘出的模式可能难以理解,缺乏有效性,新颖性和实用性--令人不感兴趣
+用数据挖掘原语和语言来指导数据挖掘
+(尽量呈现给用户少的模式,挖掘出的数据一定要相对源数据少很多)
+
+数据挖掘原语的组成部分:
+数据挖掘原语应该包括以下部分:
+说明数据库的部分或用户感兴趣的数据集
+要挖掘的知识类型
+用于指导挖掘的背景知识
+模式评估,兴趣度量
+如何显示发现的知识
+数据挖掘原语用于用户和数据挖掘系统通信,让用户能从不同的角度和深度审查和发现结果,并指导挖掘过程.
+
+说明数据挖掘任务的原语:
+任务相关的数据
+数据库(仓库)名,数据立方体,选择条件,相关属性,分组条件
+挖掘的知识类型
+特征化,区分,关联,分类/预测,聚类
+背景知识
+概念分层,关联的确信度
+模式兴趣度度量
+简单性,确定性,实用性,新颖性
+发现模式的可视化
+规则,表,图表,图,判定树...
+
+任务相关数据:
+用户感兴趣的只是数据库或数据仓库的一个子集.
+相关操作:DB-选择,投影,连接,聚集等;DW-切片,切块
+初始数据关系
+数据子集选择过程产生的新的数据关系
+可挖掘的视图
+用于数据挖掘相关任务的数据集
+
+任务相关的数据--例子:
+挖掘加拿大顾客和他们常在AIIElectronics购买的商品间的关联规则
+数据库(仓库)名(e.g.AIIElectronics_db)
+包含相关数据的表或数据立方体名(e.g.item,customer,purchases,item_sold)
+选择相关数据的条件(今年,加拿大)
+相关的属性或维(item表的name和price,customer表的income和age)
+
+要挖掘的知识类型:
+要挖掘的知识类型将决定使用什么数据挖掘功能.
+概念描述(特征化和区分),关联规则,分类/预测,聚类和演化分析等.
+模式模板:
+又称元模式或元规则,用来指定所发现模式所必须匹配的条件,用于指导挖掘过程.
+
+关联规则元模式---例子:
+研究AIIElectronics的顾客购买习惯,使用如下关联规则:
+P(X:customer,W) ∧ Q(X,Y) =&gt;buys(X,Z)
+X--customer表的关键字
+P,Q--谓词变量
+W,Y,Z--对象变量
+
+模板具体化:
+age(X,&quot;30...39&quot;) ∧ income(X,&quot;40k...49k&quot;)=&gt;buys(X,&quot;VCR&quot;)[2.2%,60%] 支持度,自信度
+occupation(x,&quot;student&quot;) ∧ age(X,&quot;20...29&quot;)=&gt;buys(X,&quot;computer&quot;)[1.4%,70%]
+
+背景知识:概念分层
+背景知识是关于挖掘领域的知识
+概念分层是背景知识的一种,它允许在多个抽象层上发现知识.
+概念分层以树形结构的节点集来表示,其中每个节点本身代表一个概念,根节点称为all,而叶节点则对应于维的原始数据值
+概念分层中,自顶向底进行层的标识,即all为0层,向下依次为1,2,3等层
+
+概念分层--上卷和下钻:
+在概念分层中应用上卷操作(概化),使得用户可以使用较高层次概念替代较低层次概念
+可以在更有意义,更高,更抽象的层次观察数据,从而使发现的模式更加容易理解
+上卷操作使得数据得到压缩,在这个压缩的数据集上进行挖掘可以减少I/O操作,使得挖掘的效率提高.
+概念分层的下钻操作使用较低层概念代替较高层概念,从而使用户能够对过于一般化的数据做更详细分析
+上卷和下钻操作让用户以不同视图观察数据,洞察隐藏的数据联系.
+概念分层的自动生成.
+在同一个维上,可能根据用户的观点不同,存在多个概念分层.
+
+概念分层的类型:
+四种常用的概念分层类型:
+模式分层
+E.g.,street&lt;city&lt;province&lt;country
+集合分组分层
+E.g.,{20-39}=young,{40-59}=middle_aged
+操作导出的分层
+Email:abc@cs.zju.edu.cn
+基于规则的分层
+low_profit_margin(X)&lt;=price(X,P1) and cost (X,P2) and (P1-P2) &lt;$50
+high_profit_margin(X)&lt;=price(X,P1) and cost(X,P2) and (P1-P2) &gt; $250
+
+兴趣度度量:
+没有兴趣度度量,挖掘出来的有用模式,很可能会给淹没在用户不感兴趣的模式中.
+兴趣度的客观度量方法:根据模式的结构和统计,用一个临界值来判断某个模式是不是用户感兴趣的.
+常用的四种兴趣度的客观度量:
+简单性
+确定性
+实用性
+新颖性
+
+简单性和确定性:
+简单性(simplicity)
+模式是否容易被人所理解
+模式结构的函数(模式的长度,属性的个数,操作符个数).e.g.规则长度或者判定树的节点个数.(谓词在3-4个以下的是用户感兴趣的)
+确定性(certainty)
+表示一个模式在多少概率下是有效的
+置信度(A=&gt;B)=(包含A和B的元组值)/(包含A的元组值),e.g.buys(X,&quot;computer&quot;)=&gt;buys(X,&quot;software&quot;)   [30%,80%]
+100%置信度:准确的.
+
+实用性和新颖性:
+实用性
+可以用支持度来进行度量:支持度(A=&gt;b)=(包含A和B的元组数)/(元组总数)e.g.buys(X,&quot;computer&quot;)=&gt;buys(X,&quot;software&quot;)   [30%,80%]
+同时满足最小置信度临界值和最小支持度临界值的关联规则称为强关联规则
+新颖性
+提供新信息或提高给定模式集性能的模式
+通过删除冗余模式来检测新颖性(一个模式已经为另外一个模式所蕴涵)
+Location(X,&quot;Canada&quot;)=&gt;buys(X,&quot;Sony_TV&quot;)[8%,70%]
+Location(X,&quot;Vancouver&quot;)=&gt;buys(X,&quot;Sony_TV&quot;)[2%,70%]
+
+发现模式的表示和可视化:
+以多种形式显示挖掘出来的模式:表,图,判定树,数据立方体等等,以适合不同背景的用户的需要
+使用概念分层,用更有意义,更容易理解的高层概念来替代低层概念;并通过上卷,下钻等操作从不同的抽象级审视所发现的模式.
+特定知识类型的表示.
+
+//第14-15课
+
+一种数据挖掘查询语言DMQL
+DMQL的设计目的:
+支持特别的和交互的数据查询,以便利于灵活和有效的知识发现
+提供一种类似于SQL的标准化查询语言
+希望达到SQL在关系数据库中的地位
+系统开发和演化的基础
+方便的信息交互,广泛的技术支持,商业化,广为认可
+设计挑战:
+数据挖掘任务涉及面宽
+数据特征,关联规则,分类,演变分析...每种任务都有不同的需求
+
+DMQL的语法:
+采用与SQL相类似的语法,便于与SQL的集成.
+允许在多个抽象层上,由关系数据库和数据仓库进行多类型知识的特殊挖掘.
+DMQL的设计基于数据挖掘原语,相应的,其语法中应该包括对以下任务的指定:
+说明数据库的部分或用户感兴趣的数据集
+要挖掘的知识类型
+用于指导挖掘的背景知识
+模式评估,兴趣度量
+如何显示发现的知识
+
+任务相关数据说明的语法:
+任务相关数据说明包括的内容:
+包含相关数据的数据库或数据仓库
+相关的表名或数据立方体的名字
+选择相关数据的条件
+探察的相关属性或维
+关于检索数据测排序和分组指令
+
+任务相关数据说明子句:
+说明相关的数据库或数据仓库
+use database &lt;db_name&gt; 或use data warehouse &lt;dw_name&gt;
+指定涉及的表或数据立方体,定义检索条件
+From &lt;relation(s)/cube(s)&gt; [where &lt;condition&gt;]   relation:表示&quot;表&quot;
+列出要探察的属性或维
+In relevance to &lt;attribute or dimension_list&gt;
+相关数据的排序
+order by &lt;order_list&gt;
+相关数据的分组
+group by &lt;grouping_list&gt;
+相关数据的分组条件:
+having &lt;condition&gt;
+
+任务相关数据说明---示例:
+挖掘加拿大顾客在AllElectronics经常购买的商品之间的关联规则
+use database ALLElectronics_db
+in relevance to I.name, I.price, C.income, C.age
+from customer C, item I, purchases P, items_sold S
+where I.item_ID=S.item_ID and S.trans_ID=P.trans_ID and
+P.cust_ID=C.cust_ID and C.country=&quot;Canada&quot; group by P.date
+
+指定挖掘知识类型:
+要挖掘的知识类型将决定所使用的数据挖掘功能.
+几种主要的数据挖掘功能
+特征化
+目标数据的一般特征或特性汇总
+数据区分
+将目标对象的一般特性与一个或多个对比类对象的特性相比较
+关联分析
+发现关联规则,这些规则展示-值频繁的在给定数据中集中一起出现的条件
+分类
+找出区分数据类或概念的模型(或函数),以便用之标志未知的对象类
+聚类分析,孤立点分析,演变分析
+
+指定挖掘知识类型--特征化
+目标数据的一般特征或特性汇总:
+语法
+Mine_Knowledge_Specification ::=mine characteristics [as pattern_name] analyze measure(s)
+analyze子句指定聚集度量(count,sum,count%),通过这些度量对每个找到的数据特征进行计算
+示例:顾客购买习惯的特征描述,对于每一特征,显示满足特征的任务相关元组的百分比
+mine characteristics as custPurchasing analyze count%
+
+指定数据挖掘知识类型--数据区分:
+将目标对象的一般特性与一个或多个对比类对象的特性相比较:
+语法:
+Mine_Knowledge_Specification ::=mine comparison[as pattern_name] for target_class where target_condition
+{versus contrast_class_i where contrast_condition_i} analyze measure(s)
+analyze子句指定聚集度量(count,sum,count%),将对每个描述进行计算或显示
+示例:用户将客户区分为大顾客与小顾客,并显示满足每个区分的元组数
+Mine_Knowledge_Specification ::=mine comparison as purchasesGroups for bigSpenders whrere avg(I.price) &gt;=$100
+versus budgetSpenders where avg(I.price) &lt;=$100 analyze count
+
+指定挖掘知识类型--关联
+发现关联规则,这些规则展示-值频繁的在给定数据中集中一起出现的条件:
+语法:
+Mine_Knowledge_Specification ::=mine associations [as pattern_name]
+matching子句后面往往可以跟元模式,用来指定用户有兴趣探察的数据束或假定
+示例:使用元模式指导的挖掘来指定用于描述顾客购买习惯的关联规则挖掘
+Mine_Knowledge_Specification ::=mine associations as buyingHabbits matching
+P(X:customer,W) ∧Q(X,Y) =&gt;buys(X,Z)
+
+指定挖掘知识类型--分类
+找出区分数据类或概念的模型(或函数),以便用之标志未知的对象类
+语法:
+Mine_Knowledge_Specification ::=mine classification [as pattern_name]
+analyze classifying_attribute_or_dimension
+analyze子句说明根据某个属性或维进行分类,通常每个分类属性的或维的值就代表一个分类
+示例:挖掘客户的信用等级模式
+mine classification as classifyCustCreditRating analyze credit_rating
+
+概念分层说明的语法:
+每个属性或维可能有多个概念分层,已适应用户从不同角度看待问题的需要;用户可以使用如下语句指定使用哪个概念分层:
+use hierarchy &lt;hierarchy&gt; for &lt;attribute_or_dimension&gt;
+示例1:定义模式分层location,location中包含一个概念分层的全序(street&lt;city&lt;province&lt;country),相应的DMQL语法定义如下所示:
+Define hierarchy location_hierachy on locatino as [street,city,province,country]
+
+概念分层说明的语法--集合分组分层
+level0        all
+level1        young middle_aged senior
+level2        20...  39    40...   59
+define hierarchy age_hierarchy for age on customer as
+level1{young.middllee,senior}&lt;level0:all
+level2:{20...39}&lt;level1:young
+level2:{40...59}level1:young
+lelel2:{60...89}&lt;level1:senior
+
+兴趣度度量说明的语法:
+兴趣度的度量包括置信度,支持度,噪声和新颖度等度量,可以通过将模式的兴趣度度量与相应的临界值相比较决定一个模式是否为感兴趣的模式
+with&lt;interest_measure_name&gt; threshold=threshold_value
+示例:挖掘关联规则时限定找到的感兴趣模式必须满足最小支持度为5%,最小置信度为70%
+with support threshold = 5%
+with confidence threshold = 70%
+
+模式表示和可视化说明的语法:
+对挖掘出来的模式,可以使用多种形式进行表示,包括:规则,表,饼图,立方体,曲线等
+display as &lt;result from&gt;
+为了方便用户在不同的角度或者不同的概念层观察发现的模式,用户可以使用上卷,下钻,添加或丢弃属性或维等操作
+Multilevel_Manipulation ::=roll up on attribute_or_dimension
+                    | drill down on attribute_or_dimension
+                    | add attribute_or_dimension
+                    | drop attribute_or_dimension
+例:假定描述是基于维location,age和income的挖掘.用户可以&quot;roll up on location&quot;,&quot;drop age&quot;,概化发现的模式
+
+一个DMQL查询的完整示例:
+查询ALLElectronics购买商品的价格不小于$100的,用AmEx信用卡结账的加拿大顾客的购买 习惯特征(年龄,商品类型和产地),以表的形式表示挖掘的模式
+use database ALLElectronics_db     //所使用的数据库
+use hierarchy location_hierachy for B.address   //所使用的概念分层(在B.address定义的概念分层)
+mine characteristics as customerPurchasing   //特征化,名称为customerPurchasing
+analyze count%   //所分析的是 count%
+in relevance to C.age, I.type, I.place_made   //与之相关的参数
+from customer C, item I, purchases P, item_sold S, works_at W,branch
+where I.item_ID = S.item_ID and S.trans_ID = P.trans_ID
+                and P.cust_ID = C.cust_ID and P.method_paid = &quot;AmEx&quot;
+                and P.empl_ID = W.empl_ID and W.branch_ID = B.branch_ID and B.address = &quot;Canada&quot; and I.price &gt;= 100
+with noise threshold = 0.05
+display as table
+
+其他数据挖掘语言和数据挖掘原语的标准化:
+关联规则语言规范:
+MSQL(Imielinski &amp; Virmani&apos;99)
+MineRule(Meo Psaila and Ceri&apos;96)
+Query flocks based on Datalog syntax(Tsur et al&apos;98)
+数据挖掘的OLE DB:
+基于OLE DB和OLE DB for OLAP技术
+整合数据库,数据仓库和数据挖掘
+CRISP-DM(CRoss-Industry Standard Process for Data Mining)
+提供了一个有效的数据挖掘平台和处理结构
+强调使用数据挖掘技术解决商务问题的需要
+
+基于数据挖掘语言的图形用户界面(GUI)设计:
+直接使用DMQL对用户是个挑战,更好的方法是在DMQL的基础上设计一个GUI.
+就像SQL是关系数据库应用的GUI设计的&quot;核心&quot;一样,DMQL是数据挖掘应用GUI设计的核心.数据挖掘的GUI可能包含以下部分:
+数据收集和数据查询编辑
+发现模式的表示
+分层结构说明和操纵
+数据挖掘原语的操作
+交互的多层挖掘
+其他各种信息
+
+数据挖掘系统的体系结构:
+一个好的系统架构,可以使数据挖掘系统在性能,可交互性,可使用性以及可扩展性等多个方面的都得到良好的保证.
+当前大部分数据都是存储在数据库或者是数据仓库之中,在此基础上往往还构建了综合的信息处理和信息分析功能.
+数据挖掘系统体系结构的核心问题:我们是否应当将数据挖掘系统与数据库/数据仓库系统集成(或耦合)
+不耦合
+松散耦合
+半紧密耦合
+紧密耦合
+
+DM与DB/DW的耦合方式(1):
+不耦合:
+DM系统不利用DB/DW系统的任何功能.
+简单,但是没有利用数据库的功能意味着信息分析处理借助第三方工具,这使得系统的构建和集成变得很困难.
+松散耦合:
+DM系统将使用DB/DW系统的某些功能.
+简单的利用DB/DW提供的数据查询功能,没有使用DB/DW的后台优化,算法大部分是基于内存的,性能和可扩展性差
+
+DM与DB/DW的耦合方式(2):
+半紧密耦合:
+除了将DM系统连接到一个DB/DW系统之外,一些基本数据挖掘原语(通过分析频繁遇到的数据挖掘功能确定)可以在DB/DW系统中实现.
+一些中间的挖掘结果可以在DB/DW上实现计算或有效的即时计算,性能会有较大提高.
+紧密耦合:
+DM系统平滑的集成到DB/DW系统中.数据挖掘子系统被视为信息挖掘子系统的一部分,数据挖掘查询和功能根据DB或DW系统的挖掘查询分析,数据结构,索引模式和查询处理方法优化.
+提供了一个统一的信息处理平台,功能,性能等方面都会达到一个高水平.
+
+//第16课
+概念描述:特征化与比较:
+
+两种不同类别的数据挖掘:
+从数据分析的角度看,数据挖掘可以分为描述性挖掘和预测性挖掘
+描述性挖掘:以简洁概要的方式描述数据,并提供数据的有趣的一般性质.
+预测性数据挖掘:通过分析数据建立一个或一组模型,并试图预测新数据集的行为.
+
+什么是概念描述?
+概念描述是一种最简单的描述性挖掘
+概念指的是一类数据的集合
+e.g.研究生,大客户
+概念描述是指为数据的特征化和比较产生描述(当所描述的概念所指的是一类对象时,也称为类描述)
+特征化:提供给定数据集的简洁汇总.
+区分:提供两个或多个数据集的比较描述
+
+概念描述 VS OLAP
+概念描述和数据仓库的联机分析处理(OLAP)都跟数据概化密切相关,即以简洁的形式在更一般的抽象层描述数据,允许数据在抽象层概化,便于考察数据的一般行为.
+两者的主要区别:
+概念描述
+可以处理复杂数据类型的属性及其聚集
+一个更加自动化的过程
+OLAP
+实际使用的OLAP系统中,维和度量的数据类型都非常有限(非数值型的维和数值型的数据),表现为一种简单的数据分析模型
+一个由用户控制的过程.
+
+数据概化:
+数据库中的数据和对象通常包含原始概念层的细节信息,数据概化就是将数据库中的跟任务相关的数据集从较低的概念层抽象到较高的概念层的过程.
+主要方法:
+数据立方体(OLAP使用的方法)
+面向属性的归纳方法
+
+数据概化:数据立方体方法:
+执行计算并将结果存储在数据立方体中
+优点:
+数据概化的一种有效实现
+可以计算各种不同的度量值
+比如:count(),sum(),average(),max()
+概化和特征分析通过一系列的数据立方体操作完成,比如上卷,下钻等.
+缺点:
+只能处理非数据类型的维和简单聚集数值类型的度量值
+缺乏智能分析,不能自动确定分析中该使用哪些维,应该概化到哪个层次
+
+面向属性的归纳:
+一种面向关系数据查询的,基于汇总的在线数据分析技术.
+受数据类型和度量类型的约束比较少
+面向属性归纳的基本思想:
+使用关系数据库查询收集任务相关的数据
+通过考察任务相关数据中每个属性的不同值的个数进行概化,方法是属性删除或者是属性概化
+通过合并相等的,概化的广义元组,并累计他们对应的计数值进行聚集操作
+通过与用户交互,将广义关系以图表或规则等形式,提交给用户
+
+面向属性的归纳的基本步骤:
+数据聚焦,获得初始工作关系   //初始工作关系:跟关系数据库相关的
+进行面向属性的归纳
+基本操作是数据概化,对有大量不同值的属性,进行进一步概化
+属性删除
+属性概化
+属性概化控制:控制概化过程,确定有多少不同的值才算是由大量不同值的属性
+属性概化临界值控制
+概化关系临界值控制
+
+数据聚焦(1):
+目的是获得跟任务相关的数据集,包括属性或维,在DMQL中他们由in relevance to子句表示.
+示例:
+DMQL:描述Big-University数据库中研究生的一般特征
+use Big_University_DB
+mine characteristics as &quot;Science_Students&quot;
+in relevance to name,gender,major,birth_place,birth_date,residence,phone#,gpa
+from student
+where status in &quot;graduate&quot;
+
+数据聚焦(2):
+将数据挖掘查询转换为关系查询
+Select name,gender,major,birth_date,birth_place,residence,phone#,gpa
+from student
+where status in {&quot;Msc&quot;,&quot;MBA&quot;,&quot;PhD&quot;}  //三个指研上述究生中的三种不同种类
+数据聚焦时的困难:
+用户在指定相关的数据集方面存在困难,遗漏在描述中可能起作用的属性
+用户可能引进太多的属性
+
+数据概化:
+数据概化的两种常用方法:属性删除和属性概化
+属性删除的适用规则:对初始工作关系中具有大量不同值的属性,符合以下情况,应使用属性删除:
+在此属性上没有概化操作符(比如该属性没有定义相关的概念分层)
+该属性的较高层概念用其他属性表示
+属性概化的使用规则:如果初始工作关系中的某个属性具有大量不同值,且该属性上存在概化操作符,则使用该概化操作符对该属性进行数据概化操作
+
+属性概化控制:
+确定什么是&quot;具有大量的不同值&quot;,控制将属性概化到多高的抽象层.
+属性概化控制的两种常用方法:
+属性概化临界值控制
+对所有属性设置一个概化临界值或者是对每个属性都设置一个临界值(一般为2到8)
+概化关系临界值控制
+为概化关系设置一个临界值,确定概化关系中,不同元组的个数的最大值.(通常为10到30,应该允许在实际应用中进行调整)
+两种技术的顺序使用:使用属性概化临界值控制来概化每个属性,然后使用关系临界值控制进一步压缩概化的关系.
+相等元组的合并,累计计数和其他聚集值
+
+面向属性的归纳--示例:
+挖掘Big-University数据库中研究生的一般特征
+name:删除属性        //对应着大量不同的值-&gt;概化/删除-&gt;删除
+gender:保留该属性,不概化
+major:根据概念分层向上攀升{文,理,工...}
+birth_place:根据概念分层location向上攀升
+birth_date:概化为age,再概化为age_range
+residence:根据概念分层location向上攀升
+phone#:删除属性
+gpa:根据GPA的分级作为概念分层
+
+初始工作关系
+主概化关系
+
+面向属性的归纳算法:
+输入:
+1.DB;2.数据挖掘查询DMQuery;3.属性列表;4.属性的概念分层;属性的概化临界值;
+输出
+主概化关系P
+算法描述:
+1.W&lt;-get_task_relevant_data(DMQuery,DB)
+2.prepare_for_generalization(W)
+)1.扫描W,收集每个属性a的不同值
+)2.对每个属性a,根据临界值确定是否删除,如果不删除,则计算其最小期望层次L,并确定映射对(v,v&apos;)
+3.P&lt;-generalization(W)
+通过使用v&apos;代替W中每个v,累计计数并计算所有聚集值,导出P
+)1.每个概化元组的插入或累计计数
+)2.用数组表示P
+
+//第17-18课
+导出概化的表示(1):
+概化关系
+一部分或者所有属性得到概化的关系,包含计数或其他度量值的聚集
+交叉表
+二维交叉表使用每行显示一个属性,使用每列显示另外一个属性将结果集映射到表中
+可视化技巧:
+条形图,饼图,曲线和数据立方体浏览工具(用单元的大小代表计数,用单元亮度代表另外的度量)
+
+导出概化的表示(2)
+量化规则:
+使用t_weight表示主概化关系中每个元组的典型性
+t_weight = count(qα)/∑n i=1 count(qi)  //每个元组所占的百分数
+量化特征规则:
+将概化的结果映射到相应的量化特征规则中,比如:
+((这里打不上,≯顺旋转90度) 表示:任意)
+任意X,t arget_class(X)=&gt;conditionl(X)[t:ωl]V...V conditionm(X)[t:ωm]
+任意X,item(X)=&quot;computer&quot;=&gt;(location(X)=&quot;Asia&quot;)[t:25%]V...(location(X)=&quot;NorthAmerican&quot;)[t:45%]
+
+类特征化过程中的困难:
+类特征化的两大缺点:
+复杂数据类型的处理
+缺乏一种自动概化的过程,用户必须告诉系统
+)哪些属性或维应该包括在类特征化中
+)每个维应该概化到多高的程度
+
+为什么进行属性相关分析?
+数据仓库和OLAP系统中的多维数据分析缺乏一个自动概化过程,这使得这个过程中需要有很多用户干预
+)用户必须告诉系统哪些维或属性应当包含在类分析中(难)
+))属性太少,则造成挖掘的描述结果不正确
+))属性太多,浪费计算,淹没知识
+)告诉系统每个维应当概化到多高的层次(易)
+))直接通过概化的临界值,说明给定维应当达到的概化程度
+))对概化层次不满意,则可以指定需要上卷或下钻的维
+
+解析特征化:属性相关分析 :
+属性相关分析:
+)通过识别不相关或者是弱相关的属性,将它们排除在概念描述过程之外,从而确定哪些属性应当包含在类特征化和类比较中.
+)解析特征化
+))包含属性相关分析的类特征化
+)解析比较
+))包含属性相关分析的类比较
+
+属性相关分析(1)
+通过属性相关性分析,滤掉统计上不相关或弱相关的属性,保留对手头数据挖掘任务最相关的属性.
+对于给定的属性,一个属性或维被认为是高度相关的,如果该属性或维的值可能用于区分该类和其他类.
+比如:区分昂贵汽车和便宜汽车(可选择的属性:颜色,型号,品牌...)
+
+属性相关分析(2):
+在同一个维内,对于区分一个类与其他类不同层的概念可能有很不同的能力
+)比如:birth_date维,day,month与salary无关,而year(或将其进一步概化为birth_decade)则与salary有关
+)类特征化中的比较类
+)除特征化的数据集外,数据库中可比较的数据集都作为对比类
+))比如:研究生特征化的例子,对比类为不是研究生的学生的集合(e.g.本科生)(可选择的属性:性别,籍贯,专业 ,平均成绩,年龄段)
+
+属性相关分析的方法:
+属性相关分析的基本思想是计算某种度量,用于量化属性与给定类或概念的相关性.
+)可采用的度量包括:信息增益,Gini索引,不确定性和相关系数.(涉及机器学习,统计,模糊和粗糙集理论等方面的相关知识)
+比如:信息增益通过计算一个样本分类的期望信息和属性的熵来获得一个属性的信息增益,判定该属性与当前的特征化任务的相关性
+
+信息增益(1):
+S是一个训练样本的集合,该样本中每个集合的类编号已知.每个样本为一个元组.有个属性用来判定某个训练样本的类编号(类似于学生记录中的status属性)
+假设S中有m个类,总共s个训练样本,每个类ci有Si个样本(i=1,2,3...m),那么任意一个样本属于类Ci的概率是si/s,那么用来分类一个给定样本的期望信息是:
+I(S1,S2,...,Sm)=-∑m i=1 * Si/S * log2 Si/S   (正数)
+
+信息增益(2):
+一个有v个值的属性A{a1,a2,...,av}可以将S分成v个子集{S1,S2,...,Sv},其中Sj包含S中属性A上的值为aj的样本.假设Sj包含类Cj的Sij个样本.根据A的这种划分的期望信息称为A的熵
+E(A)=∑γ j=1 * ((S1j+...+Smj)/S) * I(S1j,...,Smj)
+A上该划分的获得的信息增益定义为:
+Gain(A)=I(S1,S2,...,Sm)-E(A)
+具有高信息增益的属性,是给定集合中具有高区分度的属性.所以可以通过计算S中样本的每个属性的信息增益,来得到一个属性的相关性的排序.  (信息增益越高,相关度越高;信息增益越低,相关度越低)
+
+概念描述的属性相关分析步骤(1):
+数据收集
+):通过查询处理,收集目标类和对比类数据
+使用保守的AOI进行预相关分析
+):识别属性和维的集合,它们是所选择的相关性分析度量的应用对象
+):因为不同的概念层对某个类描述的相关性可能很不同,因此在这个过程中同时要包含概念分层
+):对有大量不同值的属性进行删除或概化
+):在这一级进行概化时,临界值要相应比较高,以便在后续步骤的分析中包含更多属性(保守的)
+):产生候选关系
+
+概念描述的属性相关分析步骤(2):
+使用选定的相关分析度量删除不相关和弱相关的属性
+):使用选定的相关分析度量(e.g.信息增益),评估候选关系中的每个属性
+):根据所计算的相关性对属性进行排序
+):低于临界值的不相关和弱相关的属性被删除
+):产生初始目标类工作关系(或初始对比类工作关系)
+使用AOI产生概念描述
+):使用一组不太保守的属性概化临界值进行AOI
+
+解析特征化--示例(1):
+任务:使用解析特征化挖掘Big--University的研究生的一般特征描述  (必然涉及到属性相关分析)
+给定
+):属性name,gender,major,birth_place,birth_date,phone#和gpa
+):Ui = attribute analytical thresholds for ai  //解析特征化时候的临界值
+):Ti = attribute generalization thresholds for ai  //概化时候的临界值
+):R  = attribute relevance threshold  //属性相关分析的临界值(信息增益) 大于多少,高度相关..
+
+解析特征化--示例(2) :
+1.数据收集:
+):目标类:研究生
+):对比类:本科生
+2.使用Ui进行解析特征化
+):属性删除:
+)):name和phone#
+):属性概化:
+)):概化major,birth_place,birth_date和gpa
+):累积计数
+):候选关系:gender,major,birth_country,age_range和gpa  (这些字段)
+
+-&gt;进行信息增益计算  (属性相关数值)
+-&gt;
+3.相关性分析:
+计算给定的样本分类所需要的期望信息
+I(S1,S2) = I(120,130)  = - 120/250 * log2 120/250 - 130/250 * log2 130/250 = 0.9988
+计算每个属性的熵:e.g.major
+For major = &quot;Science&quot;:    S11 = 84   S21 = 42   I(S11,S21) = 0.9183
+For major = &quot;Engineering&quot;: S12 = 36   S22 = 46   I(S12,S22) = 0.9892
+For major = &quot;Business&quot;:   S13 = 0    S23 = 42   I(S13,S23) = 0
+
+解析特征化--示例(5):
+如果样本根据major划分,则计算给定的样本进行分类所需的期望信息:
+E(major) = 126/250 I(S11,S21) + 82/250 I(S12,S22) + 42/250 I(S13,S23) = 0.7873
+计算该属性的信息增益:
+Gain(major) = I(S1,S2) - E(major) = 0.2115
+所有属性的信息增益  (也就是相关性系数)
+    Gain(gender)  = 0.0003  (舍)
+    Gain(birth_country) = 0.0407  (舍)
+    Gain(major) = 0.2115  (留)
+    Gain(gpa) = 0.4490  (留)
+    Gain(age_range) = 0.5971  (留)
+
+解析特征化--示例(6):
+4.导出初始工作关系:
+):R=0.1(临界值)
+):从候选关系中去处不相关/弱相关的属性=&gt;去处gender,birth_country
+):去除候选对比类关系
+    (初始目标类工作关系W0:研究生)
+5.在W0上用Ti进行AOI
+
+//第19课
+
+类比较挖掘:
+挖掘类比较:区分不同的类:
+类比较挖掘的目标是得到将目标类与对比类相区分的描述.
+):目标类和对比类间必须具有可比性,即两者间要有相似的属性或维.
+)):本科生VS 研究生; student VS address
+很多应用于概念描述的技巧可以应用于类比较,比如属性概化
+):属性概化必须在所有比较类上同步进行,将属性概化到同一抽象层后进行比较
+City VS country
+
+类比较的过程:
+数据收集
+):通过查询处理收集数据库中相关的数据,并将其划分为一个目标类和一个或多个对比类
+维相关分析
+):使用属性相关分析方法,使我们的任务中仅包含强相关的维
+同步概化
+):同步的在目标类和对比类上进行概化,得到主目标类 关系/方体 和 主对比类 关系/方体
+导出比较的表示
+):用可视化技术表达比较描述,通常会包含&quot;对比&quot;度量,反映目标类与对比类间的比较(e.g count%)
+
+类比较的有效实施:
+目标类和对比类的同步概化,以在相同抽象级别上进行类比较
+使用数据立方体技术有效的实施类比较
+):引入一个标志位(数据立方体的一个新维)来表示目标类或对比类  
+):目标类和对比类除了这个新维外,其他部分在数据立方体中的表示是相同的
+)):通过上卷和下钻来同步概化或具体化
+
+类比较挖掘--示例(1):
+任务:
+):比较Big-University本科生和研究生的一般特征
+任务的DMQL描述:
+use Big_University_DB
+mine comparison as &quot;grad_vs_undergrad_students&quot;
+in relevance to name,gender,major,birth_date,birth_place,residence,phone#,gpa
+for &quot;graduate_students&quot;
+where status in &quot;graduate&quot;
+versus &quot;undergraduate_students&quot;
+where status in &quot;undergraduate&quot;
+analyze count%
+from student
+
+类比较挖掘--示例(2):
+进行类比较挖掘的输入:
+):给定的属性:name,gender,major,birth_place,birth_date,residence,phone# and gpa
+):在属性ai上定义的概念分层Gen(ai)   //概念分层之后才能概化
+):在属性ai上定义的属性分析临界值Ui
+):在属性ai上定义的属性概化临界值Ti
+):属性相关性临界值R
+
+类比较挖掘--示例(3):
+任务的处理过程
+数据收集:
+):DMQL查询转化为关系查询,得到初始目标类工作关系和初始对比类工作关系
+):可以看成使构造数据立方体的过程
+)):引入一个新维status来标志目标类和对比类(graduate,undergraduate)
+)):其他属性形成剩余的维
+在两个数据类上进行维相关分析:
+):根据Ui和R,删除不相关或者弱相关的维:name,gender,major,phone#
+
+类比较挖掘--示例(4):
+同步概化
+):在目标类和对比类上同步的进行概化,将相关的维概化到由属性概化临界值Ti决定的同样的层次,形成主目标类 关系/方体和主对比类 关系/方体
+导出比较的表示
+):用表,图或规则等形式表达类比较描述的挖掘结果
+):用户应该能够在主目标类 关系/方体 和 主对比类 关系/方体进行进一步的OLAP操作
+
+类比较描述的表示:
+用可视化的方式将类比较描述呈现给用户,有助于用户对挖掘结果的理解.
+概化关系
+交叉图
+柱状图
+饼图
+曲线
+量化规则
+
+类比较描述的量化区分规则表示(1)
+类比较描述中的目标类和对比类的区分特性也可以用量化规则来表示,即量化区分规则
+):量化区分规则使用d-weight作为兴趣度度量(特征化使用什么作为兴趣度度量?)  特征化是使用t-weight
+d-weight = count(qa∈Cj)/∑m i=1 count(qa∈Ci)
+):qa -- 概化元组
+):Cj -- 目标类
+):qa的d-weight是初始目标类工作关系中被qa覆盖的元组数与初始目标类和对比类工作关系中被qa覆盖的总元组数的比
+
+类比较描述的量化区分规则表示(2):
+目标类中较高的d-weight表明概化元组所代表的概念主要来自于目标类
+较低的d-weight值则表明该概念主要来自于对比类
+对给定的status=&quot;Graduate&quot;,Birth_coutry=&quot;Canada&quot;,Age_range=&quot;25-30&quot;,Gpa=&quot;Good&quot;概化元组,其d-weight=90/(90+210)=30%(什么意思?)   挖掘结果:70%还是主要来自于本科生
+
+类比较描述的量化区分规则表示(3):
+使用类比较描述的量化区分规则表示可以更好的描述上述的情况,其形式为:
+任意X,t arg et_class(X) &lt;= condition(X) [d:d-weight]
+比如,刚才打的挖掘结果可以使用量化区分规则表达如下:
+任意X,graduate_student(X) &lt;= birth_country(X)=&quot;Canada&quot;∧age_range(X)=&quot;25-30&quot;∧gpa(X)=&quot;good&quot; [d:30%]
+请注意该区分规则表达的是充分条件,即X满足条件,则X为研究生的概率为30%(特征化量化规则表达的是什么条件?)
+
+类描述:特征化和比较的表示:
+类特征化和类比较是形成类描述的两个方面,我们可以通过综合类特征化规则和类区分规则来形成类描述规则.
+):量化特征化规则
+ 任意X, target_class(X) =&gt;condition(X)[t:t_weight]
+ )):必要条件
+):量化区分规则
+ 任意X,target_class(X) &lt;= condition(X) [d:d_weight]
+ )):充分条件
+):量化描述规则
+ 任意X,target_class(X) &lt;=&gt; condition 1(X)[t:w1,d:w&apos;1]∨...∨condition n(X)[t:wn,d:w&apos;n]
+ )):冲要条件
+
+量化描述规则--示例(1):
+一个给定类的概化元组的t-weight表明给定类中该元组的典型性(e.g.欧洲的销售(类)中,电视机(元组)占多少百分比?)
+一个元组的d-weight表明,给定类的元组和对比类的元组相比,有多大区别(e.g.欧洲(类)的电视机(元组)销售和北美的电视机销售比如何?)
+
+量化描述规则--示例(2):
+对于上述交叉表,可以直接用量化描述规则来表示
+任意X,Europe(X)&lt;=&gt;
+(item(X)=&quot;TV&quot;)[t:25%,d:40%]∨(item(X)=&quot;computer&quot;)[t:75%,d:30%]
+表明对99年AllElectronics公司的TV和计算机销售,如果一商品在欧洲售出,则其为TV的概率为25%...该公司40%的TV在欧洲售出...
+t_weight表达的是典型性描述;d-weight表达的是目标类中所占比例(可以逆向反比)
+
+//第20-21课 
+
+在大型数据库中挖掘描述统计度量:
+对于数据挖掘任务,用户经常关心的数据特征包括数据的中心趋势和离散特征,这些度量帮我们更好的理解数据的分布.
+):中心趋势的度量包括:mean,median,mode和midrange
+):数据离散度量包括:quartiles,outliers,variance和其他度量
+从数据挖掘的角度看,我们关心的是在大数据量的情况下,如何有效的计算上述度量
+关系数据库中,系统提供了以下聚集函数:count(),sum(),avg(),max(),min()
+):在大型数据库中挖掘用户感兴趣的描述统计计量涉及到如何利用关系数据库现有的函数来计算上述两类用户感兴趣的度量值
+
+度量中心趋势:
+算术平均值 x平均=1/n * ∑n i=1 * xi 
+):加权算术平均: x平均=∑n i=1 *wi*xi / (∑n i=1 * wi)
+中位值:使用一个近似的计算来度量
+):如果值的个数n是奇数,则中位数(median)是有序集合的中间值,否则它是中间两个数的平均值
+median = L1 + (n/2-(∑∫)*l / ∫median)*c
+):用插值法(interpolation)来近似计算
+模(mode):
+):表示数据集中出现频率最高的值
+):单模态,双模态,三模态,多模态和没有模的情况
+):单模态近似值计算的经验公式:
+mean-mode = 3*(mean-median)
+中列数:最大值和最小值的平均
+
+度量数据的离散度(1):
+最常用度量:五数概况(基于四分位数),中间四分位数区分和标准差
+四分位数,孤立点和盒图:
+):百分位数(percentile):第k个百分位数是具有如下性质的值x:数据项的k%在x上或低于x
+):四分位数:Q1(25th percentile),Q3(75th percentile)
+):中间四分位数区间(IQR):IQR=Q3-Q1
+):对倾斜分布的描述,除了IQR还常需两个四分位数Q1和Q3,以及中位数M,一个识别孤立点的常用规则是:挑出落在至少高于第三个四分位数或低于第一个四分位数1.5*IQR处的值
+
+度量数据的离散度(2):
+五数概况:min,Q1,M,Q3,max
+盒图:数据分布的一种直观表示
+方差和标准差s:
+):方差
+):标准差
+)):s是关于平均值的离散的度量,因此仅当选平均值做中心度量时使用
+)):所有观测值相同则s=0,否则s&gt;0
+)):方差和标准差都是代数度量
+
+盒图--示例:  (就是箱图)
+盒图:数据分布的一种直观表示,在盒图中:
+):端点在四分位数上,使得盒图的长度是IQR
+):中位数M用盒内的线标记
+):胡须延伸到最大最小观测值
+该盒图为在给定时间段在AllElectronics的4个分店销售的商品单价的盒图
+分店1
+):中位数$80
+):Q1:$60
+):Q3:$100
+
+基本统计类描述的图形显示--直方图:
+常用的显示数据汇总和分布的方法:
+):直方图,分位数图,q-q图,散布图和局部回归曲线
+直方图:
+):一种单变量图形方法
+):由一组矩形组成,这些矩形反映类在给定数据中出现的技术或频率
+
+分位数图:
+显示所有的数据,允许用户评估总的情况和不寻常情况的出现
+绘出了分位数信息
+):设xi是递增排序的数据,则每个xi都有相对应的fi,指出大约有100fi%的数据小于等于xi
+(横坐标是所占数据的百分比,纵坐标是值)
+
+分位数-分位数图(q-q图):
+对着另一个单变量的分位数,绘制一个单变量分布的分位数
+允许用户观察是不是有从一个分布到另外一个分布的迁移.
+(q-q图上深点表示四分位点)
+理解:第一个数据看横坐标,第二个数据看纵坐标,第一个数据与第二个数据性质是一致的,参考四分位点来比较这两个数据.也可以看是否有数据偏移
+
+散布图:
+确定两个量化的变量之间看上去是否有联系,模式或者趋势
+散布图中的每个值都被视为作代数坐标对,作为一个点画在平面上
+易于观察双变量数据在平面上的分布
+
+loess曲线:
+loess曲线为散布图添加一条平滑的曲线,以便更好的观察两个变量间的依赖模式
+Loess(local regression)意指&quot;局部回归&quot;,为了拟合loess曲线,需要两个参数:平滑参数α,被回归拟合的多项式的阶λ
+
+概念描述:面向数据库的方法与机器学习的方法比较:
+面向数据库的方法:面向大型数据库的概念描述的概化方法
+):使用基于数据立方体的方法
+):面向属性的归纳的方法
+机器学习:使用示例学习的范例,在概念集火标定训练样本集上进行,通过检验这些集合在学习中导出关于描述类的假定
+(样本数据逐一检测,但不适用大样本)
+
+面向数据库的方法与机器学习的方法的差异(1):
+所用的基本原理不同,关于概念描述的基本假定也不同
+):在示例学习(机器学习)的范例中,分析样本划分为两个集合:正样本和负样本,正样本用于概化,负样本用于特化,最后的概念描述会覆盖所有正样本而不覆盖任何负样本
+):在面向数据库的方法中,只存在正样本,因此大部分面向数据库的方法都是基于概化的(使用该方法时,下钻操作用于回溯到前一状态的概化过程)
+
+面向数据库的方法与机器学习的方法的差异(2):
+训练样本集大小上的差异
+):机器学习训练样本集小,容易找到覆盖所有正样本而不覆盖任何负样本的描述
+):面向数据库的方法通常面对大量数据,因此概念描述的目标是尽量的涵盖正面数据(概率分布)
+所使用的概化方法不同:
+):机器学习方法是逐个元组的进行概化
+):面向数据库的方法是逐个属性(或维)的进行概化,从而使得数据挖掘的过程能够与面向集合的数据库操作集成
+
+概念描述的增量挖掘和并行挖掘:
+增亮挖掘:根据数据库中新增的数据△DB来修正挖掘的结果,而不是重新从修正过的数据库中进行挖掘而得到结果
+):在△DB上使用面向属性的归纳,将属性概化到与概化关系R的对应属性相同的概念层来得到△R
+):合并R和△R:通过合并(union操作)count,sum等统计信息来得到一个新的概化关系R&apos;
+同样的思想可以用来研究概念描述的选择方法,并行算法和分布式算法,实现概念描述的并行挖掘.
+
+//第22课
+
+大型数据库中的关联规则挖掘:
+什么是关联规则挖掘?
+关联规则挖掘:
+):从事务数据库,关系数据库和其他信息存储中的大量数据的项集之间发现有趣的,频繁出现的模式,关联和相关性
+应用:
+):购物篮分析,分类设计,捆绑销售等
+
+举例:&quot;尿布与啤酒&quot;--典型关联分析案例
+
+购物篮分析:
+如果问题的全域是商店中所有商品的集合,则对每种商品都可以用一个布尔量来表示该商品是否被顾客购买,则每个购物篮都可以用一个布尔向量表示;而通过分析布尔向量则可以得到商品被频繁关联或被同时购买的模式,这些模式就可以用关联规则表示(0001001100,这种方法丢失了什么信息?)
+关联规则的两个兴趣度度量:
+):支持度
+):置信度 buys(X,&quot;computer&quot;)=&gt;buys(X,&quot;software&quot;)
+[sup port=2%,confidence=60%]
+
+关联规则:基本概念
+给定:
+):项的集合:I={i1,i2,...,in}
+):任务相关数据D是数据库事务的集合,每个事务T则是项的集合,使得T∈I
+):每个事务由事务标识符TID标识;
+):A,B为两个项集,事务T包含A当且仅当A∈T
+则关联规则是如下蕴涵式:
+A=&gt;B[s,c]
+):其中A∈I,B∈I并且A∩B=φ(空集),规则A=&gt;B在事务集D中成立,并且具有支持度s和置信度c
+
+基本概念--示例:
+项的集合I={A,B,C,D,E,F}
+每个事务T由事务标识符TID标识,它是项的集合TID(2000)={A,B,C}
+任务相关数据D是数据库事务的集合
+
+规则度量:支持度和置信度
+对所有满足最小支持度和置信度的关联规则
+):支持度s是指事务集D中包含A∪B的百分比
+suport(A=&gt;B)=P(A∪B)
+):置信度c是指D中包含A的事务同时也包含B的百分比
+confidence(A=&gt;B)=P(B|A)=P(A∪B)/P(A)
+假设最小支持度为50%,最小置信度为50%,则有如下关联规则:
+):A=&gt;C(50%,66.6%)
+):C=&gt;A(50%,100%)
+
+大型数据库关联规则挖掘(1):
+基本概念:
+):k-项集:包含k个项的集合
+)):{牛奶,面包,黄油}是个3-项集
+):项集的频率是指包含项集的事务数
+):如果项集的频率大于(最小支持度*D中的事务总数),则称该项集为频繁项集
+
+大型数据库关联规则挖掘(2):
+大型数据库中的关联规则挖掘包含两个过程:
+):找出所有频繁项集
+)):大部分的计算都集中在这一步
+):由频繁项集产生强关联规则
+)):即满足最小支持度和最小置信度的规则
+
+关联规则挖掘分类(1):
+关联规则有多种分类:
+):根据规则中所处理的值类型
+)):布尔关联规则
+computer=&gt;financial_management_software
+)):量化关联规则(规则描述的是量化的项或属性间的关联性)
+age(X,&quot;30...39&quot;)∧income(X,&quot;42k...48k&quot;)=&gt;buys(X,&quot;computer&quot;)
+):根据规则中设计的数据维
+)):单维关联规则
+)):(仅涉及buys这个维)
+buys(X,&quot;computer&quot;)=&gt;buys(X,&quot;software&quot;)
+)):多维关联规则
+
+关联规则挖掘分类(2):
+根据规则集所涉及的抽象层
+):单层关联规则
+):多层关联规则(在不同的抽象层发现关联规则)
+age(X,&quot;30...39&quot;)=&gt;buys(X,&quot;laptop_computer&quot;)
+age(X,&quot;30...39&quot;)=&gt;buys(X,&quot;computer&quot;)
+根据关联挖掘的各种补充
+):挖掘最大的频繁模式(该模式的任何真超模式都是非频繁的)  真超:不仅包含本来的模式,可能还会再加一个属性 (意思就是想挖掘最大复杂度的模式)
+):挖掘频繁闭项集(一个项集c是频繁闭项集,如果不存在其真超集c&apos;,使得每个包含c的事务也包含c&apos;)
+):(最大的频繁模式和频繁闭项集可以用来减少挖掘中产生的频繁项集)
+
+由事务数据库挖掘单维布尔关联规则:
+最简单的关联规则挖掘,即单维,单层,布尔关联规则的挖掘.
+对规则A=&gt;C,其支持度support(A=&gt;C)=P(A∪C)=50%(reg)
+置信度 
+
+Apriori算法(1):
+Apriori算法是挖掘布尔关联规则频繁项集的算法
+Apriori算法利用频繁项集性质的先验知识(prior knowledge),通过逐层搜索的迭代方法,即将k-项集用于探察(k+1)-项集,来穷尽数据集中的所有频繁项集.
+):先找到频繁1-项集集合L1,然后用L1找到频繁2-项集集合L2,接着用L2找L3,直到找不到频繁k-项集,找每个Lk需要一次数据库扫描
+
+Apriori算法(2):
+Apriori算法利用的是Apriori性质:频繁项集的所有非空子集也必须是频繁的.
+):A∪B模式不可能比A更频繁的出现
+):Apriori算法是反单调的,即一个集合如果不能通过测试,则该集合的所有超集也不能通过相同的测试.
+):Apriori性质通过减少搜索空间,来提高频繁项集逐层产生的效率
+
+Apriori算法步骤:
+Apriori算法由连接和剪枝两个步骤组成.
+连接:为了找Lk,通过Lk-1与自己连接产生候选k-项集的集合,该候选k项集记为Ck.
+):Lk-1中的两个元素L1和L2可以执行连接操作l1△(+90`)△(-90`)l2的条件是
+(l1[1]=l2[1])∧(l1[2]=l2[2])∧...∧(l1[k-2]=l2[k-2])∧(l1[k-1]&lt;l2[k-1])
+Ck是Lk的超集,即它的成员可能不是频繁的,但是所有频繁的k-项集都在Ck中(为什么?).因此可以通过扫描数据库,通过计算每个k-项集的支持度来得到Lk.
+):为了减少计算量,可以使用Apriori性质,即如果一个k-项集的(k-1)-子集不在Lk-1中,则该候选不可能是频繁的,可以直接从Ck删除
+
+Database TDB   (假设最小支持度为50%)
+L:频繁几项集
+Tid  Items               C1    Itemset    sup
+10    A,C,D        1st scan    {A}        2
+20    B,C,E        -------&gt;    {B}        3
+30    A,B,C,E                    {C}        3
+40    B,E                        {D}        1  (至少要出现2次才能认为是频繁的,任何包含D的项集都不可能是频繁的)
+                            {E}        3
+ L1    Itemset    sup                        C2    Itemset    
+    {A}        2    产生步骤:连接与剪枝        {A,B}
+-&gt;    {B}        3    ------------------&gt;        {A,C}
+    {C}        3                            {A,E}
+    {E}        3                            {B,C}
+                                        {B,E}
+                                        {C,E}
+ C2    Itemset    sup
+    {A,B}    1     L2    Itemset    sup
+    {A,C}    2        {A,C}    2    必须是有一个元素相同的情况下才能连接
+-&gt;    {A,E}    1    -&gt;    {B,C}    2    ----------------------------&gt;
+    {B,C}    2        {B,E}    3    reg:{A,C}与{B,C}有一个C元素相同
+    {B,E}    3        {C,E}    2
+    {C,E}    2
+
+ C3    Itemset      3rd scan        L3    Itemset    sup
+-&gt;    {B,C,E}    ------------&gt;        {B,C,E}    2    (频繁双项集)
+
+L2-&gt;C3:
+使用Apriori性质由L2产生C3:
+1.连接:
+):C3=L2△(+90)△(-90)L2={{A,C},{B,C},{B,E},{C,E}}△(+90)△(-90)
+{{A,C},{B,C},{B,E},{C,E}}={{A,B,C},{A,C,E},{B,C,E}}
+2.使用Apriori性质剪枝:频繁项集的所有子集必须是频繁的,对候选项C3,我们可以删除其子集为非频繁的选项:
+)):{A,B,C}的2项子集是{A,B},{A,C},{B,C},其中{A,B}不是L2的元素,所以删除这个选项;
+)):{A,C,E}的2项子集是{A,C},{A,E},{C,E},其中{A,E}不是L2的元素,所以删除这个选项;
+)):{B,C,E}的2项子集是{B,C},{B,E},{C,E},它的所有2-项子集都是L2的元素,因此保留这个选项.
+3.这样,剪枝后得到C3={{B,C,E}}
+
+//第23-24集
+
+Apriori算法--伪码:
+算法:Apriori使用根据候选生成的逐层迭代找出频繁项表
+输入:事务数据库D;最小支持临界值min_sup
+输出:D中的频繁项集L
+L1=find_frequent_1-itemsets(D);
+for(k=2;Lk-1≠⊙(?);k++){
+    Ck=apriori_gen(Lk-1,min_sup);
+    for each transaction t∈D{//scan D for counts
+        Ct=subset(Ck,t);//get the subsets of t that are candidates
+        for each candidate c∈Ct
+            c.count++;
+    }
+    Lk={c∈Ck|c.count&gt;=min_sup}
+}
+return L=UkLk
+
+Procedure apriori_gen(Lk-1:frequent(k-1)-itemsets;min_sup:min support threshold)
+    For each itemset l1 ∈ Lk-1
+        for each itemset l2 ∈Lk-1
+            if(l1[1]=l2[1]/\.../\(l1[k-2]=l2[k-2])∧(l1[k-1]&lt;l2[k-1]))
+            then{
+                c=l1△(+90)△(-90)l2;//join step;generate candidates
+                if has_infrequent_subset(c,Lk-1) then
+                    delete c; //prune step ; remove
+                            //unfruitful  candidate
+                    else add c to Ck;
+            }
+        return Ck;
+    Procedure ........
+
+由频繁项集产生关联规则:
+同时满足最小支持度和最小置信度的才是强关联规则,从频繁项集产生的规则都满足支持度要求,而其置信度则可由以下公式计算:
+confidence(A=&gt;B)=P(A|B)=support_count(A∪B)/support_count(A)
+每个关联规则可由如下过程产生:
+):对于每个频繁项集l,产生l的所有非空子集;
+):对于每个非空子集s,如果support_count(l)/support_count(s)&gt;=min_conf
+则输出规则&quot;s=&gt;(l-s)&quot;    (然后认为是强关联规则)
+
+提高Apriori算法的有效性(1):
+Apriori算法主要的挑战:
+):要对数据进行多次扫描;
+):会产生大量的候选项集;
+):对候选项集的支持度计算非常繁琐;
+解决思路:
+):减少对数据的扫描次数;
+):缩小产生的候选项集;
+):改进对候选项集的支持度计算方法
+方法1:基于hash表的项集计数
+):将每个项集通过相应的hash函数映射到hash表中的不同的桶中,这样可以通过将桶中的项集计数跟最小支持计数相比较先淘汰一部分项集.
+方法2:事务压缩(压缩进一步迭代的事务数)
+):不包含任何k-项集的事务不可能包含任何(k+1)-项集,这种事务在下一步的计算中可以加上标记或删除.
+方法3:划分
+):挖掘频繁项集只需要两次数据扫描
+):D中的任何频繁项集必须作为局部频繁项集至少出现在一个部分中.
+)):第一次扫描:将数据划分为多个部分并找到局部频繁项集
+)):第二次扫描:评估每个候选项集的实际支持度,以确定全局频繁项集.
+方法4:选样(在给定数据的一个子集挖掘):
+):基本思想:选择原始数据的一个样本,在这个样本上用Apriori算法挖掘频繁模式
+):通过牺牲精确度来减少算法开销,为了提高效率,样本大小应该以可以放在内存中为宜,可以适当降低最小支持度来减少遗漏的频繁模式
+)):可以通过一次去全局扫描来验证从样本中发现的模式
+)):可以通过第二次全局扫描来找到遗漏的模式
+方法5:动态项集计数:
+):在扫描的不同点添加候选项集,这样,如果一个候选项集已经满足最少支持度,则在可以直接将它添加到频繁项集,而不必在这次扫描的以后对比中继续计算.
+
+不产生候选频繁项集的算法--FP树:
+Apriori算法的主要开销:
+):可能要产生大量的候选项集
+)):10^4个频繁1-项集会导致10^7个频繁2-项集会导致10^7个频繁2-项集
+)):对长度为100的频繁模式,会产生2^100个候选
+):重复扫描数据库,通过模式匹配检查一个很大的候选集合
+不产生候选频繁项集的算法--FP-树频集算法
+):一种采用divide and conquer(分治策略)的方法
+)):在经过第一遍扫描之后,把数据库中的频繁项集压缩进一棵频繁模式树(FP-tree),同时依然保留其中的关联信息;
+)):将FP-tree分化成一些条件库,每个库和一个长度为1的频集相关,然后再对这些条件库分别进行挖掘
+
+从数据库构建一个FP树:
+步骤:
+1.扫描一次数据库,导出频繁项的集合(1-项集)
+2.将频繁项按降序排列
+3.再次扫描数据库,构建FP树
+
+reg:
+TID    Items bought    (ordered)frequent items
+100    {f,a,c,d,g,i,m,p}    {f,c,a,m,p}
+200    {a,b,c,f,l,m,o}        {f,c,a,b,m}        min_support=0.5
+300    {b,f,h,j,o}            {f,b}
+400    {b,c,k,s,p}            {c,b,p}
+500    {a,f,c,e,l,p,m,n}    {f,c,a,m,p}
+
+1st scan:
+Item frequency    head
+f        4
+c        4
+a        3
+b        3
+m        3
+p        3
+
+FP树的构建(第二次扫描数据库):
+1.创建树的根节点,用null标记;
+2.将每个事务中的项按递减支持度计数排列,并对每个事务创建一个分枝;
+):比如为第一个事务{f,c,a,m,p}构建一个分枝
+3.当为一个事务考虑增加分枝时,沿共同前缀上的每个节点的计数加1,为跟随前缀后的项创建节点并连接
+):比如将第二个事务{f,c,a,b,m}加到树上时,将为f,c,a各增计数1,然后为{b,m}创建分枝
+4.创建一个项头表,以方便遍历,每个项通过一个节点链指向它在树中的出现.
+
+FP树结构的好处:
+完整性:
+):不会打破任何事物数据中的长模式
+):为频繁模式的挖掘保留了完整的信息
+紧凑性:
+):减少了不相关的信息--非频繁的项被删除
+):按频率递减排列--使得更频繁的项更容易在树结构中被共享
+):数据量比原数据库要小
+
+FP树挖掘:
+FP树的挖掘步骤:
+):由长度为1的频繁模式(初始后缀模式)开始,构造它的条件模式基(一个&quot;子数据库&quot;,由FP树中与后缀模式一起出现的前缀路径集组成)
+):构造该初始后缀模式的条件FP树,并递归的在该树上实现挖掘.模式增长通过后缀模式与条件FP树产生的频繁模式连接实现
+
+(条件模式基)
+conditional pattern bases
+item    cond.pattern base
+c        f:3
+a        fc:3
+b        fca:1,f:1,c:1
+m        fca:2,fcab:1
+p        fcam:2,cb:1
+
+FP树挖掘--从FP树到条件模式基:
+):从项头表开始挖掘,由频率低的节点开始
+):沿循每个(频繁)项的链接来遍历FP树
+):通过积累该项的前缀路径来形成一个条件模式基
+
+FP树挖掘--构建条件FP树:
+对每个条件模式基
+):为基中的每一项累积计数
+):为模式基中的频繁项构建FP树
+
+项头表                        {}null                m-条件模式基        所有关于m的频繁模式:
+Item  frequency  head      f:4       c:1            fca:2,fcab:1        m,
+f        4               c:3       b:1    b:1                {}                fm,cm,am,
+c        4               a:3            p:1                |                fcm,fam,cam,
+a        3            m:2   b:1                        f:3                fcam
+b        3            p:2   m:1                        |
+m        3                                            c:3
+p        3                                            |
+                                                    a:3
+                                                m-条件FP-树
+(最后与最小支持度比较,出现次数大于最小支持度则为频繁模式)
+
+//第25课
+
+大型数据库中的关联规则挖掘(2)
+多层关联规则(1):
+数据项中经常会形成概念分层
+底层的数据项,其支持度往往也较低
+):这意味着挖掘底层数据项之间的关联规则必须定义不同的支持度
+
+多层关联规则(2):
+在适当的等级挖掘出来的数据项间的关联规则可能是非常有用的
+通常,事务数据库中的数据也是根据维和概念分层来进行存储的
+):这为从事务数据库中挖掘不同层次的关联规则提供了可能
+在多个抽象层挖掘关联规则,并在不同的抽象层进行转化,是数据挖掘系统应该提供的能力.
+
+挖掘多层关联规则的方法:
+通常,多层关联规则的挖掘还是使用置信度-支持度框架,可以采用自顶向下策略
+):请注意:概念分层中,一个节点的支持度肯定不小于该节点的任何子节点的支持度
+):由概念层1开始向下,到较低的更特定的概念层,对每个概念层的频繁项计算累加计数
+):每一层的关联规则挖掘可以使用Apriori等多种方法
+):例如:
+)):先找高层的关联规则:computer-&gt;printer[20%,60%]
+)):再找较低层的关联规则:laptop-&gt;color printer[10%,50%]
+
+多层关联--一致支持度:
+一致支持度:对所有层都使用一致的最小支持度
+):优点:搜索时容易采用优化策略,即一个项如果不满足最小支持度,它的所有子项都可以不用搜索
+):缺点:最小支持度设置困难
+)):太高:将丢掉出现在较低抽象层中有意义的关联规则
+)):太低:会在较高层产生太多的无兴趣的规则
+
+多层关联--递减支持度:
+使用递减支持度,可以解决使用一致支持度时在最小支持度值上设定的困难
+递减支持度:在较低层使用递减的最小支持度
+)):每一层都有自己的一个独立的最小支持度
+)):抽象层越低,对应的最小支持度越小
+
+多层关联--搜索策略(1):
+具有递减支持度的多层关联规则的搜索策略
+):逐层独立:完全的宽度搜索,没有频繁项集的背景知识用于剪枝
+):层交叉单项过滤:一个第i层的项被考察,当且仅当它在第(i-1)层的父节点是频繁的
+)):(computer)-&gt;(laptop computer,desktop computer)
+):层交叉k项集过滤:一个第i层的k项集被考察,当且仅当它在第(i-1)层的对应父节点k-项集是频繁的
+)):(computer,printer)-&gt;((laptop computer,color printer),(desktop computer,b/w printer)...)
+
+多层关联--搜索策略(2):
+搜索策略比较:
+):逐层独立策略条件松,可能导致底层考察大量非频繁项
+):层交叉k项集过滤策略限制太强,仅允许考察频繁k-项集的子女
+):层交叉单项过滤策略是上述两者的折中,但仍可能丢失低层频繁项
+
+受控的层交叉单项过滤策略:
+曾交叉单项过滤策略的改进版本
+设置一个层传递临界值,用于向较低层传递相对频繁的项.
+):即如果满足层传递临界值,则允许考察不满足最小支持度临界值的项的子女
+):用户对进一步控制多概念层上的挖掘过程有了更多的灵活性,同时减少无意义关联的考察和产生
+
+检查冗余的多层关联规则:
+挖掘多层关联规则时,由于项间的&quot;祖先&quot;关系,有些发现的规则将是冗余的
+例如:
+):desktop computer=&gt;b/w print [sup=8,con=70%]   (1)
+):IBM desktop computer =&gt;b/w printer [sup=2%,con=72%]  (2)
+上例中,我们说第一个规则是第二个规则的&quot;祖先&quot;
+如果规则(2)中的项用它在概念分层中的&quot;祖先&quot;代替,能得到(1),而且(1)的支持度和置信度都接近&quot;期望&quot;值,则(1)是冗余的
+
+多维关联规则--概念:
+单维关联规则:
+):buys(X,&quot;milk&quot;)=buys(X,&quot;bread&quot;)
+多维关联规则:涉及两个或多个维或谓词的关联规则
+):维间关联规则:不包含重复的谓词
+)):age(X,&quot;19-25&quot;)∧occupation(X,&quot;student&quot;)=&gt;buys(X,&quot;coke&quot;)
+):混合维关联规则:包含某些谓词的多次出现
+)):age(X,&quot;19-25&quot;)∧buys(X,&quot;popcorn&quot;)=&gt;buys(X,&quot;coke&quot;)
+在多维关联规则挖掘中,我们搜索的不是频繁项集,而是频繁谓词集.k-谓词集是包含k个合取谓词的集合.
+):reg:{age,occupation,buys}是一个3-谓词集
+
+挖掘多维关联规则的技术:
+数据属性可以分为分类属性和量化属性
+):分类属性
+)):具有有限个不同值,值之间无序
+):量化属性
+)):数值类型的值,并且值之间有一个隐含的序
+挖掘多维关联规则的技术可以根据量化属性的处理分为三种基本方法:
+):1.量化属性的静态离散化
+)):使用预定义的概念分层对量化属性进行静态地离散化
+):2.量化关联规则
+)):根据数据的分布,将量化属性离散化到&quot;箱&quot;
+):3.基于距离的关联规则
+)):考虑数据点之间的距离,动态地离散化量化属性.
+
+多维关联骨规则挖掘--使用量化属性的静态离散化:
+量化属性使用预定义的概念分层,在挖掘前进行离散化
+数值属性的值用区间代替
+如果任务相关数据存在关系数据库中,则找出所有频繁的k-谓词集将需要k或k+1次表扫描
+数据立方体技术非常适合挖掘多维关联规则
+):n-维方体的单元用于存放对应n-谓词集的计数或支持度,0-D方体用于存放任务相关数据的事务总数
+如果包含感兴趣的维的数据立方体已经存在并物化,挖掘将会很快,同时可以利用Apriori性质:频繁谓词集的每个子集也必须是频繁的
+
+//第26-27课
+
+挖掘量化关联规则(1):
+量化关联规则中,数值属性将根据某种挖掘标准,进行动态的离散化
+):例如:最大化挖掘规则的置信度和紧凑性
+为了简化量化关联规则挖掘的讨论,我们将聚集于类似以下形式的2-维量化关联规则:
+Aquan1∧Aquan2=&gt;Acat
+):(两个量化属性和一个分类属性间的关联)
+):例如:age(X,&quot;30-39&quot;)∧income(X,&quot;42K-48K&quot;)=&gt;buys(X,&quot;highresolutionTV&quot;)
+
+挖掘量化关联规则(2):
+找出这类2-维量化关联规则的方法:关联规则聚类系统(ARCS)
+):一种源于图像处理的技术,该技术将量化属性对映射到满足给定分类属性条件的2-D栅格上,然后通过搜索栅格点的聚类而产生关联规则
+
+关联规则聚类系统(ARCS):
+ARCS过程中的步骤包括:
+):1.分箱(根据不同分箱方法创建一个2-D数组),本步骤的目的在于减少量化属性相对应的巨大的值个数,使得2-D栅格的大小可控
+)):等宽分箱
+)):等深分箱
+)):基于同质的分箱(每个箱中元组一致分布)
+)2:找出频繁谓词集
+)):扫描分箱后形成的2-D数组,找出满足最小支持度和置信度的频繁谓词集
+)3:关联规则聚类
+)):将上一步得到的强关联规则映射到2-D栅格上,使用聚类算法,扫描栅格,搜索规则的矩形聚类
+age(X,34)∧income(X,&quot;31K...40K&quot;)=&gt;buys(X,&quot;high_resolution_TV&quot;)
+age(X,35)∧income(X,&quot;31K...40K&quot;)=&gt;buys(X,&quot;high_resolution_TV&quot;)
+age(X,34)∧income(X,&quot;41K...40K&quot;)=&gt;buys(X,&quot;high_resolution_TV&quot;)
+age(X,35)∧income(X,&quot;41K...40K&quot;)=&gt;buys(X,&quot;high_resolution_TV&quot;)
+-&gt;
+age(X,34...35)∧income(X,&quot;31K...50K&quot;)=&gt;buys(X,&quot;high_resolution_TV&quot;)
+
+ARCS的局限性:
+所挖掘的关联规则左手边只能是量化属性
+规则的左手只能有两个量化属性(2-D栅格的限制)
+一种不基于栅格的,可以发现更一般关联规则的技术,其中任意个数的量化属性和分类属性可以出现在规则的两端
+):等深分箱动态划分
+):根据部分完全性的度量进行聚类
+
+挖掘基于距离的关联规则:
+因为未考虑数据点之间或区间的相对距离,分箱方法不是总能紧扣区间数据的语义
+reg:
+Price($)    Equi-width(width $10)    Equi-depth(depth 2)    Distance-based
+7            [0,10]                    [7,20]                [7,7]
+20            [11,20]                    [22,50]                [20,22]
+22            [21,30]                    [51,53]                [50,53]
+50            [31,40]
+51            [41,50]
+53            [51,60]
+等宽划分将很近的值分开,并创建没有数据的区间
+等深划分将很远的值放在一组
+基于距离的关联规则挖掘考虑属性值的接近性,紧扣区间数据的语义,并允许值的类似
+基于距离的关联规则挖掘的两遍算法:
+):1.使用聚类找出区间或簇
+):2.搜索频繁的一起出现的簇组,得到基于距离的关联规则
+
+关联规则的兴趣度度量:
+客观度量:
+):两个流行的度量指标
+)):支持度
+)):置信度
+主观度量:
+):最终,只有用户才能确定一个规则是否有趣的,而且这种判断是主观的,因不同的用户而异;通常认为一个规则(模式)是有趣的,如果:
+)):它是出人意料的
+)):可行动的(用户可以使用该规则做某些事情)
+挖掘了关联规则后,哪些规则是用户感兴趣的?强关联规则是否就是有趣的?
+
+对强关联规则的批评(1):
+reg:
+            打篮球        不打篮球        合计
+喝麦片        2000        1750            3750
+不喝麦片    1000        250                1250
+合计        3000        2000            5000
+例1:(Aggarwal&amp;Yu,PODS98)
+):在5000个学生中
+)):3000个打篮球
+)):3750个喝麦片粥
+)):2000个学生既打篮球又喝麦片粥
+):然而,打篮球=&gt;喝麦片粥[40%,66.7%]是错误的,因为全部学生中喝麦片粥的比率是75%,比打篮球学生的66.7%要高
+):打篮球=&gt;不喝麦片粥[20%,33.3%]这个规则远比上面那个要精确,尽管支持度和置信度都要低的多
+(A=&gt;B的置信度具有欺骗性,要与总体比率做参考进行分析)
+
+由关联分析到相关分析:
+我们需要一种度量事件间的相关性或者是依赖性的指标
+):***A和B间的相关性:corrA,B = P(A∪B)/P(A)P(B) = P(B|A)/P(B)***
+当项集A的出现独立于项集B的出现时,P(A∪B)=P(A)P(B),即corrA,B=1,表明A与B无关,corrA,B&gt;1表明A与B正相关,corrA,B&lt;1表明A与B负相关
+):将相关性指标用于前面的例子,可以得出录像带和游戏间的相关性为:
+):P({game,video})/(P({game}) * P({video})) = 0.4/(0.75*0.6)=0.89
+):结论:录像带和游戏之间存在负相关
+
+基于约束的关联挖掘:
+如何对海量数据进行交互性的,解释性的挖掘?
+):充分的利用各种约束条件
+知识类型约束
+数据约束
+维/层约束
+兴趣度约束
+规则约束
+):指定要挖掘的规则形式,可以用元规则来表示,说明规则的前件和后件中谓词的最大和最小个数,或属性,属性值和/或聚集之间的联系
+
+关联规则的元规则制导挖掘(1):
+元规则使得用户可以说明他们感兴趣的规则的语法形式
+):例:在AllElectronics数据库中挖掘时使用一个元规则表达顾客的特点和他购买的商品之间的关联(具有哪两种特点的顾客会买educational software?)
+):P1(X,Y)∧P2(X,W)=&gt;buys(X,&quot;educational software&quot;)
+)):Y,W分别取赋给谓词变量P1,P2的属性值
+一般,元规则形成一个用户希望探察的假定,而系统则寻找与该元规则匹配的规则,例如:
+):age(X,&quot;30-39&quot;)∧income(X,&quot;42K-60K&quot;)=&gt;buys(X,&quot;educational software&quot;)
+
+关联规则的元规则制导挖掘(2):
+假定我们希望挖掘的元规则形式为:
+):P1∧P2∧...∧Pl=&gt;Q1∧Q2∧...∧Qr
+设元规则中谓词的个数为p=l+r,则找出符合该模板的关联规则需以下两步骤:
+):找出所有的频繁p-谓词集Lp
+):计算Lp中的l-谓词子集的支持度,然后计算由Lp导出的规则的置信度
+数据立方体具有存放聚集维值的能力,适合多维关联规则的挖掘,在n维数据立方体中(n&gt;=p)挖掘上述规则可以用以下步骤:
+):扫描p-D方体,将每个单元中的计数和最小支持度计数比较,得到Lp
+):考察l-D方体,返回与元规则匹配的强关联规则
+
+用附加的规则约束制导的挖掘:
+在数据挖掘中,与元规则一起使用的约束还有集合/子集联系,变量初始化和聚集函数等,它们将使挖掘过程更有效
+mine associations as
+lives(C,_,&quot;Vancouver&quot;)∧sales+(C,?{I},{S})=&gt;sales+(C,?{J},{T}) from sales
+where S.year=1999 and T.year=1999 and I.category=J.category
+group by C,I.category
+having sum(I.price)&lt;=100 and min(J.price)&gt;=500
+with support threshold = 1%
+with confidence threshold=50%
+
+挖掘过程中使用的规则约束:
+通常的数据挖掘中,知识类型和数据约束在挖掘前使用,其它约束在挖掘后用来过滤规则,但这使挖掘过程非常低效.
+什么类型的规则约束可以在挖掘过程中使用,以缩小规则搜索空间?
+对于频繁项集挖掘,在挖掘过程中使用的约束包括以下五种类型:
+):反单调的
+):单调的
+):简洁的
+):可转变的
+):不可转变的
+
+反单调的和单调的约束:
+如果一个项集不满足该规则约束,则它的任何一个超集都不可能满足该约束;具有这种性质的规则称为是反单调的.
+):e.g.Apriori性质就是反单调的(频繁项集的任何非空子集也必须是频繁的)
+)):用于算法的每次迭代,以减少考察的候选项集的个数
+如果一个项集满足该约束,则它的所有超集也满足该约束;具有这种性质的规则称为是单调的.
+):e.g.Count(I)&gt;=10
+
+简洁性约束:
+一个约束是简洁的,如果我们可以列出并仅仅列出所有确保满足该约束的集合
+):利用简洁性约束,我们可以在计数前进行剪枝,从而避免产生-测试方式的过大开销
+
+可转变的和不可转变的约束:
+有些约束不属于前面三类,但是如果项集中的项以特定的次序排列,则对于频繁项集挖掘的全过程,约束可能成为单调的或者是反单调的.例:avg(I.price)
+不可转变的约束是数据挖掘中较难处理的部分,但这种约束往往较少
+
+//第28课
+
+分类和预测:
+分类VS预测:
+分类:
+):预测分类标号(或离散值)
+):根据训练数据集合类标号属性,构建模型来分类现有数据,并用来分类新数据
+预测:
+):建立连续函数指模型,比如预测空缺值
+典型应用:
+):信誉证实
+):目标市场
+):医疗诊断
+):性能预测
+
+数据分类--一个两步过程(1):
+第一步,建立一个模型,描述预定数据类集和概念集
+):假定每个元组属于一个预定义的类,由一个类标号属性确定
+):基本概念
+)):训练数据集:由为建立模型而被分析的数据元组形成
+)):训练样本:训练数据集中的单个样本(元组)
+):学习模型可以用分类规则,判定树或数学公式的形式提供
+
+数据分类--一个两步过程(2):
+第二步,使用模型,对将来的或未知的对象进行分类
+):首先评估模型的预测准确率
+)):对每个测试样本,将已知的类标号和该样本的学习模型类预测比较
+)):模型在给定测试集上的准确率是正确被模型分类的测试样本的百分比
+)):测试集要独立于训练样本集,否则会出现&quot;过分适应数据&quot;的情况
+
+第一步--建立模型
+):训练数据集---分类算法----分类规则
+第二步--用模型进行分类
+):测试集&lt;---&gt;分类规则&lt;-----&gt;未知数据
+(大部分高于准确率大于70%的模型都认为是使用价值的)
+
+有指导的学习VS无指导的学习
+有指导的学习(用于分类)
+):模型的学习在被告知每个训练样本属于哪个类的&quot;指导&quot;下进行
+):新数据使用训练数据集中得到的规则进行分类
+无指导的学习(用于聚类)
+):每个训练样本的类编号是未知的,要学习的类集合或数量也可能是事先未知的
+):通过一系列的度量,观察来建立数据中的类编号或进行聚类
+
+准备分类和预测的数据:
+通过对数据进行预处理,可以提高分类和预测过程的准确性,有效性和可伸缩性
+):数据清理:
+)):消除或减少噪声,处理空缺值,从而减少学习时的混乱
+):相关性分析
+)):数据中的有些属性可能与当前任务不相关;也有些属性可能是冗余的;删除这些属性可以加快学习步骤,使学习结果更精确
+):数据变换
+)):可以将数据概化到较高层概念,或将数据进行规范化
+
+比较分类方法:
+使用下列标准比较分类和预测方法:
+):预测的准确率:模型正确预测新数据的类编号的能力
+):速度:产生和使用模型的计算花销
+):健壮性:给定噪声数据或有空缺值的数据,模型正确预测的能力
+):可伸缩性:对大量数据,有效的构建模型的能力
+):可解释性:学习模型提供的理解和洞察的层次
+
+用判定树归纳分类:
+什么是判定树?
+):类似于流程图的树结构
+):每个内部节点表示在一个属性上的测试
+):每个分枝代表一个测试输出
+):每个树叶节点代表类或类分布
+判定树的生成由两个阶段组成:
+):判定树构建
+)):开始时,所有的训练样本都在根节点
+)):递归的通过选定的属性,来划分样本(必须是离散值)
+):树剪枝
+)):许多分枝反映的是训练数据中的噪声和孤立点,树剪枝试图检测和剪去这种分枝
+判定树的使用:对未知样本进行分类
+):通过将样本的属性值与判定树相比较
+
+判定归纳树算法:
+判定归纳树算法(一个贪心算法): (会试图去覆盖所有的数据)
+):自顶向下的分治方式构造判定树        (对过于复杂的数据进行分开学习)
+):树以代表训练样本的单个根节点开始
+):使用分类属性(如果是量化属性,则需先进行离散化)
+):递归的通过选择相应的测试属性,来划分样本,一旦一个属性出现在一个节点上,就不在该节点的任何后代上出现
+):测试属性是根据某种启发信息或者是统计信息来进行选择(如:信息增益)
+)):在树的每个节点上使用信息增益度量选择测试属性;选择具有最高信息增益(或最大熵压缩)的属性作为当前节点的测试属性.(即根据当前节点对应的训练样本,计算各属性的信息增益,然后选用具有最高信息增益的属性来做样本划分)
+
+判定树归纳策略(1):
+1.树以代表训练样本的单个节点开始
+2.如果样本都在同一个类,则该节点成为树叶,并用该类标记
+3.否则,算法使用基于熵的度量--信息增益作为指导信息,选择能够最好的将样本分类的属性;该属性成为节点的&quot;测试&quot;或&quot;判定&quot;属性.(使用分类属性)
+4.对测试属性每个已知的值,创建一个分支,并以此划分样本
+5.算法使用同样的过程,递归的形成每个划分上的样本判定树.一旦一个属性出现在一个节点上,就不在该节点的任何子节点上出现
+6.递归划分步骤停止的条件:
+):给定节点的所有样本属于同一类
+):没有剩余属性可以用来进一步划分样本--使用多数表决
+):没有剩余的样本
+
+判定归纳树算法示例(1):
+对于上述数据,可以略过步骤1,2
+步骤3,计算基于熵的度量--信息增益,作为样本划分的根据
+Gain(age)=0.246
+Gain(income):0.029
+Gain(student):0.151
+Gain(credit_rating):0.029
+然后对测试属性每个已知的值,创建,一个分支,并以此划分样本,得到第一次划分
+(判定归纳树是一个递归的调用)
+(信息增益越高,对分类作用越大)
+
+//第29-30课
+
+防止分类中的过分适应:
+产生的判定树会出现过分适应数据的问题:
+):由于数据中的噪声和孤立点,许多分枝反应的是训练数据中的异常
+):对新样本的判定很不精确
+防止过分适应的两种方法:
+):先剪枝:通过提前停止树的构造--如果在一个节点划分样本将导致低于预定义临界值的分裂(e.g.使用信息增益度量)
+)):选择一个合适的临界值往往很困难
+):后剪枝:由&quot;完全生长&quot;的树剪去分枝--对于树中的每个非树叶节点,计算该节点上的子树被剪枝可能出现的期望错误率
+)):使用一个独立的测试集来评估每棵树的准确率,就能得到具有最小期望错误率的判定树
+
+由判定树提取分类规则:
+可以提取判定树表示的知识,并以IF-THEN形式的分类规则表示
+对从根到树叶的每条路径创建一个规则
+沿着给定路径上的每个属性-值对形成规则前件(&quot;IF&quot;部分)的一个合取项
+叶节点包含类预测,形成规则后件(&quot;THEN&quot;部分)
+IF-THEN规则易于理解,尤其树很大时
+示例:
+):IF age=&quot;&lt;=30&quot; AND student=&quot;no&quot; THEN buys_computer=&quot;no&quot;
+):IF age=&quot;&lt;=30&quot; AND student=&quot;yes&quot; THEN buys_computer=&quot;yes&quot;
+):IF age=&quot;31...40&quot; THEN buys_computer=&quot;yes&quot;
+):IF age=&quot;&gt;40&quot; AND credit_rating=&quot;excellent&quot; THEN buys_computer=&quot;yes&quot;
+):IF age=&quot;&gt;40&quot; AND credit_rating=&quot;fair&quot; THEN buys_computer=&quot;no&quot;
+
+基本判定树归纳的加强:
+修改算法,允许属性具有整个离散区间或连续值
+):动态的定义新的离散值属性,将连续值属性划分到多个离散的间隔中
+处理空缺的属性值
+):属性A的空缺值或未知值可以用A的最常见值替换
+):使用A的最可能值替换,或使用A和其他属性的已知联系
+属性构造
+):通过由给定的属性创建新的属性,改进给定属性的受限表示
+):可以防止或减轻碎片,重复或复制问题
+
+大型数据库的分类挖掘--可伸缩性:
+分类挖掘是一个再统计学和机器学习的领域也被广为研究的问题,并提出了很多算法,但是这些算法都是内存驻留的
+可伸缩性问题:要求以合理的速度对数以百万计的样本和数以百计的属性的进行分类挖掘
+由大型数据库构造判定树:
+):首先将样本划分为子集,每个子集可以放在内存中
+):然后由每个子集构造一颗判定树 
+):输出的分类法将每个子集的分类法组合在一起
+):(其他方法包括SLIQ,SPRINT,RainForest等等)
+
+集成数据仓库技术和判定树归纳:
+将判定树归纳与多维数据立方体和面向属性的归纳(AOI)相集成,可以进行交互的多层挖掘.
+):数据立方体与判定树归纳
+)):存放在概念分层中的知识可以用在不同的抽象层归纳判定树
+)):对导出的判定树,可以进一步在属性上进行上卷或下钻,以概化或特化树节点;使用户将注意力集中于感兴趣的树区域
+):AOI与判定树归纳
+)):利用属性上的概念分层,以高层概念替换低层概念概化训练数据
+)):应当概化到由领域专家或用户设定的某个中间值,防止概化过低或者是过分概化
+):对判定树中,由于递归划分,使得某些数据子集太小而失去统计意义的情况,可以通过引入相应的临界值,控制子集的划分.
+
+贝叶斯分类:
+贝叶斯分类利用统计学中的贝叶斯定理,来预测类成员的概率,即给定一个样本,计算该样本属于一个特定的类的概率
+
+P(h|D)=P(D|h)P(h)/P(D)
+
+朴素贝叶斯分类:假设每个属性之间都是相互独立的,并且每个属性对非类问题产生的影响都是一样的.
+
+后向传播分类:
+后向传播是一种神经网络学习算法;神经网络是一组连接的输入/输出单元,每个连接都与一个权相连.在学习阶段,通过调整神经网络的权,使得能够预测输入样本的正确标号来学习.
+优点:
+):预测精度总的来说较高
+):健壮性好,训练样本中包含错误时也可正常工作
+):输出可能是离散值,连续值或者是离散或量化属性的向量值
+):对目标进行分类较快
+缺点:
+):训练(学习)时间长
+):蕴涵在学习的权中的符号含义很难理解
+):很难跟专业领域知识相整合
+
+什么是预测?
+预测是构造和使用模型评估无样本类,或评估给定样本可能具有的属性或值空间.
+预测和分类的异同
+相同点
+):两者都需要构建模型
+):都用模型来估计未知值
+)):预测当中主要的估计方法是回归分析
+))):线性回归和多元回归
+))):非线性回归
+不同点
+):分类法主要是用来预测类标号(分类属性值)
+):预测法主要是用来估计连续值(量化属性值)
+
+线性回归,多元回归和非线性回归
+线性回归: Y=α+βX
+):其中α和β是回归系数,可以根据给定的数据点,通过最小二乘法来求得:
+α=y平均-βx平均
+β=∑S i=1 *(xi-x平均)(yi-y平均)/∑S i=1 * (x平均)^2
+多元回归: Y=α+β1X1+β2X2
+):线性回归的扩展,设计多个预测变量,可以用最小二乘法求得上式中的α,β1和β2
+非线性回归:Y=α+β1X1+β2X2^2+β3X3^3
+):对不呈线性依赖的数据建模
+):使用多项式回归建模方法,然后进行变量变换,将非线性模型转换为线性模型,然后用最小二乘法求解
+
+评估分类法的准确性:
+导出分类法后,再使用训练数据评估分类法,可能错误的导致乐观的估计
+保持方法:
+):给定数据随机划分为两个集合:训练集(2/3)和测试集(1/3)
+):训练集导出分类法,测试集对其准确性进行评估
+):随机子选样:保持方法的一个变形,将保持方法重复k次,然后取准确率的平均值
+k-折交叉确认
+):初始数据被划分为k个不想交的,大小大致相同的子集S1,S2,...,Sk
+):进行k次训练和测试,第i次时,以Si做测试集,其他做训练集
+):准确率为k次迭代正确分类数据除以初始数据集样本总数
+
+提高分类法的准确性:
+Bagging技术和boosting技术都通过将T个学习得到的分类法C1,C2,...CT组合起来,从而创造一个改变的分类法:C
+Bagging技术
+):对训练集S进行T次迭代,每次通过放回取样选取样本集St,通过学习St得到分类法Ct
+):对于未知样本X,每个分类法返回其类预测,作为一票
+):C*统计得票,并将得票最高的预测赋予X
+Boosting技术
+):每个训练样本赋予一个权值
+):Ct的权值取决于其错误率
+
+//第31课
+
+聚类分析:
+
+什么是聚类分析?
+聚类(簇):数据对象的集合
+):在同一个聚类(簇)中的对象彼此相似
+):不同簇中的对象则相异
+聚类分析:
+):将物理或抽象对象的集合分组成为由类似的对象组成的多个类的过程
+聚类是一种无指导的学习:没有预定义的类编号
+聚类分析的数据挖掘功能:
+):作为一个独立的工具来获得数据分布的情况
+):作为其他算法(如:特征和分类)的预处理步骤
+
+聚类分析的典型应用:
+模式识别
+空间数据分析
+):在GIS系统中,对相似区域进行聚类,产生主题地图
+):检测空间聚类,并给出它们在空间数据挖掘中的解释
+):图像处理
+经济学(尤其是市场研究)
+万维网:
+):对WEB上的文档进行分类
+):对WEB日志的数据进行聚类,以发现相同的用户访问模式
+
+聚类分析应用实例:
+市场营销:帮市场分析人员从客户基本库中发现不同的客户群,从而可以对不同的客户群采用不同的营销策略
+土地使用:在地球监测数据库中,发现相同的土地使用区域
+保险业:发现汽车保险中索赔率较高的客户群
+城市规划:根据房子的类型,价值和地理位置对其进行分组
+地震研究:将观测到的震中点沿板块断裂带进行聚类得出地震高危区
+
+什么是好的聚类分析?
+一个好的聚类分析方法会产生高质量的聚类:
+):高类内相似度
+):低类间相似度
+作为统计学的一个分支,聚类分析的研究主要是基于距离的聚类;一个高质量的聚类分析结果,将取决于所使用的聚类方法
+):聚类方法的所使用的相似性度量和方法的实施
+):方法发现隐藏模式的能力
+
+数据挖掘对聚类分析的要求(1):
+可扩展性(Scalability):
+):大多数来自于机器学习和统计学领域的聚类算法在处理数百条数据时能表现出高效率
+处理不同数据类型的能力
+):数字型;二元类型;分类型/标称型,序数型,比例标度型等等
+发现任意形状的能力
+):基于距离的聚类算法往往发现的是球形的聚类,其实现实的聚类是任意形状的
+用于决定输入参数的领域知识最小化
+):对于高维数据,参数很难决定,聚类的质量也很难控制
+处理噪声数据的能力
+):对空缺值,孤立点,数据噪声不敏感
+
+数据挖掘对聚类分析的要求(2):
+对于输入数据的顺序不敏感
+):同一个数据集合,以不同的次序提交给同一个算法,应该产生相似的结果
+高维度
+):高维度的数据往往比较稀松,而且高度倾斜
+基于约束的聚类:
+):找到既满足约束条件,又具有良好聚类特性的数据分组
+可解释性和可用性
+):聚类要和特定的语义解释和应用相联系
+
+聚类分析中的数据类型:
+许多基于内存的聚类算法采用以下两种数据结构:
+):数据矩阵:用p个变量来表示n个对象
+)):也叫二模矩阵,行与列代表不同实体
+):相异度矩阵:存储n个对象两两之间的近似性
+)):也叫单模矩阵,行和列代表相同的实体
+
+相异度计算:
+许多聚类算法都是以相异度矩阵为基础,如果数据是用数据矩阵形式表示,则往往要将其先转化为相异度矩阵.
+相异度d(i,j)的具体计算会因所使用的数据类型不同而不同,常用的数据类型包括:
+):区间标度变量
+):二元变量
+):标称型,序数型和比例标度型变量
+):混合类型的变量
+
+区间标度变量:
+区间标度变量是一个粗略线性标度的连续度量,比如重量,高度等
+选用的度量单位将直接影响聚类分析的结果,因此需要实现度量值的标准化,将原来的值转化为无单位的值,给定一个变量f的度量值,可使用以下转化:
+):计算平均的绝对偏差
+    sf=1/n(|x1f-mf|+|x2f-mf|+...+|xnf-mf|)
+):其中
+    mf=1/n(x1f+x2f+...+xnf)
+):计算标准化的度量值(z-score)
+    zif=(xif-mf)/sf
+):使用平均的绝对偏差往往比使用标准差更具有健壮性
+
+对象间的相似度和相异度(1):
+对象间的相似度和相异度是基于两个对象间的距离来计算的
+):Euclidean距离    (欧几里得距离)
+    d(i,j)=√((|xi1-xj1|^2+|xi2-xj2|^2+...+|xip-xjp|^2))
+)):i=(xi1,xi2,...,xip)和
+   j=(xj1,xj2,...,xjp)是两个p维
+   数据对象
+):Manhattan距离    (曼哈顿距离)
+    d(i,j)=|xi1-xj1|+|xi2-xj2|+...+|xip-xjp|
+(两者都没有考虑权重)
+
+对象间的相似度和相异度(2):
+):Manhattan距离和Euclidean距离的性质
+)):d(i,j)&gt;=0
+)):d(i,i)=0
+)):d(i,j)=d(j,i)
+)):d(i,j)&lt;=d(i,k)+d(k,j)
+):Minkowski距离
+    d(i,j)=q√((|xi1-xj1|^q+|xi2-xj2|^q+...+|xip-xjp|^q))
+    上式中,q为正整数,如果q=1则表示Manhattan距离,如果q=2则表示Euclidean距离
+
+二元变量(1):
+一个二元变量只有两种状态:0或1;
+):e.g.smoker来表示是否吸烟
+一个对象可以包含多个二元变量
+二元变量的可能性表:
+):如何计算两个二元变量之间的相似度?
+                      Object j
+                    1    0    sum
+                1    a    b    a+b
+    Object i    0    c    d    c+d
+                sum a+c b+d p
+
+二元变量(2):
+对称的VS不对称的二元变量:    
+):对称的二元变量指变量的两个状态具有同等价值,相同权重;e.g.性别
+):基于对称的二元变量的相似度称为恒定的相似度,可以使用简单匹配系数评估它们的相异度:
+    d(i,j)=b+c/(a+b+c+d)
+):不对称的二元变量中,变量的两个状态的重要性是不同的;e.g.HIV阳性VS HIV阴性
+):基于不对称的二元变量的相似度称为非恒定的相似度,可以使用Jaccard系数评估它们的相异度
+    d(i,j)=(b+c)/(a+b+c)
+
+二元变量的相异度--示例:
+例:二元变量间的相异度(病人记录表)
+name gender fever cough test-1 test-2 test-3 test-4
+Jack M        Y        N     P        N        N        N
+Mary F        Y        N     P        N        P        N
+Jim  M        Y        P     N        N        N        N
+Name是对象标识
+gender是对称的二元变量
+其余属性都是非对称的二元变量
+如果Y和P(positive阳性)为1,N为0,则:
+d(jack,mary)=(0+1)/(2+0+1)=0.33  (症状差别,与临界值相比较)        2是两个都取Y或P得出来的 0:Mary为N,Jack为Y或P    1:Mary为Y或P,Jack为N
+d(jack,jim)=(1+1)/(1+1+1)=0.67        
+d(jim,mary)=(1+2)/(1+1+2)=0.75
+
+//第32-33课
+
+标称变量:
+标称变量是二元变量的推广,它可以具有多于两个的状态值.比如:红,绿,蓝,黄.对于标称型变量,值之间的排列顺序是不重要的.
+计算标称变量所描述的对象(一个对象可以包含多个标称变量)i和j之间的相异度
+):方法一:简单匹配方法
+)):m:匹配的数目,即对象i和j取值相同的变量的数目(也可加上权重)
+    d(i,j)=(p-m)/p
+):方法二:对M个标称状态中的每个状态创建一个新的二元变量,并用非对称的二元变量来编码标称变量
+红    绿    蓝    黄    取值
+0    1    0    0    绿
+0    0    1    0    蓝
+......
+
+序数型变量:
+一个序数型变量可以是离散的或者是连续的
+序数型变量的值之间是有顺序关系的,比如:
+讲师,副教授,正教授
+假设f是描述n个对象的一组序数型变量之一,f的相异度计算如下:
+):1.设的i个对象的f值为xif,则用它在值中的序rif代替    
+rif∈{1,...,Mf}
+):2.将每个变量的值域映射到[0,1]的空间
+zif=(rif-1)/(Mf-1)
+):3.采用区间标度变量的相异度计算方法计算f的相异度
+
+比例标度变量:
+一个比例标度型变量xif是在非线性的标度中所取的正的度量值,例如指数标度,近似的遵循以下公式
+    Ae^Bt or Ae^-Bt
+计算比例标度型变量描述的对象之间的相异度
+):采用与区间标度变量同样的方法--标度可能被扭曲,效果往往不好
+):对比例标度型变量进行对数变化之后进行预区间标度变量的相似处理
+    yif=log(xif)
+):将xif看作连续的序数型数据,将其秩作为区间标度的值来对待
+
+混合类型的变量:
+在真实的数据库中,数据对象不是被一种类型的度量所描述,而是被多种类型(即混合类型)的度量所描述,包括:
+):区间标度度量,对称二元变量,不对称二元变量,标称变量,序数型变量合比例标度变量
+计算混合型变量描述的对象之间的相异度
+):将变量按类型分组,对每种类型的变量进行单独的聚类分析
+)):在每种聚类分析导出相似结果的情况下可行
+):所有变量一起处理,进行一次聚类分析,可以将不同类型的变量组合在单个相异度矩阵中,把所有有意义的变量转换到共同的值域区间[0,1]之内
+
+主要的聚类方法:
+聚类分析算法种类繁多,具体的算法选择取决于数据类型,聚类的应用和目的,常用的聚类算法包括:
+):划分方法
+):层次的方法
+):基于密度的方法
+):基于网格的方法
+):基于模型的方法
+
+实际应用中的聚类算法,往往是上述聚类方法中多种方法的整合
+
+划分方法:
+给定一个n个对象或元组的数据库,一个划分方法构建数据的k个划分,每个划分表示一个簇,并且k&lt;=n
+):每个组至少包含一个对象
+):每个对象属于且仅属于一个组
+划分准则:同一个聚类中的对象尽可能的接近或相关,不同聚类中的对象尽可能的原理或不同
+簇的表示:
+):k-平均算法
+)):由簇的平均值来代表整个簇
+):k中心点算法
+)):由处于簇的中心区域的某个值代表整个簇
+
+层次的方法:
+对给定数据对象集合进行层次分解:
+):自底向上方法(凝聚):开始将每个对象作为单独的一个组,然后相继的合并相近的对象或组,直到所有的组合并为一个,或者达到一个终止条件.
+):自顶向下方法(分裂):开始将所有的对象置于一个簇中,在迭代的每一步,一个簇被分裂为多个更小的簇,直到最终每个对象在一个单独的簇中,或达到一个终止条件
+):缺点:合并或分裂的步骤不能被撤销
+
+基于密度的方法:
+基于距离的聚类方法的缺点:只能发现球状的簇,难以发现任意形状的簇
+基于密度的聚类:只要临近区域的密度(对象或数据点的数目)超过某个临界值,就继续聚类
+):优点:可以过滤掉&quot;噪声&quot;和&quot;孤立点&quot;,发现任意形状的簇
+
+基于网格的方法:
+把对象空间量化为有限数目的单元,形成一个网格结构.所有的聚类都在这个网格结构上进行.
+):优点:处理速度快(因为处理时间独立于数据对象数目,只与量化空间中每一维的单元数目有关)
+
+基于模型的方法:
+为每个簇假定一个模型,寻找数据对给定模型的最佳拟合.
+):一个基于模型的算法可能通过构建反映数据点空间分布的密度函数来定位聚类
+):这种方法同时也用于自动的决定数据集中聚类的数目
+)):通过统计学的方法,考虑噪声和孤立点,从而产生健壮的聚类方法
+
+孤立点挖掘:
+什么是孤立点?
+):一个数据集与其他数据有着显著区别的数据对象的集合
+):例如:运动员:Michael Jordon,舒马赫,布勃卡
+孤立点产生原因
+):度量或执行错误(年龄:-999)
+):数据变异的结果
+孤立点挖掘
+):给定一个n个数据对象的集合,以及预期的孤立点数目k,发现与剩余的数据有着显著差异的头k个数据对象
+应用
+):信用卡欺诈检测
+):移动电话欺诈检测
+):客户划分
+):医疗分析(异常)
+
+基于统计的孤立点检测:
+统计的方法对于给定的数据集合假定了一个分布或概率模型(例如正态分布)
+使用依赖于以下参数的不一致性检验(discordancy tests)
+):数据分布
+):分布参数(e.g.均值或方差)
+):预期的孤立点数
+缺点
+):绝大多数检验是针对单个属性的,而数据挖掘要求在多维空间中发现孤立点
+):大部分情况下,数据分布可能是未知的
+
+基于距离的孤立点检测:
+为了解决统计学方法带来的一些限制,引入了基于距离的孤立点检测
+):在不知道数据分布的情况下对数据进行多维分析
+基于距离的孤立点:即DB(p,d),如果数据集合S中的对象至少有p部分与对象o的距离大于d,则对象o就是DB(p,d)
+挖掘基于距离的孤立点的高效算法:
+):基于索引的算法
+):嵌套-循环算法
+):基于单元的算法
+
+基于偏离的孤立点检测:
+通过检查一组对象的主要特征来确立孤立点
+跟主要特征的描述相&quot;偏离&quot;的对象被认为是孤立点
+两种基于偏离的孤立点探测技术
+):序列异常技术
+)):模仿人类从一系列推测类似的对象中识别异常对象的方式
+):OLAP数据立方体技术
+)):在大规模的多维数据中采用数据立方体来确定异常区域.如果一个立方体的单元值显著的不同于根据统计模型得到的期望值,则该单元值被认为是一个异常,并用可视化技术表示
+
+//第34课
+
+电子商务与数据挖掘
+    --基于WEB日志的用户访问模式挖掘
+
+数据挖掘--简短回顾(1):
+什么是数据挖掘?
+):Jiawei Han(2000):&quot;从大量的数据中挖掘哪些令人感兴趣的,有用的,隐含的,先进未知的和可能有用的模式或知识&quot;.
+数据挖掘--简短回顾(2):
+数据挖掘的主要功能:
+):概念/类描述:特性化和区分
+)):归纳,总结和对比数据的特性
+):关联分析
+)):发现数据之间的关联规则,这些规则展示属性-值频繁的在给定的数据中所一起出现的条件.
+):分类和预测
+)):通过构造模型(或函数)用来描述和区别类或概念,用来预测类型标志未知的对象类.
+):聚类分析
+)):将类似的数据归类到一起,形成一个新的类别进行分析
+):孤立点分析
+)):通常孤立点被作为&quot;噪音&quot;或异常被丢弃,但在欺骗检测中却可以通过对罕见事件进行孤立点分析而得到结论
+):趋势和演变分析
+)):描述行为随时间变化的对象的发展规律或趋势
+
+体系结构:典型数据挖掘系统:
+图形用户界面
+模式评估
+数据挖掘引擎                    知识库
+数据库或数据仓库服务器
+  |
+数据库
+
+电子商务与数据挖掘--完美结合:
+在电子商务中进行成功的数据挖掘得益于:
+):电子商务提供海量的数据
+)):如果一个电子商务网站平均每个小时卖出五件物品,那么它一个月的平均点击量是160万次
+):丰富的记录信息
+)):良好的WEB站点设计将有助于获得丰富的信息
+):干净的数据
+)):从电子商务站点收集的都是电子数据,无需人工输入或者是从历史系统进行整合
+):研究成果容易转化
+)):在电子商务中,很多知识发现都可以进行直接应用
+):投资收益容易衡量
+
+电子商务为数据挖掘提供海量数据:
+&quot;点击流&quot;(Clickstreams)将会产生电子商务挖掘的大量数据
+):Yahoo!在2000年每天被访问的页面数是10亿,如此大的访问量将会产生巨大的web日志(记载页面访问的情况),每个小时产生的web日志量就达到10GB
+即便是一个小的电子商务站点,也会在短时间内产生进行数据挖掘所需的大量数据
+):计算一下,如果你的站点一个小时卖出5件物品,一个月会有多少页面访问:
+):5件*25小时*30天/%2(转化率,表示访问的人中买东西的人的比率)*9页面(平均买一件物品要访问9个页面)=1600000页面
+
+丰富的记录信息:
+如果你的电子商务站点设计的好,你将可以获得各种商务的或者是用户访问的信息:
+):商品和商品的属性
+):商品的归类信息(当同时展示多种商品时,归类信息是非常有用的)
+):促销信息
+):关于访问的信息(比如:访问计数)
+):关于客户额信息(可以通过登陆/注册来获得)
+
+&quot;干净的数据&quot;:
+信息直接从网站上提取:
+):无需从历史系统中集成,避免很多错误
+可以通过良好的站点设计,直接获得跟数据挖掘有关的数据
+):而不是再来分析,计算,预处理要用的数据
+直接收集的电子数据--可靠
+):无需人工数据输入,避免了很多错误
+可以通过良好的站点设计,良好的控制数据采样的颗粒度
+):颗粒度控制在客户级别或者是session级别,而不是页面级别
+
+有趣的&quot;生日现象&quot;:
+一个银行通过对客户数据统计发现,它的5%的客户都是在同一天出生的(同年同月同日)
+(发现很多都是在1901年1月1日的,这是个bug)(手工输入会更肮脏一些)
+
+研究成果容易转化:
+历史上的数据挖掘研究有过许多的知识发现,但是这些知识发现却很少在实际的商业应用中产生什么效果
+):要应用这些发现的知识可能意味着要进行复杂的系统更改,流程更改或是改变人们的办事习惯,这在现实中是非常困难的.
+在电子商务中,很多知识发现都可以进行直接应用:
+):改变站点的设计(改变布局,进行个性化设计等)
+):开始有目标的促销
+):根据对广告效果的统计数据改变广告策略
+):可以很容易的提供捆绑销售
+
+投资收益容易衡量:
+使用数据挖掘成果的革新带来的收益如何衡量?
+):在传统的商业中衡量投资收益需要长期的测量和观察,PacoUnderhill在&lt;购物的科学&gt;一书中提及,一个超市为了衡量他们的促销策略带来的投资收益,每年要花14000个小时查看录像带
+在电子商务中,衡量革新的投资收益是非常容易的
+):销售变化的报表可以自动产生
+):客户对电子邮件和电子调查的反馈都可以在几天内得到,而不必等个几个月
+):电子商务乃至整个互联网都是传统商业的理想实验室
+
+对电子商务网站的Web数据挖掘:
+通常在一个电子商务网站上应用的数据挖掘技术是Web数据挖掘
+我们可以在一个电子商务网站挖掘些什么东西?
+):内容挖掘(Web Content Mining)
+):结构挖掘(Web Structure Mining)
+):使用挖掘(Web Usage Mining)
+
+Web Content Mining:
+对Web页面内容进行挖掘,从Web数据中发现信息:
+):自动地从数以百万计的Web站点和在线数据库中搜索和获取信息和资料;
+):尽管人们可以直接从网上通过抓取建立索引,实现检索服务来获得资源,但是大量的&quot;隐藏&quot;信息只能通过内容挖掘来自动挖掘
+
+Web Structure Mining:
+Web Structure Mining是对Web页面之间的结构进行挖掘:
+):在整个Web空间,有用的知识不仅包含在页面的内容中,而且也包含在页面的结构中.
+):Web结构挖掘主要针对的就是页面的超链接结构,如果有较多的超链接指向它,那么该页面就是重要的,发现的这种知识可用来改进搜索路径等.
+
+Web Usage Mining:
+与Web Content Mining和Web Structure Mining不同的是,Web Usage Mining的挖掘对象是用户和网络交互过程中抽取出来的二手数据,这些数据主要是用户在访问web时在web日志里留下的信息,以及其它一些交互信息.
+):日志信息包括访问日期,时间,用户IP地址,服务器IP地址,方法,所请求URL资源,服务器响应状态,用户代理,发送字节等.
+):Web Usage Mining 就是对系统日志信息,以及用户的注册数据等进行挖掘,以发现有用的模式和知识
+
+Web Usage Mining的作用:
+通过对电子商务网站应用Web Usage Mining数据挖掘技术,可以:
+):提高站点的质量
+):改善WEB缓存,缓解网络交通,提高性能
+):在电子商务中还可捕捉到大量的采购过程的细节,为更加深入的分析提供了可能
+
+Web日志(1):
+典型的日志文件片断:
+):uplherc.upl.com--[01/Aug/1995:00:01:38-0400]
+&quot;GET/shuttle/missions/sts-71/images/images.html HTTP/1.0&quot; 200 8529
+):133.43.96.45--[01/Aug/1995:00:01:38-0400]
+&quot;GET/shuttle/missions/sts-72/mission-sts-72.html HTTP/1.0&quot; 200 3804
+):133.68.18.180--[01/Aug/1995:00:01:38-0400]
+&quot;GET/shuttle/missions/sts-71/images/images.html HTTP/1.0&quot; 200 8529
+WEB日志通常包含7个字段:
+):第一项:远程主机的地址,即它表明访问网站的究竟是谁.
+):第二项:浏览者的email地址或者其他唯一标识符.到了今天,我们在日志记录的第二项看到email地址的机会已经微乎其微,所以上面用-,标志字段为空
+
+//第35-36课
+
+Web日志(2): (接上一课)
+):第三项:记录浏览者进行身份验证时提供的名字;对于不需要用户身份验证的网站,这个字段都是空白-;
+):第四项:请求的时间;
+):第五项:告诉我们服务器收到的是一个什么样的请求.该项信息的典型格式是&quot;METHOD RESOURCE PROTOCOL&quot;,即&quot;方法 资源 协议&quot;;这是Web日志中最有用的信息,在上面的示例中:
+)):METHOD是GET
+)):RESOURCE是指浏览者向服务器请求的文档,或URL
+)):PROTOCOL通常是HTTP,后面再加上版本号
+):第六项:状态代码.它告诉我们请求是否成功,或者遇到了什么样的错误.大多数时候,这项值是200,它表示服务器已经成功地响应浏览器的请求,一切正常.
+):第七项:发送给客户端的总字节数
+
+Web Usage Mining的基本过程:
+进行Web Usage Mining主要是通过对系统日志信息的数据挖掘
+):web服务器日志
+):Error Logs
+):Cookies
+Web Usage Mining的基本实现过程:
+):预处理
+):模式发现
+):模式分析
+
+预处理:
+通过预处理,使挖掘过程更有效,更容易
+):数据清洗 其目的在于把日志文件中一些与数据分析,挖掘无关的项清除掉;
+)):比如:剔除用户请求方法中不是GET的记录;
+):用户识别 日志文件只是记录了主机或代理服务器的IP地址,要识别用户,需要Cookie技术和用一些启发规则来帮助识别;
+):路径补充 确认web日志中是否有重要的页面访问记录被遗漏;
+):事件识别 事件识别是与要挖掘什么样的知识有关,将用户会话针对挖掘活动的特定需要进行事件定义.
+
+模式发现:
+在经过预处理后的数据上应用各种数据挖掘的功能和算法,挖掘出有用的模式和规则的过程.
+Web Usage Mining中用到的Web日志分析及用户行为模式的挖掘方法包括:
+):关联分析
+):分类和预测
+):聚类分析
+):序列模式
+):统计分析
+
+Web Usage Mining--关联分析(1):
+通过分析用户访问网页间的潜在联系而归纳出的一种规则;
+):如80%的用户访问web页面/company/product1时,也访问了/company/product2;
+常用算法:
+):Apriori算法或其变形算法,频繁模式树(FP-树)算法等等,挖掘出访问页面中频繁的在一起被访问的页面集
+)):比如可以通过:
+A=&gt;B=&gt;C
+A=&gt;B=&gt;D            ==&gt; A=&gt;B
+A=&gt;B=&gt;E=&gt;F
+
+Web Usage Mining--关联分析(2):
+可以使用通过关联分析挖掘出来的频繁项集(页面集)来:
+):预取可能请求的页面,以减少等待时间,
+)):对于频繁项集(页面集){A,B},在用户访问A时,将页面B调入缓存中,从而改善Web缓存,缓解网络交通,提高性能
+):促进网上商务
+)):对于频繁项集{A,B},如果分别代表两个产品的页面,则说明这两个产品间存在相关性,可以利用这点在电子商务的实践中给出更有效的促销策略或广告策略.
+
+Web Usage Mining--分类和预测:
+分类和预测功能可以用来提取描述重要数据类的模型,并使用模型预测来判定未知数据的类标号,从而预测未来的数据趋势.
+常用算法:判定归纳树,贝叶斯分类,k-最近邻分类等.
+应用:可以根据用户的个人资料或者其特定的访问模式,将其归入某一特定的类
+)):可以根据用户对某类产品的访问情况,或者是根据其购物情况,或者根据其抛弃购物车的情况,来决定用户的分类(e.g.对电子产品感兴趣的用户),并对相应的分类使用相应的促销策略
+
+Web Usage Mining--聚类分析(1) :
+聚类:将对象的集合分组成为由类似的对象组成的多个类的过程.(与分类的区别?)
+常用聚类算法:划分方法,层次的方法,基于密度的方法等等.
+在Web Usage Mining应用中包含着两种聚类:
+):页聚类:
+)):将内容相关的页面归在一个网页组,对网上搜索引擎及提供上网帮助很有用
+):用户聚类
+)):将具有相似访问特性的用户归在一起,在电子商务的市场分割和为用户提供个性化服务中,能发挥巨大作用.
+
+Web Usage Mining--聚类分析(2):
+聚类分析可以喜好类似的用户,从而动态地为用户定制观看的内容或提供浏览建议.
+):比如:购买推荐系统或动态促销系统
+作用:
+):1.方便用户查询和浏览
+):2.增强广告的作用
+):3.促进网上销售
+):4.提高用户忠诚度
+
+Web Usage Mining--统计分析(1):
+统计分析:
+):通过求出现率,求评价,求中值等,统计最常访问的网页,每页平均访问的时间,浏览路径的平均长度等,以获得用户访问站点的基本信息.
+):还能提供有限的低层次的错误分析,比如检测未授权入口点,找出最常见不变的URL等.
+):可以用来计算客户对某页面的访问次数,停留时间等,得到访问次数最多的页面(或产品,URL等)
+
+reg:
+常用的电子商务网站用户访问数据统计(节选):
+):平均一个用户
+)):访问8-10个页面
+)):在站点上花5分钟
+)):每个页面上花35秒
+):平均一个购物的用户
+)):访问50个页面
+)):在站点上花30分钟
+):这是经过大量的数据统计得出的结果,具有高度一致性
+
+Web Usage Mining--序列模式:
+序列模式试图找出页面依照时间顺序出现的内在模式:
+):序列模式可以用来做用户的浏览趋势分析,即一组数据项之后出现另一组数据项,从而形成一组按时间排序的会话,以预测未来的访问模式,这将有助于针对特别用户群安排特定内容.
+)):趋势分析
+)):访问模式的相似性分析
+
+模式分析:
+在挖掘出一系列用户访问模式和规则后,还需要进一步观察发现的规则,模式和统计值.
+确定下一步怎么办?是发布模型?还是对数据挖掘过程进行进一步的调整,产生新的模型.
+经过模式分析得到有价值的模式,即我们感兴趣的规则,模式,采用可视化技术,以图形界面的方式提供给使用者.
+
+//第37课
+
+电子商务与数据挖掘(2):
+        ----Beyond Web Logs
+
+基于Web日志的用户使用模式挖掘:
+简短回顾:
+):电子商务中进行数据挖掘的优势
+):Web数据挖掘的几种类型
+):Web日志格式
+):从Web日志挖掘用户使用模式
+
+WEB日志挖掘的不足:
+WEB日志提供的数据非常有限,即使使用的是扩展日志格式(ECLF)
+):主机名
+):Time
+):Request,e.g.,一个网页的URL
+):Referer
+):User agent(浏览器及版本号)
+):IP地址
+):Cookie
+):字节数和状态位等等...
+
+网页上都有什么?
+WEB日志的设计目的是分析WEB服务器的运行状况,而不是挖掘电子商务的交易数据和点击流
+):虽然Web日志中给出了被访问页面的URL,但是这并不等于知道了该URL所指向的网页内容.
+)):给定一个URL,能不能提取出上面有什么?
+)):http://www.chinapub.com/computers/common/info.asp?id=12177
+):要自动提取出关于这个网页所描述的产品的信息,像作者,版本,出版日期就更加困难了
+
+动态内容:
+随着互联网上的动态内容越来越多,基于WEB日志的分析与挖掘就越来越困难了.
+):同样的URL将会连接到不同的内容
+):在动态站点,URL往往会很长很复杂而实际所指的内容却是在应用服务器的session上
+)):http://www.xxxxxxx.com
+):个性化的内容(比如:推荐的捆绑销售内容),基本上无法通过Web日志来进行重构
+
+重构session的困难:
+一个session代表着一次用户和网站之间的连接,从Web日志中的多个用户的requests中重构每个用户的session困难的.
+由于HTTP是无状态的,因此通过Web日志重构session只能依赖于假设与推断,而且用于假设与推断的数据少也少得可怜
+):IP地址
+):Cookies
+):浏览器类型
+
+商业事件:
+对用户&quot;点击流&quot;事件的考察,最终必须定位到&quot;商业事件&quot;,即将一个点击(或请求)的集合转化为一个逻辑上有意义的事件或商业细节.
+一些对数据挖掘很重要的商业相关事件无法由Web日志来决定
+):购物中哪些东西添加到购物车,哪些又被抛弃了
+):购物车中物品数量的增减
+):网页上的促销信息
+):当时显示的&quot;没有库存&quot;的商品
+):表单数据
+):检索--关键字以及没有找到内容的关键字
+
+示例----关键字检索:
+在一个销售运动器材的电子商务网站,排名前10的检索关键字为:
+):篮球    ):录像(红)    ):足球    ):排球    ):乒乓球
+):音乐(红)    ):书(红)    ):海报(红)    ):扑克(红)    ):手套(红)
+
+失败的检索:
+红色字体显示的关键字都是没有检索结果的关键字!
+):有些关键字可能是因为用词不正确
+):有些却传达了一种强烈的暗示:这个网站都还应该卖些什么东西
+而Web日志却没有足够的信息让我们来提取哪些关键字检索失败了
+):在实际的电子商务网站中,11%的检索没有返回任何结果.
+
+将Web日志中的内容映射到数据库:
+从Web日志中提取一个URL请求,如何才能:
+):将这个请求映射到在你的数据库中注册过的一个客户?
+):决定这是这个客户的第几次访问?
+):决定这个客户是否曾经购物?
+):由事后来决定上述信息是极端困难的
+要想由一系列的请求来重构一个用户的购物过程就更加困难了.
+
+该挖掘什么?
+用点击率和访问量来决定一个站点成功与否,就好像用音量来决定音乐美妙与否.
+                                    --Forrester Report,1999
+对电子商务站点而言,只有转化率(购物者与浏览者之间的比率)才是最重要的指标
+):对广告链接而言,更是如此
+)):给出一个指向你的广告的HTTP请求,你怎么决定该HTTP请求是否会带来一个销售?
+
+结论:
+现在流行的基于Web日志的数据挖掘并不是一个很好的选择
+电子商务中蕴涵有的数据,远比Web日志中所提供的内容要多.
+两种比Web日志更好的数据收集方法:
+):Packet sniffer
+):在应用服务器层收集数据
+
+Packet Sniffer:(可能跟黑客监听连接在一起)
+Packet sniffer通过侦听从Web服务器发送的数据包来获得跟电子商务相关的数据
+优点:
+):可以获得比Web日志中更多的信息
+):不需要改动现有的应用架构
+缺点:
+):在识别用户和session方面还是有困难
+):逻辑信息提取困难
+):无法探测到加密的信息,比如使用SSL协议传送的信息,而实际应用中,一些关键信息,像用户登陆,登出,用户信息传送都常常使用SSL协议
+
+多层应用框架(J2EE/EJB)
+    客户层      web服务器层    应用服务器层          企业数据层         
+Client Tier - Web Tier - Business Component Tier - EIS Tier
+
+应用服务器层数据收集:
+应用服务器层数据收集可以克服Web日志和Packet sniffer的缺点,对用户的访问数据做全面的收集和解析.
+):应用服务器端可以得到返回给用户的所有内容
+):应用服务器使用cookie技术(或者是URL编码技术)来记录一个用户的session
+):应用服务器通过用户登陆机制来锁定一个用户,因而可以将每个点击定位到用户
+需要将数据收集机制和应用服务器端相集成
+
+//第38-39课
+
+电子商务中进行数据挖掘的几个难点:
+爬虫/机器人
+大量数据的处理
+分析前的数据变换
+提供市场级的决策支持
+
+网络爬虫/机器人:
+网络爬虫/机器人是自动访问你的站点的程序
+):搜索引擎使用的爬虫
+):购物机器人
+):IE离线浏览器
+):E-MAIL搜索者 (没)
+):一些PERL脚本    (没)
+为了对客户行为作出准备研究,必须过滤掉爬虫/机器人的访问
+):30%的session是由网络爬虫/机器人造成的
+有些网络爬虫/机器人会故意将自己隐藏起来
+
+数据转换:
+在电子商务中进行数据挖掘时,有时70%以上的数据分析时间都消耗在数据变换上
+改善数据变换的方法:
+):自动的将站点上的数据传送到数据仓库中
+):提供良好的数据转换用户界面
+):为常见的数据转换问题定制一些工具
+
+提供市场级的决策支持:
+你花费了大量的时间来:
+):收集数据
+):构建数据仓库
+):数据变换
+):建模分析...
+):最后将你的结果交给了用户
+
+数据挖掘的应用和发展趋势:
+
+数据挖掘应用:
+数据挖掘是一门具有广泛应用的新兴学科
+):数据挖掘的一般原理与针对特定应用领域需要的有效数据挖掘工具之间,还存在不小的距离
+一些热门的应用领域
+):生物医学和DNA数据分析
+):金融数据分析
+):零售业
+):电信业
+
+生物医学数据挖掘与DNA分析(1):
+DNA序列:所有DNA序列中由四个基本块(核苷)组成:ACGT
+基因:又几百个核苷按一定的次序组织而成的序列
+人类大概有100000个基因
+核苷按不同的次序和序列,可以形成不同的基因,几乎不计其数
+数据挖掘在DNA分析中的应用:
+):异构,分布式基因数据库的语义集成
+)):当前:广泛多样DNA数据高度分散,无控生成与使用
+)):可以使用数据挖掘中的数据清理和数据集成方法
+
+生物医学数据挖掘与DNA分析(2):
+):DNA序列间相似搜索和比较
+)):比较两类基因间频繁出现的模式(比如:健康基因与带病基因)
+)):识别引起各种疾病的基因序列模式
+):关联分析:同时出现的基因序列的识别
+)):大部分疾病不是由单一基因引起,而是多个基因的组合作用
+)):关联分析可以帮助确定在目标样本中同时出现的基因种类
+):路径分析:发现在疾病不同阶段的致病基因
+)):不同的基因可能在疾病的不同阶段起作用
+)):开发针对疾病不同阶段的治疗药物
+):可视化工具与遗传数据分析
+
+针对金融数据分析的数据挖掘(1):
+银行和金融机构中产生的金融数据通常相对比较完整,可靠和高质量
+为多维数据分析和数据挖掘设计和构造数据仓库
+):按月,按地区,按部门,以及按其他因素,查看负债和收入的变化情况
+)):提供最大,最小,总和,平均和其他统计信息
+)):贷款偿还预测/客户信用政策分析
+):特征选择和属性相关性分析
+)):贷款偿还效能
+)):客户信用等级
+
+针对金融数据分析的数据挖掘(2):
+对目标市场客户的分类与聚类
+):通过使用各种分类与聚类算法,确定目标市场和客户群;比如:用临近分类,决策树等方法识别客户组,将新客户关联到适合的客户组
+洗黑钱和其他金融犯罪的侦破
+):关键:将多个数据库信息集成起来(银行,犯罪记录等)
+):相关工具:可视化工具,分类工具,聚类分析工具,孤立点分析工具,序列模式分析工具等
+
+零售业中的数据挖掘(1):
+零售业会产生海量的数据:销售数据,客户购物记录等等.
+零售业数据挖掘的应用:
+):识别顾客购买行为
+):发现顾客购买模式和趋势
+):改进服务质量
+):增加顾客保持力和满意程度
+):提高货品销量比率
+):设计更好的货物运输与分销策略
+
+零售业中的数据挖掘(2):
+
+基于数据挖掘的数据仓库的设计与构造
+):对数据进行多维分析,可以按销售,客户,产品,时间和地区等维对数据进行考察
+对促销策略的有效性进行分析
+顾客保持力--顾客忠诚度分析
+):通过会员卡,记录一个顾客的购物序列
+):通过序列模式挖掘,来考察顾客消费模式或忠诚度上的变化
+):可以据此对商品的价格和种类做相应的调整
+购买推荐和商品参照
+
+电信业中的数据挖掘(1):
+电信的快速发展,业务的急剧扩充,产生了急待数据挖掘分析的海量数据,通过数据挖掘可以:
+):理解商业行为
+):确定电信经营模式
+):捕捉欺诈行为
+):更好的利用资源
+):提高服务质量
+电信数据的多维分析
+):电信数据本身就是多维的,如:呼叫时间,持续时间,呼叫者位置,被呼叫者位置,呼叫类型等
+
+电信业中的数据挖掘(2):
+
+欺诈模式分析和异常模式识别:
+):检测潜在的欺诈客户和他们的非典型使用模式
+):检测入侵用户账户的企图
+):发现需要引起注意的异常模式
+多维关联和序列模式分析
+):发现一系列电信服务的使用模式(按客户组,月,日分组)
+):对特殊服务进行促销
+):改进一个地区某种特殊服务的可获得性
+电信数据分析中可视化工具的使用
+
+数据挖掘的发展趋势(1):
+应用的探索:
+):开发针对特定应用的数据挖掘系统
+):&quot;看不见&quot;的数据挖掘(数据挖掘作为系统的一个内嵌功能)
+可伸缩的数据挖掘方法:
+):基于约束的挖掘
+)):允许用户说明和使用约束,引导数据挖掘系统对感兴趣模式的搜索
+数据挖掘系统与数据库系统,数据仓库系统和Web数据库系统的集成
+
+数据挖掘的发展趋势(2):
+数据挖掘语言的标准化
+):标准(语言,工具等)将会有助于系统开发,提高系统之间的互操作性,促进数据挖掘系统在企业和社会中的教育和使用
+可视化数据挖掘
+复杂数据类型挖掘的新方法
+):对复杂数据类型(空间数据,多媒体,时序数据...),还要更多的研究,将现存的数据分析技术和数据挖掘方法结合起来
+Web挖掘
+数据挖掘中的隐私保护与信息安全
+
+//第40课
+
+第一章:数据挖掘概论
+数据挖掘:数据库中的知识挖掘(KDD)
+
+知识挖掘的步骤:
+了解应用领域
+):了解相关的知识和应用的目标
+创建目标数据集:选择数据
+数据清理和预处理:(这个可能要占全过程60%的工作量)
+数据缩减和变换
+):找到有用的特征,维数缩减/变量缩减,不变量的表示.
+选择数据挖掘的功能
+):数据总结,分类模型数据挖掘,回归分析,关联规则挖掘,聚类分析等
+选择挖掘算法
+数据挖掘:寻找感兴趣的模式
+模式评估和知识表示
+):可视化,转换,消除冗余模式等等
+运用发现的知识
+
+体系结构:典型数据挖掘系统
+
+数据挖掘的主要功能:
+概念/类描述:特征化和区分
+):归纳,总结和对比数据的特性
+关联分析
+):发现数据之间的关联规则,这些规则展示-值频繁的在给定数据中集中一起出现的条件
+分类和预测
+):通过构造模型(或函数)用来描述和区别类或概念,用来预测类型标志未知的对象类
+聚类分析
+):将类似的数据归类到一起,形成一个新的类别进行分析
+孤立点分析
+):通常孤立点被作为&quot;噪音&quot;或异常被丢弃,但在欺骗检测中却可以通过对罕见事件进行孤立点分析而得到结论
+趋势和演变分析
+):描述行为随时间变化的对象的发展规律或趋势
+
+数据挖掘:多个学科的融合
+
+数据挖掘的主要问题
+挖掘方法:
+):在不同的数据类型中挖掘不同类型的知识,e.g.,生物数据,流式数据,Web数据
+):性能:算法的有效性,可伸缩性和并行处理
+):模式评估:兴趣度问题
+):背景知识的合并
+):处理噪声和不完全数据
+):并行,分布式和增量挖掘算法
+):新发现知识与已有知识的集成:知识融合
+用户交互
+):数据挖掘查询语言和特定的数据挖掘
+):数据挖掘结果的表示和显示
+):多个抽象层的交互知识挖掘
+应用和社会因素
+):特定域的数据挖掘 &amp; 不可视的数据挖掘
+):数据安全,完整和保密的保护
+
+第二章 数据仓库和OLAP技术
+
+什么是数据仓库?
+数据仓库和数据挖掘的OLAP技术:
+什么是数据仓库:
+数据仓库的定义很多,但却很难有一种严格的定义
+):它是一个提供决策支持功能的数据库,它与公司的操作数据库分开维护
+):为统一的历史数据分析提供坚实的平台,对信息处理提供支持
+&quot;数据仓库是一个面向主题的,集成的,随时间而变化的,不容易丢失的数据集合,支持管理部门的决策过程&quot;-W.H.lnmon(数据仓库构造方面的领头设计师)
+建立数据仓库(data warehousing)
+):构造和使用数据仓库的过程
+
+数据仓库与异种数据库集成
+传统的异种数据库集成:
+):在多个异种数据库上建立包装程序(wrappers)和中介程序(mediators)
+):查询驱动方法--当从客户端传过来一个查询时,首先使用元数据字典将查询转换成响应异种数据库上的查询;然后,将这些查询映射和发送到局部查询处理器
+):缺点:复杂的信息过滤和集成处理,竞争资源
+数据仓库:更新驱动
+):将来自多个异种源的信息预先集成,并存储在数据仓库中,供直接查询和分析
+):高性能
+
+OLTP系统和OLAP系统的比较
+特征            OLTP                                OLAP
+任务特点        操作处理                            信息处理
+面向            事务                                分析
+用户            办事员,DBA,数据库专业人员            经理,主观,数据分析员
+功能            日常操作                            长期信息分析,决策支持
+DB设计            基于E-R,面向应用                    星型/雪花,面向主体
+数据            最新的,详细的                        历史的,汇总的
+视图            详细的,二维关系型                    汇总的,多维的
+任务单位        简短的事务                            复杂的查询
+访问数据量        数十个                                数百万个
+用户数            数千个                                数百个
+DB规模            100M-数GB                            100GB-数TB
+优先性            高性能,高可用性                        高灵活性,端点用户自治
+度量            事务吞吐量                            查询吞吐量,响应时间
+
+从关系表和电子表格到数据立方体
+数据仓库和数据仓库技术基于多维数据模型,这个模型把数据看做是数据立方体形式.多维数据模型围绕中心主题组织,该主题用事实表表示.事实是数值度量的.
+数据立方体允许以多维数据建模和观察.它由维和事实定义
+维是关于一个组织想要记录的视角或观点.每个维都有一个表与之相关联,称为维表.
+事实表包括事实的名称或度量以及每个相关维表的关键字
+在数据仓库的研究文献中,一个n维的数据的立方体叫做基本方体.给定一个维的集合,我们可以构造一个方体的格,每个都在不同的汇总级或不同呃数据子集显示数据,方体的格称为数据立方体.0维方体存放最高层的汇总,称作顶点方体;而存放最底层汇总的方体则称为基本方体.
+
+度量的分类:
+
+概念分层:location维的一个概念分层:
+
+多维数据模型上的OLAP操作:
+
+数据库仓库设计的四种视图:
+
+三种数据仓库模型:
+
+OLAP服务器类型:
+
+(必考重点)方体计算的多路数组聚集方法(1):
+
+第三章 数据预处理
+为什么要预处理数据?
+
+数据预处理的主要任务:
+
+如何处理空缺值
+
+噪声数据
+
+如何处理噪声数据
+
+数据转换
+
+数据归约策略
+
+分类数据的概念分层生成:
+
+第四章 数据挖掘原语和DMQL
+(重点知识)数据挖掘原语的组成部分:
+
+兴趣度度量
+
+一个DMQL查询的完整示例
+
+//第41-42课
+第五章 特征化和比较
+
+两种不同类别的数据挖掘
+
+什么是概念描述?
+
+数据概化
+
+面向属性的归纳
+
+面向属性的归纳的基本步骤
+
+概念描述的属性相关分析步骤(1)
+概念描述的属性相关分析步骤(2)
+
+挖掘类比较:区分不同的类
+
+类比较的过程
+
+在大型数据库中挖掘描述统计计量
+
+第六章 关联规则挖掘
+什么是关联规则挖掘?
+
+关联规则:基本概念
+
+(必考知识)Apriori算法
+
+Aoriori算法步骤:
+
+不产生候选频繁项集的算法----FP树
+
+多层关联--一致支持度VS.递减支持度
+
+多层关联---搜索策略:
+关联规则的兴趣度度量
+
+第七章 分类和预测
+
+分类VS预测
+
+
+数据分类--一个两步过程
+
+有指导的学习VS无指导的学习
+
+比较分类方法:
+
+用判定归纳树分类
+
+贝叶斯分类
+
+后向传播分类
+
+什么是预测?
+
+第八章 聚类分析
+什么是聚类分析?
+
+主要聚类分析:
+
+孤立点挖掘:
+
+电子商务与数据挖掘:
+电子商务与数据挖掘--完美结合
+
+对电子商务网站上应用的数据挖掘技术是web数据挖掘
+
+Web Usage Mining 的作用
+
+//42课,END
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+            <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>期待您的评论-------------</div>
+
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Demo-Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="prayer007007.github.io/2018/09/11/数据分析学习笔记01-数据挖掘/" title="数据分析学习笔记01-数据挖掘">prayer007007.github.io/2018/09/11/数据分析学习笔记01-数据挖掘/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
+          
+            <a href="/tags/人工智能/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+            <a href="/tags/分析/" rel="tag"><i class="fa fa-tag"></i> 分析</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/11/黑客阅读书籍笔记02/" rel="next" title="黑客阅读书籍笔记02">
+                <i class="fa fa-chevron-left"></i> 黑客阅读书籍笔记02
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTU2NS8xNjA5Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Demo-Mr Wang</p>
+              <p class="site-description motion-element" itemprop="description">Technical exchange</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">98</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=110
+           src="//music.163.com/outchain/player?type=0&id=2059024220&auto=1&height=90"></iframe>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/prayer007007" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1264827907@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/u013205428" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chuangzaoshi.com/code" title="创造狮导航" target="_blank">创造狮导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://e.xitu.io/" title="掘金酱" target="_blank">掘金酱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="印记中文" target="_blank">印记中文</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+
+  <span class="author" itemprop="copyrightHolder">Demo-Mr Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">2.2m</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">33:28</span>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    
+  
+
+  
+    
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/09/11/数据分析学习笔记01-数据挖掘/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "360cefba"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="&amp;lt;!-- 人事管理 --&amp;gt;  男女教师统计 select sum(case when sex = &amp;apos;1&amp;apos; then 1 else 0 end) || &amp;apos;,&amp;apos; || sum(case when sex = &amp;apos;2&amp;apos; then 1 else 0 end) as sex from T_RS_EMPLOYEE">
+<meta name="keywords" content="编程,数据库,oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL爬坑笔记-oracle统计">
+<meta property="og:url" content="prayer007007.github.io/2018/09/11/SQL爬坑笔记-oracle统计/index.html">
+<meta property="og:site_name" content="Demo`s Blog">
+<meta property="og:description" content="&amp;lt;!-- 人事管理 --&amp;gt;  男女教师统计 select sum(case when sex = &amp;apos;1&amp;apos; then 1 else 0 end) || &amp;apos;,&amp;apos; || sum(case when sex = &amp;apos;2&amp;apos; then 1 else 0 end) as sex from T_RS_EMPLOYEE">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-11T01:59:45.008Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL爬坑笔记-oracle统计">
+<meta name="twitter:description" content="&amp;lt;!-- 人事管理 --&amp;gt;  男女教师统计 select sum(case when sex = &amp;apos;1&amp;apos; then 1 else 0 end) || &amp;apos;,&amp;apos; || sum(case when sex = &amp;apos;2&amp;apos; then 1 else 0 end) as sex from T_RS_EMPLOYEE">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demo`s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="prayer007007.github.io/2018/09/11/SQL爬坑笔记-oracle统计/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>SQL爬坑笔记-oracle统计 | Demo`s Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/prayer007007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/prayer007007" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demo`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">one world one dream</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="prayer007007.github.io/2018/09/11/SQL爬坑笔记-oracle统计/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demo-Mr Wang">
+      <meta itemprop="description" content="Technical exchange">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demo`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SQL爬坑笔记-oracle统计
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-11 09:57:59 / 修改时间：01:59:45" itemprop="dateCreated datePublished" datetime="2018-09-11T09:57:59Z">2018-09-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/" itemprop="url" rel="index"><span itemprop="name">技能</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/Oracle/爬坑/" itemprop="url" rel="index"><span itemprop="name">爬坑</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/数据库/Oracle/爬坑/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">15k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">14 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>&lt;!-- 人事管理 --&gt;
+
+男女教师统计
+select sum(case when sex = &apos;1&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when sex = &apos;2&apos; then 1 else 0 end) as sex from T_RS_EMPLOYEE
+</code></pre><a id="more"></a>    
+<pre><code>教师年龄统计
+select 
+  count(t.age) || &apos;,&apos; ||
+  count(case
+       when t.age between 20 and 30 then
+         &apos;20-30&apos;
+         end
+  ) || &apos;,&apos; ||
+  count(case
+       when t.age between 31 and 40 then
+         &apos;31-40&apos;
+         end
+  ) || &apos;,&apos; ||
+  count(case
+       when t.age between 41 and 50 then
+         &apos;41-50&apos;
+         end
+  ) || &apos;,&apos; ||
+  count(case
+       when t.age &gt;50 then
+         &apos;&gt;50&apos;
+         end
+  ) as age
+  from
+(select trunc((sysdate-birthday)/365,0) as age from T_RS_EMPLOYEE where birthday is not null) t
+
+教职工状态
+select wmsys.wm_concat(x.dic_name) as jzgzt from (select t.dic_name from T_SYS_DIC t where t.parent_id = &apos;653a307f-8b54-4e0d-952f-9e0114f0111a&apos;) x
+
+教职工状态对应人数     //jzgztstatus 在bean里不能写成jzgzt_status ,不识别bean里面的下划线
+select 
+sum(case when  n.staff_status= &apos;200&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when  n.staff_status= &apos;201&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when  n.staff_status= &apos;202&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;203&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;204&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;205&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;206&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;207&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;208&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;209&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;210&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;211&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;299&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when n.staff_status = &apos;100&apos; then 1 else 0 end)
+as jzgztstatus from
+(select t.staff_status from T_RS_EMPLOYEE t where t.staff_status is not null) n
+
+//部门教职工男女比例
+select wmsys.wm_concat(o.sex) as deptsex from (select 
+i.deptdata || &apos;,&apos; || sum(case when i.sex = &apos;1&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when i.sex = &apos;2&apos; then 1 else 0 end) as sex
+ from (select u.dept_name as deptdata,s.sex from T_RS_EMPLOYEE_DEPT t,T_RS_EMPLOYEE s,T_SYS_DEPT u 
+where t.person_id = s.person_id and u.dept_id = t.dept_id and s.sex is not null) i group by i.deptdata) o
+
+
+&lt;!-- 协同办公 --&gt;
+//各部门通知公告统计
+select wmsys.wm_concat(a.notice) as notice from
+ (select d.dept_name || &apos;,&apos; || sum(case when t.type = &apos;1&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when t.type = &apos;2&apos; then 1 else 0 end) as notice from 
+T_SYS_NOTICE t,T_SYS_DEPT d where t.dept_id = d.dept_id group by d.dept_name) a
+
+
+//各部门当前年通知公告统计
+select wmsys.wm_concat(w.noticetype) as oldnotice from 
+(select s.olddate || &apos;,&apos; || sum(case when s.type = &apos;1&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when s.type = &apos;2&apos; then 1 else 0 end) as noticetype
+from (select 
+substr(to_char(t.public_time,&apos;YYYY-MM-DD&apos;),1,7) as olddate,t.type  
+from T_SYS_NOTICE t where t.public_time is not null) s group by s.olddate) w
+
+//各专业课程数统计
+select wmsys.wm_concat(h.dic_name || &apos;,&apos; || sum(m.total_hours)) as zycourse from 
+(select t.major_type,r.total_hours
+from T_XG_MAJOR t,T_JW_COURSE s,T_JW_COURSEPLAN_DETAILS r
+ where t.major_code = s.major_code and r.course_id = s.course_id) m,
+ (select t.dic_name,t.dic_code from T_SYS_DIC t where
+  t.parent_id = (select id from T_SYS_DIC  where dic_code = &apos;ZXZYLX&apos;)) h
+  where m.major_type = h.dic_code group by h.dic_name
+
+
+
+//测试,左查询
+select ww.bage || &apos;&apos; || ww.age as age from
+(select w.*,m.age from 
+(select s.*,t.age as bage from aaa s left join bbb t on s.id = t.id
+order by s.id) w left join ccc m on w.id = m.id order by w.id) ww
+
+
+//测试2,合并,配合左查询将空值字段合并
+select ww.bage || &apos;&apos; || ww.age as age from
+(select w.*,m.age from 
+(select s.*,t.age as bage from aaa s left join bbb t on s.id = t.id
+order by s.id) w left join ccc m on w.id = m.id order by w.id) ww
+
+
+//测试3,将多个字段的一条记录拆分成多条记录
+select h.* from
+(with t1 as
+(
+     select t.c1 c1,t.c2 c2 from xxx t
+)
+
+select distinct regexp_substr(c1, &apos;[^|]+&apos;,1,level) c1,
+regexp_substr(c2, &apos;[^|]+&apos;,1,level) c2
+from t1
+connect by level &lt;= length(c1) - length(replace(c1,&apos;|&apos;,&apos;&apos;)) + 1
+order by c1) h
+
+//测试4  拆分字符串
+select substr(x.c1,1,instr(x.c1,&apos;,&apos;)-1) as xindex,
+substr(x.c1,instr(x.c1,&apos;,&apos;)+1) as xcontent
+ from xxx x
+
+
+
+//教科研成果数量
+select wmsys.wm_concat(gg.dic_name || &apos;,&apos; || hh.dic_num) as scresult from 
+(select t.dic_name,t.dic_code from T_SYS_DIC t where
+t.parent_id = (select id from T_SYS_DIC where dic_code = &apos;CGLX&apos;)order by t.dic_code) gg,
+(select 
+substr(h.scresult,1,instr(h.scresult,&apos;,&apos;)-1) as dic_code,
+substr(h.scresult,instr(h.scresult,&apos;,&apos;)+1) as dic_num
+ from
+(
+with t1 as
+(
+select mm.scresult scresult from (select 
+a.ax || &apos;|&apos; ||b.bx || &apos;|&apos; ||c.cx || &apos;|&apos; ||d.dx || &apos;|&apos; ||e.ex || &apos;|&apos; ||f.fx || &apos;|&apos; ||g.gx || &apos;|&apos; ||h.hx || &apos;|&apos; ||i.ix
+as scresult
+ from
+(select result_type || &apos;,&apos; || count(id) as ax from 
+T_JW_TEACHINGRESULT_PROJECT group by result_type) a,
+(select result_type || &apos;,&apos; || count(id) as bx from
+ T_JW_TEACHINGRESULT_STANDARD group by result_type) b,
+ (select result_type || &apos;,&apos; || count(id) as cx from
+ T_JW_TEACHINGRESULT_MEDICINE group by result_type) c,
+ (select result_type || &apos;,&apos; || count(id) as dx from
+ T_JW_TEACHINGRESULT_PAPER group by result_type) d,
+ (select result_type || &apos;,&apos; || count(id) as ex from
+ T_JW_TEACHINGRESULT_ART group by result_type) e,
+ (select result_type || &apos;,&apos; || count(id) as fx from
+ T_JW_TEACHINGRESULT_GUIDE group by result_type) f,
+ (select result_type || &apos;,&apos; || count(id) as gx from
+ T_JW_TEACHINGRESULT_WRITING group by result_type) g,
+ (select result_type || &apos;,&apos; || count(id) as hx from
+ T_JW_TEACHINGRESULT_PATENT group by result_type) h,
+ (select result_type || &apos;,&apos; || count(id) as ix from
+ T_JW_TEACHINGRESULT_REPORT group by result_type) i ) mm
+ )
+ select distinct regexp_substr(scresult, &apos;[^|]+&apos;,1,level) scresult
+ from t1
+connect by level &lt;= length(scresult) - length(replace(scresult,&apos;|&apos;,&apos;&apos;)) + 1
+order by scresult
+) h
+) hh 
+where gg.dic_code = hh.dic_code
+
+
+//各级学生人数
+select wmsys.wm_concat(hh.stunum) as stunum from 
+(select mm.dic_name || &apos;,&apos; || (case when to_char(mm.name) is null then &apos;0,0&apos; else to_char(mm.name) end) stunum from
+(select m.dic_name,h.name from 
+ (select t.dic_name,t.dic_code from T_SYS_DIC t where t.parent_id =
+(select id from T_SYS_DIC where dic_code = &apos;ZJBJLX&apos;)) m
+left join
+(select s.class_type,sum(case when t.sex = &apos;1&apos; then 1 else 0 end) || &apos;,&apos; ||
+sum(case when t.sex = &apos;2&apos; then 1 else 0 end) as name
+ from T_XG_STUDENT t,T_XG_CLASS s
+where t.class_name = s.class_name
+group by s.class_type
+) h
+on m.dic_code = h.class_type) mm) hh
+
+
+//实习就业情况
+select wmsys.wm_concat(q.nnum) as sxjy from
+(select t.dept_name || &apos;,&apos; ||count(s.student_id) || &apos;,&apos; ||
+count(u.student_id) as nnum 
+ from T_SYS_DEPT t
+ left join
+T_XG_INTERNSHIP_STUDENT s
+on s.departments_id = t.dept_id
+left join
+T_XG_EMPLOYMENT_STUDENT u
+on u.departments_id = t.dept_id
+where t.dept_type = 8
+group by t.dept_name) q
+
+
+//评教日期,数量
+select wmsys.wm_concat(oo.nnum) as alltask from
+(select nn.adate || &apos;,&apos; ||
+(case when to_char(ll.nnum0) is null then &apos;0&apos; else to_char
+(ll.nnum0) end) || &apos;,&apos; ||
+(case when to_char(yy.nnum1) is null then &apos;0&apos; else to_char
+(yy.nnum1) end) || &apos;,&apos; ||
+(case when to_char(uu.nnum2) is null then &apos;0&apos; else to_char
+(uu.nnum2) end) || &apos;,&apos; ||
+(case when to_char(ii.nnum3) is null then &apos;0&apos; else to_char
+(ii.nnum3) end) as nnum  
+from
+(with t1 as
+(
+     select h.ddate adate from 
+     (select s.ddate || &apos;01,&apos; 
+     || s.ddate || &apos;02,&apos; || s.ddate || &apos;03,&apos; || s.ddate || &apos;04,&apos; 
+     || s.ddate || &apos;05,&apos; || s.ddate || &apos;06,&apos; || s.ddate || &apos;07,&apos;
+      || s.ddate || &apos;08,&apos; || s.ddate || &apos;09,&apos; || s.ddate || &apos;10,&apos;
+       || s.ddate || &apos;11,&apos; || s.ddate || &apos;12&apos;
+     as ddate from
+    (select to_char(sysdate,&apos;YYYY-&apos;) as ddate from dual) s) h
+)
+
+select distinct regexp_substr(adate, &apos;[^,]+&apos;,1,level) adate
+from t1
+connect by level &lt;= length(adate) - length(replace(adate,&apos;,&apos;,&apos;&apos;)) + 1
+order by adate) nn
+left join
+(select s.ddate,sum(s.nnum) as nnum0 from
+(select to_char(t.start_time,&apos;YYYY-MM&apos;) as ddate, count(t.task_id) as nnum from T_KH_EVALUATION_TASK t
+where t.task_type = 0
+ group by t.start_time
+ order by t.start_time) s
+ group by s.ddate
+ order by s.ddate) ll
+ on nn.adate = ll.ddate
+ left join
+ (select s.ddate,sum(s.nnum) as nnum1 from
+(select to_char(t.start_time,&apos;YYYY-MM&apos;) as ddate, count(t.task_id) as nnum from T_KH_EVALUATION_TASK t
+where t.task_type = 1
+ group by t.start_time
+ order by t.start_time) s
+ group by s.ddate
+ order by s.ddate) yy
+ on nn.adate = yy.ddate
+  left join
+ (select s.ddate,sum(s.nnum) as nnum2 from
+(select to_char(t.start_time,&apos;YYYY-MM&apos;) as ddate, count(t.task_id) as nnum from T_KH_EVALUATION_TASK t
+where t.task_type = 2
+ group by t.start_time
+ order by t.start_time) s
+ group by s.ddate
+ order by s.ddate) uu
+ on nn.adate = uu.ddate
+  left join
+ (select s.ddate,sum(s.nnum) as nnum3 from
+(select to_char(t.start_time,&apos;YYYY-MM&apos;) as ddate, count(t.task_id) as nnum from T_KH_EVALUATION_TASK t
+where t.task_type = 3
+ group by t.start_time
+ order by t.start_time) s
+ group by s.ddate
+ order by s.ddate) ii
+ on nn.adate = ii.ddate
+
+ order by nn.adate) oo
+
+
+//评教名称
+select wmsys.wm_concat(h.dic_name) as taskname from
+(select t.dic_name from T_SYS_DIC t 
+where t.parent_id = (select id from T_SYS_DIC where dic_code = &apos;JSPJRWLX&apos;) 
+order by t.dic_code) h
+
+
+//学生教师综合成绩统计
+select 
+(case when to_char(gg.nnum) is null then &apos;0&apos; else to_char
+(gg.nnum) end) || &apos;,&apos; ||
+(case when to_char(jj.nnum) is null then &apos;0&apos; else to_char
+(jj.nnum) end) as score
+ from 
+(select h.score from
+(with t1 as
+(
+     select t.score score from 
+     (select &apos;100,90,80,70,60,10&apos; as score from dual) t
+)
+
+select distinct to_number(regexp_substr(score, &apos;[^,]+&apos;,1,level)) score
+from t1
+connect by level &lt;= length(score) - length(replace(score,&apos;,&apos;,&apos;&apos;)) + 1
+order by score desc) h) ff
+left join
+(select 
+(case when t.score = 100 then 100 else 
+  case when t.score &gt;=90 and t.score &lt; 100 then 90 else
+   case when t.score &gt;=80 and t.score &lt;90 then 80 else
+     case when t.score &gt;=70 and t.score &lt;80 then 70 else
+       case when t.score &gt;=60 and t.score &lt;70 then 60 else
+         10
+ end end end end end) as score,
+  count(t.score) as nnum
+ from T_KH_EVALUATION_COMPLEX_TASK t
+where t.test_flag = 1 and t.evaluation_type = 1
+group by t.score
+order by t.score desc) gg
+on ff.score = gg.score
+left join
+(select 
+(case when t.score = 100 then 100 else 
+  case when t.score &gt;=90 and t.score &lt; 100 then 90 else
+   case when t.score &gt;=80 and t.score &lt;90 then 80 else
+     case when t.score &gt;=70 and t.score &lt;80 then 70 else
+       case when t.score &gt;=60 and t.score &lt;70 then 60 else
+         10
+ end end end end end) as score,
+  count(t.score) as nnum
+ from T_KH_EVALUATION_COMPLEX_TASK t
+where t.test_flag = 1 and t.evaluation_type = 1
+group by t.score
+order by t.score desc) jj
+on ff.score = jj.score
+order by ff.score desc
+
+
+//校产类别
+select wmsys.wm_concat(n.assets) as assets from
+(select 
+t.dic_name || &apos;,&apos; || sum(s.assets_num_all) as assets from T_SYS_USERDIC t,T_ZW_ASSETS s
+ where t.dic_type = &apos;XCLB&apos; and t.dic_code = s.assets_type
+ group by t.dic_name) n
+
+
+//校产状态
+select wmsys.wm_concat(h.nnum) as assetsstatus from
+(select n.dic_name || &apos;,&apos; || sum(n.nnum) as nnum from
+(select t.dic_name,t.dic_code,(case when m.nnum is null then 0 else m.nnum end) as nnum
+from T_SYS_DIC t 
+left join
+(select assets_num as nnum,status from T_ZW_ASSETS_DETAILS) m
+on m.status = t.dic_code
+where t.parent_id = 
+(select id from T_SYS_DIC where dic_code = &apos;XCZT&apos;)) n
+group by n.dic_name) h
+
+
+//部门维修数量
+select wmsys.wm_concat(m.repairs) as repairs from 
+(select t.dept_name || &apos;,&apos; || count(s.repair_id) as repairs from T_SYS_DEPT t,T_ZW_REPAIR s 
+where s.dept = t.dept_id
+group by t.dept_name) m
+
+//党员类型数量
+select wmsys.wm_concat(b.party) party from
+(select n.party from 
+(select h.dic_code,h.dic_name || &apos;,&apos; || count(m.member_roles) as party from 
+(select t.dic_name,t.dic_code from T_SYS_DIC t
+where t.parent_id = (select id from T_SYS_DIC where dic_code = &apos;DYJS&apos;)) h
+left join
+(select * from T_DT_PARTYMEMBERS where person_type = 0) m
+on h.dic_code = m.member_roles
+group by h.dic_name,h.dic_code) n
+order by n.dic_code) b
+
+//各部门党员数量
+select wmsys.wm_concat(hh.nnum) as partydept from 
+(select h.dept_name || &apos;,&apos; || (case when j.nnum is null then 0 else j.nnum end) as nnum from
+(select t.dept_name,t.dept_id from T_SYS_DEPT t where t.parent_dept_id = 001) h
+left join
+(select dept_id,count(person_id) as nnum from 
+T_DT_PARTYMEMBERS where member_roles = 4 group by dept_id) j
+on h.dept_id = j.dept_id) hh
+
+
+//教师个人空间
+select wmsys.wm_concat(vv.jsinfo) as jsinfo from 
+(select kk.mmonth || &apos;,&apos; ||
+(case when m.jsinfo is null then &apos;0,0,0&apos; else m.jsinfo end) as jsinfo from
+(select hhh.mmonth,hhh.nnum from
+(select hh.mmonth,to_number(replace(hh.mmonth,&apos;月&apos;,&apos;&apos;)) as nnum from
+(select h.* from
+(with t1 as
+(
+     select t.mmonth mmonth from (select &apos;1月|2月|3月|4月|5月|6月|7月|8月|9月|10月|11月|12月&apos; as mmonth from dual) t
+)
+
+select distinct regexp_substr(mmonth, &apos;[^|]+&apos;,1,level) mmonth
+from t1
+connect by level &lt;= length(mmonth) - length(replace(mmonth,&apos;|&apos;,&apos;&apos;)) + 1
+order by mmonth) h) hh) hhh order by hhh.nnum) kk
+left join
+(select t.year|| &apos;,&apos; || t.basic_frequency || &apos;,&apos; ||t.no_sign_in_frequency
+as jsinfo,t.month || &apos;月&apos; as nnum
+ from T_KQ_INFO t where t.id = #{person} and t.valid_flag = &apos;1&apos;) m
+ on m.nnum = kk.mmonth
+ order by kk.nnum) vv
+
+
+
+
+
+
+
+//Notice.java  DeptDao.xml EmpChangeLogController.java DeptController.java listNotice.jsp
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+            <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>期待您的评论-------------</div>
+
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Demo-Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="prayer007007.github.io/2018/09/11/SQL爬坑笔记-oracle统计/" title="SQL爬坑笔记-oracle统计">prayer007007.github.io/2018/09/11/SQL爬坑笔记-oracle统计/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          
+            <a href="/tags/oracle/" rel="tag"><i class="fa fa-tag"></i> oracle</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/11/2017-12-13整理网站信息记录/" rel="next" title="2017-12-13整理网站信息记录">
+                <i class="fa fa-chevron-left"></i> 2017-12-13整理网站信息记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/11/tor学习笔记01/" rel="prev" title="tor学习笔记01">
+                tor学习笔记01 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTU2NS8xNjA5Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Demo-Mr Wang</p>
+              <p class="site-description motion-element" itemprop="description">Technical exchange</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">98</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=110
+           src="//music.163.com/outchain/player?type=0&id=2059024220&auto=1&height=90"></iframe>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/prayer007007" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1264827907@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/u013205428" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chuangzaoshi.com/code" title="创造狮导航" target="_blank">创造狮导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://e.xitu.io/" title="掘金酱" target="_blank">掘金酱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="印记中文" target="_blank">印记中文</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+
+  <span class="author" itemprop="copyrightHolder">Demo-Mr Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">2.2m</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">33:28</span>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    
+  
+
+  
+    
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/09/11/SQL爬坑笔记-oracle统计/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

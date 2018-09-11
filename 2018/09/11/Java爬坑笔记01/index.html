@@ -1,0 +1,2539 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "360cefba"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="**************************************************************** java.util.logging.Logger jdk自带的logger logger默认的级别是INFO，比INFO更低的日志将不显示。 &amp;lt;xml&amp;gt;  &amp;lt;log&amp;gt;     &amp;lt;record&amp;gt;         &amp;lt;date&amp;gt;">
+<meta name="keywords" content="Java,笔记,编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java爬坑笔记01">
+<meta property="og:url" content="prayer007007.github.io/2018/09/11/Java爬坑笔记01/index.html">
+<meta property="og:site_name" content="Demo`s Blog">
+<meta property="og:description" content="**************************************************************** java.util.logging.Logger jdk自带的logger logger默认的级别是INFO，比INFO更低的日志将不显示。 &amp;lt;xml&amp;gt;  &amp;lt;log&amp;gt;     &amp;lt;record&amp;gt;         &amp;lt;date&amp;gt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-11T01:51:54.154Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java爬坑笔记01">
+<meta name="twitter:description" content="**************************************************************** java.util.logging.Logger jdk自带的logger logger默认的级别是INFO，比INFO更低的日志将不显示。 &amp;lt;xml&amp;gt;  &amp;lt;log&amp;gt;     &amp;lt;record&amp;gt;         &amp;lt;date&amp;gt;">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Demo`s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="prayer007007.github.io/2018/09/11/Java爬坑笔记01/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Java爬坑笔记01 | Demo`s Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/prayer007007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/prayer007007" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Demo`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">one world one dream</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="prayer007007.github.io/2018/09/11/Java爬坑笔记01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Demo-Mr Wang">
+      <meta itemprop="description" content="Technical exchange">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Demo`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java爬坑笔记01
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-11 09:50:54 / 修改时间：01:51:54" itemprop="dateCreated datePublished" datetime="2018-09-11T09:50:54Z">2018-09-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/" itemprop="url" rel="index"><span itemprop="name">技能</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/Java/爬坑/" itemprop="url" rel="index"><span itemprop="name">爬坑</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技能/编程/后端/Java/爬坑/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">30k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">28 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>****************************************************************
+java.util.logging.Logger
+jdk自带的logger
+logger默认的级别是INFO，比INFO更低的日志将不显示。
+&lt;xml&gt;
+ &lt;log&gt;
+    &lt;record&gt;
+        &lt;date&gt;2009-07-28&lt;/date&gt;
+        &lt;millis&gt;1221131&lt;/millis&gt;
+        &lt;sequence&gt;0&lt;/sequence&gt;
+        &lt;logger&gt;lavasoft&lt;/logger&gt;
+        &lt;level&gt;INFO&lt;/level&gt;
+        &lt;class&gt;TestLogger&lt;/class&gt;
+        &lt;method&gt;main&lt;/method&gt;
+        &lt;thread&gt;10&lt;/thread&gt;
+        &lt;message&gt;aaa&lt;/message&gt;
+    &lt;/record&gt;
+ &lt;/log&gt;
+&lt;/xml&gt;
+</code></pre><a id="more"></a>    
+<pre><code>public class TestLogger { 
+        public static void main(String[] args) throws IOException { 
+                Logger log = Logger.getLogger(&quot;lavasoft&quot;); 
+                log.setLevel(Level.INFO); 
+                Logger log1 = Logger.getLogger(&quot;lavasoft&quot;); 
+                System.out.println(log == log1);     //true 
+                Logger log2 = Logger.getLogger(&quot;lavasoft.blog&quot;); 
+//                log2.setLevel(Level.WARNING); 
+
+                ConsoleHandler consoleHandler = new ConsoleHandler(); 
+                consoleHandler.setLevel(Level.ALL); 
+                log.addHandler(consoleHandler); 
+                FileHandler fileHandler = new FileHandler(&quot;C:/testlog%g.log&quot;); 
+                fileHandler.setLevel(Level.INFO); 
+                fileHandler.setFormatter(new MyLogHander()); 
+                log.addHandler(fileHandler); 
+
+                log.info(&quot;aaa&quot;); 
+                log2.info(&quot;bbb&quot;); 
+                log2.fine(&quot;fine&quot;); 
+        } 
+} 
+
+class MyLogHander extends Formatter { 
+        @Override 
+        public String format(LogRecord record) { 
+                return record.getLevel() + &quot;:&quot; + record.getMessage()+&quot;\n&quot;; 
+        } 
+}
+
+Logger logger = LoggerFactory.getLogger(com.Book.class);
+
+****************************************************************
+
+Serializable:
+
+为什么要实现Serializable?
+(1)
+最重要的两个原因是：
+　　1、将对象的状态保存在存储媒体中以便可以在以后重新创建出完全相同的副本；
+　　2、按值将对象从一个应用程序域发送至另一个应用程序域。
+    实现serializable接口的作用是就是可以把对象存到字节流，然后可以恢复。所以你想如果你的对象没实现序列化怎么才能进行网络传输呢，要网络传输就得转为字节流，所以在分布式应用中，你就得实现序列化，如果你不需要分布式应用，那就没那个必要实现序列化。
+
+(2)
+一个对象序列化的接口，一个类只有实现了Serializable接口，它的对象才是可序列化的。因此如果要序列化某些类的对象，这些类就必须实现Serializable接口。而实际上，Serializable是一个空接口，没有什么具体内容，它的目的只是简单的标识一个类的对象可以被序列化。
+什么情况下需要序列化
+a）当你想把的内存中的对象写入到硬盘的时候；
+b）当你想用套接字在网络上传送对象的时候；
+c）当你想通过RMI传输对象的时候；
+再稍微解释一下:a)比如说你的内存不够用了，那计算机就要将内存里面的一部分对象暂时的保存到硬盘中，等到要用的时候再读入到内存中，硬盘的那部分存储空间就是所谓的虚拟内存。在比如过你要将某个特定的对象保存到文件中，我隔几天在把它拿出来用，那么这时候就要实现Serializable接口；
+b)在进行java的Socket编程的时候，你有时候可能要传输某一类的对象，那么也就要实现Serializable接口；最常见的你传输一个字符串，它是JDK里面的类，也实现了Serializable接口，所以可以在网络上传输。
+c)如果要通过远程的方法调用（RMI）去调用一个远程对象的方法，如在计算机A中调用另一台计算机B的对象的方法，那么你需要通过JNDI服务获取计算机B目标对象的引用，将对象从B传送到A，就需要实现序列化接口。
+
+****************************************************************
+
+serialVersionUID:
+serialVersionUID的作用:
+简单来说，Java的序列化机制是通过在运行时判断类的serialVersionUID来验证版本一致性的。在进行反序列化时，JVM会把传来的字节流中的serialVersionUID与本地相应实体（类）的serialVersionUID进行比较，如果相同就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常。(InvalidCastException)
+
+serialVersionUID有两种显示的生成方式：        一个是默认的1L，比如：private static final long serialVersionUID = 1L;        一个是根据类名、接口名、成员方法及属性等来生成一个64位的哈希字段
+
+****************************************************************
+
+Jackson
+
+ObjectMapper mapper = new ObjectMapper(); //转换器 
+String json=mapper.writeValueAsString(user); //将对象转换成json  
+Map m = mapper.readValue(json, Map.class); //json转换成map 
+json=mapper.writeValueAsString(m); //map转json 
+byte[] data=mapper.writeValueAsBytes(u); //对象转成二进制数组  
+
+Jackson，我感觉是在Java与Json之间相互转换的最快速的框架
+Jackson处理一般的JavaBean和Json之间的转换只要使用ObjectMapper 对象的readValue和writeValueAsString两个方法就能实现。但是如果要转换复杂类型Collection如 List&lt;YourBean&gt;，那么就需要先反序列化复杂类型 为泛型的Collection Type。
+
+如果是ArrayList&lt;YourBean&gt;那么使用ObjectMapper 的getTypeFactory().constructParametricType(collectionClass, elementClasses);
+
+如果是HashMap&lt;String,YourBean&gt;那么 ObjectMapper 的getTypeFactory().constructParametricType(HashMap.class,String.class, YourBean.class);
+(代码:)
+public final ObjectMapper mapper = new ObjectMapper(); 
+
+    public static void main(String[] args) throws Exception{  
+        JavaType javaType = getCollectionType(ArrayList.class, YourBean.class); 
+        List&lt;YourBean&gt; lst =  (List&lt;YourBean&gt;)mapper.readValue(jsonString, javaType); 
+    }   
+       /**   
+        * 获取泛型的Collection Type  
+        * @param collectionClass 泛型的Collection   
+        * @param elementClasses 元素类   
+        * @return JavaType Java类型   
+        * @since 1.0   
+        */   
+    public static JavaType getCollectionType(Class&lt;?&gt; collectionClass, Class&lt;?&gt;... elementClasses) {   
+        return mapper.getTypeFactory().constructParametricType(collectionClass, elementClasses);   
+    }
+
+Jackson可以轻松的将Java对象转换成json对象和xml文档，同样也可以将json、xml转换成Java对象。
+
+**********************************************************************
+
+URL:Uniform Resource Locator ,在Internet的WWW服务程序上用于指定信息位置的表示方法,
+
+url对象用openconnection()打开连接；获得URLConnection类对象，再用URLConnection类对象的connect（）方法进行连接
+URLConnection 对象，它表示到 URL 所引用的远程对象的连接。
+
+HttpURLConnection仅仅针对Http连接
+
+基本步骤:
+         1) 创建 URL 以及 URLConnection / HttpURLConnection 对象
+         2) 设置连接参数
+         3) 连接到服务器
+         4) 向服务器写数据
+         5)从服务器读取数据
+
+**********************************************************************
+
+MD5和SHA-1:
+特点在于都能“通过哈希值唯一标识原信息”
+MD5和SHA-1都被称作哈希(Hash)函数，用过Java语言的人对这个术语应该相当熟悉。Java类库里的Object类定义了hashCode这个函数，但是java的概念略有不同。正式的哈希函数的定义是“把任意长度的数据计算成固定长度的数据”。也就是说函数的输入是任意长的，输出总是固定长度的。MD5和SHA-1是两种加密用哈希函数，MD5的返回值总是128bit的，SHA-1的返回值是160bit，都是固定长度。MD5如果按十六进制表示的话是32位十六进制的数，SHA-1是40位十六进制的数。
+
+MD5：http://md5-hash-online.waraxe.us/
+SHA-1：http://sha1-hash-online.waraxe.us/
+应用:
+1.      密码加密（很常用的一种用法）
+2.      文件校验
+3.      工作量证明(Proof ofWork)
+
+SecureRandom 类:
+
+此类提供加密的强随机数生成器 (RNG)。许多实现都是伪随机数生成器 (PRNG) 形式，这意味着它们将使用确定的算法根据实际的随机种子生成伪随机序列。其他实现可以生成实际的随机数，而另一些实现则可能结合使用这两项技术。 
+
+SecureRandom可能是对Random在随机算法上做了改进，使之更安全。
+
+http://blog.csdn.net/hengyunabc/article/details/9913143
+http://www.freebuf.com/vuls/60494.html
+
+MessageDigest类:
+MessageDigest 类为应用程序提供信息摘要算法的功能，如 MD5 或 SHA 算法。信息摘要是安全的单向哈希函数，它接收任意大小的数据，并输出固定长度的哈希值。
+public abstract class MessageDigest extends MessageDigestSpi(){}
+http://blog.csdn.net/ma1kong/article/details/2662997
+
+GeneralSecurityException:在某些地方做一些事情并不安全。如果你有足够的权力，你应该随机入侵一个国家（最好在中东地区）。如果你没有那种权力，至少应该有一把枪。
+
+Validate类:
+java validation 后台参数验证
+http://www.cnblogs.com/xiaogangfan/p/5987659.html
+http://blog.csdn.net/z13759561330/article/details/39553457
+
+StringUtils包:
+
+StringUtils(自定义) extends org.apache.commons.lang3.StringUtils
+
+IdGen,IdGenerator,SessionIdGenerator
+
+ID生成器
+与shiro相关的sessionId
+
+System.getProperty(String key):
+https://zhidao.baidu.com/question/561303547.html
+
+PropertiesLoader:
+http://blog.csdn.net/hurryjiang/article/details/8778865
+
+Properties:
+Java中有个比较重要的类Properties（Java.util.Properties），主要用于读取Java的配置文件，各种语言都有自己所支持的配置文件，配置文件中很多变量是经常改变的，这样做也是为了方便用户，让用户能够脱离程序本身去修改相关的变量设置。像Python支持的配置文件是.ini文件，同样，它也有自己读取配置文件的类ConfigParse，方便程序员或用户通过该类的方法来修改.ini配置文件。在Java中，其配置文件常为.properties文件，格式为文本文件，文件的内容的格式是“键=值”的格式，文本注释信息可以用&quot;#&quot;来注释。
+
+http://www.cnblogs.com/bakari/p/3562244.html
+
+Enumeration:
+http://blog.csdn.net/qq924862077/article/details/48022185
+http://blog.csdn.net/zhiweianran/article/details/7672433
+http://trans.blog.51cto.com/503170/110227/
+
+Assert ---Spring类:
+检测合法性
+http://www.360doc.com/content/14/0513/17/8072791_377287362.shtml
+
+FileUtil 
+
+Spring CommonsMultipartResolver:
+// 创建一个通用的多部分解析器
+    CommonsMultipartResolver commonsMultipartResolver =
+new CommonsMultipartResolver(request.getSession().getServletContext());
+
+Metadata:(元数据)
+元数据是关于数据的数据。在编程语言上下文中，元数据是添加到程序元素如方法、字段、类和包上的额外信息。
+http://blog.csdn.net/ruanniu/article/details/52315639
+
+Directory 类:公开用于通过目录和子目录进行创建、移动和枚举的静态方法。 无法继承此类。
+http://blog.csdn.net/u014801801/article/details/50957995
+
+Tag类 : 也是元数据里面的
+ParseException:指示在解析时意外出现错误
+
+
+JsonMapper: 解析字典
+http://www.cnblogs.com/asxinyu/p/Parse_String_Splite_NotJsonMapper.html
+
+高级加密标准（英语：Advanced Encryption Standard，缩写：AES），在密码学中又称Rijndael加密法
+
+JAVA实现AES加密
+http://blog.csdn.net/hbcui1984/article/details/5201247
+AES 加密 解密（Hex编码解码）
+http://blog.csdn.net/qh_java/article/details/52883624
+
+Hex编码:
+Hex编码是最简单的一种编码，常用于将消息摘要以可读的信息展示出来。
+1. 编码原理
+
+Hex编码就是把一个8位的字节数据用两个十六进制数展示出来，编码时，将8位二进制码重新分组成两个4位的字节，其中一个字节的低4位是原字节的高四位，另一个字节的低4位是原数据的低4位，高4位都补0，然后输出这两个字节对应十六进制数字作为编码。
+http://www.hiwzc.com/java-codec-hex.html
+
+Base64编码:
+Base64编码是一种常见的编码，国际标准是RFC2045-RFC2049，常用于邮件和证书传递。
+
+1. 编码原理
+
+Base64编码就是把3个8位的二进制数据用4个ASCII可见字符展示出来。编码时，将3个8位二进制码重新分组成4个6位的二进制码，不足6位的，右侧补零，然后这4个6位的二进制码高位补两个0，形成4个8位的字节数据，然后取每个字节的十进制值在编码表中对应的字符作为最终的编码数据。Base64编码后的数据长度是源数据长度的4/3。标准的Base64编码要求最终的数据长度是4字节的整数倍，不足4字节的倍数时要用填充字符补齐，填充字符为等号“=”。
+http://www.hiwzc.com/java-codec-base64.html
+
+Base62编码:
+
+http://outofmemory.cn/code-snippet/12424/Base62
+前端实现:
+http://type.so/go/id-to-code-base62.html?utm_source=tuicool&amp;utm_medium=referral
+base62编码，和base64有什么区别:
+与base64编码不同的是去除了两个符号，使得码空间由数字和英文字母组成，一般在短网址应用中会用到
+http://www.jfox.info/shi-me-shi-base62-bian-ma-he-base64-you-shi-me-qu-bie.html
+Base64和Base62的目的在都在于将需要传输的内容进行编码，尤其是一些特殊字符（如不可见字符、传输时与协议头冲突的字符）。
+http://tianya23.blog.51cto.com/1081650/423544
+
+http://blog.csdn.net/sodino/article/details/6137761
+
+
+转码/解码:
+
+ java中的解码与转码（URLEncoder.encode(),URLEncoder.decode()）
+http://blog.csdn.net/wangjuan_01/article/details/42918989
+JAVA编码（中文转码）问题总结
+http://blog.csdn.net/tangyanbo1110/article/details/40921313
+Java在web页面上的编码解码处理及中文URL乱码解决
+http://www.jb51.net/article/80181.htm
+
+StringEscapeUtils:
+ 利用StringEscapeUtils对字符串进行各种转义与反转义（Java）
+在apache commons-lang(2.3以上版本)中为我们提供了一个方便做转义的工具类，主要是为了防止sql注入，xss注入攻击的功能。
+http://blog.csdn.net/chenleixing/article/details/43456987
+https://my.oschina.net/mousai/blog/88832
+
+
+java中的URLEncoder和URLDecoder类
+
+URLDecoder类包含一个decode(String s,String charcter)静态方法,它可以将看上去乱码的特殊字符串转换成普通字符串
+URLEncoder类包含一个encode(String s,String charcter)静态方法,它可以将普通字符串转换成application/x-www-form-urlencoded MIME字符串
+http://tech.sina.com.cn/s/2008-07-07/1053722241.shtml
+
+
+AES256Encryption AES 256位加密算法:
+http://blog.csdn.net/songwenbinasdf/article/details/39996341
+http://blog.sina.com.cn/s/blog_9b9a08c70101eb3x.html
+
+request.getScheme() 使用方法:
+request.getSchema()可以返回当前页面使用的协议，http 或是 https;
+http://blog.csdn.net/zy18729286306/article/details/21593721
+
+getServletContext()方法详解:
+http://www.cnblogs.com/flash123456/archive/2012/08/10/2632241.html
+getContextPath、getServletPath、getRequestURI的区别:
+http://www.cnblogs.com/ycxyyzw/archive/2012/07/31/2616951.html
+
+环信即时通讯:
+https://www.easemob.com/
+
+
+HttpKit: 网络爬虫
+
+http://blog.csdn.net/zsj65776529/article/details/54928191
+https://git.oschina.net/public-sy/codes/lyf10cw82jzrh4n7tm59p27
+http://code.taobao.org/p/svntest1234/src/trunk/HttpKit.java
+https://www.programcreek.com/java-api-examples/index.php?source_dir=jfinal-master/src/com/jfinal/kit/HttpKit.java
+
+SSL与TLS区别:
+
+SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。
+TLS：(Transport Layer Security，传输层安全协议)，用于两个应用程序之间提供保密性和数据完整性。该协议由两层组成：TLS记录协议和TLS握手协议。
+
+http://kb.cnblogs.com/page/197396/
+
+
+java SSLContext:
+SSLSocket扩展Socket并提供使用SSL或TLS协议的安全套接字。
+这种套接字是正常的流套接字，但是它们在基础网络传输协议(如TCP)上添加了安全保护层。 
+
+http://blog.csdn.net/zdx1515888659/article/details/44593967
+
+HttpURLConnection用法详解:
+http://blog.csdn.net/x1617044578/article/details/8668632
+
+
+SSLSocketFactory:
+
+http://blog.csdn.net/yangdelong/article/details/4575983
+
+TrustAnyTrustManager :
+强制绕过这证书检查
+http://blog.csdn.net/ppby2002/article/details/7928729
+
+javax.net.ssl 中 TrustManager 的子接口:
+此接口的实例管理使用哪一个 X509 证书来验证远端的安全套接字。
+
+HttpUrlConnection:
+setRequestProperty主要是设置HttpURLConnection请求头里面的属性
+urlConn.setRequestProperty(&quot;User-Agent&quot;, &quot;Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)&quot;);
+操作系统值，浏览器值，版本
+http://0411.iteye.com/blog/1068297
+http://blog.csdn.net/wangsf789/article/details/42584727
+
+黑格数据:
+
+https://www.apix.cn/
+
+
+ProcessBuilder:用于创建操作系统进程
+
+使用ProcessBuilder执行本地命令:
+http://www.cnblogs.com/taven/archive/2011/12/17/2291460.html
+深入研究java.lang.ProcessBuilder类
+http://lavasoft.blog.51cto.com/62575/15662/
+Java——ProcessBuilder类的使用及获取APK信息
+http://blog.csdn.net/iaiti/article/details/45270371
+
+CaptureUtil.java ( 文件浏览 )
+http://www.codeforge.cn/read/143335/CaptureUtil.java__html
+
+发送短信的SmsUtil
+
+http://uule.iteye.com/blog/2266539
+http://www.cnblogs.com/vcer/articles/7067707.html
+
+
+CCP REST API 接口演示 
+云通讯平台是为开发者提供电话短信功能API的云计算通讯平台。
+http://blog.sina.com.cn/s/blog_b435889501017p2e.html
+SDKTestSendTemplateSMS   容联--短信验证
+http://blog.csdn.net/liangmengmeng0927/article/details/53574663
+
+开发指南:短信验证码/通知
+http://www.360doc.com/content/14/0902/19/9200790_406586009.shtml
+容联 云通讯
+https://www.yuntongxun.com/doc/rest/sms/3_2_2_3.html
+
+jsoup：Java HTML解析器
+
+jsoup是一个用于处理真实HTML的Java库。它提供了一个非常方便的API来提取和操作数据，使用最好的DOM，CSS和类似jquery的方法。
+
+
+jsoup实现WHATWG HTML5规范，并将HTML解析为与现代浏览器相同的DOM。
+
+从URL，文件或字符串中刮取并解析 HTML
+查找和提取数据，使用DOM遍历或CSS选择器
+操纵 HTML元素，属性和文本
+根据安全的白名单清理用户提交的内容，以防止XSS攻击
+输出整洁的HTML
+jsoup旨在处理在野外发现的所有品种的HTML; 从原始和验证，到无效的标签汤; jsoup将创建一个明智的解析树。
+
+wiki （多人协作的写作系统）:
+Wiki是一种在网络上开放且可供多人协同创作的超文本系统
+
+Wiki系统属于一种人类知识网格系统，可以在Web的基础上对Wiki文本进行浏览、创建、更改，而且创建、更改、发布的代价远比HTML文本小；同时Wiki系统还支持面向社群的协作式写作，为协作式写作提供必要帮助；最后，Wiki的写作者自然构成了一个社群，Wiki系统为这个社群提供简单的交流工具。
+
+JSR-303验证框架--Hibernate-validator:
+
+JSR303 用于对JavaBean 中的字段的值进行验证,使得验证逻辑从业务代码中脱离出来
+
+是一个运行时的数据验证框架，在验证之后验证的错误信息会被马上返回
+
+一般用于表单提交页面(如用户名必填、只能由数字字母组成等等)
+
+http://blog.csdn.net/weijiaxiaobao/article/details/51200613
+http://www.cnblogs.com/yinghao/p/4775083.html
+https://www.2cto.com/kf/201612/575805.html
+http://www.zuidaima.com/code/file/1766946711208960.htm?dir=/jeesite3/src/main/java/com/thinkgem/jeesite/common/beanvalidator/BeanValidators.java
+
+shiro+SSH
+https://github.com/thinkgem/jeesite
+http://jeesite.com/
+
+服务器优化:
+http://calvin1978.blogcn.com/
+
+@SuppressWarnings(value={&quot;unchecked&quot;, &quot;rawtypes&quot;})
+忽略警告
+http://www.cnblogs.com/jingzhenhua/p/5986689.html
+
+Class&lt;?&gt;... classes:
+
+public TestSuite (Class&lt;?&gt;... classes) {
+for (Class&lt;?&gt; each : classes)
+addTest(new TestSuite(each.asSubclass(TestCase.class)));
+} 
+Class&lt;?&gt;代表类型，中间的&quot;...&quot;表示无限参数,classes表示该无限参数的名字
+调用可以这样写  TestSuite (String.clsss,Integer.class),但是如果写成数组就不能这样写。必须这样写
+TestSuite (new Class&lt;?&gt;[]{String.class,Integer.class});
+
+QuerySMSTemplate:短信查询接口
+
+容联-短信调用接口:
+http://blog.csdn.net/liangmengmeng0927/article/details/53574663
+
+http://code.taobao.org/p/yoyozhaopin/diff/2/src/com/cloopen/rest/sdk/CCPRestSDK.java
+//TaoCode容联短信工程
+http://code.taobao.org/u/rerunyoyo/mypro/
+
+REST API:
+https://www.twilio.com/docs/api
+https://www.yuntongxun.com/doc/rest/voicecode/3_3_2_4.html
+D:\谷歌下载\CCP_REST_VoiceVerify_DEMO_JAVA_v2.7r.zip
+
+https://www.yuntongxun.com/
+
+Code编程日志:
+http://www.codeweblog.com/category/%E5%BC%80%E6%BA%90/
+
+common/cloopen:容联接口
+
+
+Global.java
+http://www.codeforge.cn/
+http://www.codeforge.cn/read/256975/Global.java__html
+
+
+PageCachingFilter: (页面高速缓存过滤器)
+
+缓存的思想可以应用在软件分层的各个层面。它是一种内部机制，对外界而言，是不可感知的。 
+数据库本身有缓存，持久层也可以缓存。（比如：hibernate，还分1级和2级缓存） 
+业务层也可以有缓存（但一般来说，这是一个过程域，不会设缓存）。 
+表现层/数据服务层（传统web的表现层）也可以设置缓存（jsp cache 就是这一层，实现在app server上的缓存机制） 
+另外Browser也有缓存（如IE）这个大家也都知道（实现在 web server 上的缓存机制）。越上层的缓存效果越好，越底层的缓存影响越深远。
+
+http://www.jb51.net/article/32875.htm
+
+Expires过时期限值，GMT格式，指浏览器或缓存服务器在该时间点后必须从真正的服务器中获取新的页面信息
+
+http://www.jb51.net/article/84591.htm
+http://blog.csdn.net/woshixuye/article/details/8849592
+https://zhidao.baidu.com/question/365928361378516812.html
+http://www.cnblogs.com/jianjianyang/p/4953157.html
+http://www.cnblogs.com/daxin/archive/2013/05/31/3111597.html
+
+
+JMX（Java Management Extensions，即Java管理扩展）
+是一个为应用程序、设备、系统等植入管理功能的框架,JMX在Java编程语言中定义了应用程序以及网络管理和监控的体系结构、设计模式、应用程序接口以及服务。通常使用JMX来监控系统的运行状态或管理系统的某些方面，比如清空缓存、重新加载配置文件等
+优点是可以非常容易的使应用程序被管理
+主要作用是提供接口，允许有不同的实现
+
+http://blog.csdn.net/u013256816/article/details/52800742
+这种机制可以方便的管理、监控正在运行中的Java程序。常用于管理线程，内存，日志Level，服务重启，系统环境等。
+https://baike.baidu.com/item/JMX/2829357?fr=aladdin
+http://www.cnblogs.com/dongguacai/p/5900507.html
+
+基于JMX动态配置Log4J日志级别:
+http://blog.csdn.net/z2007130205/article/details/23910431
+
+Spring与JMX集成
+http://blog.csdn.net/shirdrn/article/details/6358688
+
+@ManagedResource:
+将类的所有实例标记为
+JMX管理资源
+使用@ManagedAttribute和@ManagedOperation来指定暴露的属性和方法。
+
+ mx4j 简单理解
+http://blog.csdn.net/xy18930914/article/details/51220184
+
+
+BeanMapper:
+http://blog.csdn.net/guanfengliang1988/article/details/51557812
+
+Dozer
+
+dozer是一种JavaBean的映射工具，类似于apache的BeanUtils。但是dozer更强大，它可以灵活的处理复杂类型之间的映射。不但可以进行简单的属性映射、复杂的类型映射、双向映射、递归映射等，并且可以通过XML配置文件进行灵活的配置。 
+
+在一个分层的体系结构中，经常会使用DTO、PO、VO等封装数据，封装数据到特定的数据对象中，然而在很多情况下，某层内部的数据是不允许传递到其它层，不允许对外暴露的，特别是在分布式的系统中，内部服务的数据对外暴露，也不允许不相关的数据传入到本服务，所以需要对数据对象进行转换。
+
+前期对于很多程序员来说，数据转换都是通过手工编写转换工具类或工具方法来实现的，这样不仅没有针对性而且工作量很大，编写工具类重用性差，而且不灵活。所以，急需要使用一个通用的映射工具，通过配置或少量的编码就可以轻松的实现数据对象之间的转换，Dozer就是这样的映射工具，它具有通用性，灵活性，可重用性和可配置等特点，并且是开源的。
+
+http://uule.iteye.com/blog/2084016
+http://blog.csdn.net/windrui/article/details/52116999
+http://blog.csdn.net/guanfengliang1988/article/details/51557812
+
+Java与XML相互转换:
+
+http://www.cnblogs.com/liuhaixu/p/4343479.html
+http://blog.csdn.net/sunzuqiang/article/details/7780195
+http://blog.csdn.net/5iasp/article/details/38492825
+
+简单封装Jackson，实现JSON String&lt;-&gt;Java Object的Mapper:(JsonMapper):
+http://blog.csdn.net/guanfengliang1988/article/details/51557370
+http://www.xuebuyuan.com/1940062.html
+http://blog.csdn.net/an_tao/article/details/45914825
+
+
+public @interface (批注) 可以优化开发效率,是注解类, 就是一个生成javadoc时用到的注释类
+是一个自定义的注解类
+
+
+浅析VO、DTO、DO、PO的概念、区别和用处
+
+VO（View Object）：视图对象，用于展示层，它的作用是把某个指定页面（或组件）的所有数据封装起来。 
+DTO（Data Transfer Object）：数据传输对象，这个概念来源于J2EE的设计模式，原来的目的是为了EJB的分布式应用提供粗粒度的数据实体，以减少分布式调用的次数，从而提高分布式调用的性能和降低网络负载，但在这里，我泛指用于展示层与服务层之间的数据传输对象。 
+DO（Domain Object）：领域对象，就是从现实世界中抽象出来的有形或无形的业务实体。 
+PO（Persistent Object）：持久化对象，它跟持久层（通常是关系型数据库）的数据结构形成一一对应的映射关系，如果持久层是关系型数据库，那么，数据表中的每个字段（或若干个）就对应PO的一个（或若干个）属性
+DTO和VO的属性值基本是一致的，而且他们通常都是POJO,但是
+DTO代表服务层需要接收的数据和返回的数据，而VO代表展示层需要显示的数据。 
+
+http://blog.csdn.net/zjrbiancheng/article/details/6253232
+
+ I18N（国际化）
+
+springMVC源码分析--国际化LocaleResolver（一）
+http://blog.csdn.net/qq924862077/article/details/52878507
+
+CookieLocaleResolver：将语言信息设置到Cookie中，这样整个系统就可以获得语言信息
+http://blog.csdn.net/rj042/article/details/23354225
+springboot国际化(i18n)
+http://wely.iteye.com/blog/2381461
+
+Java注解之Retention、Documented、Inherited介绍
+http://www.jb51.net/article/55371.htm
+
+@Retention(RetentionPolicy.RUNTIME)
+
+定义的这个注解是注解会在class字节码文件中存在，在运行时可以通过反射获取到
+http://blog.csdn.net/yixiaogang109/article/details/7328466
+使用@interface 自定义注解
+http://blog.csdn.net/cainiaoxiaozhou/article/details/50372631
+
+数据库方言（Dialect）:
+如果没有对应的dialect，Hibernate是无法使用这种数据库进行对象关系转换的。
+说白了，就是告诉Hibernate，将你写的那些HQL、QBC、、、、等等。翻译成哪种数据库的SQL
+http://blog.csdn.net/jialinqiang/article/details/8679171
+Hibernate 不同数据库的连接及SQL方言
+http://www.blogjava.net/Alpha/archive/2008/04/15/193094.html
+Hibernate SQL方言 (hibernate.dialect) Spring配置文件applicationContext.xml
+http://blog.csdn.net/tfy1332/article/details/20608489
+
+
+Interceptor:拦截器
+过滤器(Filter)和拦截器(Interceptor)的区别
+http://blog.csdn.net/xiaodanjava/article/details/32125687
+mybatis拦截器:
+http://blog.csdn.net/u010837612/article/category/3206237
+Mybatis最入门---分页查询（拦截器分页原理及实现）
+http://blog.csdn.net/abcd898989/article/details/51261163
+
+http://www.cnblogs.com/jethypc/p/5149183.html
+mybatis常用分页插件，快速分页处理
+http://blog.csdn.net/u014001866/article/details/52806930
+
+SpringMVC中使用Interceptor拦截器
+http://elim.iteye.com/blog/1750680
+
+PaginationInterceptor:
+http://www.codeforge.cn/read/261716/PaginationInterceptor.java__html
+
+java操作数据库小工具--韩顺平SqlHelper
+http://blog.csdn.net/qq_25448409/article/details/50782450
+java 版本SQLHelper
+http://www.cnblogs.com/zhwl/p/3161972.html
+http://blog.csdn.net/u013273686/article/details/39992933
+
+mybatis常用分页插件，快速分页处理
+http://blog.csdn.net/u014001866/article/details/52806930
+执行流程。
+1.总体上是利用mybatis的插件拦截器，在sql执行之前拦截，为查询语句加上limit X X
+2.用一个Page对象，贯穿整个执行流程，这个Page对象需要用java编写前端分页组件
+3.用一套比较完整的三层entity，dao，service支持这个分页架构
+4.这个分页用到的一些辅助类
+
+@SuppressWarnings(&quot;unchecked&quot;)
+告诉编译器忽略 unchecked 警告信息，如使用List，ArrayList等未进行参数化产生的警告信息。
+
+JavaEE笔记——BaseDao的使用
+http://www.cnblogs.com/lz2017/p/6711169.html
+
+BaseDao的思想就是把这些冗余的操作抽取出来，所以不需要在spring框架的applicationContext.xml中注册，这可能是与其他Dao不同之处。作为一个抽象出来的类，使用这个BaseDao可以使我们的代码更优雅
+
+万能的BaseDAO和注解的应用
+http://blog.csdn.net/a997208868/article/details/48216609
+
+mybatis BaseDao封装
+http://blog.csdn.net/johnf_nash/article/details/51707477
+基于mybatis的BaseDao及BaseService深度结合
+http://blog.csdn.net/yf275908654/article/details/50171607
+
+
+JPA:
+JPA是Java Persistence API的简称，中文名Java持久层API，是JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。
+JPA框架中支持大数据集、事务、并发等容器级事务，这使得 JPA 超越了简单持久化框架的局限，在企业应用发挥更大的作用。
+
+ORM: 是Object-Relation-Mapping，即对象关系影射技术，是对象持久化的核心。
+对象关系映射（Object Relational Mapping，简称ORM）
+ORM是通过使用描述对象和数据库之间映射的元数据，将程序中的对象自动持久化到关系数据库中。
+缺点:
+1.持久化层缺乏弹性。
+2.维护性差
+Java典型的ORM中间件有:Hibernate,ibatis,speedframework。 
+ORM的方法论基于三个核心原则： 
+　　· 简单：以最基本的形式建模数据。 
+　　· 传达性：数据库结构被任何人都能理解的语言文档化。 
+　　· 精确性：基于数据模型创建正确标准化了的结构。
+
+http://www.cnblogs.com/wgbs25673578/p/5140482.html
+
+使用ORM技术，可以将数据库层完全隐蔽，呈献给程序员的只有Java的对象，程序员只需要根据业务逻辑的需要调用Java对象的Getter和 Setter方法，即可实现对后台数据库的操作，程序员不必知道后台采用什么数据库、有哪些表、有什么字段、表与表之间有什么关系。
+
+JPA入门例子(采用JPA的hibernate实现版本)
+http://blog.csdn.net/hmk2011/article/details/6289151
+
+Java持久性API(简称JPA)是类和方法的集合，以海量数据关系映射持久并存储到数据库，这是由Oracle公司提供方案技术。
+
+http://www.cnblogs.com/holbrook/archive/2012/12/30/2839842.html
+JPA学习总结
+http://shmilyaw-hotmail-com.iteye.com/blog/1969190
+
+@Entity表明该类是ejb的实体bean
+@Table注释指定了Entity所要映射带数据库表,如果缺省@Table注释，系统默认采用类名作为映射表的表名。
+@Column注释定义了将成员属性映射到关系表中的哪一列和该列的结构信息
+
+http://blog.csdn.net/love_xsq/article/details/41962977
+
+json动态过滤某些属性 之@jsonignore
+http://blog.csdn.net/u012373815/article/details/52266609
+
+作用是json序列化时将java bean中的一些属性忽略掉，序列化和反序列化都受影响。
+
+JAXB(jackson-module-jaxb-annotations):
+既方便生成XML，也方便生成JSON，这样一来可以更好的标志可以转换为JSON对象的JAVA类。JAXB提供了快速而简便的方法将XML模式绑定到Java表示，从而使得Java开发者在Java应用程序中能方便地结合XML数据和处理函数。
+ Object &lt;--&gt; XML
+
+ 也可以把对象与XML之间的映射称为OXM(Object XML Mapping)
+
+http://blog.csdn.net/xjtuse_mal/article/details/6930538
+http://blog.csdn.net/a9529lty/article/details/7211725
+https://baike.baidu.com/item/JAXB/479341?fr=aladdin
+
+@XmlTransient
+为它的target阻止绑定操作，@XmlTransient用于标示在由java对象映射xml时，忽略此属性。即，在生成的xml文件中不出现此元素。
+http://blog.csdn.net/a9529lty/article/details/8232932
+
+@Transient
+@transient 就是在给某个javabean上需要添加个属性，但是这个属性你又不希望给存到数据库中去，仅仅是做个临时变量，用一下。不修改已经存在数据库的数据的数据结构。
+java的transient关键字为我们提供了便利，你只需要实现Serilizable接口，将不需要序列化的属性前添加关键字transient，序列化对象的时候，这个属性就不会序列化到指定的目的地中。
+@Transient表示该属性并非一个到数据库表的字段的映射,ORM框架将忽略该属性.
+如果一个属性并非数据库表的字段映射,就务必将其标示为@Transient,否则,ORM框架默认其注解为@Basic
+实体类中使用了@Table注解后，想要添加表中不存在字段，就要使用@Transient这个注解了。
+http://blog.csdn.net/sinat_29581293/article/details/51810805
+
+spring @Entity @Table
+http://blog.csdn.net/tingyuanss/article/details/44935869
+jpa注解的一些用法
+http://blog.csdn.net/ytp151730/article/details/9817515
+Hibernate @Temporal的使用
+http://blog.csdn.net/notonlyforshe/article/details/7343971
+Json解析工具Jackson（使用注解）
+http://blog.csdn.net/nomousewch/article/details/8955796
+
+
+@Fileld:
+@Fileld标明为需要搜索的属性。默认@Filed的参数是index=Index.YES, analyze=Analyze.YES andstore=Store.NO，即进行索引，分词，不保存具体内容到索引。
+
+无论store=Store.NO还是store=Store.YES都不会影响最终的搜索能力。store.YES的作用是可以在搜索后可以直接从索引中获取域的完整值。在hibernate中,如果store=Store.NO,搜索结果中，域的值是通过数据库中获取，如果store=Store.YES，域的值是直接从索引文档中获取。
+https://yq.aliyun.com/articles/32511
+hibernate search使用@Bridge标签来转换数据类型，比如@DateBridge，时间数据转换
+http://nopainnogain.iteye.com/blog/893900
+ [Hibernate Search] (2) 实体类型的映射
+http://blog.csdn.net/dm_vincent/article/details/40677545
+Java Field 详解
+http://blog.csdn.net/z69183787/article/details/39343259
+
+@Id:
+@Id 注解可将实体Bean中某个属性定义为主键   
+JPA @Id 和 @GeneratedValue 注解详解
+http://blog.csdn.net/rickesy/article/details/50788161
+hibernate3:Annotation注解数据库ID生成策略详解 
+http://blog.sina.com.cn/s/blog_bd732c5f0101hk51.html
+
+Mybatis 深入浅出:
+http://www.cnblogs.com/dongying/category/620960.html
+http://ju.outofmemory.cn/entry/94633
+
+MapperRegistry：处理与保持xml中Mapper对应的MapperProxyFactory。 
+
+如何实现一个mapping的方法访问，自动返回page数据，也就是自读计算分页总数。
+自动分页动态代理:
+Proxy  mybatis分页实现2
+http://blog.csdn.net/gaoshanliushui2009/article/details/8604979
+
+
+ AES 加密,net和java 通用加密
+http://blog.csdn.net/jy_justsoso/article/details/38109947
+
+rojas
+http://www.cnblogs.com/rojas/p/4572147.html
+
+Java Base64、HMAC、SHA1、MD5、AES DES 3DES加密算法
+http://www.lxway.com/402049056.htm
+  ●  BASE64 严格地说，属于编码格式，而非加密算法
+    ●  MD5(Message Digest algorithm 5，信息摘要算法)
+    ●  SHA(Secure Hash Algorithm，安全散列算法)
+    ●  HMAC(Hash Message Authentication Code，散列消息鉴别码)复杂的对称加密（DES、PBE）、非对称加密算法：
+    ●  DES(Data Encryption Standard，数据加密算法)
+    ●  PBE(Password-based encryption，基于密码验证)
+    ●  RSA(算法的名字以发明者的名字命名：Ron Rivest, AdiShamir 和Leonard Adleman)
+    ●  DH(Diffie-Hellman算法，密钥一致协议)
+    ●  DSA(Digital Signature Algorithm，数字签名)
+    ●  ECC(Elliptic Curves Cryptography，椭圆曲线密码编码学)[/size]
+
+HMAC-SHA1：
+HMAC是哈希运算消息认证码 (Hash-based Message Authentication Code)，HMAC运算利用哈希算法，以一个密钥和一个消息为输入，生成一个消息摘要作为输出。HMAC-SHA1签名算法是一种常用的签名算法，用于对一段信息进行生成签名摘要。
+
+http://blog.csdn.net/daiyudong2020/article/details/51817364
+http://www.cnblogs.com/fireway/p/5860622.html
+
+shiro实现HasAnyPermission 标签效果
+http://blog.csdn.net/fun913510024/article/details/47131911
+
+service基类:
+http://blog.csdn.net/kenhins/article/details/51752287
+BaseService.java(Service业务层基类)
+http://blog.csdn.net/maguanghui_2012/article/details/49072863
+
+
+Java API Search
+https://www.programcreek.com/
+https://www.programcreek.com/java-api-examples/index.php
+
+
+CKFinder:
+是一个强大而易于使用的Web浏览器的Ajax文件管理器。 
+没有CKFinder，CKEditor作为一个编辑器，也是可以正常使用的，但是无法在编辑器里浏览服务器上的用户上传文件。所以要整合CKFinder。
+CKEditor:
+ 是一个JavaScript 应用程序,富文本编辑器
+http://www.cnblogs.com/Tirisfal/p/5548424.html
+
+在JSP里使用CKEditor和CKFinder
+http://www.cnblogs.com/yuepeng/archive/2013/04/01/2992097.html#configmethod
+
+
+Servlet随机生成验证码
+http://tom-seed.iteye.com/blog/2166304
+ Servlet 生成验证码
+http://blog.csdn.net/hzw2312/article/details/8726313
+
+
+Spring 单元测试基类
+profile，可以方便快速的切换环境。
+ActiveProfiles是一个类级注释，用于声明在加载 测试类时应使用哪些活动bean定义配置文件ApplicationContext。
+用于加载的资源位置 ApplicationContext。
+ &lt;beans profile=&quot;production&quot;&gt;&lt;/beans&gt;
+ 然后:@ActiveProfiles(&quot;production&quot;)
+http://www.cnblogs.com/pangguoming/p/5888871.html
+
+@ContextConfiguration定义用于确定如何加载和配置ApplicationContext 集成测试的类级元数据 。
+locations : 用于加载的资源位置 ApplicationContext。
+@RunWith(SpringJUnit4ClassRunner.class) 用于配置spring中测试的环境
+AbstractTransactionalJUnit4SpringContextTests:这个类为我们解决了在web.xml中配置OpenSessionInview所解决的session生命周期延长的问题，所以要继承这个类。该类已经在类级别预先配置了好了事物支持，因此不必再配置@Transactional和@RunWith
+http://blog.csdn.net/wangpeng047/article/details/9631193
+
+AES256EncryptionUtils:
+加密算法由算法+模式+填充组成
+java-ios加密解密之间的问题:
+java端用PKCS7Padding填充，需要用到bouncycastle组件来实现
+https://my.oschina.net/nicsun/blog/95632
+http://blog.csdn.net/bobo0915/article/details/50518709
+
+
+缓存工具CacheUtil - 并发环境的缓存值存取
+http://www.cnblogs.com/final/p/5960703.html
+https://www.2cto.com/kf/201204/128726.html
+ Cache的创建主要有两种方式，一种是通过Cache的构造方法创建，另一种是通过CacheManager创建。
+CacheManager简单描述就是用来存放Cache，Cache用于存放具体的key-value值。
+http://www.cnblogs.com/bobsha/p/6507165.html
+
+
+commons-beanutils是Apache开源组织提供的用于操作JAVA BEAN的工具包。使用commons-beanutils，我们可以很方便的对bean对象的属性进行操作。
+BeanUtils和PropertyUtils这两个类功能基本相同，唯一的区别是：BeanUtils在对Bean赋值时会进行类型转化，而PropertyUtils不会对类型进行转化，如果类型不同则会抛出异常！
+Collections工具集.
+用于对集合中元素进行排序、搜索以及线程安全等各种操作。
+http://www.cnblogs.com/lianghui66/p/3267318.html
+http://blog.csdn.net/u014001866/article/details/51568996
+http://www.cnblogs.com/zhoubang521/p/5200641.html
+
+
+Cookie工具类  CookieUtils
+
+http://www.cnblogs.com/findumars/category/640243.html
+
+DateUtils
+
+Encodes
+封装各种格式的编码解码工具类.
+
+异常的工具类. Exceptions
+https://www.2cto.com/kf/201504/390806.html
+
+FileUtils:
+http://blog.csdn.net/u014315849/article/details/50804554
+
+JAVA FreeMarker工具类 模板引擎类
+http://www.cnblogs.com/kangxu/p/6248747.html
+http://www.cnblogs.com/lunatic/p/FreemarkerUtil.html
+http://blog.csdn.net/zhouzhiwengang/article/details/52397272
+
+Http请求工具类 HttpKit:
+https://git.oschina.net/public-sy/codes/lyf10cw82jzrh4n7tm59p27
+
+封装各种生成唯一性ID算法的工具类. Identities
+封装各种生成唯一性ID算法的工具类. IdGen
+
+@lazy这个注解通常指的是hibernate库的lazy，通常称为懒加载。
+hibernate3.0中lazy有三个值，true，false，proxy,默认的是lazy=&quot;proxy&quot;
+https://zhidao.baidu.com/question/274207249.html
+http://xfxlch.iteye.com/blog/2048049
+
+
+Ioc—Inversion of Control，即“控制反转”:
+http://blog.csdn.net/qq_22654611/article/details/52606960
+IoC对编程带来的最大改变不是从代码上，而是从思想上，发生了“主从换位”的变化。应用程序原本是老大，要获取什么资源都是主动出击，但是在IoC/DI思想中，应用程序就变成被动的了，被动的等待IoC容器来创建并注入它所需要的资源了。
+DI—Dependency Injection，即“依赖注入”：组件之间依赖关系由容器在运行期决定，形象的说，即由容器动态的将某个依赖关系注入到组件之中。依赖注入的目的并非为软件系统带来更多功能，而是为了提升组件重用的频率，并为系统搭建一个灵活、可扩展的平台。
+
+http://blog.csdn.net/qq_22654611/article/details/52606960
+http://www.cnblogs.com/liuhaorain/p/3747470.html
+
+
+PropertiesLoader:
+Properties文件载入工具类. 可载入多个properties文件, 相同的属性在最后载入的文件中的值将会覆盖之前的值，但以System的Property优先.
+
+
+反射工具类. Reflections:
+http://blog.csdn.net/adsl624153/article/details/71190114
+http://www.xuebuyuan.com/1940100.html
+http://www.cnblogs.com/libingbin/p/6033289.html
+
+
+在Spring应用中创建全局获取ApplicationContext对象 SpringContextHolder:
+
+http://www.cnblogs.com/wcyBlog/p/4657885.html
+http://blog.csdn.net/zbyluxzing/article/details/45247649
+
+在Spring应用中创建全局获取ApplicationContext对象
+
+1、需要创建一个类，实现接口ApplicationContextAware的setApplicationContext方法。
+2、在创建的这个类中保存一个静态的ApplicationContext对象，然后通过静态的方法返回。
+
+用法：例如：private static CacheManager cacheManager = ((CacheManager)SpringContextHolder.getBean(&quot;cacheManager&quot;));就可以获取id为cacheManager的bean了
+
+使用静态变量缓存ApplicationContext
+http://rayoo.iteye.com/blog/1520219
+
+
+字符串工具类 org.apache.commons.lang.StringUtils
+http://blog.csdn.net/yihaoawang/article/details/50638233
+
+
+线程相关工具类 Threads 
+http://blog.csdn.net/huang_wei_cai/article/details/52471956
+http://blog.csdn.net/fgstudent/article/details/38893503
+http://rainyear.iteye.com/blog/1716723
+https://www.2cto.com/kf/201609/551284.html
+
+
+导入Excel文件（支持“XLS”和“XLSX”格式）:
+http://blog.csdn.net/lk_blog/article/details/8007777
+http://blog.csdn.net/trigl/article/details/50494385
+两种操作Excel的方式，分别为：jxl和poi。
+在小数据量时jxl快于poi，在大数据量时poi要快于jxl。但差距都不明显。
+http://www.cnblogs.com/wangyang108/p/6030420.html
+SpringMvc 上传excel（注解和非注解两种方式）
+http://blog.csdn.net/forever_insist/article/details/51146024
+http://blog.csdn.net/z69183787/article/category/6496360
+
+
+ 自定义注解之运行时注解(RetentionPolicy.RUNTIME)
+http://blog.csdn.net/github_35180164/article/details/52118286
+http://blog.csdn.net/github_35180164/article/details/52107204
+
+
+excel导入导出通用工具类
+http://blog.csdn.net/kuyuyingzi/article/details/51323072
+http://www.cnblogs.com/blueness-sunshine/p/6400485.html
+
+
+导入导出 bean数据:
+http://thinkgem.iteye.com/blog/1833431
+
+//TODO  BeanValidators
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+            <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>期待您的评论-------------</div>
+
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Demo-Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="prayer007007.github.io/2018/09/11/Java爬坑笔记01/" title="Java爬坑笔记01">prayer007007.github.io/2018/09/11/Java爬坑笔记01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
+          
+            <a href="/tags/编程/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/11/大数据学习笔记00-hadoopNote/" rel="next" title="大数据学习笔记00-hadoopNote">
+                <i class="fa fa-chevron-left"></i> 大数据学习笔记00-hadoopNote
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/11/MD5加密算法原理/" rel="prev" title="MD5加密算法原理">
+                MD5加密算法原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTU2NS8xNjA5Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Demo-Mr Wang</p>
+              <p class="site-description motion-element" itemprop="description">Technical exchange</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">98</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=110
+           src="//music.163.com/outchain/player?type=0&id=2059024220&auto=1&height=90"></iframe>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/prayer007007" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1264827907@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/u013205428" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chuangzaoshi.com/code" title="创造狮导航" target="_blank">创造狮导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://e.xitu.io/" title="掘金酱" target="_blank">掘金酱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="V2EX" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="印记中文" target="_blank">印记中文</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+
+  <span class="author" itemprop="copyrightHolder">Demo-Mr Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">2.2m</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">33:28</span>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    
+  
+
+  
+    
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/09/11/Java爬坑笔记01/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
